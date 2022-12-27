@@ -1,7 +1,7 @@
 ---
 name: "🪁 issue template"
 about: kite의 새로운 이슈 추가
-title: "[feat] description"
+title: "[Feat] description"
 labels: [💛 정연]
 assignees: jeongkite
 
