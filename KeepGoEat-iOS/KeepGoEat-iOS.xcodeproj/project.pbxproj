@@ -11,6 +11,11 @@
 		DD38AD6F295B02B70084FA70 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD38AD6E295B02B70084FA70 /* SceneDelegate.swift */; };
 		DD38AD76295B02B80084FA70 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DD38AD75295B02B80084FA70 /* Assets.xcassets */; };
 		DD38AD79295B02B80084FA70 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DD38AD77295B02B80084FA70 /* LaunchScreen.storyboard */; };
+		DD849AFE295E758A0030AF2F /* StoreGoalRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD849AFD295E758A0030AF2F /* StoreGoalRequest.swift */; };
+		DD849B00295E759E0030AF2F /* StoreGoalResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD849AFF295E759E0030AF2F /* StoreGoalResponse.swift */; };
+		DD849B03295E75D80030AF2F /* StoreGoalRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD849B02295E75D80030AF2F /* StoreGoalRouter.swift */; };
+		DD849B05295E760C0030AF2F /* StoreGoalService.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD849B04295E760C0030AF2F /* StoreGoalService.swift */; };
+		DD849B08295E763F0030AF2F /* StoreGoalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD849B07295E763F0030AF2F /* StoreGoalViewController.swift */; };
 		DDE12F8C295B0B7E008CF91B /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DDE12F8B295B0B7E008CF91B /* Colors.xcassets */; };
 		DDE12F93295B0BED008CF91B /* Image.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDE12F92295B0BED008CF91B /* Image.swift */; };
 		DDE12F95295B0BF6008CF91B /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDE12F94295B0BF6008CF91B /* Color.swift */; };
@@ -57,6 +62,11 @@
 		DD38AD75295B02B80084FA70 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		DD38AD78295B02B80084FA70 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		DD38AD7A295B02B80084FA70 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DD849AFD295E758A0030AF2F /* StoreGoalRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreGoalRequest.swift; sourceTree = "<group>"; };
+		DD849AFF295E759E0030AF2F /* StoreGoalResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreGoalResponse.swift; sourceTree = "<group>"; };
+		DD849B02295E75D80030AF2F /* StoreGoalRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreGoalRouter.swift; sourceTree = "<group>"; };
+		DD849B04295E760C0030AF2F /* StoreGoalService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreGoalService.swift; sourceTree = "<group>"; };
+		DD849B07295E763F0030AF2F /* StoreGoalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreGoalViewController.swift; sourceTree = "<group>"; };
 		DDE12F8B295B0B7E008CF91B /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
 		DDE12F92295B0BED008CF91B /* Image.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Image.swift; sourceTree = "<group>"; };
 		DDE12F94295B0BF6008CF91B /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
@@ -137,6 +147,32 @@
 			path = "KeepGoEat-iOS";
 			sourceTree = "<group>";
 		};
+		DD849AFC295E75650030AF2F /* StoreGoal */ = {
+			isa = PBXGroup;
+			children = (
+				DD849AFD295E758A0030AF2F /* StoreGoalRequest.swift */,
+				DD849AFF295E759E0030AF2F /* StoreGoalResponse.swift */,
+			);
+			path = StoreGoal;
+			sourceTree = "<group>";
+		};
+		DD849B01295E75A50030AF2F /* StoreGoal */ = {
+			isa = PBXGroup;
+			children = (
+				DD849B02295E75D80030AF2F /* StoreGoalRouter.swift */,
+				DD849B04295E760C0030AF2F /* StoreGoalService.swift */,
+			);
+			path = StoreGoal;
+			sourceTree = "<group>";
+		};
+		DD849B06295E761F0030AF2F /* StoreGoal */ = {
+			isa = PBXGroup;
+			children = (
+				DD849B07295E763F0030AF2F /* StoreGoalViewController.swift */,
+			);
+			path = StoreGoal;
+			sourceTree = "<group>";
+		};
 		DDE12F85295B0B0D008CF91B /* Data */ = {
 			isa = PBXGroup;
 			children = (
@@ -144,6 +180,7 @@
 				DDE12FCD295B1301008CF91B /* Home */,
 				DDE12FCE295B1304008CF91B /* GoalDetail */,
 				DDE12FCF295B130B008CF91B /* NewGoal */,
+				DD849AFC295E75650030AF2F /* StoreGoal */,
 			);
 			path = Data;
 			sourceTree = "<group>";
@@ -158,6 +195,7 @@
 				DDE12FB7295B115E008CF91B /* Home */,
 				DDE12FB9295B117B008CF91B /* GoalDetail */,
 				DDE12FB8295B1172008CF91B /* NewGoal */,
+				DD849B01295E75A50030AF2F /* StoreGoal */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -169,8 +207,9 @@
 				DDE12F9F295B0D60008CF91B /* Onboarding */,
 				DDE12FA2295B0E20008CF91B /* Login */,
 				DDE12FA5295B0E49008CF91B /* Home */,
-				DDE12FAD295B0FF6008CF91B /* NewGoal */,
 				DDE12FA8295B0EB6008CF91B /* GoalDetail */,
+				DDE12FAD295B0FF6008CF91B /* NewGoal */,
+				DD849B06295E761F0030AF2F /* StoreGoal */,
 			);
 			path = Presentation;
 			sourceTree = "<group>";
@@ -457,6 +496,7 @@
 				DDE12FD1295B1325008CF91B /* LoginRequest.swift in Sources */,
 				DDE12FAF295B1011008CF91B /* NewGoalViewController.swift in Sources */,
 				DDE12F9B295B0CAA008CF91B /* KeychainHandler.swift in Sources */,
+				DD849B00295E759E0030AF2F /* StoreGoalResponse.swift in Sources */,
 				DDE12FBD295B11E8008CF91B /* HomeRouter.swift in Sources */,
 				DDE12F93295B0BED008CF91B /* Image.swift in Sources */,
 				DDE12F97295B0BFE008CF91B /* Font.swift in Sources */,
@@ -466,8 +506,11 @@
 				DDE12FB1295B110C008CF91B /* URLConstant.swift in Sources */,
 				DDE12FD7295B1347008CF91B /* NewGoalRequest.swift in Sources */,
 				DDE12FD9295B1357008CF91B /* LoginResponse.swift in Sources */,
+				DD849B03295E75D80030AF2F /* StoreGoalRouter.swift in Sources */,
 				DDE12FA1295B0D88008CF91B /* OnboardingViewController.swift in Sources */,
 				DDE12F95295B0BF6008CF91B /* Color.swift in Sources */,
+				DD849AFE295E758A0030AF2F /* StoreGoalRequest.swift in Sources */,
+				DD849B08295E763F0030AF2F /* StoreGoalViewController.swift in Sources */,
 				DDE12FAC295B0FDB008CF91B /* GoalDetailViewController.swift in Sources */,
 				DD38AD6F295B02B70084FA70 /* SceneDelegate.swift in Sources */,
 				DDE12FB3295B1114008CF91B /* GeneralResponse.swift in Sources */,
@@ -475,6 +518,7 @@
 				DDE12FC9295B123B008CF91B /* GoalDetailService.swift in Sources */,
 				DDE12FC5295B122A008CF91B /* LoginService.swift in Sources */,
 				DDE12FDB295B136C008CF91B /* HomeResponse.swift in Sources */,
+				DD849B05295E760C0030AF2F /* StoreGoalService.swift in Sources */,
 				DDE12FDF295B1389008CF91B /* NewGoalResponse.swift in Sources */,
 				DDE12FDD295B137E008CF91B /* GoalDetailResponse.swift in Sources */,
 				DDE12FC7295B1232008CF91B /* HomeService.swift in Sources */,
@@ -643,7 +687,7 @@
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = 1;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
@@ -675,7 +719,7 @@
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = 1;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
 		};
