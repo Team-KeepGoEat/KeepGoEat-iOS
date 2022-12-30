@@ -6,3 +6,10 @@
 //
 
 import Foundation
+
+struct GeneralResponse<T: Codable>: Codable {
+    var status: Int
+    var success: Bool
+    var message: String
+    var data: T?
+}

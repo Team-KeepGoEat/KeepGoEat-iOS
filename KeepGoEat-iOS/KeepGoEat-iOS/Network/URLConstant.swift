@@ -6,3 +6,24 @@
 //
 
 import Foundation
+
+struct URLConstant {
+    
+    // MARK: Base
+    static let baseURL = ""
+    
+    // MARK: Login
+    
+    
+    // MARK: Home
+    
+    
+    // MARK: GoalDetail
+    
+    
+    // MARK: NewGoal
+    
+    
+    // MARK: StoreGoal
+    
+}
