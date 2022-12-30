@@ -1,0 +1,23 @@
+{
+  "images" : [
+    {
+      "scale" : "1x",
+      "idiom" : "universal",
+      "filename" : "snailOrangeSad.png"
+    },
+    {
+      "idiom" : "universal",
+      "scale" : "2x",
+      "filename" : "snailOrangeSad@2x.png"
+    },
+    {
+      "idiom" : "universal",
+      "scale" : "3x",
+      "filename" : "snailOrangeSad@3x.png"
+    }
+  ],
+  "info" : {
+    "version" : 1,
+    "author" : "xcode"
+  }
+}
