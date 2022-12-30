@@ -77,6 +77,8 @@
 		DD849B0D295E7E0F0030AF2F /* MoyaLoggingPlugin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoyaLoggingPlugin.swift; sourceTree = "<group>"; };
 		DD849B0F295E800C0030AF2F /* NetworkBase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkBase.swift; sourceTree = "<group>"; };
 		DD849B11295E80630030AF2F /* NetworkConstant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkConstant.swift; sourceTree = "<group>"; };
+		DDDBC86E295EE52B00F65F23 /* Pretendard-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-Bold.otf"; sourceTree = "<group>"; };
+		DDDBC86F295EE52B00F65F23 /* Pretendard-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-Regular.otf"; sourceTree = "<group>"; };
 		DDE12F8B295B0B7E008CF91B /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
 		DDE12F92295B0BED008CF91B /* Image.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Image.swift; sourceTree = "<group>"; };
 		DDE12F94295B0BF6008CF91B /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
@@ -268,6 +270,8 @@
 		DDE12F8E295B0BB3008CF91B /* Fonts */ = {
 			isa = PBXGroup;
 			children = (
+				DDDBC86E295EE52B00F65F23 /* Pretendard-Bold.otf */,
+				DDDBC86F295EE52B00F65F23 /* Pretendard-Regular.otf */,
 			);
 			path = Fonts;
 			sourceTree = "<group>";
