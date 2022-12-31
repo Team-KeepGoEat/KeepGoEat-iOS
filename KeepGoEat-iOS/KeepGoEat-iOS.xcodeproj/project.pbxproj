@@ -21,6 +21,8 @@
 		DD849B0E295E7E0F0030AF2F /* MoyaLoggingPlugin.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD849B0D295E7E0F0030AF2F /* MoyaLoggingPlugin.swift */; };
 		DD849B10295E800C0030AF2F /* NetworkBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD849B0F295E800C0030AF2F /* NetworkBase.swift */; };
 		DD849B12295E80630030AF2F /* NetworkConstant.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD849B11295E80630030AF2F /* NetworkConstant.swift */; };
+		DDDBC876296045A200F65F23 /* Const.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDDBC875296045A200F65F23 /* Const.swift */; };
+		DDDBC878296045AA00F65F23 /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDDBC877296045AA00F65F23 /* String.swift */; };
 		DDE12F8C295B0B7E008CF91B /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DDE12F8B295B0B7E008CF91B /* Colors.xcassets */; };
 		DDE12F93295B0BED008CF91B /* Image.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDE12F92295B0BED008CF91B /* Image.swift */; };
 		DDE12F95295B0BF6008CF91B /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDE12F94295B0BF6008CF91B /* Color.swift */; };
@@ -79,6 +81,8 @@
 		DD849B11295E80630030AF2F /* NetworkConstant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkConstant.swift; sourceTree = "<group>"; };
 		DDDBC86E295EE52B00F65F23 /* Pretendard-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-Bold.otf"; sourceTree = "<group>"; };
 		DDDBC86F295EE52B00F65F23 /* Pretendard-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-Regular.otf"; sourceTree = "<group>"; };
+		DDDBC875296045A200F65F23 /* Const.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Const.swift; sourceTree = "<group>"; };
+		DDDBC877296045AA00F65F23 /* String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
 		DDE12F8B295B0B7E008CF91B /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
 		DDE12F92295B0BED008CF91B /* Image.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Image.swift; sourceTree = "<group>"; };
 		DDE12F94295B0BF6008CF91B /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
@@ -296,6 +300,8 @@
 		DDE12F91295B0BDC008CF91B /* Consts */ = {
 			isa = PBXGroup;
 			children = (
+				DDDBC875296045A200F65F23 /* Const.swift */,
+				DDDBC877296045AA00F65F23 /* String.swift */,
 				DDE12F92295B0BED008CF91B /* Image.swift */,
 				DDE12F94295B0BF6008CF91B /* Color.swift */,
 				DDE12F96295B0BFE008CF91B /* Font.swift */,
@@ -533,6 +539,7 @@
 				DD849B08295E763F0030AF2F /* StoreGoalViewController.swift in Sources */,
 				DD849B10295E800C0030AF2F /* NetworkBase.swift in Sources */,
 				DDE12FAC295B0FDB008CF91B /* GoalDetailViewController.swift in Sources */,
+				DDDBC876296045A200F65F23 /* Const.swift in Sources */,
 				DD38AD6F295B02B70084FA70 /* SceneDelegate.swift in Sources */,
 				DDE12FB3295B1114008CF91B /* GeneralResponse.swift in Sources */,
 				DDE12FBB295B11BC008CF91B /* LoginRouter.swift in Sources */,
@@ -543,6 +550,7 @@
 				DD849B05295E760C0030AF2F /* StoreGoalService.swift in Sources */,
 				DDE12FDF295B1389008CF91B /* NewGoalResponse.swift in Sources */,
 				DD849B0E295E7E0F0030AF2F /* MoyaLoggingPlugin.swift in Sources */,
+				DDDBC878296045AA00F65F23 /* String.swift in Sources */,
 				DDE12FDD295B137E008CF91B /* GoalDetailResponse.swift in Sources */,
 				DDE12FC7295B1232008CF91B /* HomeService.swift in Sources */,
 				DDE12FC3295B121B008CF91B /* NewGoalRouter.swift in Sources */,
