@@ -25,6 +25,7 @@
 		DDDBC876296045A200F65F23 /* Const.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDDBC875296045A200F65F23 /* Const.swift */; };
 		DDDBC878296045AA00F65F23 /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDDBC877296045AA00F65F23 /* String.swift */; };
 		DDDBC88029618A7D00F65F23 /* .swiftlint.yml in Resources */ = {isa = PBXBuildFile; fileRef = DDDBC87F29618A7D00F65F23 /* .swiftlint.yml */; };
+		DDDBC88529618FDA00F65F23 /* HomeCheerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDDBC88429618FDA00F65F23 /* HomeCheerView.swift */; };
 		DDE12F8C295B0B7E008CF91B /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DDE12F8B295B0B7E008CF91B /* Colors.xcassets */; };
 		DDE12F93295B0BED008CF91B /* Image.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDE12F92295B0BED008CF91B /* Image.swift */; };
 		DDE12F95295B0BF6008CF91B /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDE12F94295B0BF6008CF91B /* Color.swift */; };
@@ -87,6 +88,7 @@
 		DDDBC875296045A200F65F23 /* Const.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Const.swift; sourceTree = "<group>"; };
 		DDDBC877296045AA00F65F23 /* String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
 		DDDBC87F29618A7D00F65F23 /* .swiftlint.yml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = .swiftlint.yml; sourceTree = "<group>"; };
+		DDDBC88429618FDA00F65F23 /* HomeCheerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCheerView.swift; sourceTree = "<group>"; };
 		DDE12F8B295B0B7E008CF91B /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
 		DDE12F92295B0BED008CF91B /* Image.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Image.swift; sourceTree = "<group>"; };
 		DDE12F94295B0BF6008CF91B /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
@@ -200,6 +202,14 @@
 				DD849B07295E763F0030AF2F /* StoreGoalViewController.swift */,
 			);
 			path = StoreGoal;
+			sourceTree = "<group>";
+		};
+		DDDBC88329618FB100F65F23 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				DDDBC88429618FDA00F65F23 /* HomeCheerView.swift */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 		DDE12F85295B0B0D008CF91B /* Data */ = {
@@ -351,6 +361,7 @@
 		DDE12FA5295B0E49008CF91B /* Home */ = {
 			isa = PBXGroup;
 			children = (
+				DDDBC88329618FB100F65F23 /* View */,
 				DDE12FA6295B0E55008CF91B /* HomeViewController.swift */,
 			);
 			path = Home;
@@ -590,6 +601,7 @@
 				DDDBC878296045AA00F65F23 /* String.swift in Sources */,
 				DDE12FDD295B137E008CF91B /* GoalDetailResponse.swift in Sources */,
 				DDE12FC7295B1232008CF91B /* HomeService.swift in Sources */,
+				DDDBC88529618FDA00F65F23 /* HomeCheerView.swift in Sources */,
 				DDE12FC3295B121B008CF91B /* NewGoalRouter.swift in Sources */,
 				DDE12FA4295B0E2A008CF91B /* LoginViewController.swift in Sources */,
 				D69FA2C829617D890056A175 /* SplashViewController.swift in Sources */,
