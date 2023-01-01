@@ -700,7 +700,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = Z429BM88YZ;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = "KeepGoEat-iOS/Info.plist";
+				INFOPLIST_FILE = "KeepGoEat-iOS/Resource/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen.storyboard;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
@@ -731,7 +731,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = Z429BM88YZ;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = "KeepGoEat-iOS/Info.plist";
+				INFOPLIST_FILE = "KeepGoEat-iOS/Resource/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen.storyboard;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
