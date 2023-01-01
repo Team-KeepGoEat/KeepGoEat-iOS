@@ -24,6 +24,7 @@
 		DD849B12295E80630030AF2F /* NetworkConstant.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD849B11295E80630030AF2F /* NetworkConstant.swift */; };
 		DDDBC876296045A200F65F23 /* Const.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDDBC875296045A200F65F23 /* Const.swift */; };
 		DDDBC878296045AA00F65F23 /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDDBC877296045AA00F65F23 /* String.swift */; };
+		DDDBC88029618A7D00F65F23 /* .swiftlint.yml in Resources */ = {isa = PBXBuildFile; fileRef = DDDBC87F29618A7D00F65F23 /* .swiftlint.yml */; };
 		DDE12F8C295B0B7E008CF91B /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DDE12F8B295B0B7E008CF91B /* Colors.xcassets */; };
 		DDE12F93295B0BED008CF91B /* Image.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDE12F92295B0BED008CF91B /* Image.swift */; };
 		DDE12F95295B0BF6008CF91B /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDE12F94295B0BF6008CF91B /* Color.swift */; };
@@ -85,6 +86,7 @@
 		DDDBC86F295EE52B00F65F23 /* Pretendard-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-Regular.otf"; sourceTree = "<group>"; };
 		DDDBC875296045A200F65F23 /* Const.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Const.swift; sourceTree = "<group>"; };
 		DDDBC877296045AA00F65F23 /* String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
+		DDDBC87F29618A7D00F65F23 /* .swiftlint.yml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = .swiftlint.yml; sourceTree = "<group>"; };
 		DDE12F8B295B0B7E008CF91B /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
 		DDE12F92295B0BED008CF91B /* Image.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Image.swift; sourceTree = "<group>"; };
 		DDE12F94295B0BF6008CF91B /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
@@ -146,6 +148,7 @@
 		DD38AD60295B02B70084FA70 = {
 			isa = PBXGroup;
 			children = (
+				DDDBC87F29618A7D00F65F23 /* .swiftlint.yml */,
 				DD38AD6B295B02B70084FA70 /* KeepGoEat-iOS */,
 				DD38AD6A295B02B70084FA70 /* Products */,
 			);
@@ -448,6 +451,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = DD38AD7D295B02B80084FA70 /* Build configuration list for PBXNativeTarget "KeepGoEat-iOS" */;
 			buildPhases = (
+				DDDBC8792961808000F65F23 /* SwiftLint Script */,
 				DD38AD65295B02B70084FA70 /* Sources */,
 				DD38AD66295B02B70084FA70 /* Frameworks */,
 				DD38AD67295B02B70084FA70 /* Resources */,
@@ -514,6 +518,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DDDBC88029618A7D00F65F23 /* .swiftlint.yml in Resources */,
 				DD38AD79295B02B80084FA70 /* LaunchScreen.storyboard in Resources */,
 				DDE12F8C295B0B7E008CF91B /* Colors.xcassets in Resources */,
 				DD38AD76295B02B80084FA70 /* Assets.xcassets in Resources */,
@@ -521,6 +526,27 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		DDDBC8792961808000F65F23 /* SwiftLint Script */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "SwiftLint Script";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\nexport PATH=\"$PATH:/opt/homebrew/bin\"\nif which swiftlint > /dev/null; then\n  swiftlint\nelse\n  echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		DD38AD65295B02B70084FA70 /* Sources */ = {
