@@ -8,8 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		D69FA2C829617D890056A175 /* SplashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D69FA2C729617D890056A175 /* SplashViewController.swift */; };
-		D6C7B3CD296183AC006877F3 /* LoginImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6C7B3CC296183AC006877F3 /* LoginImageView.swift */; };
-		D6C7B3CF296183D7006877F3 /* SocialLoginButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6C7B3CE296183D7006877F3 /* SocialLoginButtonView.swift */; };
+		D6C7B3CF296183D7006877F3 /* SocialLoginButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6C7B3CE296183D7006877F3 /* SocialLoginButton.swift */; };
+		D6C7B3D02961DFC2006877F3 /* Pretendard-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = DDDBC86E295EE52B00F65F23 /* Pretendard-Bold.otf */; };
+		D6C7B3D12961DFC4006877F3 /* Pretendard-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = DDDBC86F295EE52B00F65F23 /* Pretendard-Regular.otf */; };
 		DD38AD6D295B02B70084FA70 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD38AD6C295B02B70084FA70 /* AppDelegate.swift */; };
 		DD38AD6F295B02B70084FA70 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD38AD6E295B02B70084FA70 /* SceneDelegate.swift */; };
 		DD38AD76295B02B80084FA70 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DD38AD75295B02B80084FA70 /* Assets.xcassets */; };
@@ -67,8 +68,7 @@
 
 /* Begin PBXFileReference section */
 		D69FA2C729617D890056A175 /* SplashViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashViewController.swift; sourceTree = "<group>"; };
-		D6C7B3CC296183AC006877F3 /* LoginImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginImageView.swift; sourceTree = "<group>"; };
-		D6C7B3CE296183D7006877F3 /* SocialLoginButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocialLoginButtonView.swift; sourceTree = "<group>"; };
+		D6C7B3CE296183D7006877F3 /* SocialLoginButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocialLoginButton.swift; sourceTree = "<group>"; };
 		DD38AD69295B02B70084FA70 /* KeepGoEat-iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "KeepGoEat-iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		DD38AD6C295B02B70084FA70 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DD38AD6E295B02B70084FA70 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -150,8 +150,7 @@
 		D6C7B3CA29618229006877F3 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				D6C7B3CC296183AC006877F3 /* LoginImageView.swift */,
-				D6C7B3CE296183D7006877F3 /* SocialLoginButtonView.swift */,
+				D6C7B3CE296183D7006877F3 /* SocialLoginButton.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -537,6 +536,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				DD38AD79295B02B80084FA70 /* LaunchScreen.storyboard in Resources */,
+				D6C7B3D02961DFC2006877F3 /* Pretendard-Bold.otf in Resources */,
+				D6C7B3D12961DFC4006877F3 /* Pretendard-Regular.otf in Resources */,
 				DDE12F8C295B0B7E008CF91B /* Colors.xcassets in Resources */,
 				DD38AD76295B02B80084FA70 /* Assets.xcassets in Resources */,
 			);
@@ -551,7 +552,6 @@
 			files = (
 				DDE12F99295B0C24008CF91B /* UIViewController+.swift in Sources */,
 				DDE12FD5295B1334008CF91B /* GoalDetailRequest.swift in Sources */,
-				D6C7B3CD296183AC006877F3 /* LoginImageView.swift in Sources */,
 				DDE12FD1295B1325008CF91B /* LoginRequest.swift in Sources */,
 				DDE12FAF295B1011008CF91B /* NewGoalViewController.swift in Sources */,
 				DD849B12295E80630030AF2F /* NetworkConstant.swift in Sources */,
@@ -573,7 +573,7 @@
 				DD849B08295E763F0030AF2F /* StoreGoalViewController.swift in Sources */,
 				DD849B10295E800C0030AF2F /* NetworkBase.swift in Sources */,
 				DDE12FAC295B0FDB008CF91B /* GoalDetailViewController.swift in Sources */,
-				D6C7B3CF296183D7006877F3 /* SocialLoginButtonView.swift in Sources */,
+				D6C7B3CF296183D7006877F3 /* SocialLoginButton.swift in Sources */,
 				DDDBC876296045A200F65F23 /* Const.swift in Sources */,
 				DD38AD6F295B02B70084FA70 /* SceneDelegate.swift in Sources */,
 				DDE12FB3295B1114008CF91B /* GeneralResponse.swift in Sources */,

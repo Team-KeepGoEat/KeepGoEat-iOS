@@ -23,7 +23,9 @@ class SocialLoginButton: UIButton {
     // MARK: Component
     private let socialLogo: UIImageView = UIImageView()
     
-    private let socialLabel: UILabel = UILabel()
+    private let socialLabel: UILabel = UILabel().then {
+        $0.font = .system4Bold
+    }
     
     init(frame: CGRect, socialType: SocialType) {
         self.socialType = socialType
@@ -39,6 +41,7 @@ class SocialLoginButton: UIButton {
 
 extension SocialLoginButton {
     private func setUI() {
+        self.layer.cornerRadius = 6
         switch socialType {
         case .APPLE:
             print("Error")
@@ -54,6 +57,10 @@ extension SocialLoginButton {
             socialLogo,
             socialLabel
         )
+        
+        self.snp.makeConstraints {
+            $0.height.equalTo(48)
+        }
         
         socialLogo.snp.makeConstraints {
             $0.centerY.equalToSuperview()
