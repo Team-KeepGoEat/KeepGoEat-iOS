@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D69FA2C829617D890056A175 /* SplashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D69FA2C729617D890056A175 /* SplashViewController.swift */; };
 		DD38AD6D295B02B70084FA70 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD38AD6C295B02B70084FA70 /* AppDelegate.swift */; };
 		DD38AD6F295B02B70084FA70 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD38AD6E295B02B70084FA70 /* SceneDelegate.swift */; };
 		DD38AD76295B02B80084FA70 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DD38AD75295B02B80084FA70 /* Assets.xcassets */; };
@@ -63,6 +64,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		D69FA2C729617D890056A175 /* SplashViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashViewController.swift; sourceTree = "<group>"; };
 		DD38AD69295B02B70084FA70 /* KeepGoEat-iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "KeepGoEat-iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		DD38AD6C295B02B70084FA70 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DD38AD6E295B02B70084FA70 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -133,6 +135,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		D69FA2C629617D2C0056A175 /* Splash */ = {
+			isa = PBXGroup;
+			children = (
+				D69FA2C729617D890056A175 /* SplashViewController.swift */,
+			);
+			path = Splash;
+			sourceTree = "<group>";
+		};
 		DD38AD60295B02B70084FA70 = {
 			isa = PBXGroup;
 			children = (
@@ -222,6 +232,7 @@
 		DDE12F87295B0B1F008CF91B /* Presentation */ = {
 			isa = PBXGroup;
 			children = (
+				D69FA2C629617D2C0056A175 /* Splash */,
 				DDE12F9C295B0CBB008CF91B /* Base */,
 				DDE12F9F295B0D60008CF91B /* Onboarding */,
 				DDE12FA2295B0E20008CF91B /* Login */,
@@ -555,6 +566,7 @@
 				DDE12FC7295B1232008CF91B /* HomeService.swift in Sources */,
 				DDE12FC3295B121B008CF91B /* NewGoalRouter.swift in Sources */,
 				DDE12FA4295B0E2A008CF91B /* LoginViewController.swift in Sources */,
+				D69FA2C829617D890056A175 /* SplashViewController.swift in Sources */,
 				DDE12FCB295B1244008CF91B /* NewGoalService.swift in Sources */,
 				DD849B0A295E77590030AF2F /* UIView+.swift in Sources */,
 				DDE12FD3295B132C008CF91B /* HomeRequest.swift in Sources */,
