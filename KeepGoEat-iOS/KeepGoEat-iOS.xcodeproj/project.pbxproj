@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D65C62F62962DEF30085832C /* adjust+.swift in Sources */ = {isa = PBXBuildFile; fileRef = D65C62F52962DEF30085832C /* adjust+.swift */; };
 		D69FA2C829617D890056A175 /* SplashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D69FA2C729617D890056A175 /* SplashViewController.swift */; };
 		D6C7B3CF296183D7006877F3 /* SocialLoginButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6C7B3CE296183D7006877F3 /* SocialLoginButton.swift */; };
 		D6C7B3D02961DFC2006877F3 /* Pretendard-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = DDDBC86E295EE52B00F65F23 /* Pretendard-Bold.otf */; };
@@ -69,6 +70,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		D65C62F52962DEF30085832C /* adjust+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "adjust+.swift"; sourceTree = "<group>"; };
 		D69FA2C729617D890056A175 /* SplashViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashViewController.swift; sourceTree = "<group>"; };
 		D6C7B3CE296183D7006877F3 /* SocialLoginButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocialLoginButton.swift; sourceTree = "<group>"; };
 		DD38AD69295B02B70084FA70 /* KeepGoEat-iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "KeepGoEat-iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -337,6 +339,7 @@
 			children = (
 				DDE12F98295B0C24008CF91B /* UIViewController+.swift */,
 				DD849B09295E77590030AF2F /* UIView+.swift */,
+				D65C62F52962DEF30085832C /* adjust+.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -617,6 +620,7 @@
 				DDE12FBB295B11BC008CF91B /* LoginRouter.swift in Sources */,
 				DDE12FC9295B123B008CF91B /* GoalDetailService.swift in Sources */,
 				DDE12FC5295B122A008CF91B /* LoginService.swift in Sources */,
+				D65C62F62962DEF30085832C /* adjust+.swift in Sources */,
 				DD849B0C295E7BAE0030AF2F /* BaseNavigationController.swift in Sources */,
 				DDE12FDB295B136C008CF91B /* HomeResponse.swift in Sources */,
 				DD849B05295E760C0030AF2F /* StoreGoalService.swift in Sources */,

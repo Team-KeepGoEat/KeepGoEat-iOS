@@ -11,8 +11,8 @@ import Then
 import SnapKit
 
 enum SocialType: String {
-    case KAKAO
-    case APPLE
+    case kakao
+    case apple
 }
 
 class SocialLoginButton: UIButton {
@@ -43,11 +43,11 @@ extension SocialLoginButton {
     private func setUI() {
         self.layer.cornerRadius = 6
         switch socialType {
-        case .APPLE:
+        case .apple:
             print("Error")
-        case .KAKAO:
-            self.backgroundColor = UIColor(named: "kakao")
-            socialLogo.image = UIImage(named: "kakaoLogo")
+        case .kakao:
+            self.backgroundColor = .kakako
+            socialLogo.image = Const.Image.kakaoLogo
             socialLabel.text = Const.String.kakaoLogin
         }
     }
@@ -64,7 +64,7 @@ extension SocialLoginButton {
         
         socialLogo.snp.makeConstraints {
             $0.centerY.equalToSuperview()
-            $0.leading.equalToSuperview().inset(20)
+            $0.leading.equalToSuperview().inset(20.adjusted)
         }
         
         socialLabel.snp.makeConstraints {

@@ -14,16 +14,20 @@ class LoginViewController: UIViewController {
         $0.image = UIImage(named: "imgSignup")
     }
     
-    private let loginButton: SocialLoginButton = SocialLoginButton(frame: CGRect(), socialType: .KAKAO)
+    private let loginButton: SocialLoginButton = SocialLoginButton(frame: CGRect(), socialType: .kakao)
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .white
+        setUI()
         setLayout()
     }
 }
 
 extension LoginViewController {
+    private func setUI() {
+        view.backgroundColor = .white
+    }
+    
     private func setLayout() {
         view.addSubviews(
             loginImageView,
@@ -31,8 +35,10 @@ extension LoginViewController {
         )
         
         loginImageView.snp.makeConstraints {
-            $0.width.equalToSuperview()
-            $0.top.equalTo(view.safeAreaLayoutGuide).inset(150)
+            $0.width.equalTo(360.adjusted)
+            $0.height.equalTo(328.adjusted)
+            $0.centerY.equalTo(view.safeAreaLayoutGuide)
+            $0.centerX.equalTo(view.safeAreaLayoutGuide)
         }
         
         loginButton.snp.makeConstraints {
