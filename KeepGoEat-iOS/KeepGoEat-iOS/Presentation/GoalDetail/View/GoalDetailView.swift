@@ -26,9 +26,9 @@ class GoalDetailView: UIView {
     
     private let goalStatsWrapView: UIView = UIView()
     
-    private let previousGoalStatsView: GoalStatsView = GoalStatsView()
+    private let previousGoalStatsView: GoalStatsView = GoalStatsView(frame: CGRect(), month: .previous)
     
-    private let presentGoalStatsView: GoalStatsView = GoalStatsView()
+    private let presentGoalStatsView: GoalStatsView = GoalStatsView(frame: CGRect(), month: .present)
     
     private let goalStatsBorderLineView: UIView = UIView()
     
