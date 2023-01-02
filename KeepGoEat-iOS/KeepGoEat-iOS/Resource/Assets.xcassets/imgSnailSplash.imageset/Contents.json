@@ -1,17 +1,17 @@
 {
   "images" : [
     {
-      "filename" : "img_snail_splash.png",
+      "filename" : "img_splash.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
-      "filename" : "img_snail_splash@2x.png",
+      "filename" : "img_splash@2x.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
-      "filename" : "img_snail_splash@3x.png",
+      "filename" : "img_splash@3x.png",
       "idiom" : "universal",
       "scale" : "3x"
     }

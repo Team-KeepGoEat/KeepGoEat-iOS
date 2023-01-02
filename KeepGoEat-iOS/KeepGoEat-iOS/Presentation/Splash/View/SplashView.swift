@@ -44,14 +44,14 @@ extension SplashView {
         logoImage.snp.makeConstraints {
             $0.width.equalTo(200.adjusted)
             $0.height.equalTo(120.adjusted)
-            $0.top.equalTo(self.safeAreaLayoutGuide).inset(24.adjusted)
-            $0.leading.equalTo(self.safeAreaLayoutGuide).inset(25.adjusted)
+            $0.top.equalTo(self.safeAreaLayoutGuide).inset(16.adjusted)
+            $0.leading.equalTo(self.safeAreaLayoutGuide).inset(16.adjusted)
         }
         
         mainImage.snp.makeConstraints {
-            $0.width.equalTo(360.adjusted)
-            $0.height.equalTo(454.adjusted)
-            $0.bottom.equalToSuperview().inset(41.adjusted)
+            $0.width.equalTo(375.adjusted)
+            $0.height.equalTo(472.adjusted)
+            $0.bottom.equalToSuperview().inset(39.adjusted)
             $0.centerX.equalToSuperview()
         }
     }
