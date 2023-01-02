@@ -7,8 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		D65C62F62962DEF30085832C /* adjust+.swift in Sources */ = {isa = PBXBuildFile; fileRef = D65C62F52962DEF30085832C /* adjust+.swift */; };
 		D63110AC29628F1B00E7D52D /* SplashView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D63110AB29628F1B00E7D52D /* SplashView.swift */; };
+		D65C62F62962DEF30085832C /* adjust+.swift in Sources */ = {isa = PBXBuildFile; fileRef = D65C62F52962DEF30085832C /* adjust+.swift */; };
+		D69F23BB296316A80078FCF1 /* GoalDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D69F23BA296316A80078FCF1 /* GoalDetailView.swift */; };
+		D69F23BD296317210078FCF1 /* GoalDetailCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D69F23BC296317210078FCF1 /* GoalDetailCollectionViewCell.swift */; };
 		D69FA2C829617D890056A175 /* SplashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D69FA2C729617D890056A175 /* SplashViewController.swift */; };
 		D6C7B3CF296183D7006877F3 /* SocialLoginButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6C7B3CE296183D7006877F3 /* SocialLoginButton.swift */; };
 		D6C7B3D02961DFC2006877F3 /* Pretendard-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = DDDBC86E295EE52B00F65F23 /* Pretendard-Bold.otf */; };
@@ -71,8 +73,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		D65C62F52962DEF30085832C /* adjust+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "adjust+.swift"; sourceTree = "<group>"; };
 		D63110AB29628F1B00E7D52D /* SplashView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashView.swift; sourceTree = "<group>"; };
+		D65C62F52962DEF30085832C /* adjust+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "adjust+.swift"; sourceTree = "<group>"; };
+		D69F23BA296316A80078FCF1 /* GoalDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoalDetailView.swift; sourceTree = "<group>"; };
+		D69F23BC296317210078FCF1 /* GoalDetailCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoalDetailCollectionViewCell.swift; sourceTree = "<group>"; };
 		D69FA2C729617D890056A175 /* SplashViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashViewController.swift; sourceTree = "<group>"; };
 		D6C7B3CE296183D7006877F3 /* SocialLoginButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocialLoginButton.swift; sourceTree = "<group>"; };
 		DD38AD69295B02B70084FA70 /* KeepGoEat-iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "KeepGoEat-iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -161,6 +165,30 @@
 				D63110AB29628F1B00E7D52D /* SplashView.swift */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		D69F23B72963166F0078FCF1 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				DDE12FAB295B0FDB008CF91B /* GoalDetailViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		D69F23B8296316750078FCF1 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				D69F23BA296316A80078FCF1 /* GoalDetailView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		D69F23B92963167A0078FCF1 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				D69F23BC296317210078FCF1 /* GoalDetailCollectionViewCell.swift */,
+			);
+			path = Cell;
 			sourceTree = "<group>";
 		};
 		D69FA2C629617D2C0056A175 /* Splash */ = {
@@ -413,7 +441,9 @@
 		DDE12FA8295B0EB6008CF91B /* GoalDetail */ = {
 			isa = PBXGroup;
 			children = (
-				DDE12FAB295B0FDB008CF91B /* GoalDetailViewController.swift */,
+				D69F23B92963167A0078FCF1 /* Cell */,
+				D69F23B8296316750078FCF1 /* View */,
+				D69F23B72963166F0078FCF1 /* Controller */,
 			);
 			path = GoalDetail;
 			sourceTree = "<group>";
@@ -615,6 +645,7 @@
 				DDE12FAF295B1011008CF91B /* NewGoalViewController.swift in Sources */,
 				DD849B12295E80630030AF2F /* NetworkConstant.swift in Sources */,
 				DDE12F9B295B0CAA008CF91B /* KeychainHandler.swift in Sources */,
+				D69F23BB296316A80078FCF1 /* GoalDetailView.swift in Sources */,
 				DD849B00295E759E0030AF2F /* StoreGoalResponse.swift in Sources */,
 				DDE12FBD295B11E8008CF91B /* HomeRouter.swift in Sources */,
 				DDE12F93295B0BED008CF91B /* Image.swift in Sources */,
@@ -622,6 +653,7 @@
 				D63110AC29628F1B00E7D52D /* SplashView.swift in Sources */,
 				DDE12F9E295B0CFB008CF91B /* BaseViewController.swift in Sources */,
 				DDE12FC1295B1212008CF91B /* GoalDetailRouter.swift in Sources */,
+				D69F23BD296317210078FCF1 /* GoalDetailCollectionViewCell.swift in Sources */,
 				DD38AD6D295B02B70084FA70 /* AppDelegate.swift in Sources */,
 				DDE12FB1295B110C008CF91B /* URLConstant.swift in Sources */,
 				DDE12FD7295B1347008CF91B /* NewGoalRequest.swift in Sources */,
