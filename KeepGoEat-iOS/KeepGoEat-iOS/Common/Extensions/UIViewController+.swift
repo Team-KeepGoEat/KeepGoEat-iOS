@@ -28,8 +28,8 @@ extension UIViewController {
 }
 #endif
 // 아래 코드를 원하는 뷰컨 맨 아래에 넣고 swiftUI 임포트해주기
-//struct ViewControllerPreView: PreviewProvider {
+// struct ViewControllerPreView: PreviewProvider {
 //  static var previews: some View {
 //    뷰컨 이름().toPreview()
 //  }
-//}
+// }

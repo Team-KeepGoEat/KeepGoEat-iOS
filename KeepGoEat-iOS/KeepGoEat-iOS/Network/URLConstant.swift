@@ -14,15 +14,11 @@ struct URLConstant {
     
     // MARK: Login
     
-    
     // MARK: Home
-    
     
     // MARK: GoalDetail
     
-    
     // MARK: NewGoal
-    
     
     // MARK: StoreGoal
     
