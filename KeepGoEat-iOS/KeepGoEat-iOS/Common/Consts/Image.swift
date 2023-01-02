@@ -44,5 +44,7 @@ extension Const {
         static let snailOrangeSad = UIImage(named: "snailOrangeSad")
         static let snailOrangeSpoon = UIImage(named: "snailOrangeSpoon")
         static let kakaoLogo = UIImage(named: "kakaoLogo")
+        static let splashLogo = UIImage(named: "imgLogo")
+        static let splashImage = UIImage(named: "imgSnailSplash")
     }
 }
