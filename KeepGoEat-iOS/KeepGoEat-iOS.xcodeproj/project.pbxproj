@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		D65C62F62962DEF30085832C /* adjust+.swift in Sources */ = {isa = PBXBuildFile; fileRef = D65C62F52962DEF30085832C /* adjust+.swift */; };
+		D63110AC29628F1B00E7D52D /* SplashView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D63110AB29628F1B00E7D52D /* SplashView.swift */; };
 		D69FA2C829617D890056A175 /* SplashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D69FA2C729617D890056A175 /* SplashViewController.swift */; };
 		D6C7B3CF296183D7006877F3 /* SocialLoginButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6C7B3CE296183D7006877F3 /* SocialLoginButton.swift */; };
 		D6C7B3D02961DFC2006877F3 /* Pretendard-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = DDDBC86E295EE52B00F65F23 /* Pretendard-Bold.otf */; };
@@ -71,6 +72,7 @@
 
 /* Begin PBXFileReference section */
 		D65C62F52962DEF30085832C /* adjust+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "adjust+.swift"; sourceTree = "<group>"; };
+		D63110AB29628F1B00E7D52D /* SplashView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashView.swift; sourceTree = "<group>"; };
 		D69FA2C729617D890056A175 /* SplashViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashViewController.swift; sourceTree = "<group>"; };
 		D6C7B3CE296183D7006877F3 /* SocialLoginButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocialLoginButton.swift; sourceTree = "<group>"; };
 		DD38AD69295B02B70084FA70 /* KeepGoEat-iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "KeepGoEat-iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -145,10 +147,27 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		D69FA2C629617D2C0056A175 /* Splash */ = {
+		D63110A929628EFB00E7D52D /* Controller */ = {
 			isa = PBXGroup;
 			children = (
 				D69FA2C729617D890056A175 /* SplashViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		D63110AA29628F0500E7D52D /* View */ = {
+			isa = PBXGroup;
+			children = (
+				D63110AB29628F1B00E7D52D /* SplashView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		D69FA2C629617D2C0056A175 /* Splash */ = {
+			isa = PBXGroup;
+			children = (
+				D63110AA29628F0500E7D52D /* View */,
+				D63110A929628EFB00E7D52D /* Controller */,
 			);
 			path = Splash;
 			sourceTree = "<group>";
@@ -600,6 +619,7 @@
 				DDE12FBD295B11E8008CF91B /* HomeRouter.swift in Sources */,
 				DDE12F93295B0BED008CF91B /* Image.swift in Sources */,
 				DDE12F97295B0BFE008CF91B /* Font.swift in Sources */,
+				D63110AC29628F1B00E7D52D /* SplashView.swift in Sources */,
 				DDE12F9E295B0CFB008CF91B /* BaseViewController.swift in Sources */,
 				DDE12FC1295B1212008CF91B /* GoalDetailRouter.swift in Sources */,
 				DD38AD6D295B02B70084FA70 /* AppDelegate.swift in Sources */,
