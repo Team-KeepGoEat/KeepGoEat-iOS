@@ -61,6 +61,10 @@ extension GoalStatsView {
             goalStatsCountLabel
         )
         
+        self.snp.makeConstraints {
+            $0.width.equalTo(80.adjusted)
+        }
+        
         goalStatsTitleLabel.snp.makeConstraints {
             $0.top.equalToSuperview()
             $0.centerX.equalToSuperview()

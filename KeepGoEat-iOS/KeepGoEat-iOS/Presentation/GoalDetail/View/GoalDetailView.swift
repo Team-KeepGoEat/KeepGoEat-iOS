@@ -48,6 +48,7 @@ class GoalDetailView: UIView {
         presentGoalStatsView
     ]).then {
         $0.axis = .horizontal
+        $0.distribution = .equalSpacing
     }
     
     private lazy var goalStatsCollectionView: UICollectionView = UICollectionView()
@@ -95,11 +96,6 @@ extension GoalDetailView {
         goalTitleLabel.snp.makeConstraints {
             $0.top.equalTo(goalTypeImageView.snp.bottom).inset(-8.adjusted)
             $0.leading.equalTo(self.safeAreaLayoutGuide).inset(20.adjustedWidth)
-        }
-        
-        presentGoalStatsView.snp.makeConstraints {
-            $0.width.equalTo(120.adjusted)
-            $0.height.equalTo(80.adjusted)
         }
         
         goalStatsBorderLineView.snp.makeConstraints {
