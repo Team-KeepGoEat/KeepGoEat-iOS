@@ -46,9 +46,11 @@ extension GoalStatsView {
         switch month {
         case .previous:
             goalStatsTitleLabel.text = Const.String.previousGoalStatsTitle
+            goalStatsCountLabel.text = "4"
             goalStatsCountLabel.textColor = .gray700
         case .present:
             goalStatsTitleLabel.text = Const.String.presentGoalStatsTitle
+            goalStatsCountLabel.text = "8"
             goalStatsCountLabel.textColor = .orange600
         }
     }
@@ -61,7 +63,7 @@ extension GoalStatsView {
         
         goalStatsTitleLabel.snp.makeConstraints {
             $0.top.equalToSuperview()
-            $0.directionalHorizontalEdges.equalToSuperview()
+            $0.centerX.equalToSuperview()
         }
         
         goalStatsCountLabel.snp.makeConstraints {
