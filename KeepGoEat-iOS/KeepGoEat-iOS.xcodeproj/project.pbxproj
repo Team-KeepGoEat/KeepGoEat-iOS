@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		D63110AC29628F1B00E7D52D /* SplashView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D63110AB29628F1B00E7D52D /* SplashView.swift */; };
+		D643DFD82963E39F000296D3 /* GoalDetailStampModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D643DFD72963E39F000296D3 /* GoalDetailStampModel.swift */; };
 		D65C62F62962DEF30085832C /* adjust+.swift in Sources */ = {isa = PBXBuildFile; fileRef = D65C62F52962DEF30085832C /* adjust+.swift */; };
 		D69F23BB296316A80078FCF1 /* GoalDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D69F23BA296316A80078FCF1 /* GoalDetailView.swift */; };
 		D69F23BD296317210078FCF1 /* GoalDetailCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D69F23BC296317210078FCF1 /* GoalDetailCollectionViewCell.swift */; };
@@ -75,6 +76,7 @@
 
 /* Begin PBXFileReference section */
 		D63110AB29628F1B00E7D52D /* SplashView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashView.swift; sourceTree = "<group>"; };
+		D643DFD72963E39F000296D3 /* GoalDetailStampModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoalDetailStampModel.swift; sourceTree = "<group>"; };
 		D65C62F52962DEF30085832C /* adjust+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "adjust+.swift"; sourceTree = "<group>"; };
 		D69F23BA296316A80078FCF1 /* GoalDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoalDetailView.swift; sourceTree = "<group>"; };
 		D69F23BC296317210078FCF1 /* GoalDetailCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoalDetailCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -167,6 +169,14 @@
 				D63110AB29628F1B00E7D52D /* SplashView.swift */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		D643DFD62963E383000296D3 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				D643DFD72963E39F000296D3 /* GoalDetailStampModel.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 		D69F23B72963166F0078FCF1 /* Controller */ = {
@@ -444,6 +454,7 @@
 		DDE12FA8295B0EB6008CF91B /* GoalDetail */ = {
 			isa = PBXGroup;
 			children = (
+				D643DFD62963E383000296D3 /* Model */,
 				D69F23B92963167A0078FCF1 /* Cell */,
 				D69F23B8296316750078FCF1 /* View */,
 				D69F23B72963166F0078FCF1 /* Controller */,
@@ -663,6 +674,7 @@
 				DDE12FD9295B1357008CF91B /* LoginResponse.swift in Sources */,
 				DD849B03295E75D80030AF2F /* StoreGoalRouter.swift in Sources */,
 				DDE12FA1295B0D88008CF91B /* OnboardingViewController.swift in Sources */,
+				D643DFD82963E39F000296D3 /* GoalDetailStampModel.swift in Sources */,
 				DDE12F95295B0BF6008CF91B /* Color.swift in Sources */,
 				DD849AFE295E758A0030AF2F /* StoreGoalRequest.swift in Sources */,
 				DD849B08295E763F0030AF2F /* StoreGoalViewController.swift in Sources */,
