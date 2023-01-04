@@ -49,18 +49,22 @@ final class NewGoalViewController: UIViewController {
         $0.setTitleColor(.gray400, for: .normal)
         $0.backgroundColor = .gray200
         $0.layer.cornerRadius = 8
+        $0.isEnabled = false
     }
+    
+    // MARK: - Function
     
     override func viewDidLoad() {
         super.viewDidLoad()
         layout()
+        endEditingModeWhenUserTapOutside()
+        
     }
-}
-
-// MARK: - Extensions
-extension NewGoalViewController {
     
-    // MARK: - Layout Helpers
+//    override func viewWillAppear(_ animated: Bool) {
+//        addKeyboardNotification()
+//    }
+    
     private func layout() {
         view.backgroundColor = .white
         [textMyGoalLabel, moreVegetabletextField, countTextLabel, moreEatLabel, underLineLabel, completeButton].forEach {
@@ -103,32 +107,94 @@ extension NewGoalViewController {
     }
 }
 
+// MARK: - Extensions
+extension NewGoalViewController {
+    
+//    private func addKeyboardNotification() {
+//        NotificationCenter.default.addObserver(
+//          self,
+//          selector: #selector(keyboardWillShow),
+//          name: UIResponder.keyboardWillShowNotification,
+//          object: nil
+//        )
+//
+//        NotificationCenter.default.addObserver(
+//          self,
+//          selector: #selector(keyboardWillHide),
+//          name: UIResponder.keyboardWillHideNotification,
+//          object: nil
+//        )
+//      }
+    
+    func endEditingModeWhenUserTapOutside() {
+        let tap = UITapGestureRecognizer(target: self, action: #selector(NewGoalViewController.endEditingView))
+        self.view.addGestureRecognizer(tap)
+    }
+        
+    // MARK: Objc Function
+    @objc func endEditingView() {
+        self.view.endEditing(true)
+    }
+    
+//    @objc private func keyboardWillShow(_ notification: Notification) {
+//      if let keyboardFrame: NSValue = notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue {
+//        let keyboardRectangle = keyboardFrame.cgRectValue
+//        let keyboardHeight = keyboardRectangle.height
+//        completeButton.frame.origin.y -= keyboardHeight
+//      }
+//    }
+//
+//    @objc private func keyboardWillHide(_ notification: Notification) {
+//      if let keyboardFrame: NSValue = notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue {
+//        let keybaordRectangle = keyboardFrame.cgRectValue
+//        let keyboardHeight = keybaordRectangle.height
+//        completeButton.frame.origin.y += keyboardHeight
+//      }
+//    }
+}
+
+// MARK: UITextFieldDelegate
 extension NewGoalViewController: UITextFieldDelegate {
     
     private func textFieldShouldBeginEditing(_ textView: UITextField) {
-        
         if textView.textColor == .gray400 {
             textView.text = nil
-            textView.textColor = .green700
         }
     }
     
     func textFieldDidBeginEditing(_ textView: UITextField) {
+
         if let text = textView.text, text.isEmpty {
-            textView.text = ""
-            textView.textColor = .gray400
+            textView.textColor = .gray700
         }
     }
     
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
-        
+        if range.location == 0 && range.length != 0 {
+            self.completeButton.isEnabled = false
+            completeButton.backgroundColor = .gray200
+            completeButton.setTitleColor(.gray400, for: .disabled)
+        } else {
+            self.completeButton.isEnabled = true
+            completeButton.backgroundColor = .orange600
+            completeButton.setTitleColor(.gray50, for: .normal)
+    
+        }
         let cuerrentText = textField.text ?? ""
-        
-        guard let stringRange = Range(range, in: cuerrentText) else { return false}
-        
+        guard let stringRange = Range(range, in: cuerrentText) else { return false }
         let changedText = cuerrentText.replacingCharacters(in: stringRange, with: string)
-        
         countTextLabel.text = "(\(changedText.count)/20)"
         return changedText.count <= 19
+    }
+    
+    func searchPressed(_ sender: UIButton) {
+        moreVegetabletextField.endEditing(true)
+          
+    }
+      
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        moreVegetabletextField.endEditing(true)
+        print(moreVegetabletextField.text!)
+        return true
     }
 }
