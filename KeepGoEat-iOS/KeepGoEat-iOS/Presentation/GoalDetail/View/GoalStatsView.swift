@@ -9,8 +9,6 @@ import UIKit
 
 class GoalStatsView: UIView {
     
-    // MARK: Variables
-    
     // MARK: Component
     private let goalStatsTitleLabel: UILabel = UILabel().then {
         $0.font = .system5

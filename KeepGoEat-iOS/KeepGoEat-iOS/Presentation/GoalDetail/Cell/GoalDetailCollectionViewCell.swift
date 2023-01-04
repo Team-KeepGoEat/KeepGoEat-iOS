@@ -10,11 +10,9 @@ import UIKit
 class GoalDetailCollectionViewCell: UICollectionViewCell {
     
     // MARK: Identifier
-    
     static let identifier = "GoalDetailCollectionViewCell"
     
     // MARK: Component
-    
     private let stampImageView: UIImageView = UIImageView()
     
     override init(frame: CGRect) {

@@ -10,7 +10,6 @@ import UIKit
 class GoalDetailCollectionView: UICollectionView {
     
     // MARK: - Variables
-    
     private let goalType: GoalType
     
     private final let inset: UIEdgeInsets = UIEdgeInsets(top: 1, left: 1, bottom: 1, right: 1)
@@ -71,17 +70,16 @@ extension GoalDetailCollectionView: UICollectionViewDataSource {
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        guard let stampCell = collectionView.dequeueReusableCell(withReuseIdentifier: GoalDetailCollectionViewCell.identifier, for: indexPath) as? GoalDetailCollectionViewCell else { return UICollectionViewCell() }
         switch goalType {
         case .less:
-            guard let stampCell = collectionView.dequeueReusableCell(withReuseIdentifier: GoalDetailCollectionViewCell.identifier, for: indexPath) as? GoalDetailCollectionViewCell else { return UICollectionViewCell() }
             stampCell.backgroundColor = .green200Opacity3
             stampCell.dataBind(model: lessSuccessStampDummy)
-            return stampCell
         case .more:
-            guard let stampCell = collectionView.dequeueReusableCell(withReuseIdentifier: GoalDetailCollectionViewCell.identifier, for: indexPath) as? GoalDetailCollectionViewCell else { return UICollectionViewCell() }
             stampCell.backgroundColor = .orange200Opacity3
             stampCell.dataBind(model: moreSuccessStampDummy)
-            return stampCell
         }
+        
+        return stampCell
     }
 }
