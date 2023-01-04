@@ -19,6 +19,8 @@ extension Const {
         static let hoemHeader = "오늘 식습관 목표"
         
         // MARK: GoalDetail
+        static let previousGoalStatsTitle = "지난달 먹은 날"
+        static let presentGoalStatsTitle = "이번달 먹은 날"
         
         // MARK: NewGoal
         

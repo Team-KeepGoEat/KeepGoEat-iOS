@@ -8,11 +8,14 @@
 import UIKit
 
 class GoalDetailViewController: UIViewController {
+    
+    private let goalDetailView: GoalDetailView = GoalDetailView(frame: CGRect(), goalType: .more)
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
     }
     
+    override func loadView() {
+        self.view = goalDetailView
+    }
 }
