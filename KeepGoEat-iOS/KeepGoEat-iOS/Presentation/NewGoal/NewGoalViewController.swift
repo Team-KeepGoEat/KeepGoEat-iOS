@@ -44,9 +44,9 @@ final class NewGoalViewController: UIViewController {
     private lazy var completeButton = UIButton().then {
         $0.setTitle("완료", for: .normal)
         $0.titleLabel?.font = .system4Bold
-        $0.setTitleColor(.gray200, for: .normal)
-        $0.backgroundColor = .gray400
-        $0.layer.cornerRadius = 9
+        $0.setTitleColor(.gray400, for: .normal)
+        $0.backgroundColor = .gray200
+        $0.layer.cornerRadius = 8
     }
     
     override func viewDidLoad() {
@@ -66,7 +66,7 @@ extension NewGoalViewController {
         }
         
         textMyGoalLabel.snp.makeConstraints {
-            $0.top.equalToSuperview().offset(72)
+            $0.top.equalToSuperview().offset(92)
             $0.leading.equalToSuperview().offset(20)
         }
         
@@ -88,9 +88,15 @@ extension NewGoalViewController {
         }
         
         moreEatLabel.snp.makeConstraints {
-            $0.top.equalToSuperview().offset(126)
+            $0.top.equalToSuperview().offset(146)
             $0.leading.equalTo(self.underLineLabel.snp.trailing).offset(16)
-            
+        }
+        
+        completeButton.snp.makeConstraints {
+            $0.top.equalTo(self.countTextLabel.snp.bottom).offset(374)
+            $0.centerX.equalToSuperview()
+            $0.width.equalTo(343)
+            $0.height.equalTo(48)
         }
     }
 }
