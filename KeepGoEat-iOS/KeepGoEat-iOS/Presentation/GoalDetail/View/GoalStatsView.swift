@@ -7,15 +7,9 @@
 
 import UIKit
 
-enum Month: String {
-    case previous
-    case present
-}
-
 class GoalStatsView: UIView {
     
     // MARK: Variables
-    private let month: Month
     
     // MARK: Component
     private let goalStatsTitleLabel: UILabel = UILabel().then {
@@ -23,14 +17,15 @@ class GoalStatsView: UIView {
         $0.textColor = .gray600
     }
     
-    private let goalStatsCountLabel: UILabel = UILabel().then {
+    public let goalStatsCountLabel: UILabel = UILabel().then {
+        $0.text = "4"
         $0.font = .systemDate
+        $0.textColor = .gray700
     }
     
-    init(frame: CGRect, month: Month) {
-        self.month = month
+    init(frame: CGRect, text: String) {
         super.init(frame: frame)
-        setUI()
+        setUI(text: text)
         setLayout()
     }
     
@@ -40,19 +35,9 @@ class GoalStatsView: UIView {
 }
 
 extension GoalStatsView {
-    private func setUI() {
+    private func setUI(text: String) {
         self.backgroundColor = .white
-        
-        switch month {
-        case .previous:
-            goalStatsTitleLabel.text = Const.String.previousGoalStatsTitle
-            goalStatsCountLabel.text = "4"
-            goalStatsCountLabel.textColor = .gray700
-        case .present:
-            goalStatsTitleLabel.text = Const.String.presentGoalStatsTitle
-            goalStatsCountLabel.text = "8"
-            goalStatsCountLabel.textColor = .orange600
-        }
+        self.goalStatsTitleLabel.text = text
     }
     
     private func setLayout() {

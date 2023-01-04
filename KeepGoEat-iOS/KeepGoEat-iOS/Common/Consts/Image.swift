@@ -46,5 +46,9 @@ extension Const {
         static let kakaoLogo = UIImage(named: "kakaoLogo")
         static let moreTag = UIImage(named: "moreTag")
         static let lessTag = UIImage(named: "lessTag")
+        static let moreStampImage = UIImage(named: "snailOrangeSticker1")
+        static let moreStaticStampImage = UIImage(named: "snailOrangeSticker2")
+        static let lessStampImage = UIImage(named: "snailGreenSticker1")
+        static let lessStaticStampImage = UIImage(named: "snailGreenSticker2")
     }
 }

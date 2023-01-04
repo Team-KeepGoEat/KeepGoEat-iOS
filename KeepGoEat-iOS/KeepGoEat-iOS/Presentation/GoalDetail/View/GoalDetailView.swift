@@ -34,9 +34,9 @@ class GoalDetailView: UIView {
         $0.layer.cornerRadius = 8
     }
     
-    private let previousGoalStatsView: GoalStatsView = GoalStatsView(frame: CGRect(), month: .previous)
+    private let previousGoalStatsView: GoalStatsView = GoalStatsView(frame: CGRect(), text: Const.String.previousGoalStatsTitle)
     
-    private let presentGoalStatsView: GoalStatsView = GoalStatsView(frame: CGRect(), month: .present)
+    private let presentGoalStatsView: GoalStatsView = GoalStatsView(frame: CGRect(), text: Const.String.presentGoalStatsTitle)
     
     private let goalStatsBorderLineView: UIView = UIView().then {
         $0.backgroundColor = .gray300
@@ -51,7 +51,11 @@ class GoalDetailView: UIView {
         $0.distribution = .equalSpacing
     }
     
-    private lazy var goalStatsCollectionView: UICollectionView = UICollectionView()
+    private let collectionViewFlowLayout: UICollectionViewFlowLayout = UICollectionViewFlowLayout().then {
+        $0.scrollDirection = .vertical
+    }
+    
+    private lazy var goalStatsCollectionView: GoalDetailCollectionView = GoalDetailCollectionView(frame: .zero, collectionViewLayout: collectionViewFlowLayout, goalType: goalType)
     
     init(frame: CGRect, goalType: GoalType) {
         self.goalType = goalType
@@ -72,8 +76,10 @@ extension GoalDetailView {
         switch goalType {
         case .more:
             goalTypeImageView.image = Const.Image.moreTag
+            presentGoalStatsView.goalStatsCountLabel.textColor = .orange600
         case .less:
             goalTypeImageView.image = Const.Image.lessTag
+            presentGoalStatsView.goalStatsCountLabel.textColor = .green600
         }
     }
     
@@ -81,7 +87,8 @@ extension GoalDetailView {
         self.addSubviews(
             goalTypeImageView,
             goalTitleLabel,
-            goalStatsWrapView
+            goalStatsWrapView,
+            goalStatsCollectionView
         )
         
         goalStatsWrapView.addSubview(
@@ -114,6 +121,13 @@ extension GoalDetailView {
             $0.centerY.equalToSuperview()
             $0.width.equalTo(240.adjusted)
             $0.height.equalTo(80.adjusted)
+        }
+        
+        goalStatsCollectionView.snp.makeConstraints {
+            $0.bottom.equalToSuperview().inset(101.adjusted)
+            $0.width.equalTo(336.adjusted)
+            $0.height.equalTo(240.adjusted)
+            $0.centerX.equalToSuperview()
         }
     }
 }
