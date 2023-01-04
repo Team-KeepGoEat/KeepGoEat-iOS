@@ -19,12 +19,14 @@ final class NewGoalViewController: UIViewController {
         $0.font = .system2Bold
     }
     
-    private let moreVegetabletextField = UITextField().then {
+    private lazy var moreVegetabletextField = UITextField().then {
         $0.placeholder = "ex) 하루 1끼 이상 야채"
         $0.font = .system4Bold
         $0.textColor = .gray400
+        $0.delegate = self
+        $0.becomeFirstResponder()
     }
-    
+
     private let underLineLabel = UIView().then {
         $0.backgroundColor = .gray500
     }
@@ -98,5 +100,35 @@ extension NewGoalViewController {
             $0.width.equalTo(343)
             $0.height.equalTo(48)
         }
+    }
+}
+
+extension NewGoalViewController: UITextFieldDelegate {
+    
+    private func textFieldShouldBeginEditing(_ textView: UITextField) {
+        
+        if textView.textColor == .gray400 {
+            textView.text = nil
+            textView.textColor = .green700
+        }
+    }
+    
+    func textFieldDidBeginEditing(_ textView: UITextField) {
+        if let text = textView.text, text.isEmpty {
+            textView.text = ""
+            textView.textColor = .gray400
+        }
+    }
+    
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        
+        let cuerrentText = textField.text ?? ""
+        
+        guard let stringRange = Range(range, in: cuerrentText) else { return false}
+        
+        let changedText = cuerrentText.replacingCharacters(in: stringRange, with: string)
+        
+        countTextLabel.text = "(\(changedText.count)/20)"
+        return changedText.count <= 19
     }
 }
