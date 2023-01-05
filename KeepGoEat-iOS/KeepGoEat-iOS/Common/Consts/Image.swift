@@ -52,5 +52,6 @@ extension Const {
         static let lessStaticStampImage = UIImage(named: "snailGreenSticker2")
         static let splashLogo = UIImage(named: "imgLogo")
         static let splashImage = UIImage(named: "imgSnailSplash")
+        static let homeBackground = UIImage(named: "배경이미지 1")
     }
 }

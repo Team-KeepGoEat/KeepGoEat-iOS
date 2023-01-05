@@ -19,14 +19,11 @@ class HomeViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        setUI()
+        view.backgroundColor = .homeBackgroundBlue
         setLayout()
     }
     
     // MARK: Layout Helpers
-    private func setUI() {
-        view.backgroundColor = .gray700
-    }
     private func setLayout() {
         view.addSubviews(
             homeCheerView

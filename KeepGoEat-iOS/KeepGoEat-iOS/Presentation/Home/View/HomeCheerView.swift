@@ -11,8 +11,15 @@ class HomeCheerView: UIView {
     
     // MARK: - Variables
     // MARK: Component
+    private let backgroundImage = UIImageView().then {
+        $0.image = Const.Image.homeBackground
+    }
     private let myPageButton = UIButton().then {
         $0.setImage(Const.Image.icnMypage, for: .normal)
+        $0.contentMode = .scaleAspectFill
+        $0.clipsToBounds = true
+//        $0.center = view.center
+//                self.view.sendSubviewToBack(imageView)
     }
     private let characterImage = UIImageView().then {
         $0.image = Const.Image.snailOrangeDefault
@@ -24,7 +31,7 @@ class HomeCheerView: UIView {
         $0.layer.maskedCorners = CACornerMask(arrayLiteral: .layerMinXMinYCorner, .layerMaxXMinYCorner, .layerMaxXMaxYCorner)
     }
     private let cheerMessageLabel = UILabel().then {
-        $0.text = "안녕하세요. 당신을 응원합니다. 정말로요. 진짜로!!"
+        $0.text = "완벽하지 않아도 괜찮아요, 오늘도 킵고잇!"
         $0.numberOfLines = 3
     }
     
@@ -33,6 +40,7 @@ class HomeCheerView: UIView {
     override init(frame: CGRect) {
         super.init(frame: frame)
         
+//        setUI()
         setLayout()
     }
     
@@ -41,16 +49,24 @@ class HomeCheerView: UIView {
     }
     
     // MARK: Layout Helpers
+    private func setUI() {
+        self.backgroundColor = .homeBackgroundBlue
+    }
     private func setLayout() {
         cheerMessageView.addSubview(cheerMessageLabel)
         self.addSubviews(
+            backgroundImage,
             myPageButton,
             characterImage,
             cheerMessageView
         )
+        self.sendSubviewToBack(backgroundImage)
         
         self.snp.makeConstraints {
             $0.height.equalTo(240.adjusted)
+        }
+        backgroundImage.snp.makeConstraints {
+            $0.edges.equalToSuperview()
         }
         myPageButton.snp.makeConstraints {
             $0.top.equalToSuperview().inset(8.adjusted)
