@@ -36,6 +36,7 @@ class HomeEmptyView: UIView {
         $0.titleLabel?.font = .system4Bold
         $0.layer.cornerRadius = 8
         $0.adjustsImageWhenHighlighted = false
+        $0.imageEdgeInsets = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 8)
     }
     
     // MARK: - Function
