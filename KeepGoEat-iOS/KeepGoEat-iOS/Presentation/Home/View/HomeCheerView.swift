@@ -8,6 +8,7 @@
 import UIKit
 
 class HomeCheerView: UIView {
+    
     // MARK: - Variables
     // MARK: Component
     private let myPageButton = UIButton().then {
