@@ -20,6 +20,21 @@ class GoalDetailView: UIView {
     private let goalType: GoalType
     
     // MARK: Component
+    private let headerView: HeaderView = HeaderView()
+    
+    private let headerViewTitle: UILabel = UILabel().then {
+        $0.font = .system4Bold
+        $0.text = Const.String.myGoal
+    }
+    
+    private let editGoalButton: UIButton = UIButton().then {
+        $0.setImage(Const.Image.icnPen, for: .normal)
+    }
+    
+    private let saveGoalButton: UIButton = UIButton().then {
+        $0.setImage(Const.Image.icnBox, for: .normal)
+    }
+    
     private let goalTypeImageView: UIImageView = UIImageView()
     
     private let goalTitleLabel: UILabel = UILabel().then {
@@ -85,15 +100,41 @@ extension GoalDetailView {
     
     private func setLayout() {
         self.addSubviews(
+            headerView,
             goalTypeImageView,
             goalTitleLabel,
             goalStatsWrapView,
             goalStatsCollectionView
         )
         
+        headerView.addSubviews(
+            editGoalButton,
+            headerViewTitle,
+            saveGoalButton
+        )
+        
         goalStatsWrapView.addSubview(
             goalStatsStackView
         )
+        
+        headerView.snp.makeConstraints {
+            $0.top.equalTo(self.safeAreaLayoutGuide)
+        }
+        
+        headerViewTitle.snp.makeConstraints {
+            $0.centerY.equalToSuperview()
+            $0.centerX.equalToSuperview()
+        }
+        
+        editGoalButton.snp.makeConstraints {
+            $0.centerY.equalToSuperview()
+            $0.trailing.equalTo(saveGoalButton.snp.leading).inset(-4.adjusted)
+        }
+        
+        saveGoalButton.snp.makeConstraints {
+            $0.centerY.equalToSuperview()
+            $0.trailing.equalToSuperview().inset(16.adjusted)
+        }
         
         goalTypeImageView.snp.makeConstraints {
             $0.top.equalTo(self.safeAreaLayoutGuide).inset(72.adjusted)
