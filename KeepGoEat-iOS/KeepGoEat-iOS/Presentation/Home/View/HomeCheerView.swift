@@ -32,7 +32,6 @@ class HomeCheerView: UIView {
     override init(frame: CGRect) {
         super.init(frame: frame)
         
-        setUI()
         setLayout()
     }
     
@@ -41,10 +40,6 @@ class HomeCheerView: UIView {
     }
     
     // MARK: Layout Helpers
-    private func setUI() {
-        self.backgroundColor = .gray700
-    }
-    
     private func setLayout() {
         cheerMessageView.addSubview(cheerMessageLabel)
         self.addSubviews(
