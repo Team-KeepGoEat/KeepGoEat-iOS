@@ -35,6 +35,7 @@
 		DD849B0E295E7E0F0030AF2F /* MoyaLoggingPlugin.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD849B0D295E7E0F0030AF2F /* MoyaLoggingPlugin.swift */; };
 		DD849B10295E800C0030AF2F /* NetworkBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD849B0F295E800C0030AF2F /* NetworkBase.swift */; };
 		DD849B12295E80630030AF2F /* NetworkConstant.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD849B11295E80630030AF2F /* NetworkConstant.swift */; };
+		DDA7B71029672B14001950A2 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDA7B70F29672B14001950A2 /* HomeView.swift */; };
 		DDDBC876296045A200F65F23 /* Const.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDDBC875296045A200F65F23 /* Const.swift */; };
 		DDDBC878296045AA00F65F23 /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDDBC877296045AA00F65F23 /* String.swift */; };
 		DDDBC88029618A7D00F65F23 /* .swiftlint.yml in Resources */ = {isa = PBXBuildFile; fileRef = DDDBC87F29618A7D00F65F23 /* .swiftlint.yml */; };
@@ -107,6 +108,7 @@
 		DD849B0D295E7E0F0030AF2F /* MoyaLoggingPlugin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoyaLoggingPlugin.swift; sourceTree = "<group>"; };
 		DD849B0F295E800C0030AF2F /* NetworkBase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkBase.swift; sourceTree = "<group>"; };
 		DD849B11295E80630030AF2F /* NetworkConstant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkConstant.swift; sourceTree = "<group>"; };
+		DDA7B70F29672B14001950A2 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		DDDBC86E295EE52B00F65F23 /* Pretendard-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-Bold.otf"; sourceTree = "<group>"; };
 		DDDBC86F295EE52B00F65F23 /* Pretendard-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-Regular.otf"; sourceTree = "<group>"; };
 		DDDBC875296045A200F65F23 /* Const.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Const.swift; sourceTree = "<group>"; };
@@ -311,10 +313,19 @@
 			path = StoreGoal;
 			sourceTree = "<group>";
 		};
+		DDA7B70E29672AE3001950A2 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				DDE12FA6295B0E55008CF91B /* HomeViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
 		DDDBC88329618FB100F65F23 /* View */ = {
 			isa = PBXGroup;
 			children = (
 				DDDBC88429618FDA00F65F23 /* HomeCheerView.swift */,
+				DDA7B70F29672B14001950A2 /* HomeView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -474,7 +485,7 @@
 			isa = PBXGroup;
 			children = (
 				DDDBC88329618FB100F65F23 /* View */,
-				DDE12FA6295B0E55008CF91B /* HomeViewController.swift */,
+				DDA7B70E29672AE3001950A2 /* Controller */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -722,6 +733,7 @@
 				DDE12FDF295B1389008CF91B /* NewGoalResponse.swift in Sources */,
 				DD849B0E295E7E0F0030AF2F /* MoyaLoggingPlugin.swift in Sources */,
 				DDDBC878296045AA00F65F23 /* String.swift in Sources */,
+				DDA7B71029672B14001950A2 /* HomeView.swift in Sources */,
 				D6B4D2332965BB6700661083 /* BottomSheetViewController.swift in Sources */,
 				DDE12FDD295B137E008CF91B /* GoalDetailResponse.swift in Sources */,
 				315AC8872966D4FF0005CCF2 /* String+.swift in Sources */,
