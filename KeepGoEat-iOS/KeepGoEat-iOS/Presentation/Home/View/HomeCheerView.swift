@@ -74,7 +74,7 @@ class HomeCheerView: UIView {
         }
         cheerMessageView.snp.makeConstraints {
             $0.top.equalToSuperview().inset(72.adjusted)
-            $0.leading.equalTo(characterImage.snp.trailing).offset(8.adjusted)
+            $0.leading.equalTo(characterImage.snp.trailing).inset(-8.adjusted)
             $0.trailing.equalToSuperview().inset(17.adjusted)
         }
         cheerMessageLabel.snp.makeConstraints {
