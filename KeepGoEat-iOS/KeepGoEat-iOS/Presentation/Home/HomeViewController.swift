@@ -38,7 +38,7 @@ class HomeViewController: UIViewController {
 }
 
 // MARK: Preview
-struct ViewControllerPreView: PreviewProvider {
+struct HomeViewControllerPreView: PreviewProvider {
     static var previews: some View {
         HomeViewController().toPreview()
     }
