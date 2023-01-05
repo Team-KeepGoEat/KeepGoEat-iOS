@@ -120,4 +120,7 @@ extension UIColor {
     @nonobjc class var kakako: UIColor {
         return UIColor(red: 254.0 / 255.0, green: 229.0 / 255.0, blue: 0.0 / 255.0, alpha: 1.0)
     }
+    @nonobjc class var homeBackgroundBlue: UIColor {
+        return UIColor(red: 0.0 / 255.0, green: 180.0 / 255.0, blue: 220.0 / 255.0, alpha: 1.0)
+    }
 }
