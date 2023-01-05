@@ -176,9 +176,10 @@ extension NewGoalViewController: UITextFieldDelegate {
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
         let cuerrentText = textField.text ?? ""
         guard let stringRange = Range(range, in: cuerrentText) else { return false }
-        let changedTextCount = cuerrentText.replacingCharacters(in: stringRange, with: string).count
+        let changedText = cuerrentText.replacingCharacters(in: stringRange, with: string)
+//        let changedTextCount = cuerrentText.replacingCharacters(in: stringRange, with: string).count
         
-        if changedTextCount == 0 {
+        if changedText.isEmpty {
             self.completeButton.isEnabled = false
             completeButton.backgroundColor = .gray200
             completeButton.setTitleColor(.gray400, for: .disabled)
@@ -187,16 +188,9 @@ extension NewGoalViewController: UITextFieldDelegate {
             completeButton.backgroundColor = .orange600
             completeButton.setTitleColor(.gray50, for: .normal)
         }
-        let utf8Char = string.cString(using: .utf8)
-        _ = strcmp(utf8Char, "\\b")
-        countTextLabel.text = "(\(changedTextCount)/20)"
         
-        if !string.hasCharacters() {
-            warningLabel.isHidden = false
-        }
+        countTextLabel.text = "(\(changedText.count)/20)"
         
-        return (changedTextCount <= 19)
-
         func searchPressed(_ sender: UIButton) {
             moreVegetabletextField.endEditing(true)
         }
@@ -206,5 +200,15 @@ extension NewGoalViewController: UITextFieldDelegate {
             print(moreVegetabletextField.text!)
             return true
         }
+        
+        if !string.hasCharacters() {
+            warningLabel.isHidden = false
+        }
+        
+        if changedText.hasCharacters() {
+            warningLabel.isHidden = true
+        }
+        
+        return (changedText.count <= 19)
     }
 }
