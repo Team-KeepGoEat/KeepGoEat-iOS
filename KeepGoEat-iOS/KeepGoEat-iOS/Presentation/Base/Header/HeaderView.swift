@@ -30,11 +30,6 @@ extension HeaderView {
     private func setUI() {
         self.backgroundColor = .white
         
-        self.snp.makeConstraints {
-            $0.width.equalTo(UIScreen.main.bounds.width)
-            $0.height.equalTo(48.adjusted)
-        }
-        
         self.layer.shadowOffset = CGSize(width: 0, height: 2)
         self.layer.shadowOpacity = 0.05
     }
@@ -43,6 +38,11 @@ extension HeaderView {
         self.addSubview(
             backButton
         )
+        
+        self.snp.makeConstraints {
+            $0.width.equalTo(UIScreen.main.bounds.width)
+            $0.height.equalTo(48.adjusted)
+        }
         
         backButton.snp.makeConstraints {
             $0.centerY.equalToSuperview()
