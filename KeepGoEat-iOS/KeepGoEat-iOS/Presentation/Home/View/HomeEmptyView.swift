@@ -28,15 +28,17 @@ class HomeEmptyView: UIView {
         $0.font = .system4
         $0.textColor = .gray600
     }
-    private let addGoalButton = UIButton().then {
-        $0.backgroundColor = .orange600
-        $0.setTitle(Const.String.addGoal, for: .normal)
-        $0.setImage(Const.Image.icnPlus, for: .normal)
-        $0.setTitleColor(.gray50, for: .normal)
-        $0.titleLabel?.font = .system4Bold
+    private let addGoalButton = UIButton.init(type: .custom).then {
+        var config = UIButton.Configuration.plain()
+        config.attributedTitle = AttributedString(Const.String.addGoal, attributes: AttributeContainer([NSAttributedString.Key.font: UIFont.system6Bold]))
+        config.title = Const.String.addGoal
+        config.baseForegroundColor = .gray50
+        config.background.backgroundColor = .orange600
+        config.image = Const.Image.icnPlus
+        config.imagePadding = 8
+        config.imagePlacement = .leading
         $0.layer.cornerRadius = 8
-        $0.adjustsImageWhenHighlighted = false
-        $0.imageEdgeInsets = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 8)
+        $0.configuration = config
     }
     
     // MARK: - Function
