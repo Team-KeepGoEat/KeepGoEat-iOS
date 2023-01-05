@@ -13,7 +13,7 @@ class HomeBaseView: UIView {
     
     // MARK: - Variables
     // MARK: Component
-    private let homeHeaderLabel = UILabel().then {
+    let homeHeaderLabel = UILabel().then {
         $0.text = Const.String.hoemHeader
         $0.font = .system2Bold
         $0.textColor = .gray700
