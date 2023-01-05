@@ -22,9 +22,9 @@ final class NewGoalViewController: UIViewController {
     private lazy var moreVegetabletextField = UITextField().then {
         $0.placeholder = "ex) 하루 1끼 이상 야채"
         $0.font = .system4Bold
-        $0.textColor = .gray400
         $0.delegate = self
         $0.becomeFirstResponder()
+        $0.setPlaceholder(color: .gray400)
     }
 
     private let underLineLabel = UIView().then {
@@ -65,10 +65,6 @@ final class NewGoalViewController: UIViewController {
         NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
     }
     
-//    override func viewWillAppear(_ animated: Bool) {
-//        addKeyboardNotification()
-//    }
-    
     private func layout() {
         view.backgroundColor = .white
         [textMyGoalLabel, moreVegetabletextField, countTextLabel, moreEatLabel, underLineLabel, completeButton].forEach {
@@ -88,8 +84,8 @@ final class NewGoalViewController: UIViewController {
         underLineLabel.snp.makeConstraints {
             $0.top.equalTo(self.moreVegetabletextField.snp.bottom).offset(10)
             $0.leading.equalTo(moreVegetabletextField)
-            $0.height.equalTo(1)
-            $0.width.equalTo(273)
+            $0.height.equalTo(1.adjusted)
+            $0.width.equalTo(273.adjusted)
         }
         
         countTextLabel.snp.makeConstraints {
@@ -108,15 +104,22 @@ final class NewGoalViewController: UIViewController {
             $0.width.equalTo(343)
             $0.height.equalTo(48)
         }
-        
-        let safeArea = self.view.safeAreaLayoutGuide
-
-//        self.bottomConstraint = NSLayoutConstraint(item: self.textMyGoalLabel, attribute: .bottom, relatedBy: .equal, toItem: safeArea, attribute: .bottom, multiplier: 1.0, constant: 0)
-//          self.bottomConstraint?.isActive = true
       }
     }
 
 // MARK: - Extensions
+
+extension UITextField {
+    func setPlaceholder(color: UIColor) {
+        guard let string = self.placeholder else {
+            return
+        }
+        attributedPlaceholder = NSAttributedString(string: string, attributes: [.foregroundColor: color])
+    }
+}
+
+// MARK: endEditingModeWhenUserTapOutside
+
 extension NewGoalViewController {
     
     func endEditingModeWhenUserTapOutside() {
@@ -150,16 +153,20 @@ extension NewGoalViewController {
 
 // MARK: UITextFieldDelegate
 extension NewGoalViewController: UITextFieldDelegate {
-
+    
     func textFieldDidBeginEditing(_ textView: UITextField) {
-
+        
         if let text = textView.text, text.isEmpty {
             textView.textColor = .gray700
         }
     }
     
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
-        if range.location == 0 && range.length != 0 {
+        let cuerrentText = textField.text ?? ""
+        guard let stringRange = Range(range, in: cuerrentText) else { return false }
+        let changedTextCount = cuerrentText.replacingCharacters(in: stringRange, with: string).count
+        
+        if changedTextCount == 0 {
             self.completeButton.isEnabled = false
             completeButton.backgroundColor = .gray200
             completeButton.setTitleColor(.gray400, for: .disabled)
@@ -168,21 +175,19 @@ extension NewGoalViewController: UITextFieldDelegate {
             completeButton.backgroundColor = .orange600
             completeButton.setTitleColor(.gray50, for: .normal)
         }
-        let cuerrentText = textField.text ?? ""
-        guard let stringRange = Range(range, in: cuerrentText) else { return false }
-        let changedText = cuerrentText.replacingCharacters(in: stringRange, with: string)
-        countTextLabel.text = "(\(changedText.count)/20)"
-        return changedText.count <= 19
-    }
-    
-    func searchPressed(_ sender: UIButton) {
-        moreVegetabletextField.endEditing(true)
-          
-    }
-      
-    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        moreVegetabletextField.endEditing(true)
-        print(moreVegetabletextField.text!)
-        return true
+        let utf8Char = string.cString(using: .utf8)
+        let isBackSpace = strcmp(utf8Char, "\\b")
+        countTextLabel.text = "(\(changedTextCount)/20)"
+        return (changedTextCount <= 19) && (string.hasCharacters() || isBackSpace == -92)
+
+        func searchPressed(_ sender: UIButton) {
+            moreVegetabletextField.endEditing(true)
+        }
+        
+        func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+            moreVegetabletextField.endEditing(true)
+            print(moreVegetabletextField.text!)
+            return true
+        }
     }
 }
