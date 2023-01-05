@@ -35,9 +35,7 @@ class HomeBaseView: UIView {
     // MARK: Layout Helpers
     private func setUI() {
         self.backgroundColor = .white
-        self.clipsToBounds = true
-        self.layer.cornerRadius = 4.adjusted
-        self.layer.maskedCorners = CACornerMask(arrayLiteral: .layerMinXMinYCorner, .layerMaxXMinYCorner)
+        self.makeTopRounded(radius: 4)
     }
     
     private func setLayout() {
