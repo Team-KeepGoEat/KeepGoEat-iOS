@@ -52,6 +52,8 @@ final class NewGoalViewController: UIViewController {
         $0.isEnabled = false
     }
     
+    private var bottomConstraint: NSLayoutConstraint?
+    
     // MARK: - Function
     
     override func viewDidLoad() {
@@ -59,6 +61,8 @@ final class NewGoalViewController: UIViewController {
         layout()
         endEditingModeWhenUserTapOutside()
         
+        NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
     }
     
 //    override func viewWillAppear(_ animated: Bool) {
@@ -99,32 +103,21 @@ final class NewGoalViewController: UIViewController {
         }
         
         completeButton.snp.makeConstraints {
-            $0.top.equalTo(self.countTextLabel.snp.bottom).offset(374)
+            $0.bottom.equalToSuperview().inset(52)
             $0.centerX.equalToSuperview()
             $0.width.equalTo(343)
             $0.height.equalTo(48)
         }
+        
+        let safeArea = self.view.safeAreaLayoutGuide
+
+//        self.bottomConstraint = NSLayoutConstraint(item: self.textMyGoalLabel, attribute: .bottom, relatedBy: .equal, toItem: safeArea, attribute: .bottom, multiplier: 1.0, constant: 0)
+//          self.bottomConstraint?.isActive = true
+      }
     }
-}
 
 // MARK: - Extensions
 extension NewGoalViewController {
-    
-//    private func addKeyboardNotification() {
-//        NotificationCenter.default.addObserver(
-//          self,
-//          selector: #selector(keyboardWillShow),
-//          name: UIResponder.keyboardWillShowNotification,
-//          object: nil
-//        )
-//
-//        NotificationCenter.default.addObserver(
-//          self,
-//          selector: #selector(keyboardWillHide),
-//          name: UIResponder.keyboardWillHideNotification,
-//          object: nil
-//        )
-//      }
     
     func endEditingModeWhenUserTapOutside() {
         let tap = UITapGestureRecognizer(target: self, action: #selector(NewGoalViewController.endEditingView))
@@ -136,32 +129,28 @@ extension NewGoalViewController {
         self.view.endEditing(true)
     }
     
-//    @objc private func keyboardWillShow(_ notification: Notification) {
-//      if let keyboardFrame: NSValue = notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue {
-//        let keyboardRectangle = keyboardFrame.cgRectValue
-//        let keyboardHeight = keyboardRectangle.height
-//        completeButton.frame.origin.y -= keyboardHeight
-//      }
-//    }
-//
-//    @objc private func keyboardWillHide(_ notification: Notification) {
-//      if let keyboardFrame: NSValue = notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue {
-//        let keybaordRectangle = keyboardFrame.cgRectValue
-//        let keyboardHeight = keybaordRectangle.height
-//        completeButton.frame.origin.y += keyboardHeight
-//      }
-//    }
+    @objc private func keyboardWillShow(notification: NSNotification) {
+        if let keyboardSize = (notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue {
+            let keyboardHeight: CGFloat
+            keyboardHeight = keyboardSize.height - self.view.safeAreaInsets.bottom
+            completeButton.snp.updateConstraints {
+                $0.bottom.equalToSuperview().inset(keyboardHeight + 16)
+            }
+            self.view.layoutIfNeeded()
+        }
+    }
+
+    @objc private func keyboardWillHide(notification: NSNotification) {
+        completeButton.snp.updateConstraints {
+            $0.bottom.equalToSuperview().inset(52)
+        }
+        self.view.layoutIfNeeded()
+    }
 }
 
 // MARK: UITextFieldDelegate
 extension NewGoalViewController: UITextFieldDelegate {
-    
-    private func textFieldShouldBeginEditing(_ textView: UITextField) {
-        if textView.textColor == .gray400 {
-            textView.text = nil
-        }
-    }
-    
+
     func textFieldDidBeginEditing(_ textView: UITextField) {
 
         if let text = textView.text, text.isEmpty {
@@ -178,7 +167,6 @@ extension NewGoalViewController: UITextFieldDelegate {
             self.completeButton.isEnabled = true
             completeButton.backgroundColor = .orange600
             completeButton.setTitleColor(.gray50, for: .normal)
-    
         }
         let cuerrentText = textField.text ?? ""
         guard let stringRange = Range(range, in: cuerrentText) else { return false }
