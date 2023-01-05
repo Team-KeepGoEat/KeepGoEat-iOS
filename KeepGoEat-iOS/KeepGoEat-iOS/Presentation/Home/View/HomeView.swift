@@ -14,6 +14,7 @@ class HomeView: UIView {
     // MARK: - Variables
     // MARK: Component
     private let homeCheerView = HomeCheerView()
+    private let homeBaseView = HomeBaseView()
     
     // MARK: - Function
     // MARK: LifeCycle
@@ -35,11 +36,16 @@ class HomeView: UIView {
     
     private func setLayout() {
         self.addSubviews(
-            homeCheerView
+            homeCheerView,
+            homeBaseView
         )
         
         homeCheerView.snp.makeConstraints {
             $0.top.horizontalEdges.equalTo(self.safeAreaLayoutGuide)
+        }
+        homeBaseView.snp.makeConstraints {
+            $0.top.equalTo(homeCheerView.snp.bottom).inset(5.adjusted)
+            $0.horizontalEdges.bottom.equalToSuperview()
         }
     }
 }
