@@ -12,25 +12,25 @@ class HomeViewController: UIViewController {
     
     // MARK: - Variables
     // MARK: Component
-    private let homeCheerView = HomeCheerView()
+    private let homeView = HomeView()
 
     // MARK: - Function
     // MARK: LifeCycle
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        view.backgroundColor = .homeBackgroundBlue
         setLayout()
+    }
+    
+    override func loadView() {
+        super.loadView()
+        
+        self.view = homeView
     }
     
     // MARK: Layout Helpers
     private func setLayout() {
-        view.addSubviews(
-            homeCheerView
-        )
-        homeCheerView.snp.makeConstraints {
-            $0.top.horizontalEdges.equalTo(view.safeAreaLayoutGuide)
-        }
+        
     }
 }
 
