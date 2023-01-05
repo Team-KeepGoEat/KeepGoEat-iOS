@@ -47,6 +47,7 @@ extension HeaderView {
         backButton.snp.makeConstraints {
             $0.centerY.equalToSuperview()
             $0.leading.equalToSuperview().inset(16.adjusted)
+            $0.width.height.equalTo(32.adjusted)
         }
     }
 }

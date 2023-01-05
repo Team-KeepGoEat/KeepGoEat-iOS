@@ -129,11 +129,13 @@ extension GoalDetailView {
         editGoalButton.snp.makeConstraints {
             $0.centerY.equalToSuperview()
             $0.trailing.equalTo(saveGoalButton.snp.leading).inset(-4.adjusted)
+            $0.width.height.equalTo(32.adjusted)
         }
         
         saveGoalButton.snp.makeConstraints {
             $0.centerY.equalToSuperview()
             $0.trailing.equalToSuperview().inset(16.adjusted)
+            $0.width.height.equalTo(32.adjusted)
         }
         
         goalTypeImageView.snp.makeConstraints {
