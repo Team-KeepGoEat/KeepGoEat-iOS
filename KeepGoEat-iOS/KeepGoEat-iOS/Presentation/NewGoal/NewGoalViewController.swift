@@ -52,6 +52,13 @@ final class NewGoalViewController: UIViewController {
         $0.isEnabled = false
     }
     
+    private let warningLabel = UILabel().then {
+        $0.text = "한글, 영문,숫자만 입력 가능합니다."
+        $0.textColor = .orange400
+        $0.font = .system6
+        $0.isHidden = true
+    }
+    
     private var bottomConstraint: NSLayoutConstraint?
     
     // MARK: - Function
@@ -67,7 +74,7 @@ final class NewGoalViewController: UIViewController {
     
     private func layout() {
         view.backgroundColor = .white
-        [textMyGoalLabel, moreVegetabletextField, countTextLabel, moreEatLabel, underLineLabel, completeButton].forEach {
+        [textMyGoalLabel, moreVegetabletextField, countTextLabel, moreEatLabel, underLineLabel, warningLabel, completeButton].forEach {
             view.addSubview($0)
         }
         
@@ -90,6 +97,11 @@ final class NewGoalViewController: UIViewController {
         
         countTextLabel.snp.makeConstraints {
             $0.top.equalTo(self.underLineLabel.snp.bottom).offset(8)
+            $0.leading.equalTo(textMyGoalLabel)
+        }
+        
+        warningLabel.snp.makeConstraints {
+            $0.top.equalTo(self.countTextLabel.snp.bottom).offset(12)
             $0.leading.equalTo(textMyGoalLabel)
         }
         
@@ -176,9 +188,14 @@ extension NewGoalViewController: UITextFieldDelegate {
             completeButton.setTitleColor(.gray50, for: .normal)
         }
         let utf8Char = string.cString(using: .utf8)
-        let isBackSpace = strcmp(utf8Char, "\\b")
+        _ = strcmp(utf8Char, "\\b")
         countTextLabel.text = "(\(changedTextCount)/20)"
-        return (changedTextCount <= 19) && (string.hasCharacters() || isBackSpace == -92)
+        
+        if !string.hasCharacters() {
+            warningLabel.isHidden = false
+        }
+        
+        return (changedTextCount <= 19)
 
         func searchPressed(_ sender: UIButton) {
             moreVegetabletextField.endEditing(true)
