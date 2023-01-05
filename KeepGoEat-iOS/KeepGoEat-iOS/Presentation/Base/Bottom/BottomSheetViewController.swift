@@ -8,7 +8,6 @@
 import UIKit
 
 class BottomSheetViewController: UIViewController {
-    
     // MARK: Component
     private let dimmedBackView: UIView = UIView().then {
         $0.backgroundColor = .black
@@ -40,24 +39,24 @@ extension BottomSheetViewController {
     private func setUI() {
         view.backgroundColor = .white
     }
-    
+
     private func setLayout() {
         view.addSubviews(
             dimmedBackView,
             bottomSheetView
         )
-        
+
         dimmedBackView.snp.makeConstraints {
             $0.edges.equalToSuperview()
         }
-        
+
         bottomSheetView.snp.makeConstraints {
             $0.directionalHorizontalEdges.equalTo(view.safeAreaLayoutGuide)
             $0.top.equalTo(UIScreen.main.bounds.size.height)
             $0.bottom.equalToSuperview()
         }
     }
-    
+
     private func showBottomSheet() {
         bottomSheetView.snp.updateConstraints {
             $0.top.equalToSuperview().inset(UIScreen.main.bounds.size.height - 325.adjusted)
@@ -73,7 +72,7 @@ extension BottomSheetViewController {
         bottomSheetView.snp.updateConstraints {
             $0.top.equalTo(UIScreen.main.bounds.size.height)
         }
-        
+
         UIView.animate(withDuration: 0.2, delay: 0, options: .curveEaseIn, animations: {
             self.dimmedBackView.alpha = 0.0
             self.view.layoutIfNeeded()
