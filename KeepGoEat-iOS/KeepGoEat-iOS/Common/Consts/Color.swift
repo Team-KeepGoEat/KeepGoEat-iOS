@@ -65,6 +65,10 @@ extension UIColor {
         return UIColor(red: 1.0, green: 188.0 / 255.0, blue: 166.0 / 255.0, alpha: 1.0)
     }
     
+    @nonobjc class var orange200Opacity3: UIColor {
+        return UIColor(red: 1.0, green: 205.0 / 255.0, blue: 189.0 / 255.0, alpha: 0.3)
+    }
+    
     @nonobjc class var orange200: UIColor {
         return UIColor(red: 1.0, green: 205.0 / 255.0, blue: 189.0 / 255.0, alpha: 1.0)
     }
@@ -95,6 +99,10 @@ extension UIColor {
     
     @nonobjc class var green300: UIColor {
         return UIColor(red: 171.0 / 255.0, green: 239.0 / 255.0, blue: 211.0 / 255.0, alpha: 1.0)
+    }
+    
+    @nonobjc class var green200Opacity3: UIColor {
+        return UIColor(red: 199.0 / 255.0, green: 245.0 / 255.0, blue: 225.0 / 255.0, alpha: 0.3)
     }
     
     @nonobjc class var green200: UIColor {
