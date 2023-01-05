@@ -16,7 +16,13 @@ class HomeCheerView: UIView {
     private let characterImage = UIImageView().then {
         $0.image = Const.Image.snailOrangeDefault
     }
-    private let cheerMessage = UILabel().then {
+    private let cheerMessageView = UIView().then {
+        $0.backgroundColor = .gray50
+        $0.clipsToBounds = true
+        $0.layer.cornerRadius = 16
+        $0.layer.maskedCorners = CACornerMask(arrayLiteral: .layerMinXMinYCorner, .layerMaxXMinYCorner, .layerMaxXMaxYCorner)
+    }
+    private let cheerMessageLabel = UILabel().then {
         $0.text = "안녕하세요. 당신을 응원합니다. 정말로요. 진짜로!!"
         $0.numberOfLines = 3
     }
@@ -40,10 +46,11 @@ class HomeCheerView: UIView {
     }
     
     private func setLayout() {
+        cheerMessageView.addSubview(cheerMessageLabel)
         self.addSubviews(
             myPageButton,
             characterImage,
-            cheerMessage
+            cheerMessageView
         )
         
         self.snp.makeConstraints {
@@ -58,6 +65,14 @@ class HomeCheerView: UIView {
             $0.top.equalToSuperview().inset(72.adjusted)
             $0.leading.equalToSuperview().inset(16.adjusted)
             $0.width.height.equalTo(150.adjusted)
+        }
+        cheerMessageView.snp.makeConstraints {
+            $0.top.equalToSuperview().inset(72.adjusted)
+            $0.leading.equalTo(characterImage.snp.trailing).offset(8.adjusted)
+            $0.trailing.equalToSuperview().inset(17.adjusted)
+        }
+        cheerMessageLabel.snp.makeConstraints {
+            $0.edges.equalToSuperview().inset(12)
         }
     }
 }
