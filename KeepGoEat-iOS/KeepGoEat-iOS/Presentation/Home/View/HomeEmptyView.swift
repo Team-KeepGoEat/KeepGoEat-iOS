@@ -35,6 +35,7 @@ class HomeEmptyView: UIView {
         $0.setTitleColor(.gray50, for: .normal)
         $0.titleLabel?.font = .system4Bold
         $0.layer.cornerRadius = 8
+        $0.adjustsImageWhenHighlighted = false
     }
     
     // MARK: - Function
