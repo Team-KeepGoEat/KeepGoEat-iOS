@@ -18,8 +18,6 @@ class HomeCheerView: UIView {
         $0.setImage(Const.Image.icnMypage, for: .normal)
         $0.contentMode = .scaleAspectFill
         $0.clipsToBounds = true
-//        $0.center = view.center
-//                self.view.sendSubviewToBack(imageView)
     }
     private let characterImage = UIImageView().then {
         $0.image = Const.Image.snailOrangeDefault
