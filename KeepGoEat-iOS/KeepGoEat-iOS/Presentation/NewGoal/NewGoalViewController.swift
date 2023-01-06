@@ -10,7 +10,15 @@ import UIKit
 import Then
 import SnapKit
 
-final class NewGoalViewController: UIViewController {
+enum EatType: String {
+    case more
+    case less
+}
+
+class NewGoalViewController: UIViewController {
+    
+    // MARK: - Variables
+    private let eatType: EatType = .less
     
     // MARK: Component
     private let textMyGoalLabel = UILabel().then {
@@ -26,7 +34,7 @@ final class NewGoalViewController: UIViewController {
         $0.becomeFirstResponder()
         $0.setPlaceholder(color: .gray400)
     }
-
+    
     private let underLineLabel = UIView().then {
         $0.backgroundColor = .gray500
     }
@@ -37,10 +45,16 @@ final class NewGoalViewController: UIViewController {
         $0.font = .system5
     }
     
-    private let moreEatLabel = UILabel().then {
-        $0.text = "더먹기"
+    private lazy var moreEatLabel = UILabel().then {
         $0.textColor = .gray700
         $0.font = .system4Bold
+        
+        switch eatType {
+        case .more:
+            $0.text = "더먹기"
+        case .less:
+            $0.text = "덜먹기"
+        }
     }
     
     private lazy var completeButton = UIButton().then {
@@ -116,8 +130,8 @@ final class NewGoalViewController: UIViewController {
             $0.width.equalTo(343)
             $0.height.equalTo(48)
         }
-      }
     }
+}
 
 // MARK: - Extensions
 
