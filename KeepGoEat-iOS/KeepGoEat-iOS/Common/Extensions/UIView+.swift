@@ -36,10 +36,15 @@ extension UIView {
         self.layer.cornerRadius = radius
     }
     
-    /// 
     public func makeColorRounded(_ radius: CGFloat, _ width: CGFloat, _ color: UIColor) {
         self.makeRounded(radius: radius)
         layer.borderWidth = width
         layer.borderColor = color.cgColor
+    }
+    
+    func makeTopRounded(radius: CGFloat) {
+        self.clipsToBounds = true
+        self.layer.cornerRadius = radius.adjusted
+        self.layer.maskedCorners = CACornerMask(arrayLiteral: .layerMinXMinYCorner, .layerMaxXMinYCorner)
     }
 }
