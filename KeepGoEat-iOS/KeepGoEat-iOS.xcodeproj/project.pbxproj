@@ -41,6 +41,7 @@
 		DDA7B71C29685E67001950A2 /* HomeGoalCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDA7B71B29685E67001950A2 /* HomeGoalCollectionViewCell.swift */; };
 		DDA7B71E29686D83001950A2 /* NSMutableAttributedString+.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDA7B71D29686D83001950A2 /* NSMutableAttributedString+.swift */; };
 		DDA7B72029687B91001950A2 /* HomeAchieveButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDA7B71F29687B91001950A2 /* HomeAchieveButton.swift */; };
+		DDA7B72229689333001950A2 /* HomeGoalCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDA7B72129689333001950A2 /* HomeGoalCollectionView.swift */; };
 		DDDBC876296045A200F65F23 /* Const.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDDBC875296045A200F65F23 /* Const.swift */; };
 		DDDBC878296045AA00F65F23 /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDDBC877296045AA00F65F23 /* String.swift */; };
 		DDDBC88029618A7D00F65F23 /* .swiftlint.yml in Resources */ = {isa = PBXBuildFile; fileRef = DDDBC87F29618A7D00F65F23 /* .swiftlint.yml */; };
@@ -119,6 +120,7 @@
 		DDA7B71B29685E67001950A2 /* HomeGoalCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeGoalCollectionViewCell.swift; sourceTree = "<group>"; };
 		DDA7B71D29686D83001950A2 /* NSMutableAttributedString+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSMutableAttributedString+.swift"; sourceTree = "<group>"; };
 		DDA7B71F29687B91001950A2 /* HomeAchieveButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeAchieveButton.swift; sourceTree = "<group>"; };
+		DDA7B72129689333001950A2 /* HomeGoalCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeGoalCollectionView.swift; sourceTree = "<group>"; };
 		DDDBC86E295EE52B00F65F23 /* Pretendard-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-Bold.otf"; sourceTree = "<group>"; };
 		DDDBC86F295EE52B00F65F23 /* Pretendard-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-Regular.otf"; sourceTree = "<group>"; };
 		DDDBC875296045A200F65F23 /* Const.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Const.swift; sourceTree = "<group>"; };
@@ -347,6 +349,7 @@
 				DDA7B71129673F76001950A2 /* HomeEmptyView.swift */,
 				DDA7B7132967413F001950A2 /* HomeBaseView.swift */,
 				DDA7B71F29687B91001950A2 /* HomeAchieveButton.swift */,
+				DDA7B72129689333001950A2 /* HomeGoalCollectionView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -757,6 +760,7 @@
 				DDE12FDB295B136C008CF91B /* HomeResponse.swift in Sources */,
 				DD849B05295E760C0030AF2F /* StoreGoalService.swift in Sources */,
 				DDE12FDF295B1389008CF91B /* NewGoalResponse.swift in Sources */,
+				DDA7B72229689333001950A2 /* HomeGoalCollectionView.swift in Sources */,
 				DD849B0E295E7E0F0030AF2F /* MoyaLoggingPlugin.swift in Sources */,
 				DDDBC878296045AA00F65F23 /* String.swift in Sources */,
 				DDA7B71029672B14001950A2 /* HomeView.swift in Sources */,
