@@ -93,48 +93,47 @@ class NewGoalViewController: UIViewController {
         }
         
         textMyGoalLabel.snp.makeConstraints {
-            $0.top.equalToSuperview().offset(92)
-            $0.leading.equalToSuperview().offset(20)
+            $0.top.equalToSuperview().offset(92.adjusted)
+            $0.leading.equalToSuperview().offset(20.adjusted)
         }
         
         moreVegetabletextField.snp.makeConstraints {
-            $0.top.equalTo(self.textMyGoalLabel.snp.bottom).offset(32)
+            $0.top.equalTo(self.textMyGoalLabel.snp.bottom).offset(32.adjusted)
             $0.leading.equalTo(textMyGoalLabel)
         }
         
         underLineLabel.snp.makeConstraints {
-            $0.top.equalTo(self.moreVegetabletextField.snp.bottom).offset(10)
+            $0.top.equalTo(self.moreVegetabletextField.snp.bottom).offset(10.adjusted)
             $0.leading.equalTo(moreVegetabletextField)
             $0.height.equalTo(1.adjusted)
             $0.width.equalTo(273.adjusted)
         }
         
         countTextLabel.snp.makeConstraints {
-            $0.top.equalTo(self.underLineLabel.snp.bottom).offset(8)
+            $0.top.equalTo(self.underLineLabel.snp.bottom).offset(8.adjusted)
             $0.leading.equalTo(textMyGoalLabel)
         }
         
         warningLabel.snp.makeConstraints {
-            $0.top.equalTo(self.countTextLabel.snp.bottom).offset(12)
+            $0.top.equalTo(self.countTextLabel.snp.bottom).offset(12.adjusted)
             $0.leading.equalTo(textMyGoalLabel)
         }
         
         moreEatLabel.snp.makeConstraints {
-            $0.top.equalToSuperview().offset(146)
-            $0.leading.equalTo(self.underLineLabel.snp.trailing).offset(16)
+            $0.top.equalToSuperview().offset(146.adjusted)
+            $0.leading.equalTo(self.underLineLabel.snp.trailing).offset(16.adjusted)
         }
         
         completeButton.snp.makeConstraints {
-            $0.bottom.equalToSuperview().inset(52)
+            $0.bottom.equalToSuperview().inset(52.adjusted)
             $0.centerX.equalToSuperview()
-            $0.width.equalTo(343)
-            $0.height.equalTo(48)
+            $0.width.equalTo(343.adjusted)
+            $0.height.equalTo(48.adjusted)
         }
     }
 }
 
 // MARK: - Extensions
-
 extension UITextField {
     func setPlaceholder(color: UIColor) {
         guard let string = self.placeholder else {
@@ -145,7 +144,6 @@ extension UITextField {
 }
 
 // MARK: endEditingModeWhenUserTapOutside
-
 extension NewGoalViewController {
     
     func endEditingModeWhenUserTapOutside() {
@@ -191,7 +189,6 @@ extension NewGoalViewController: UITextFieldDelegate {
         let cuerrentText = textField.text ?? ""
         guard let stringRange = Range(range, in: cuerrentText) else { return false }
         let changedText = cuerrentText.replacingCharacters(in: stringRange, with: string)
-//        let changedTextCount = cuerrentText.replacingCharacters(in: stringRange, with: string).count
         
         if changedText.isEmpty {
             self.completeButton.isEnabled = false
@@ -204,6 +201,8 @@ extension NewGoalViewController: UITextFieldDelegate {
         }
         
         countTextLabel.text = "(\(changedText.count)/20)"
+        
+        print(" ".hasCharacters())
         
         func searchPressed(_ sender: UIButton) {
             moreVegetabletextField.endEditing(true)
