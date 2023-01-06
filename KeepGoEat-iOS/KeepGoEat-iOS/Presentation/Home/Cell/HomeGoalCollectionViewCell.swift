@@ -50,7 +50,7 @@ class HomeGoalCollectionViewCell: UICollectionViewCell {
     private func setUI() {
         self.backgroundColor = .gray50
         self.makeRounded(radius: 12.adjusted)
-        self.layer.shadowColor = UIColor.gray400
+        self.layer.shadowColor = UIColor.gray400.cgColor
         self.layer.shadowRadius = 4
     }
     private func setLayout() {
