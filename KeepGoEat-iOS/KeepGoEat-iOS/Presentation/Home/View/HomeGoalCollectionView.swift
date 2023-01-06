@@ -16,6 +16,7 @@ class HomeGoalCollectionView: UICollectionView {
         super.init(frame: frame, collectionViewLayout: layout)
         
         setRegister()
+        backgroundColor = .clear
     }
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
