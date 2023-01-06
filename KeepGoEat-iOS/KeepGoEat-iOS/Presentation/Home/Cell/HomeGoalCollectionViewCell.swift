@@ -10,22 +10,18 @@ import UIKit
 import SnapKit
 import Then
 
-enum KindType: String {
-    case less
-    case more
-}
-enum StateType: String {
-    case before
-    case after
-}
-
 class HomeGoalCollectionViewCell: UICollectionViewCell {
     // MARK: - Variables
+    // MARK: Identifier
+    static let identifier = "HomeGoalCollectionViewCell"
+    
     // MARK: Component
+    private let backView = UIView()
     private let kindTagImage = UIImageView().then {
         $0.image = Const.Image.moreTag
     }
     private let goalContentLabel = UILabel().then {
+        $0.font = .system4Bold
         $0.text = "오늘의 목표 내용"
     }
     private let goalCountLabel = UILabel().then {
@@ -75,7 +71,25 @@ class HomeGoalCollectionViewCell: UICollectionViewCell {
             $0.leading.equalToSuperview().offset(16.adjusted)
         }
         achieveButton.snp.makeConstraints {
-            $0.top.equalTo(goalCountLabel).offset(16.adjusted)
+            $0.bottom.equalToSuperview().offset(-16.adjusted)
+            $0.centerX.equalToSuperview()
+        }
+    }
+    func databind(data: Goal) {
+        if data.isMore {
+            kindTagImage.image = Const.Image.moreTag
+            goalContentLabel.text = data.goalContent + " 더 먹기"
+            goalCountLabel.attributedText = NSMutableAttributedString()
+                .setCountTitleTextStyle(string: String(data.thisMonthCount), isMore: true)
+                .setCountSubTextStyle(string: Const.String.homeCountGuide)
+            achieveButton.setUI(kindType: .more, stateType: data.isAchieved ? .after : .before)
+        } else {
+            kindTagImage.image = Const.Image.lessTag
+            goalContentLabel.text = data.goalContent + " 덜 먹기"
+            goalCountLabel.attributedText = NSMutableAttributedString()
+                .setCountTitleTextStyle(string: String(data.thisMonthCount), isMore: false)
+                .setCountSubTextStyle(string: Const.String.homeCountGuide)
+            achieveButton.setUI(kindType: .less, stateType: data.isAchieved ? .after : .before)
         }
     }
 }
