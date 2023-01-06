@@ -53,5 +53,6 @@ extension Const {
         static let splashLogo = UIImage(named: "imgLogo")
         static let splashImage = UIImage(named: "imgSnailSplash")
         static let homeBackground = UIImage(named: "homeBackgroundImage")
+        static let plateGrayView1 = UIImage(named: "plateGrayView1")
     }
 }

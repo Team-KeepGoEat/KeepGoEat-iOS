@@ -56,6 +56,7 @@ class HomeCheerView: UIView {
         )
         self.sendSubviewToBack(backgroundImage)
         
+        // TODO: 디자인이 이미지 사이즈 바꿔주면 높이도 함께 변경
         self.snp.makeConstraints {
             $0.height.equalTo(240.adjusted)
         }
