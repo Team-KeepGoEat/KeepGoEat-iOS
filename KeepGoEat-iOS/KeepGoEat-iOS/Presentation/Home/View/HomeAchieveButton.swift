@@ -9,6 +9,15 @@ import UIKit
 
 import SnapKit
 
+enum KindType: String {
+    case less
+    case more
+}
+enum StateType: String {
+    case before
+    case after
+}
+
 class HomeAchieveButton: UIButton {
     // MARK: - Variables
     private let kindType: KindType
@@ -18,7 +27,9 @@ class HomeAchieveButton: UIButton {
     
     // MARK: - Function
     // MARK: LifeCycle
-    init(frame: CGRect) {
+    init(frame: CGRect, kindType: KindType = .more, stateType: StateType = .before) {
+        self.kindType = kindType
+        self.stateType = stateType
         super.init(frame: frame)
         
         setLayout()
@@ -31,10 +42,11 @@ class HomeAchieveButton: UIButton {
     // MARK: Layout Helpers
     private func setLayout() {
         self.snp.makeConstraints {
-            $0.bottom.horizontalEdges.equalToSuperview().offset(16)
+            $0.width.equalTo(311.adjustedWidth)
+            $0.height.equalTo(42.adjusted)
         }
     }
-    private func setUI(kindType: KindType, stateType: StateType) {
+    func setUI(kindType: KindType, stateType: StateType) {
         var config = UIButton.Configuration.plain()
         config.imagePadding = 8
         config.imagePlacement = .leading
@@ -55,12 +67,12 @@ class HomeAchieveButton: UIButton {
             case .less:
                 config.image = Const.Image.icnCheckGreen
                 config.baseForegroundColor = .green600
-                config.background.backgroundColor = .orange50
+                config.background.backgroundColor = .green50
                 config.attributedTitle = AttributedString(Const.String.homeAddGoal, attributes: AttributeContainer([NSAttributedString.Key.font: UIFont.system4Bold]))
             case .more:
                 config.image = Const.Image.icnCheckOrange
                 config.baseForegroundColor = .orange600
-                config.background.backgroundColor = .green50
+                config.background.backgroundColor = .orange50
                 config.attributedTitle = AttributedString(Const.String.homeAddGoal, attributes: AttributeContainer([NSAttributedString.Key.font: UIFont.system4Bold]))
             }
         }
