@@ -25,7 +25,7 @@ class HomeCheerView: UIView {
     // MARK: - Variables
     // MARK: Component
     private let backgroundImage = UIImageView().then {
-        $0.image = Const.Image.homeBackgroundImage0
+        $0.image = Const.Image.homeBackground
     }
     private let myPageButton = UIButton().then {
         $0.setImage(Const.Image.icnMypage, for: .normal)
@@ -33,7 +33,7 @@ class HomeCheerView: UIView {
         $0.clipsToBounds = true
     }
     private let characterImage = UIImageView().then {
-        $0.image = Const.Image.snailOrangeDefault
+        $0.image = Const.Image.snailGreenRibon
     }
     private let cheerMessageView = UIView().then {
         $0.backgroundColor = .gray50
