@@ -123,4 +123,16 @@ extension UIColor {
     @nonobjc class var homeBackground: UIColor {
         return UIColor(red: 255.0 / 255.0, green: 213.0 / 255.0, blue: 185.0 / 255.0, alpha: 1.0)
     }
+    
+    @nonobjc class var homeBg0: UIColor {
+        return UIColor(red: 91.0 / 255.0, green: 166.0 / 255.0, blue: 1.0, alpha: 1.0)
+    }
+    
+    @nonobjc class var homeBg1: UIColor {
+        return UIColor(red: 1.0, green: 101.0 / 255.0, blue: 92.0 / 255.0, alpha: 1.0)
+    }
+    
+    @nonobjc class var homeBg2: UIColor {
+        return UIColor(red: 56.0 / 255.0, green: 58.0 / 255.0, blue: 110.0 / 255.0, alpha: 1.0)
+    }
 }
