@@ -30,7 +30,7 @@ class HomeEmptyView: UIView {
     }
     private let addGoalButton = UIButton.init(type: .custom).then {
         var config = UIButton.Configuration.plain()
-        config.attributedTitle = AttributedString(Const.String.addGoal, attributes: AttributeContainer([NSAttributedString.Key.font: UIFont.system4Bold]))
+        config.attributedTitle = AttributedString(Const.String.homeAddGoal, attributes: AttributeContainer([NSAttributedString.Key.font: UIFont.system4Bold]))
         config.baseForegroundColor = .gray50
         config.background.backgroundColor = .orange600
         config.background.cornerRadius = 8
