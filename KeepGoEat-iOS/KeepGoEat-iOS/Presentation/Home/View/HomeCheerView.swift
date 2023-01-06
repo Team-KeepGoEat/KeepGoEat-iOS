@@ -10,6 +10,16 @@ import UIKit
 import SnapKit
 import Then
 
+enum timezoneType: String {
+    case sun
+    case day
+    case night
+}
+enum characterType: String {
+    case hungry
+    case cheer
+}
+
 class HomeCheerView: UIView {
     
     // MARK: - Variables
