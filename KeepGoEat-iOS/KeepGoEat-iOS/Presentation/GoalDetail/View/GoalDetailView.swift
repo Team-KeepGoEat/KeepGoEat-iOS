@@ -27,11 +27,11 @@ class GoalDetailView: UIView {
         $0.text = Const.String.myGoal
     }
     
-    private let editGoalButton: UIButton = UIButton().then {
+    public let editGoalButton: UIButton = UIButton().then {
         $0.setImage(Const.Image.icnPen, for: .normal)
     }
     
-    private let saveGoalButton: UIButton = UIButton().then {
+    public let saveGoalButton: UIButton = UIButton().then {
         $0.setImage(Const.Image.icnBox, for: .normal)
     }
     
@@ -72,9 +72,42 @@ class GoalDetailView: UIView {
     
     private lazy var goalStatsCollectionView: GoalDetailCollectionView = GoalDetailCollectionView(frame: .zero, collectionViewLayout: collectionViewFlowLayout, goalType: goalType)
     
+    public let dimmedView: UIView = UIView().then {
+        $0.backgroundColor = .black.withAlphaComponent(0.5)
+        $0.isHidden = true
+    }
+    
+    public let bottomSheetView: BottomSheetView = BottomSheetView()
+    
+    private let bottomSheetTitleLabel: UILabel = UILabel().then {
+        $0.font = .system5
+        $0.textColor = .gray600
+        $0.setTextWithLineHeight(text: Const.String.goalDetailBottomSheetTitle, lineHeight: 21)
+    }
+    
+    private let bottomSheetImageView: UIImageView = UIImageView().then {
+        $0.image = Const.Image.snailOrangeCheerLeft
+    }
+    
+    private let bottomSheetSaveButton: UIButton = UIButton().then {
+        $0.setTitle(Const.String.goalDetailBottomSheetSaveButton, for: .normal)
+        $0.backgroundColor = .orange600
+        $0.titleLabel?.font = .system4Bold
+        $0.titleLabel?.textAlignment = .center
+        $0.layer.cornerRadius = 8
+    }
+    
+    private let bottomSheetDeleteButton: UIButton = UIButton().then {
+        $0.setTitle(Const.String.goalDetailBottomSheetDeleteButton, for: .normal)
+        $0.titleLabel?.font = .system6
+        $0.titleLabel?.textAlignment = .center
+        $0.setTitleColor(.gray500, for: .normal)
+    }
+    
     init(frame: CGRect, goalType: GoalType) {
         self.goalType = goalType
         super.init(frame: frame)
+        
         setUI()
         setLayout()
     }
@@ -104,13 +137,22 @@ extension GoalDetailView {
             goalTypeImageView,
             goalTitleLabel,
             goalStatsWrapView,
-            goalStatsCollectionView
+            goalStatsCollectionView,
+            dimmedView,
+            bottomSheetView
         )
         
         headerView.addSubviews(
             editGoalButton,
             headerViewTitle,
             saveGoalButton
+        )
+        
+        bottomSheetView.addSubviews(
+            bottomSheetTitleLabel,
+            bottomSheetImageView,
+            bottomSheetSaveButton,
+            bottomSheetDeleteButton
         )
         
         goalStatsWrapView.addSubview(
@@ -170,6 +212,39 @@ extension GoalDetailView {
             $0.bottom.equalToSuperview().inset(101.adjusted)
             $0.width.equalTo(336.adjusted)
             $0.height.equalTo(240.adjusted)
+            $0.centerX.equalToSuperview()
+        }
+        
+        bottomSheetView.snp.makeConstraints {
+            $0.top.equalToSuperview().inset(UIScreen.main.bounds.height)
+            $0.height.equalTo(325.adjusted)
+            $0.directionalHorizontalEdges.equalToSuperview()
+        }
+        
+        dimmedView.snp.makeConstraints {
+            $0.edges.equalToSuperview()
+        }
+        
+        bottomSheetTitleLabel.snp.makeConstraints {
+            $0.centerX.equalToSuperview()
+            $0.top.equalToSuperview().inset(28.adjusted)
+            $0.height.equalTo(42.adjusted)
+        }
+        
+        bottomSheetImageView.snp.makeConstraints {
+            $0.top.equalTo(bottomSheetTitleLabel.snp.bottom).inset(-4.adjusted)
+            $0.centerX.equalToSuperview()
+            $0.width.height.equalTo(120.adjusted)
+        }
+        
+        bottomSheetSaveButton.snp.makeConstraints {
+            $0.top.equalTo(bottomSheetImageView.snp.bottom).inset(-4.adjusted)
+            $0.directionalHorizontalEdges.equalToSuperview().inset(16.adjusted)
+            $0.height.equalTo(48.adjusted)
+        }
+        
+        bottomSheetDeleteButton.snp.makeConstraints {
+            $0.top.equalTo(bottomSheetSaveButton.snp.bottom).inset(-12.adjusted)
             $0.centerX.equalToSuperview()
         }
     }
