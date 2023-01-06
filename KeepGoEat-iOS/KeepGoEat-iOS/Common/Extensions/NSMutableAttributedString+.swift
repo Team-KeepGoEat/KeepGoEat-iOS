@@ -20,7 +20,7 @@ extension NSMutableAttributedString {
     }
     
     /// 홈 목표 카드뷰의 달성 일자 안내 스타일을 설정해줍니다.
-    func setCountSubTextStyle(string: String, isMore: Bool) -> NSMutableAttributedString {
+    func setCountSubTextStyle(string: String) -> NSMutableAttributedString {
         let attributes:[NSAttributedString.Key : Any] = [
             .font: .system3Bold,
             .foregroundColor: .gray700
