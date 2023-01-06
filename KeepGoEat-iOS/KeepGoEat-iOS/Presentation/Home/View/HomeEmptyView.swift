@@ -33,10 +33,10 @@ class HomeEmptyView: UIView {
         config.attributedTitle = AttributedString(Const.String.addGoal, attributes: AttributeContainer([NSAttributedString.Key.font: UIFont.system4Bold]))
         config.baseForegroundColor = .gray50
         config.background.backgroundColor = .orange600
+        config.background.cornerRadius = 8
         config.image = Const.Image.icnPlus
         config.imagePadding = 8
         config.imagePlacement = .leading
-        $0.layer.cornerRadius = 8
         $0.configuration = config
     }
     
