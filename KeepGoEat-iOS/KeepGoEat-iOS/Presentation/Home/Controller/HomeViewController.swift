@@ -20,7 +20,7 @@ class HomeViewController: UIViewController {
         super.viewDidLoad()
 
         // API 연결 후 뷰 업데이트를 위해 사용 예정
-        homeView.updateUI(timezoneType: .sun, characterType: .cheer)
+        homeView.updateCheerBackgroundUI(timezoneType: .sun)
     }
     
     override func loadView() {

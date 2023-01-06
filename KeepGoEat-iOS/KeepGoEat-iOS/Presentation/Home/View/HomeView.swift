@@ -56,8 +56,8 @@ class HomeView: UIView {
     }
     
     // MARK: Custom Function
-    func updateUI(timezoneType: TimezoneType, characterType: CharacterType) {
+    func updateCheerBackgroundUI(timezoneType: TimezoneType) {
         setBackgroundColor(timezoneType: timezoneType)
-        homeCheerView.setCheerViewImage(timezoneType: timezoneType, characterType: characterType)
+        homeCheerView.setBackgroundImage(timezoneType: timezoneType)
     }
 }
