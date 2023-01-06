@@ -31,7 +31,7 @@ class HomeAchieveButton: UIButton {
     // MARK: Layout Helpers
     private func setLayout() {
         self.snp.makeConstraints {
-            $0.edges.equalToSuperview().inset(-16)
+            $0.bottom.horizontalEdges.equalToSuperview().offset(16)
         }
     }
     private func setUI(kindType: KindType, stateType: StateType) {
