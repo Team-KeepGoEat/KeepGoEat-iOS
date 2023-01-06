@@ -20,6 +20,15 @@ extension Const {
         static let homeEmptyTitle = "아직 목표를 정하지 않았어요."
         static let homeEmptySub = "새로운 목표를 추가해보세요."
         static let homeAddGoal = "목표 추가하기"
+        static let homeCountGuide = "일 해냈어요"
+        static let homeMoreButtonBefore = "오늘도 잘 먹었나요?"
+        static let homeLessButtonBefore = "오늘도 잘 참았나요?"
+        static let homeMoreButtonAfter = "오늘도 해냈어요!"
+        static let homeLessButtonAfter = "오늘도 참았어요!"
+        static let homeNewTitle = "또 다른 도전을 원하시나요?"
+        static let homeNewSub1 = "2개의 목표를 더 정할 수 있어요."
+        static let homeNewSub2 = "1개의 목표를 더 정할 수 있어요."
+        static let homeNewSub3 = "3개의 목표까지 동시에 진행할 수 있어요."
         
         // MARK: GoalDetail
         static let myGoal = "나의 목표"
