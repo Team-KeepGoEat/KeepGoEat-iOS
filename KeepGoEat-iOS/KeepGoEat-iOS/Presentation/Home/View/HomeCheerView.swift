@@ -10,12 +10,12 @@ import UIKit
 import SnapKit
 import Then
 
-enum timezoneType: String {
-    case sun
+enum TimezoneType: String {
     case day
+    case sun
     case night
 }
-enum characterType: String {
+enum CharacterType: String {
     case hungry
     case cheer
 }
