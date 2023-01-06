@@ -38,6 +38,7 @@
 		DDA7B71029672B14001950A2 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDA7B70F29672B14001950A2 /* HomeView.swift */; };
 		DDA7B71229673F76001950A2 /* HomeEmptyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDA7B71129673F76001950A2 /* HomeEmptyView.swift */; };
 		DDA7B7142967413F001950A2 /* HomeBaseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDA7B7132967413F001950A2 /* HomeBaseView.swift */; };
+		DDA7B71C29685E67001950A2 /* HomeGoalCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDA7B71B29685E67001950A2 /* HomeGoalCollectionViewCell.swift */; };
 		DDDBC876296045A200F65F23 /* Const.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDDBC875296045A200F65F23 /* Const.swift */; };
 		DDDBC878296045AA00F65F23 /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDDBC877296045AA00F65F23 /* String.swift */; };
 		DDDBC88029618A7D00F65F23 /* .swiftlint.yml in Resources */ = {isa = PBXBuildFile; fileRef = DDDBC87F29618A7D00F65F23 /* .swiftlint.yml */; };
@@ -113,6 +114,7 @@
 		DDA7B70F29672B14001950A2 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		DDA7B71129673F76001950A2 /* HomeEmptyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeEmptyView.swift; sourceTree = "<group>"; };
 		DDA7B7132967413F001950A2 /* HomeBaseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeBaseView.swift; sourceTree = "<group>"; };
+		DDA7B71B29685E67001950A2 /* HomeGoalCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeGoalCollectionViewCell.swift; sourceTree = "<group>"; };
 		DDDBC86E295EE52B00F65F23 /* Pretendard-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-Bold.otf"; sourceTree = "<group>"; };
 		DDDBC86F295EE52B00F65F23 /* Pretendard-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-Regular.otf"; sourceTree = "<group>"; };
 		DDDBC875296045A200F65F23 /* Const.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Const.swift; sourceTree = "<group>"; };
@@ -325,6 +327,14 @@
 			path = Controller;
 			sourceTree = "<group>";
 		};
+		DDA7B71A2968562B001950A2 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				DDA7B71B29685E67001950A2 /* HomeGoalCollectionViewCell.swift */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
 		DDDBC88329618FB100F65F23 /* View */ = {
 			isa = PBXGroup;
 			children = (
@@ -490,6 +500,7 @@
 		DDE12FA5295B0E49008CF91B /* Home */ = {
 			isa = PBXGroup;
 			children = (
+				DDA7B71A2968562B001950A2 /* Cell */,
 				DDDBC88329618FB100F65F23 /* View */,
 				DDA7B70E29672AE3001950A2 /* Controller */,
 			);
@@ -715,6 +726,7 @@
 				DDE12FC1295B1212008CF91B /* GoalDetailRouter.swift in Sources */,
 				D69F23BD296317210078FCF1 /* GoalDetailCollectionViewCell.swift in Sources */,
 				DD38AD6D295B02B70084FA70 /* AppDelegate.swift in Sources */,
+				DDA7B71C29685E67001950A2 /* HomeGoalCollectionViewCell.swift in Sources */,
 				DDE12FB1295B110C008CF91B /* URLConstant.swift in Sources */,
 				DDE12FD7295B1347008CF91B /* NewGoalRequest.swift in Sources */,
 				DDE12FD9295B1357008CF91B /* LoginResponse.swift in Sources */,
