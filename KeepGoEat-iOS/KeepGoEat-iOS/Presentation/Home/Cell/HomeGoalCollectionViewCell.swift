@@ -29,34 +29,40 @@ class HomeGoalCollectionViewCell: UICollectionViewCell {
             .setCountTitleTextStyle(string: "8", isMore: true)
             .setCountSubTextStyle(string: Const.String.homeCountGuide)
     }
-    private let achieveButton = HomeAchieveButton()
+    private let achieveButton = HomeAchieveButton(frame: .zero)
 
     // MARK: - Function
     // MARK: LifeCycle
     override init(frame: CGRect) {
         super.init(frame: frame)
         
-        setUI()
         setLayout()
+        setUI()
     }
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
     private func setUI() {
-        self.backgroundColor = .gray50
-        self.makeRounded(radius: 12.adjusted)
-        self.layer.shadowColor = UIColor.gray400.cgColor
-        self.layer.shadowRadius = 4
+//        self.backgroundColor = .gray50
+//        self.makeRounded(radius: 12.adjusted)
+//        self.makeColorRounded(12.adjusted, 1, .gray400)
+//        self.layer.shadowColor = UIColor.gray400.cgColor
+//        self.layer.shadowRadius = 4
+        self.setCellShadow(backView: backView)
     }
     private func setLayout() {
         self.addSubviews(
+            backView,
             kindTagImage,
             goalContentLabel,
             goalCountLabel,
             achieveButton
         )
         
+        backView.snp.makeConstraints {
+            $0.edges.equalToSuperview()
+        }
         kindTagImage.snp.makeConstraints {
             $0.top.leading.equalToSuperview().offset(16.adjusted)
             $0.width.equalTo(60.adjusted)
@@ -64,10 +70,10 @@ class HomeGoalCollectionViewCell: UICollectionViewCell {
         }
         goalContentLabel.snp.makeConstraints {
             $0.leading.equalToSuperview().offset(16.adjusted)
-            $0.top.equalTo(kindTagImage).offset(12.adjusted)
+            $0.top.equalTo(kindTagImage.snp.bottom).offset(12.adjusted)
         }
         goalCountLabel.snp.makeConstraints {
-            $0.top.equalTo(goalContentLabel).offset(10.adjusted)
+            $0.top.equalTo(goalContentLabel.snp.bottom).offset(6.adjusted)
             $0.leading.equalToSuperview().offset(16.adjusted)
         }
         achieveButton.snp.makeConstraints {
