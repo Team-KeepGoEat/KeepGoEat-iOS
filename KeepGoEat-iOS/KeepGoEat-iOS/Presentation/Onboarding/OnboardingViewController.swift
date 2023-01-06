@@ -48,5 +48,43 @@ class OnboardingViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        layout()
+    }
+}
+
+extension OnboardingViewController {
+    
+    // MARK: - Layout Helpers
+    private func layout() {
+        view.backgroundColor = .white
+        [pageControl, passButton, nextButton].forEach {
+            view.addSubview($0)
+        }
+        view.addSubview(onboardingCollectionView)
+
+        pageControl.snp.makeConstraints {
+            $0.top.equalTo(self.view.safeAreaLayoutGuide).offset(14)
+            $0.centerX.equalToSuperview()
+        }
+        
+        passButton.snp.makeConstraints {
+            $0.centerY.equalTo(pageControl)
+            $0.leading.equalToSuperview().offset(303)
+            $0.height.equalTo(21)
+            $0.width.equalTo(49)
+        }
+        
+       onboardingCollectionView.snp.makeConstraints {
+           $0.top.equalTo(self.pageControl.snp.bottom).offset(55)
+           $0.centerX.equalToSuperview()
+           $0.height.equalTo(364)
+        }
+        
+        nextButton.snp.makeConstraints {
+            $0.top.equalTo(self.view.safeAreaLayoutGuide).offset(575)
+            $0.centerX.equalToSuperview()
+            $0.width.equalTo(343)
+            $0.height.equalTo(48)
+        }
     }
 }
