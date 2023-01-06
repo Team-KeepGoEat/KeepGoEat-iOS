@@ -40,6 +40,7 @@
 		DDA7B7142967413F001950A2 /* HomeBaseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDA7B7132967413F001950A2 /* HomeBaseView.swift */; };
 		DDA7B71C29685E67001950A2 /* HomeGoalCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDA7B71B29685E67001950A2 /* HomeGoalCollectionViewCell.swift */; };
 		DDA7B71E29686D83001950A2 /* NSMutableAttributedString+.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDA7B71D29686D83001950A2 /* NSMutableAttributedString+.swift */; };
+		DDA7B72029687B91001950A2 /* HomeAchieveButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDA7B71F29687B91001950A2 /* HomeAchieveButton.swift */; };
 		DDDBC876296045A200F65F23 /* Const.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDDBC875296045A200F65F23 /* Const.swift */; };
 		DDDBC878296045AA00F65F23 /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDDBC877296045AA00F65F23 /* String.swift */; };
 		DDDBC88029618A7D00F65F23 /* .swiftlint.yml in Resources */ = {isa = PBXBuildFile; fileRef = DDDBC87F29618A7D00F65F23 /* .swiftlint.yml */; };
@@ -117,6 +118,7 @@
 		DDA7B7132967413F001950A2 /* HomeBaseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeBaseView.swift; sourceTree = "<group>"; };
 		DDA7B71B29685E67001950A2 /* HomeGoalCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeGoalCollectionViewCell.swift; sourceTree = "<group>"; };
 		DDA7B71D29686D83001950A2 /* NSMutableAttributedString+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSMutableAttributedString+.swift"; sourceTree = "<group>"; };
+		DDA7B71F29687B91001950A2 /* HomeAchieveButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeAchieveButton.swift; sourceTree = "<group>"; };
 		DDDBC86E295EE52B00F65F23 /* Pretendard-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-Bold.otf"; sourceTree = "<group>"; };
 		DDDBC86F295EE52B00F65F23 /* Pretendard-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-Regular.otf"; sourceTree = "<group>"; };
 		DDDBC875296045A200F65F23 /* Const.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Const.swift; sourceTree = "<group>"; };
@@ -344,6 +346,7 @@
 				DDA7B70F29672B14001950A2 /* HomeView.swift */,
 				DDA7B71129673F76001950A2 /* HomeEmptyView.swift */,
 				DDA7B7132967413F001950A2 /* HomeBaseView.swift */,
+				DDA7B71F29687B91001950A2 /* HomeAchieveButton.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -766,6 +769,7 @@
 				DDE12FC3295B121B008CF91B /* NewGoalRouter.swift in Sources */,
 				DDE12FA4295B0E2A008CF91B /* LoginViewController.swift in Sources */,
 				D69FA2C829617D890056A175 /* SplashViewController.swift in Sources */,
+				DDA7B72029687B91001950A2 /* HomeAchieveButton.swift in Sources */,
 				DDA7B7142967413F001950A2 /* HomeBaseView.swift in Sources */,
 				D64DCBA229650F020046C719 /* GoalDetailCollectionView.swift in Sources */,
 				DDE12FCB295B1244008CF91B /* NewGoalService.swift in Sources */,
