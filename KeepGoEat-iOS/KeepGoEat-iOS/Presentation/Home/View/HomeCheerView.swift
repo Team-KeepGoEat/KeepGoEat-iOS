@@ -94,4 +94,22 @@ class HomeCheerView: UIView {
             $0.edges.equalToSuperview().inset(12)
         }
     }
+    
+    // MARK: Custom Function
+    func setCheerViewImage(timezoneType: TimezoneType, characterType: CharacterType) {
+        switch timezoneType {
+        case .day:
+            backgroundImage.image = Const.Image.homeBackgroundImageDay
+        case .sun:
+            backgroundImage.image = Const.Image.homeBackgroundImageSun
+        case .night:
+            backgroundImage.image = Const.Image.homeBackgroundImageNight
+        }
+        switch characterType {
+        case .hungry:
+            characterImage.image = Const.Image.snailOrangeHungry
+        case .cheer:
+            characterImage.image = Const.Image.snailOrangeCheer
+        }
+    }
 }
