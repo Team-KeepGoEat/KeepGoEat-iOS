@@ -25,6 +25,7 @@
 		DD38AD6F295B02B70084FA70 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD38AD6E295B02B70084FA70 /* SceneDelegate.swift */; };
 		DD38AD76295B02B80084FA70 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DD38AD75295B02B80084FA70 /* Assets.xcassets */; };
 		DD38AD79295B02B80084FA70 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DD38AD77295B02B80084FA70 /* LaunchScreen.storyboard */; };
+		DD64902E2968C53900A73CF4 /* HomeExistView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD64902D2968C53900A73CF4 /* HomeExistView.swift */; };
 		DD849AFE295E758A0030AF2F /* StoreGoalRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD849AFD295E758A0030AF2F /* StoreGoalRequest.swift */; };
 		DD849B00295E759E0030AF2F /* StoreGoalResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD849AFF295E759E0030AF2F /* StoreGoalResponse.swift */; };
 		DD849B03295E75D80030AF2F /* StoreGoalRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD849B02295E75D80030AF2F /* StoreGoalRouter.swift */; };
@@ -104,6 +105,7 @@
 		DD38AD75295B02B80084FA70 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		DD38AD78295B02B80084FA70 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		DD38AD7A295B02B80084FA70 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DD64902D2968C53900A73CF4 /* HomeExistView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeExistView.swift; sourceTree = "<group>"; };
 		DD849AFD295E758A0030AF2F /* StoreGoalRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreGoalRequest.swift; sourceTree = "<group>"; };
 		DD849AFF295E759E0030AF2F /* StoreGoalResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreGoalResponse.swift; sourceTree = "<group>"; };
 		DD849B02295E75D80030AF2F /* StoreGoalRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreGoalRouter.swift; sourceTree = "<group>"; };
@@ -350,6 +352,7 @@
 				DDA7B7132967413F001950A2 /* HomeBaseView.swift */,
 				DDA7B71F29687B91001950A2 /* HomeAchieveButton.swift */,
 				DDA7B72129689333001950A2 /* HomeGoalCollectionView.swift */,
+				DD64902D2968C53900A73CF4 /* HomeExistView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -748,6 +751,7 @@
 				DD849B08295E763F0030AF2F /* StoreGoalViewController.swift in Sources */,
 				DD849B10295E800C0030AF2F /* NetworkBase.swift in Sources */,
 				DDE12FAC295B0FDB008CF91B /* GoalDetailViewController.swift in Sources */,
+				DD64902E2968C53900A73CF4 /* HomeExistView.swift in Sources */,
 				D6C7B3CF296183D7006877F3 /* SocialLoginButton.swift in Sources */,
 				DDDBC876296045A200F65F23 /* Const.swift in Sources */,
 				DD38AD6F295B02B70084FA70 /* SceneDelegate.swift in Sources */,
