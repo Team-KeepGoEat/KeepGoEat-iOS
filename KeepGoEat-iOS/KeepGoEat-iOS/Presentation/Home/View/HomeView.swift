@@ -31,7 +31,7 @@ class HomeView: UIView {
     
     // MARK: Layout Helpers
     private func setBackgroundColor() {
-        self.backgroundColor = .homeBackground
+        self.backgroundColor = .homeBg0
     }
     
     private func setLayout() {

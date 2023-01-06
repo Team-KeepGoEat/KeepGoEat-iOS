@@ -15,7 +15,7 @@ class HomeCheerView: UIView {
     // MARK: - Variables
     // MARK: Component
     private let backgroundImage = UIImageView().then {
-        $0.image = Const.Image.homeBackground
+        $0.image = Const.Image.homeBackgroundImage0
     }
     private let myPageButton = UIButton().then {
         $0.setImage(Const.Image.icnMypage, for: .normal)
