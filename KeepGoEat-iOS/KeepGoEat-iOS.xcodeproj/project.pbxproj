@@ -39,6 +39,7 @@
 		DDA7B71229673F76001950A2 /* HomeEmptyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDA7B71129673F76001950A2 /* HomeEmptyView.swift */; };
 		DDA7B7142967413F001950A2 /* HomeBaseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDA7B7132967413F001950A2 /* HomeBaseView.swift */; };
 		DDA7B71C29685E67001950A2 /* HomeGoalCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDA7B71B29685E67001950A2 /* HomeGoalCollectionViewCell.swift */; };
+		DDA7B71E29686D83001950A2 /* NSMutableAttributedString+.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDA7B71D29686D83001950A2 /* NSMutableAttributedString+.swift */; };
 		DDDBC876296045A200F65F23 /* Const.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDDBC875296045A200F65F23 /* Const.swift */; };
 		DDDBC878296045AA00F65F23 /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDDBC877296045AA00F65F23 /* String.swift */; };
 		DDDBC88029618A7D00F65F23 /* .swiftlint.yml in Resources */ = {isa = PBXBuildFile; fileRef = DDDBC87F29618A7D00F65F23 /* .swiftlint.yml */; };
@@ -115,6 +116,7 @@
 		DDA7B71129673F76001950A2 /* HomeEmptyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeEmptyView.swift; sourceTree = "<group>"; };
 		DDA7B7132967413F001950A2 /* HomeBaseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeBaseView.swift; sourceTree = "<group>"; };
 		DDA7B71B29685E67001950A2 /* HomeGoalCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeGoalCollectionViewCell.swift; sourceTree = "<group>"; };
+		DDA7B71D29686D83001950A2 /* NSMutableAttributedString+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSMutableAttributedString+.swift"; sourceTree = "<group>"; };
 		DDDBC86E295EE52B00F65F23 /* Pretendard-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-Bold.otf"; sourceTree = "<group>"; };
 		DDDBC86F295EE52B00F65F23 /* Pretendard-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-Regular.otf"; sourceTree = "<group>"; };
 		DDDBC875296045A200F65F23 /* Const.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Const.swift; sourceTree = "<group>"; };
@@ -453,6 +455,7 @@
 				DD849B09295E77590030AF2F /* UIView+.swift */,
 				D65C62F52962DEF30085832C /* adjust+.swift */,
 				315AC8862966D4FF0005CCF2 /* String+.swift */,
+				DDA7B71D29686D83001950A2 /* NSMutableAttributedString+.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -715,6 +718,7 @@
 				DDE12FAF295B1011008CF91B /* NewGoalViewController.swift in Sources */,
 				DD849B12295E80630030AF2F /* NetworkConstant.swift in Sources */,
 				DDE12F9B295B0CAA008CF91B /* KeychainHandler.swift in Sources */,
+				DDA7B71E29686D83001950A2 /* NSMutableAttributedString+.swift in Sources */,
 				D69F23BB296316A80078FCF1 /* GoalDetailView.swift in Sources */,
 				DD849B00295E759E0030AF2F /* StoreGoalResponse.swift in Sources */,
 				DDE12FBD295B11E8008CF91B /* HomeRouter.swift in Sources */,
