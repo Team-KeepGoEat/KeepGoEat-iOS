@@ -21,7 +21,6 @@ class HomeView: UIView {
     override init(frame: CGRect) {
         super.init(frame: frame)
         
-        setBackgroundColor()
         setLayout()
     }
     
@@ -30,8 +29,15 @@ class HomeView: UIView {
     }
     
     // MARK: Layout Helpers
-    private func setBackgroundColor() {
-        self.backgroundColor = .homeBackground
+    private func setBackgroundColor(timezoneType: TimezoneType) {
+        switch timezoneType {
+        case .day:
+            self.backgroundColor = .homeBg0
+        case .sun:
+            self.backgroundColor = .homeBg1
+        case .night:
+            self.backgroundColor = .homeBg2
+        }
     }
     
     private func setLayout() {
@@ -47,5 +53,11 @@ class HomeView: UIView {
             $0.top.equalTo(homeCheerView.snp.bottom).inset(5.adjusted)
             $0.horizontalEdges.bottom.equalToSuperview()
         }
+    }
+    
+    // MARK: Custom Function
+    func updateCheerBackgroundUI(timezoneType: TimezoneType) {
+        setBackgroundColor(timezoneType: timezoneType)
+        homeCheerView.setBackgroundImage(timezoneType: timezoneType)
     }
 }
