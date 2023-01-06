@@ -20,7 +20,7 @@ extension Const {
         static let homeEmptyTitle = "아직 목표를 정하지 않았어요."
         static let homeEmptySub = "새로운 목표를 추가해보세요."
         static let homeAddGoal = "목표 추가하기"
-        static let homeCountGuide = "일 해냈어요"
+        static let homeCountGuide = " 일 해냈어요"
         static let homeMoreButtonBefore = "오늘도 잘 먹었나요?"
         static let homeLessButtonBefore = "오늘도 잘 참았나요?"
         static let homeMoreButtonAfter = "오늘도 해냈어요!"
