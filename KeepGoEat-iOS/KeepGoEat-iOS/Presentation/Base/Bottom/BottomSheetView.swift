@@ -7,12 +7,9 @@
 
 import UIKit
 
-class BottomSheetViewController: UIViewController {
-    // MARK: Component
-    private let dimmedBackView: UIView = UIView().then {
-        $0.backgroundColor = .black
-    }
+class BottomSheetView: UIView {
     
+    // MARK: Component
     private let bottomSheetView: UIView = UIView().then {
         $0.backgroundColor = .white
         
@@ -20,51 +17,49 @@ class BottomSheetViewController: UIViewController {
         $0.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
     }
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
+    override init(frame: CGRect) {
+        super.init(frame: frame)
         
         setUI()
         setLayout()
         setupGestureRecognizer()
+        showBottomSheet()
     }
     
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-        
-        showBottomSheet()
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
     }
 }
 
-extension BottomSheetViewController {
+extension BottomSheetView {
     private func setUI() {
-        view.backgroundColor = .white
+        self.backgroundColor = .black.withAlphaComponent(0.5)
     }
-
+    
     private func setLayout() {
-        view.addSubviews(
-            dimmedBackView,
+        self.addSubview(
             bottomSheetView
         )
-
-        dimmedBackView.snp.makeConstraints {
-            $0.edges.equalToSuperview()
-        }
-
+        
         bottomSheetView.snp.makeConstraints {
-            $0.directionalHorizontalEdges.equalTo(view.safeAreaLayoutGuide)
+            $0.directionalHorizontalEdges.equalTo(self.safeAreaLayoutGuide)
             $0.top.equalTo(UIScreen.main.bounds.size.height)
-            $0.bottom.equalToSuperview()
         }
     }
-
+    
+    private func setupGestureRecognizer() {
+        let dimmedTap = UITapGestureRecognizer(target: self, action: #selector(dimmedViewTapped(_: )))
+        self.addGestureRecognizer(dimmedTap)
+        self.isUserInteractionEnabled = true
+    }
+    
     private func showBottomSheet() {
         bottomSheetView.snp.updateConstraints {
             $0.top.equalToSuperview().inset(UIScreen.main.bounds.size.height - 325.adjusted)
         }
 
         UIView.animate(withDuration: 0.2, delay: 0, options: .curveEaseIn, animations: {
-            self.dimmedBackView.alpha = 0.5
-            self.view.layoutIfNeeded()
+            self.layoutIfNeeded()
         }, completion: nil)
     }
 
@@ -74,17 +69,11 @@ extension BottomSheetViewController {
         }
 
         UIView.animate(withDuration: 0.2, delay: 0, options: .curveEaseIn, animations: {
-            self.dimmedBackView.alpha = 0.0
-            self.view.layoutIfNeeded()
+            self.alpha = 0.0
+            self.layoutIfNeeded()
         })
     }
-
-    private func setupGestureRecognizer() {
-        let dimmedTap = UITapGestureRecognizer(target: self, action: #selector(dimmedViewTapped(_: )))
-        dimmedBackView.addGestureRecognizer(dimmedTap)
-        dimmedBackView.isUserInteractionEnabled = true
-    }
-
+    
     // UITapGestureRecognizer 연결 함수 부분
     @objc private func dimmedViewTapped(_ tapRecognizer: UITapGestureRecognizer) {
         hideBottomSheet()

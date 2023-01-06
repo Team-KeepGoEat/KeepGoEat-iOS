@@ -20,11 +20,35 @@ extension UIViewController {
 
             func updateUIViewController(_ uiViewController: UIViewController, context: Context) {
             }
-        }
+    }
 
-        func toPreview() -> some View {
-            Preview(viewController: self)
+    func toPreview() -> some View {
+        Preview(viewController: self)
+    }
+    
+    func showBottomSheet(bottomSheetView: UIView, dimmedView: UIView) {
+        bottomSheetView.snp.updateConstraints {
+            $0.top.equalToSuperview().inset(UIScreen.main.bounds.size.height - 325.adjusted)
         }
+        
+        dimmedView.isHidden = false
+        
+        UIView.animate(withDuration: 0.2, delay: 0, options: .curveEaseInOut, animations: {
+            self.view.layoutIfNeeded()
+        }, completion: nil)
+    }
+    
+    func hideBottomSheet(bottomSheetView: UIView, dimmedView: UIView) {
+        bottomSheetView.snp.updateConstraints {
+            $0.top.equalTo(UIScreen.main.bounds.size.height)
+        }
+        
+        dimmedView.isHidden = true
+        
+        UIView.animate(withDuration: 0.2, delay: 0, options: .curveEaseInOut, animations: {
+            self.view.layoutIfNeeded()
+        })
+    }
 }
 #endif
 // 아래 코드를 원하는 뷰컨 맨 아래에 넣고 swiftUI 임포트해주기

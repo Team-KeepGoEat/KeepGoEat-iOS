@@ -16,11 +16,12 @@
 		D69F23BB296316A80078FCF1 /* GoalDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D69F23BA296316A80078FCF1 /* GoalDetailView.swift */; };
 		D69F23BD296317210078FCF1 /* GoalDetailCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D69F23BC296317210078FCF1 /* GoalDetailCollectionViewCell.swift */; };
 		D69FA2C829617D890056A175 /* SplashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D69FA2C729617D890056A175 /* SplashViewController.swift */; };
-		D6B4D2332965BB6700661083 /* BottomSheetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6B4D2322965BB6700661083 /* BottomSheetViewController.swift */; };
+		D6B4D2332965BB6700661083 /* BottomSheetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6B4D2322965BB6700661083 /* BottomSheetView.swift */; };
 		D6C7B3CF296183D7006877F3 /* SocialLoginButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6C7B3CE296183D7006877F3 /* SocialLoginButton.swift */; };
 		D6C7B3D02961DFC2006877F3 /* Pretendard-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = DDDBC86E295EE52B00F65F23 /* Pretendard-Bold.otf */; };
 		D6C7B3D12961DFC4006877F3 /* Pretendard-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = DDDBC86F295EE52B00F65F23 /* Pretendard-Regular.otf */; };
 		D6F0233C29632EF700524000 /* GoalStatsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6F0233B29632EF700524000 /* GoalStatsView.swift */; };
+		D6F427B12967CA2E00065A24 /* UILabel+.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6F427B02967CA2E00065A24 /* UILabel+.swift */; };
 		DD38AD6D295B02B70084FA70 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD38AD6C295B02B70084FA70 /* AppDelegate.swift */; };
 		DD38AD6F295B02B70084FA70 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD38AD6E295B02B70084FA70 /* SceneDelegate.swift */; };
 		DD38AD76295B02B80084FA70 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DD38AD75295B02B80084FA70 /* Assets.xcassets */; };
@@ -88,9 +89,10 @@
 		D69F23BA296316A80078FCF1 /* GoalDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoalDetailView.swift; sourceTree = "<group>"; };
 		D69F23BC296317210078FCF1 /* GoalDetailCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoalDetailCollectionViewCell.swift; sourceTree = "<group>"; };
 		D69FA2C729617D890056A175 /* SplashViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashViewController.swift; sourceTree = "<group>"; };
-		D6B4D2322965BB6700661083 /* BottomSheetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomSheetViewController.swift; sourceTree = "<group>"; };
+		D6B4D2322965BB6700661083 /* BottomSheetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomSheetView.swift; sourceTree = "<group>"; };
 		D6C7B3CE296183D7006877F3 /* SocialLoginButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocialLoginButton.swift; sourceTree = "<group>"; };
 		D6F0233B29632EF700524000 /* GoalStatsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoalStatsView.swift; sourceTree = "<group>"; };
+		D6F427B02967CA2E00065A24 /* UILabel+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel+.swift"; sourceTree = "<group>"; };
 		DD38AD69295B02B70084FA70 /* KeepGoEat-iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "KeepGoEat-iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		DD38AD6C295B02B70084FA70 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DD38AD6E295B02B70084FA70 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -233,7 +235,7 @@
 		D6B4D2312965BB1500661083 /* Bottom */ = {
 			isa = PBXGroup;
 			children = (
-				D6B4D2322965BB6700661083 /* BottomSheetViewController.swift */,
+				D6B4D2322965BB6700661083 /* BottomSheetView.swift */,
 			);
 			path = Bottom;
 			sourceTree = "<group>";
@@ -426,6 +428,7 @@
 				DD849B09295E77590030AF2F /* UIView+.swift */,
 				D65C62F52962DEF30085832C /* adjust+.swift */,
 				315AC8862966D4FF0005CCF2 /* String+.swift */,
+				D6F427B02967CA2E00065A24 /* UILabel+.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -711,6 +714,7 @@
 				D6C7B3CF296183D7006877F3 /* SocialLoginButton.swift in Sources */,
 				DDDBC876296045A200F65F23 /* Const.swift in Sources */,
 				DD38AD6F295B02B70084FA70 /* SceneDelegate.swift in Sources */,
+				D6F427B12967CA2E00065A24 /* UILabel+.swift in Sources */,
 				DDE12FB3295B1114008CF91B /* GeneralResponse.swift in Sources */,
 				DDE12FBB295B11BC008CF91B /* LoginRouter.swift in Sources */,
 				DDE12FC9295B123B008CF91B /* GoalDetailService.swift in Sources */,
@@ -722,7 +726,7 @@
 				DDE12FDF295B1389008CF91B /* NewGoalResponse.swift in Sources */,
 				DD849B0E295E7E0F0030AF2F /* MoyaLoggingPlugin.swift in Sources */,
 				DDDBC878296045AA00F65F23 /* String.swift in Sources */,
-				D6B4D2332965BB6700661083 /* BottomSheetViewController.swift in Sources */,
+				D6B4D2332965BB6700661083 /* BottomSheetView.swift in Sources */,
 				DDE12FDD295B137E008CF91B /* GoalDetailResponse.swift in Sources */,
 				315AC8872966D4FF0005CCF2 /* String+.swift in Sources */,
 				DDE12FC7295B1232008CF91B /* HomeService.swift in Sources */,
