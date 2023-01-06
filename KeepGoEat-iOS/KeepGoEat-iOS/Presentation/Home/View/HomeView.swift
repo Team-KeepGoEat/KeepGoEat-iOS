@@ -21,7 +21,6 @@ class HomeView: UIView {
     override init(frame: CGRect) {
         super.init(frame: frame)
         
-        setBackgroundColor()
         setLayout()
     }
     
@@ -54,5 +53,11 @@ class HomeView: UIView {
             $0.top.equalTo(homeCheerView.snp.bottom).inset(5.adjusted)
             $0.horizontalEdges.bottom.equalToSuperview()
         }
+    }
+    
+    // MARK: Custom Function
+    func updateUI(timezoneType: TimezoneType, characterType: CharacterType) {
+        setBackgroundColor(timezoneType: timezoneType)
+        homeCheerView.setCheerViewImage(timezoneType: timezoneType, characterType: characterType)
     }
 }
