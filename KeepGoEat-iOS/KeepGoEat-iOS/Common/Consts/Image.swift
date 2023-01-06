@@ -54,8 +54,8 @@ extension Const {
         static let splashImage = UIImage(named: "imgSnailSplash")
         static let homeBackground = UIImage(named: "homeBackgroundImage")
         static let plateGrayView1 = UIImage(named: "plateGrayView1")
-        static let homeBackgroundImage0 = UIImage(named: "homeBackgroundImage0")
-        static let homeBackgroundImage1 = UIImage(named: "homeBackgroundImage1")
-        static let homeBackgroundImage2 = UIImage(named: "homeBackgroundImage2")
+        static let homeBackgroundImageDay = UIImage(named: "homeBackgroundImage0")
+        static let homeBackgroundImageSun = UIImage(named: "homeBackgroundImage1")
+        static let homeBackgroundImageNight = UIImage(named: "homeBackgroundImage2")
     }
 }
