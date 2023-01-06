@@ -96,7 +96,15 @@ class HomeCheerView: UIView {
     }
     
     // MARK: Custom Function
-    func setCheerViewImage(timezoneType: TimezoneType, characterType: CharacterType) {
+    func setCharacterImage(characterType: CharacterType) {
+        switch characterType {
+        case .hungry:
+            characterImage.image = Const.Image.snailOrangeHungry
+        case .cheer:
+            characterImage.image = Const.Image.snailOrangeCheer
+        }
+    }
+    func setBackgroundImage(timezoneType: TimezoneType) {
         switch timezoneType {
         case .day:
             backgroundImage.image = Const.Image.homeBackgroundImageDay
@@ -104,12 +112,6 @@ class HomeCheerView: UIView {
             backgroundImage.image = Const.Image.homeBackgroundImageSun
         case .night:
             backgroundImage.image = Const.Image.homeBackgroundImageNight
-        }
-        switch characterType {
-        case .hungry:
-            characterImage.image = Const.Image.snailOrangeHungry
-        case .cheer:
-            characterImage.image = Const.Image.snailOrangeCheer
         }
     }
 }
