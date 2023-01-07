@@ -44,6 +44,7 @@ class HomeCheerView: UIView {
     private let cheerMessageLabel = UILabel().then {
         $0.text = "완벽하지 않아도 괜찮아요, 오늘도 킵고잇!"
         $0.numberOfLines = 3
+        $0.font = .system4Bold
     }
     
     // MARK: - Function
