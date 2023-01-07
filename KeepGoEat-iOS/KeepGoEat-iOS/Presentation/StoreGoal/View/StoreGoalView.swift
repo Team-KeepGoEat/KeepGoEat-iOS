@@ -20,20 +20,28 @@ class StoreGoalView: UIView {
         $0.text = Const.String.storeTitle
     }
     private let totalButton = UIButton().then {
-        $0.titleLabel?.font = .system5
-        $0.setTitle("전체", for: .normal)
-        $0.setTitleColor(.gray800, for: .normal)
-        $0.contentEdgeInsets = UIEdgeInsets(top: 2, left: 5, bottom: 2, right: 5
+        var config = UIButton.Configuration.plain()
+        config.background.backgroundColor = .gray50
+        config.attributedTitle = AttributedString(Const.String.storeFilterAll, attributes: AttributeContainer([NSAttributedString.Key.font: UIFont.system5]))
+        config.baseForegroundColor = .gray800
+        config.contentInsets = NSDirectionalEdgeInsets(top: 2, leading: 5, bottom: 2, trailing: 5)
+        $0.configuration = config
     }
     private let moreButton = UIButton().then {
-        $0.titleLabel?.font = .system5
-        $0.setTitle("더먹기", for: .normal)
-        $0.setTitleColor(.gray400, for: .normal)
+        var config = UIButton.Configuration.plain()
+        config.background.backgroundColor = .gray50
+        config.attributedTitle = AttributedString(Const.String.storeFilterMore, attributes: AttributeContainer([NSAttributedString.Key.font: UIFont.system5]))
+        config.baseForegroundColor = .gray800
+        config.contentInsets = NSDirectionalEdgeInsets(top: 2, leading: 5, bottom: 2, trailing: 5)
+        $0.configuration = config
     }
     private let lessButton = UIButton().then {
-        $0.titleLabel?.font = .system5
-        $0.setTitle("덜먹기", for: .normal)
-        $0.setTitleColor(.gray400, for: .normal)
+        var config = UIButton.Configuration.plain()
+        config.background.backgroundColor = .gray50
+        config.attributedTitle = AttributedString(Const.String.storeFilterLess, attributes: AttributeContainer([NSAttributedString.Key.font: UIFont.system5]))
+        config.baseForegroundColor = .gray800
+        config.contentInsets = NSDirectionalEdgeInsets(top: 2, leading: 5, bottom: 2, trailing: 5)
+        $0.configuration = config
     }
     
     override init(frame: CGRect) {
