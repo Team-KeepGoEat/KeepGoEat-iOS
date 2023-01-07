@@ -36,5 +36,6 @@ extension Const {
         static let warning = "한글, 영문,숫자만 입력 가능합니다."
         
         // MARK: StoreGoal
+        static let storeTitle = "보관한 목표"
     }
 }
