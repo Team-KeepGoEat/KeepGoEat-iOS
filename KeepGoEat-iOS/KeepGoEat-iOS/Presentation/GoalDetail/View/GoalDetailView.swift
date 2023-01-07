@@ -72,36 +72,17 @@ class GoalDetailView: UIView {
     
     private lazy var goalStatsCollectionView: GoalDetailCollectionView = GoalDetailCollectionView(frame: .zero, collectionViewLayout: collectionViewFlowLayout, goalType: goalType)
     
-    public let dimmedView: UIView = UIView().then {
+    let dimmedView: UIView = UIView().then {
         $0.backgroundColor = .black.withAlphaComponent(0.5)
         $0.isHidden = true
     }
     
-    public let bottomSheetView: BottomSheetView = BottomSheetView()
+    let bottomSheetView: BottomSheetView = BottomSheetView()
     
-    private let bottomSheetTitleLabel: UILabel = UILabel().then {
-        $0.font = .system5
-        $0.textColor = .gray600
-        $0.setTextWithLineHeight(text: Const.String.goalDetailBottomSheetTitle, lineHeight: 21)
-    }
+    let saveBottomSheetView: SaveBottomSheetView = SaveBottomSheetView()
     
-    private let bottomSheetImageView: UIImageView = UIImageView().then {
-        $0.image = Const.Image.snailOrangeCheerLeft
-    }
-    
-    private let bottomSheetSaveButton: UIButton = UIButton().then {
-        $0.setTitle(Const.String.goalDetailBottomSheetSaveButton, for: .normal)
-        $0.backgroundColor = .orange600
-        $0.titleLabel?.font = .system4Bold
-        $0.titleLabel?.textAlignment = .center
-        $0.layer.cornerRadius = 8
-    }
-    
-    private let bottomSheetDeleteButton: UIButton = UIButton().then {
-        $0.setTitle(Const.String.goalDetailBottomSheetDeleteButton, for: .normal)
-        $0.titleLabel?.font = .system6
-        $0.titleLabel?.textAlignment = .center
-        $0.setTitleColor(.gray500, for: .normal)
+    let deleteBottomSheetView: DeleteBottomSheetView = DeleteBottomSheetView().then {
+        $0.isHidden = true
     }
     
     init(frame: CGRect, goalType: GoalType) {
@@ -149,10 +130,8 @@ extension GoalDetailView {
         )
         
         bottomSheetView.addSubviews(
-            bottomSheetTitleLabel,
-            bottomSheetImageView,
-            bottomSheetSaveButton,
-            bottomSheetDeleteButton
+            saveBottomSheetView,
+            deleteBottomSheetView
         )
         
         goalStatsWrapView.addSubview(
@@ -209,7 +188,7 @@ extension GoalDetailView {
         }
         
         goalStatsCollectionView.snp.makeConstraints {
-            $0.bottom.equalToSuperview().inset(101.adjusted)
+            $0.top.equalTo(goalStatsWrapView.snp.bottom).inset(-16.adjustedHeight)
             $0.width.equalTo(336.adjusted)
             $0.height.equalTo(240.adjusted)
             $0.centerX.equalToSuperview()
@@ -225,27 +204,12 @@ extension GoalDetailView {
             $0.edges.equalToSuperview()
         }
         
-        bottomSheetTitleLabel.snp.makeConstraints {
-            $0.centerX.equalToSuperview()
-            $0.top.equalToSuperview().inset(28.adjusted)
-            $0.height.equalTo(42.adjusted)
+        saveBottomSheetView.snp.makeConstraints {
+            $0.edges.equalToSuperview()
         }
         
-        bottomSheetImageView.snp.makeConstraints {
-            $0.top.equalTo(bottomSheetTitleLabel.snp.bottom).inset(-4.adjusted)
-            $0.centerX.equalToSuperview()
-            $0.width.height.equalTo(120.adjusted)
-        }
-        
-        bottomSheetSaveButton.snp.makeConstraints {
-            $0.top.equalTo(bottomSheetImageView.snp.bottom).inset(-4.adjusted)
-            $0.directionalHorizontalEdges.equalToSuperview().inset(16.adjusted)
-            $0.height.equalTo(48.adjusted)
-        }
-        
-        bottomSheetDeleteButton.snp.makeConstraints {
-            $0.top.equalTo(bottomSheetSaveButton.snp.bottom).inset(-12.adjusted)
-            $0.centerX.equalToSuperview()
+        deleteBottomSheetView.snp.makeConstraints {
+            $0.edges.equalToSuperview()
         }
     }
 }
