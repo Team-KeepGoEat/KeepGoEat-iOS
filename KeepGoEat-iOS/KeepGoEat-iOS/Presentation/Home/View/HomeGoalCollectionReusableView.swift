@@ -44,8 +44,18 @@ class HomeGoalCollectionReusableView: UICollectionReusableView {
         self.makeColorRounded(12, 1, .orange400)
     }
     private func setLayout() {
-        self.snp.makeConstraints {
-            $0.edges.equalTo(343.adjustedWidth)
+        self.addSubviews(
+            titleLabel,
+            subLabel
+        )
+        
+        titleLabel.snp.makeConstraints {
+            $0.top.equalToSuperview().inset(24)
+            $0.leading.equalToSuperview().inset(16)
+        }
+        subLabel.snp.makeConstraints {
+            $0.bottom.equalToSuperview().inset(20)
+            $0.leading.equalToSuperview().inset(16)
         }
     }
-}
+    
