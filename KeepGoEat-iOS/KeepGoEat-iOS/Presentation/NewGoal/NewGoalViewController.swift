@@ -76,18 +76,21 @@ class NewGoalViewController: UIViewController {
     private var bottomConstraint: NSLayoutConstraint?
     
     // MARK: - Function
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         layout()
         endEditingModeWhenUserTapOutside()
+        setUI()
         
         NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
     }
     
-    private func layout() {
+    private func setUI() {
         view.backgroundColor = .white
+    }
+    
+    private func layout() {
         [textMyGoalLabel, moreVegetabletextField, countTextLabel, moreEatLabel, underLineLabel, warningLabel, completeButton].forEach {
             view.addSubview($0)
         }
@@ -150,7 +153,7 @@ extension NewGoalViewController {
         let tap = UITapGestureRecognizer(target: self, action: #selector(NewGoalViewController.endEditingView))
         self.view.addGestureRecognizer(tap)
     }
-        
+    
     // MARK: Objc Function
     @objc func endEditingView() {
         self.view.endEditing(true)
@@ -166,7 +169,7 @@ extension NewGoalViewController {
             self.view.layoutIfNeeded()
         }
     }
-
+    
     @objc private func keyboardWillHide(notification: NSNotification) {
         completeButton.snp.updateConstraints {
             $0.bottom.equalToSuperview().inset(52)
@@ -179,7 +182,6 @@ extension NewGoalViewController {
 extension NewGoalViewController: UITextFieldDelegate {
     
     func textFieldDidBeginEditing(_ textView: UITextField) {
-        
         if let text = textView.text, text.isEmpty {
             textView.textColor = .gray700
         }
