@@ -24,8 +24,8 @@ class HomeGoalCollectionReusableView: UICollectionReusableView {
         $0.font = .system5
         $0.textColor = .gray600
     }
-    private let newGoalButton = UIButton().then {
-        $0.setImage(Const.Image.icnRight, for: .normal)
+    private let newGoalImage = UIImageView().then {
+        $0.image = Const.Image.icnRight
     }
     
     // MARK: - Function
@@ -50,7 +50,7 @@ class HomeGoalCollectionReusableView: UICollectionReusableView {
         self.addSubviews(
             titleLabel,
             subLabel,
-            newGoalButton
+            newGoalImage
         )
         
         titleLabel.snp.makeConstraints {
@@ -61,7 +61,7 @@ class HomeGoalCollectionReusableView: UICollectionReusableView {
             $0.bottom.equalToSuperview().inset(20)
             $0.leading.equalToSuperview().inset(16)
         }
-        newGoalButton.snp.makeConstraints {
+        newGoalImage.snp.makeConstraints {
             $0.width.height.equalTo(32.adjusted)
             $0.centerY.equalToSuperview()
             $0.trailing.equalToSuperview().inset(8)
