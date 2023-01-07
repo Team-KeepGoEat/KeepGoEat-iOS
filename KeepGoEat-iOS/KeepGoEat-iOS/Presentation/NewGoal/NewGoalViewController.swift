@@ -21,6 +21,10 @@ class NewGoalViewController: UIViewController {
     private let eatType: EatType = .less
     
     // MARK: Component
+    
+    private let emptyView = UIView().then {_ in
+    }
+    
     private let textMyGoalLabel = UILabel().then {
         $0.text = Const.String.textMyGoalTitle
         $0.textColor = .gray700
@@ -91,12 +95,22 @@ class NewGoalViewController: UIViewController {
     }
     
     private func layout() {
-        [textMyGoalLabel, moreVegetabletextField, countTextLabel, moreEatLabel, underLineLabel, warningLabel, completeButton].forEach {
-            view.addSubview($0)
+        view.addSubview(emptyView)
+        view.addSubview(completeButton)
+        
+        [textMyGoalLabel, moreVegetabletextField, countTextLabel, moreEatLabel, underLineLabel, warningLabel ].forEach {
+            emptyView.addSubview($0)
+        }
+        
+        emptyView.snp.makeConstraints {
+            $0.top.equalToSuperview().offset(92.adjusted)
+            $0.width.equalTo(375.adjusted)
+            $0.height.equalTo(200.adjusted)
+            $0.centerX.equalToSuperview()
         }
         
         textMyGoalLabel.snp.makeConstraints {
-            $0.top.equalToSuperview().offset(92.adjusted)
+            $0.top.equalTo(emptyView)
             $0.leading.equalToSuperview().offset(20.adjusted)
         }
         
@@ -123,7 +137,7 @@ class NewGoalViewController: UIViewController {
         }
         
         moreEatLabel.snp.makeConstraints {
-            $0.top.equalToSuperview().offset(146.adjusted)
+            $0.top.equalToSuperview().offset(54.adjusted)
             $0.leading.equalTo(self.underLineLabel.snp.trailing).offset(16.adjusted)
         }
         
@@ -164,7 +178,7 @@ extension NewGoalViewController {
             let keyboardHeight: CGFloat
             keyboardHeight = keyboardSize.height - self.view.safeAreaInsets.bottom
             completeButton.snp.updateConstraints {
-                $0.bottom.equalToSuperview().inset(keyboardHeight + 16)
+                $0.bottom.equalToSuperview().inset(keyboardHeight + 16.adjusted)
             }
             self.view.layoutIfNeeded()
         }
