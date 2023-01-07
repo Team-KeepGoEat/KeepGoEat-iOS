@@ -36,6 +36,13 @@ extension Const {
         static let presentGoalStatsTitle = "이번달 먹은 날"
         
         // MARK: NewGoal
+        static let textMyGoalTitle = "나의 목표를 입력해볼까요?"
+        static let moreVegetablePlaceHoleder = "ex) 하루 1끼 이상 야채"
+        static let textCount = "(0/20)"
+        static let moreEat =  "더먹기"
+        static let lessEat = "덜먹기"
+        static let complete = "완료"
+        static let warning = "한글, 영문,숫자만 입력 가능합니다."
         
         // MARK: StoreGoal
     }
