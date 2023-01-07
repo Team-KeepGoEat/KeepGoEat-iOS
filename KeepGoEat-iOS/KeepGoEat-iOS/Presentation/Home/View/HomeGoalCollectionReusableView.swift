@@ -59,3 +59,16 @@ class HomeGoalCollectionReusableView: UICollectionReusableView {
         }
     }
     
+    func setSubTitleText(count: Int) {
+        switch count {
+        case 1:
+            subLabel.text = Const.String.homeNewSub1
+        case 2:
+            subLabel.text = Const.String.homeNewSub2
+        case 3:
+            subLabel.text = Const.String.homeNewSub3
+        default:
+            subLabel.text = ""
+        }
+    }
+}
