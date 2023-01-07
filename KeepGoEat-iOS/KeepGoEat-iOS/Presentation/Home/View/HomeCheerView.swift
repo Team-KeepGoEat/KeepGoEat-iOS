@@ -115,4 +115,7 @@ class HomeCheerView: UIView {
             backgroundImage.image = Const.Image.homeBackgroundImageNight
         }
     }
+    func updatecheerMessageLabelText(string: String) {
+        cheerMessageLabel.text = string
+    }
 }
