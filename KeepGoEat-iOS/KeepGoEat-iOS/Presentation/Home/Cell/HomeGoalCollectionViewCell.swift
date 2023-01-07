@@ -29,7 +29,7 @@ class HomeGoalCollectionViewCell: UICollectionViewCell {
             .setCountTitleTextStyle(string: "8", isMore: true)
             .setCountSubTextStyle(string: Const.String.homeCountGuide)
     }
-    private let achieveButton = HomeAchieveButton(frame: .zero)
+    let achieveButton = HomeAchieveButton(frame: .zero)
 
     // MARK: - Function
     // MARK: LifeCycle
