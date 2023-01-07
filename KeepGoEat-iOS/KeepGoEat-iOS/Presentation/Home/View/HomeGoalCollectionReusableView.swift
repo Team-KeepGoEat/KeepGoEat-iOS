@@ -15,6 +15,15 @@ class HomeGoalCollectionReusableView: UICollectionReusableView {
     static let identifier = "HomeGoalCollectionReusableView"
     
     // MARK: Component
+    private let titleLabel = UILabel().then {
+        $0.text = Const.String.homeNewTitle
+        $0.font = .system5Bold
+        $0.textColor = .orange600
+    }
+    private let subLabel = UILabel().then {
+        $0.font = .system5
+        $0.textColor = .gray600
+    }
     
     // MARK: - Function
     // MARK: LifeCycle
