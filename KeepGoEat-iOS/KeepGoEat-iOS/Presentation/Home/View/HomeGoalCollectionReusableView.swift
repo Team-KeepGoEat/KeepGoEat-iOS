@@ -24,6 +24,9 @@ class HomeGoalCollectionReusableView: UICollectionReusableView {
         $0.font = .system5
         $0.textColor = .gray600
     }
+    private let newGoalButton = UIButton().then {
+        $0.setImage(Const.Image.icnRight, for: .normal)
+    }
     
     // MARK: - Function
     // MARK: LifeCycle
@@ -46,7 +49,8 @@ class HomeGoalCollectionReusableView: UICollectionReusableView {
     private func setLayout() {
         self.addSubviews(
             titleLabel,
-            subLabel
+            subLabel,
+            newGoalButton
         )
         
         titleLabel.snp.makeConstraints {
@@ -56,6 +60,11 @@ class HomeGoalCollectionReusableView: UICollectionReusableView {
         subLabel.snp.makeConstraints {
             $0.bottom.equalToSuperview().inset(20)
             $0.leading.equalToSuperview().inset(16)
+        }
+        newGoalButton.snp.makeConstraints {
+            $0.width.height.equalTo(32.adjusted)
+            $0.centerY.equalToSuperview()
+            $0.trailing.equalToSuperview().inset(8)
         }
     }
     
