@@ -81,6 +81,7 @@
 		DDE12FF0295B15AC008CF91B /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = DDE12FEF295B15AC008CF91B /* Lottie */; };
 		DDE8D3882969FF3800331E3C /* StoreGoalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDE8D3872969FF3800331E3C /* StoreGoalView.swift */; };
 		DDE8D38A296A078C00331E3C /* StoreCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDE8D389296A078C00331E3C /* StoreCollectionViewCell.swift */; };
+		DDE8D38C296A0C3800331E3C /* StoreFilterButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDE8D38B296A0C3800331E3C /* StoreFilterButton.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -154,6 +155,7 @@
 		DDE12FDE295B1389008CF91B /* NewGoalResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewGoalResponse.swift; sourceTree = "<group>"; };
 		DDE8D3872969FF3800331E3C /* StoreGoalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreGoalView.swift; sourceTree = "<group>"; };
 		DDE8D389296A078C00331E3C /* StoreCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreCollectionViewCell.swift; sourceTree = "<group>"; };
+		DDE8D38B296A0C3800331E3C /* StoreFilterButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreFilterButton.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -597,6 +599,7 @@
 			isa = PBXGroup;
 			children = (
 				DDE8D3872969FF3800331E3C /* StoreGoalView.swift */,
+				DDE8D38B296A0C3800331E3C /* StoreFilterButton.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -736,6 +739,7 @@
 				DD849B12295E80630030AF2F /* NetworkConstant.swift in Sources */,
 				DDE12F9B295B0CAA008CF91B /* KeychainHandler.swift in Sources */,
 				D69F23BB296316A80078FCF1 /* GoalDetailView.swift in Sources */,
+				DDE8D38C296A0C3800331E3C /* StoreFilterButton.swift in Sources */,
 				DD849B00295E759E0030AF2F /* StoreGoalResponse.swift in Sources */,
 				DDE12FBD295B11E8008CF91B /* HomeRouter.swift in Sources */,
 				DDE12F93295B0BED008CF91B /* Image.swift in Sources */,
