@@ -7,6 +7,19 @@
 
 import UIKit
 
+import SnapKit
+import Then
+
+enum TimezoneType: String {
+    case day
+    case sun
+    case night
+}
+enum CharacterType: String {
+    case hungry
+    case cheer
+}
+
 class HomeCheerView: UIView {
     
     // MARK: - Variables
@@ -20,7 +33,7 @@ class HomeCheerView: UIView {
         $0.clipsToBounds = true
     }
     private let characterImage = UIImageView().then {
-        $0.image = Const.Image.snailOrangeDefault
+        $0.image = Const.Image.snailGreenRibon
     }
     private let cheerMessageView = UIView().then {
         $0.backgroundColor = .gray50
@@ -56,9 +69,8 @@ class HomeCheerView: UIView {
         )
         self.sendSubviewToBack(backgroundImage)
         
-        // TODO: 디자인이 이미지 사이즈 바꿔주면 높이도 함께 변경
         self.snp.makeConstraints {
-            $0.height.equalTo(240.adjusted)
+            $0.height.equalTo(245.adjusted)
         }
         backgroundImage.snp.makeConstraints {
             $0.edges.equalToSuperview()
@@ -80,6 +92,26 @@ class HomeCheerView: UIView {
         }
         cheerMessageLabel.snp.makeConstraints {
             $0.edges.equalToSuperview().inset(12)
+        }
+    }
+    
+    // MARK: Custom Function
+    func setCharacterImage(characterType: CharacterType) {
+        switch characterType {
+        case .hungry:
+            characterImage.image = Const.Image.snailOrangeHungry
+        case .cheer:
+            characterImage.image = Const.Image.snailOrangeCheer
+        }
+    }
+    func setBackgroundImage(timezoneType: TimezoneType) {
+        switch timezoneType {
+        case .day:
+            backgroundImage.image = Const.Image.homeBackgroundImageDay
+        case .sun:
+            backgroundImage.image = Const.Image.homeBackgroundImageSun
+        case .night:
+            backgroundImage.image = Const.Image.homeBackgroundImageNight
         }
     }
 }
