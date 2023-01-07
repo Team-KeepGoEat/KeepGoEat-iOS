@@ -68,8 +68,9 @@ extension OnboardingCollectionViewCell {
         
         animation.snp.makeConstraints {
             $0.top.equalTo(descrtiptionLabel.snp.bottom).offset(26.adjusted)
-            $0.leading.trailing.equalToSuperview()
+            $0.width.equalTo(375.adjusted)
             $0.height.equalTo(268.adjusted)
+            $0.centerX.equalToSuperview()
         }
     }
     

@@ -67,7 +67,7 @@ class OnboardingViewController: UIViewController {
         $0.titleLabel?.font = .system4Bold
         $0.setTitleColor(.white, for: .normal)
         $0.backgroundColor = .orange600
-        $0.layer.cornerRadius = 9
+        $0.layer.cornerRadius = 9.adjusted
     }
     
     // MARK: - Constants
@@ -102,7 +102,7 @@ extension OnboardingViewController {
         
         passButton.snp.makeConstraints {
             $0.centerY.equalTo(pageControl)
-            $0.leading.equalToSuperview().offset(303.adjusted)
+            $0.trailing.equalTo(self.nextButton.snp.trailing)
             $0.height.equalTo(21.adjusted)
             $0.width.equalTo(49.adjusted)
         }
@@ -114,7 +114,7 @@ extension OnboardingViewController {
         }
         
         nextButton.snp.makeConstraints {
-            $0.top.equalTo(self.view.safeAreaLayoutGuide).offset(575.adjusted)
+            $0.bottom.equalToSuperview().inset(44.adjusted)
             $0.centerX.equalToSuperview()
             $0.width.equalTo(343.adjusted)
             $0.height.equalTo(48.adjusted)
@@ -145,7 +145,7 @@ extension OnboardingViewController {
 extension OnboardingViewController: UICollectionViewDelegateFlowLayout {
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         let width = scrollView.frame.width
-        currentPage = Int(scrollView.contentOffset.x / width.adjusted)
+        currentPage = Int(scrollView.contentOffset.x / width)
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
