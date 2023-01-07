@@ -28,6 +28,10 @@ extension Const {
         static let goalDetailBottomSheetTitle = "목표 달성이 끝났나요?\n달성 완료된 목표는 보관해서 모아볼 수 있어요."
         static let goalDetailBottomSheetSaveButton = "목표 보관하기"
         static let goalDetailBottomSheetDeleteButton = "잘못된 목표인가요? 삭제하기"
+        static let deleteTitle = "삭제하시겠어요?"
+        static let deleteDescription = "삭제한 목표는 복구할 수 없어요."
+        static let cancelButton = "아니오"
+        static let deleteButton = "네, 삭제할래요"
         
         // MARK: NewGoal
         static let textMyGoalTitle = "나의 목표를 입력해볼까요?"
