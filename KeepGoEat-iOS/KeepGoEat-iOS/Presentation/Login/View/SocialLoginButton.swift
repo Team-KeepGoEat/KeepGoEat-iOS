@@ -7,7 +7,6 @@
 
 import UIKit
 
-import Then
 import SnapKit
 
 import KakaoSDKUser
