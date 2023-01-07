@@ -36,6 +36,7 @@ final class OnboardingCollectionViewCell: UICollectionViewCell {
     override init(frame: CGRect) {
         super.init(frame: frame)
         layout()
+        setUI()
     }
     
     required init?(coder: NSCoder) {
@@ -48,9 +49,11 @@ final class OnboardingCollectionViewCell: UICollectionViewCell {
 extension OnboardingCollectionViewCell {
     
     // MARK: - Layout Helpers
+    private func setUI() {
+        contentView.backgroundColor = .white
+    }
     
     private func layout() {
-        backgroundColor = .white
         
         [titleLabel, descrtiptionLabel, animation].forEach {
             contentView.addSubview($0)
