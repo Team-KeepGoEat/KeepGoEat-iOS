@@ -85,7 +85,6 @@ class HomeView: UIView {
             }
             homeCheerView.snp.makeConstraints {
                 $0.top.horizontalEdges.equalToSuperview()
-//                $0.width.equalTo(con.snp.width)
             }
             homeExistView.snp.makeConstraints {
                 $0.top.equalTo(homeCheerView.snp.bottom).inset(5.adjusted)
