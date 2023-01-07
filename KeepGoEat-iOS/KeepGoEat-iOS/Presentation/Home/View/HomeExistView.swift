@@ -19,7 +19,7 @@ class HomeExistView: UIView {
         $0.estimatedItemSize = CGSize(width: 343.adjustedWidth, height: 184.adjusted)
         $0.footerReferenceSize = CGSize(width: 343.adjustedWidth, height: 82.adjusted)
         $0.minimumLineSpacing = 16.adjusted
-        $0.sectionInset = UIEdgeInsets(top: 0, left: 0, bottom: 16.adjusted, right: 0)
+        $0.sectionInset = UIEdgeInsets(top: 3.adjusted, left: 0, bottom: 16.adjusted, right: 0)
     }
     private lazy var homeGoalCollectionView = HomeGoalCollectionView(frame: .zero, collectionViewLayout: layout)
     
