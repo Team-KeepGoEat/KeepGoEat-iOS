@@ -21,7 +21,6 @@ class HomeGoalCollectionReusableView: UICollectionReusableView {
         $0.textColor = .orange600
     }
     private let subLabel = UILabel().then {
-        $0.text = Const.String.homeNewSub3
         $0.font = .system5
         $0.textColor = .gray600
     }
@@ -50,10 +49,6 @@ class HomeGoalCollectionReusableView: UICollectionReusableView {
             subLabel
         )
         
-        self.snp.makeConstraints {
-            $0.width.equalTo(343.adjusted)
-            $0.height.equalTo(82.adjusted)
-        }
         titleLabel.snp.makeConstraints {
             $0.top.equalToSuperview().inset(24)
             $0.leading.equalToSuperview().inset(16)
