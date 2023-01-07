@@ -19,30 +19,9 @@ class StoreGoalView: UIView {
         $0.textColor = .gray800
         $0.text = Const.String.storeTitle
     }
-    private let totalButton = UIButton().then {
-        var config = UIButton.Configuration.plain()
-        config.background.backgroundColor = .gray50
-        config.attributedTitle = AttributedString(Const.String.storeFilterAll, attributes: AttributeContainer([NSAttributedString.Key.font: UIFont.system5]))
-        config.baseForegroundColor = .gray800
-        config.contentInsets = NSDirectionalEdgeInsets(top: 2, leading: 5, bottom: 2, trailing: 5)
-        $0.configuration = config
-    }
-    private let moreButton = UIButton().then {
-        var config = UIButton.Configuration.plain()
-        config.background.backgroundColor = .gray50
-        config.attributedTitle = AttributedString(Const.String.storeFilterMore, attributes: AttributeContainer([NSAttributedString.Key.font: UIFont.system5]))
-        config.baseForegroundColor = .gray800
-        config.contentInsets = NSDirectionalEdgeInsets(top: 2, leading: 5, bottom: 2, trailing: 5)
-        $0.configuration = config
-    }
-    private let lessButton = UIButton().then {
-        var config = UIButton.Configuration.plain()
-        config.background.backgroundColor = .gray50
-        config.attributedTitle = AttributedString(Const.String.storeFilterLess, attributes: AttributeContainer([NSAttributedString.Key.font: UIFont.system5]))
-        config.baseForegroundColor = .gray800
-        config.contentInsets = NSDirectionalEdgeInsets(top: 2, leading: 5, bottom: 2, trailing: 5)
-        $0.configuration = config
-    }
+    private let totalButton = StoreFilterButton(frame: .zero, title: Const.String.storeFilterAll, selectType: .seleted)
+    private let moreButton = StoreFilterButton(frame: .zero, title: Const.String.storeFilterMore, selectType: .unselected)
+    private let lessButton = StoreFilterButton(frame: .zero, title: Const.String.storeFilterLess, selectType: .unselected)
     
     override init(frame: CGRect) {
         super.init(frame: frame)
