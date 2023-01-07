@@ -48,6 +48,33 @@ class StoreGoalView: UIView {
     private func setUI() {
         self.backgroundColor = .gray50
     }
-    */
-
+    private func setLayout() {
+        self.addSubviews(
+            headerView,
+            headerLabel,
+            lessButton,
+            moreButton,
+            totalButton
+        )
+        
+        headerView.snp.makeConstraints {
+            $0.top.equalTo(self.safeAreaLayoutGuide)
+        }
+        headerLabel.snp.makeConstraints {
+            $0.top.equalTo(headerView.snp.bottom).offset(24.adjusted)
+            $0.leading.equalToSuperview().offset(16.adjusted)
+        }
+        lessButton.snp.makeConstraints {
+            $0.top.equalTo(headerView.snp.bottom).offset(24)
+            $0.trailing.equalToSuperview().offset(-11.adjusted)
+        }
+        moreButton.snp.makeConstraints {
+            $0.top.equalTo(headerView.snp.bottom).offset(24)
+            $0.trailing.equalTo(lessButton.snp.leading).offset(-7.adjusted)
+        }
+        totalButton.snp.makeConstraints {
+            $0.top.equalTo(headerView.snp.bottom).offset(24)
+            $0.trailing.equalTo(moreButton.snp.leading).offset(-7.adjusted)
+        }
+    }
 }
