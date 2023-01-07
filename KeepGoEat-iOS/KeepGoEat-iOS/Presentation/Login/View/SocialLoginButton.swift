@@ -7,7 +7,6 @@
 
 import UIKit
 
-import Then
 import SnapKit
 
 enum SocialType: String {
