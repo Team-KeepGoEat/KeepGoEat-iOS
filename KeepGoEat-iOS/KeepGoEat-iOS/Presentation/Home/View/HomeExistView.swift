@@ -21,9 +21,7 @@ class HomeExistView: UIView {
         $0.minimumLineSpacing = 16.adjusted
         $0.sectionInset = UIEdgeInsets(top: 24.adjusted, left: 0, bottom: 16.adjusted, right: 0)
     }
-    private lazy var homeGoalCollectionView = HomeGoalCollectionView(frame: .zero, collectionViewLayout: layout).then {
-        $0.isScrollEnabled = false
-    }
+    private lazy var homeGoalCollectionView = HomeGoalCollectionView(frame: .zero, collectionViewLayout: layout)
     
     // MARK: - Function
     // MARK: LifeCycle

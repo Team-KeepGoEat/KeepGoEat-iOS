@@ -24,11 +24,6 @@ class HomeView: UIView {
     private let homeCheerView = HomeCheerView()
     private let homeEmptyView = HomeEmptyView()
     private let homeExistView = HomeExistView()
-    private let scrollView = UIScrollView().then {
-        $0.showsHorizontalScrollIndicator = false
-        $0.contentInsetAdjustmentBehavior = .never
-    }
-    private let contentView = UIView()
     
     // MARK: - Function
     // MARK: LifeCycle
@@ -65,39 +60,21 @@ class HomeView: UIView {
     }
     
     private func setLayout() {
+        self.addSubview(homeCheerView)
+        
+        homeCheerView.snp.makeConstraints {
+            $0.top.horizontalEdges.equalTo(self.safeAreaLayoutGuide)
+        }
+        
         switch homeType {
         case .exist:
-            self.addSubview(scrollView)
-            scrollView.addSubview(contentView)
-            contentView.addSubviews(
-                homeCheerView,
-                homeExistView
-            )
-            
-            scrollView.snp.makeConstraints {
-                $0.edges.equalToSuperview()
-            }
-            contentView.snp.makeConstraints {
-                $0.edges.equalTo(scrollView.contentLayoutGuide)
-                $0.width.equalTo(scrollView.snp.width)
-                $0.height.greaterThanOrEqualTo(scrollView.snp.height).priority(.low)
-                $0.bottom.equalTo(scrollView.snp.bottom)
-            }
-            homeCheerView.snp.makeConstraints {
-                $0.top.horizontalEdges.equalToSuperview()
-            }
+            self.addSubview(homeExistView)
             homeExistView.snp.makeConstraints {
                 $0.top.equalTo(homeCheerView.snp.bottom).inset(5.adjusted)
                 $0.horizontalEdges.bottom.equalToSuperview()
             }
         case .empty:
-            self.addSubviews(
-                homeCheerView,
-                homeEmptyView
-            )
-            homeCheerView.snp.makeConstraints {
-                $0.top.horizontalEdges.equalTo(self.safeAreaLayoutGuide)
-            }
+            self.addSubview(homeEmptyView)
             homeEmptyView.snp.makeConstraints {
                 $0.top.equalTo(homeCheerView.snp.bottom).inset(5.adjusted)
                 $0.horizontalEdges.bottom.equalToSuperview()
