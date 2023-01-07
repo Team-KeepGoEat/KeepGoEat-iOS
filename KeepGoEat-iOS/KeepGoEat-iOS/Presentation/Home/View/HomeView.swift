@@ -26,6 +26,7 @@ class HomeView: UIView {
     private let homeExistView = HomeExistView()
     private let scrollView = UIScrollView().then {
         $0.showsHorizontalScrollIndicator = false
+        $0.contentInsetAdjustmentBehavior = .never
     }
     private let contentView = UIView()
     
