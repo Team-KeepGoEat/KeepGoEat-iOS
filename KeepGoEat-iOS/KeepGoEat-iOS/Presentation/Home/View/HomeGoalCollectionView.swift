@@ -27,6 +27,24 @@ class HomeGoalCollectionView: UICollectionView {
         self.register(HomeGoalCollectionViewCell.self, forCellWithReuseIdentifier: HomeGoalCollectionViewCell.identifier)
         self.register(HomeGoalCollectionReusableView.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionFooter, withReuseIdentifier: HomeGoalCollectionReusableView.identifier)
     }
+    
+    @objc func achieveButtonDidTap(sender: UIButton) {
+        guard let target = self.collectionView(self, cellForItemAt: IndexPath(item: sender.tag, section: 0)) as? HomeGoalCollectionViewCell else { return }
+        let data = data.goals[sender.tag]
+        print("✨", target.achieveButton)
+        
+        if data.isMore && data.isAchieved {
+            target.achieveButton.setUI(kindType: .more, stateType: .before)
+        } else if data.isMore && !data.isAchieved {
+            target.achieveButton.setUI(kindType: .more, stateType: .after)
+        } else if !data.isMore && data.isAchieved {
+            target.achieveButton.setUI(kindType: .less, stateType: .before)
+        } else {
+            target.achieveButton.setUI(kindType: .less, stateType: .after)
+        }
+        setNeedsLayout()
+        print("✨", target.achieveButton)
+    }
 }
 
 // MARK: - extension
