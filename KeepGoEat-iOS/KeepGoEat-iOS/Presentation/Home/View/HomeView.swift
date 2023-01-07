@@ -24,6 +24,7 @@ class HomeView: UIView {
     private let homeCheerView = HomeCheerView()
     private let homeEmptyView = HomeEmptyView()
     private let homeExistView = HomeExistView()
+    private let scrollView = UIScrollView()
     
     // MARK: - Function
     // MARK: LifeCycle
