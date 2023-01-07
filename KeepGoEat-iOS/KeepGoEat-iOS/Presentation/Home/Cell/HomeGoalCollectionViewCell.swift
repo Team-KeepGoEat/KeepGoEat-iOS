@@ -44,11 +44,6 @@ class HomeGoalCollectionViewCell: UICollectionViewCell {
     }
     
     private func setUI() {
-//        self.backgroundColor = .gray50
-//        self.makeRounded(radius: 12.adjusted)
-//        self.makeColorRounded(12.adjusted, 1, .gray400)
-//        self.layer.shadowColor = UIColor.gray400.cgColor
-//        self.layer.shadowRadius = 4
         self.setCellShadow(backView: backView)
     }
     private func setLayout() {
