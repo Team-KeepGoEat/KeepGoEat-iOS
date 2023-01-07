@@ -41,8 +41,8 @@ class HomeGoalCollectionReusableView: UICollectionReusableView {
 
     // MARK: Layout Helpers
     private func setUI() {
-        self.backgroundColor = .orange50
-        self.makeColorRounded(12, 1, .orange400)
+        self.backgroundColor = .orange20
+        self.makeColorRounded(12, 1, .orange50)
     }
     private func setLayout() {
         self.addSubviews(
