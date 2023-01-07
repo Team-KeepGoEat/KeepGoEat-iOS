@@ -19,18 +19,14 @@ class HomeViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        setLayout()
+        // API 연결 후 뷰 업데이트를 위해 사용 예정
+        homeView.updateCheerBackgroundUI(timezoneType: .sun)
     }
     
     override func loadView() {
         super.loadView()
         
         self.view = homeView
-    }
-    
-    // MARK: Layout Helpers
-    private func setLayout() {
-        
     }
 }
 
