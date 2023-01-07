@@ -57,10 +57,10 @@ class HomeAchieveButton: UIButton {
             switch kindType {
             case .less:
                 config.background.backgroundColor = .green600
-                config.attributedTitle = AttributedString(Const.String.homeAddGoal, attributes: AttributeContainer([NSAttributedString.Key.font: UIFont.system4Bold]))
+                config.attributedTitle = AttributedString(Const.String.homeLessButtonBefore, attributes: AttributeContainer([NSAttributedString.Key.font: UIFont.system4Bold]))
             case .more:
                 config.background.backgroundColor = .orange600
-                config.attributedTitle = AttributedString(Const.String.homeAddGoal, attributes: AttributeContainer([NSAttributedString.Key.font: UIFont.system4Bold]))
+                config.attributedTitle = AttributedString(Const.String.homeMoreButtonBefore, attributes: AttributeContainer([NSAttributedString.Key.font: UIFont.system4Bold]))
             }
         case .after:
             switch kindType {
@@ -68,12 +68,12 @@ class HomeAchieveButton: UIButton {
                 config.image = Const.Image.icnCheckGreen
                 config.baseForegroundColor = .green600
                 config.background.backgroundColor = .green100
-                config.attributedTitle = AttributedString(Const.String.homeAddGoal, attributes: AttributeContainer([NSAttributedString.Key.font: UIFont.system4Bold]))
+                config.attributedTitle = AttributedString(Const.String.homeLessButtonAfter, attributes: AttributeContainer([NSAttributedString.Key.font: UIFont.system4Bold]))
             case .more:
                 config.image = Const.Image.icnCheckOrange
                 config.baseForegroundColor = .orange600
                 config.background.backgroundColor = .orange50
-                config.attributedTitle = AttributedString(Const.String.homeAddGoal, attributes: AttributeContainer([NSAttributedString.Key.font: UIFont.system4Bold]))
+                config.attributedTitle = AttributedString(Const.String.homeMoreButtonAfter, attributes: AttributeContainer([NSAttributedString.Key.font: UIFont.system4Bold]))
             }
         }
         self.configuration = config
