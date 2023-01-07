@@ -10,7 +10,7 @@ import UIKit
 class HomeGoalCollectionView: UICollectionView {
     
     // MARK: - Variables
-    let data = GetHomeResponse.setHomeDummy3()
+    let data = GetHomeResponse.setHomeDummy2()
 
     override init(frame: CGRect, collectionViewLayout layout: UICollectionViewLayout) {
         super.init(frame: frame, collectionViewLayout: layout)
@@ -30,20 +30,19 @@ class HomeGoalCollectionView: UICollectionView {
     
     @objc func achieveButtonDidTap(sender: UIButton) {
         guard let target = self.collectionView(self, cellForItemAt: IndexPath(item: sender.tag, section: 0)) as? HomeGoalCollectionViewCell else { return }
-        let data = data.goals[sender.tag]
+        let currentData = data.goals[sender.tag]
         print("✨", target.achieveButton)
-        
-        if data.isMore && data.isAchieved {
+        if currentData.isMore && currentData.isAchieved {
             target.achieveButton.setUI(kindType: .more, stateType: .before)
-        } else if data.isMore && !data.isAchieved {
+        } else if currentData.isMore && !currentData.isAchieved {
             target.achieveButton.setUI(kindType: .more, stateType: .after)
-        } else if !data.isMore && data.isAchieved {
+        } else if !currentData.isMore && currentData.isAchieved {
             target.achieveButton.setUI(kindType: .less, stateType: .before)
         } else {
             target.achieveButton.setUI(kindType: .less, stateType: .after)
         }
-        setNeedsLayout()
-        print("✨", target.achieveButton)
+        print("✨✨✨", target.achieveButton)
+        reloadItems(at: [IndexPath(item: sender.tag, section: 0)])
     }
 }
 
