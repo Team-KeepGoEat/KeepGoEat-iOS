@@ -93,4 +93,10 @@ class HomeGoalCollectionViewCell: UICollectionViewCell {
             achieveButton.setUI(kindType: .less, stateType: data.isAchieved ? .after : .before)
         }
     }
+    func updateCountLabel(count: Int) {
+        self.goalCountLabel.attributedText = NSMutableAttributedString()
+                .setCountTitleTextStyle(string: String(count), isMore: true)
+                .setCountSubTextStyle(string: Const.String.homeCountGuide)
+        
+    }
 }
