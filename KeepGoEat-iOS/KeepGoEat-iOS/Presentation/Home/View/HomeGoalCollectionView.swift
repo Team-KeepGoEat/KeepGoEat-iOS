@@ -41,6 +41,7 @@ class HomeGoalCollectionView: UICollectionView {
         } else {
             target.achieveButton.setUI(kindType: .less, stateType: .after)
         }
+        target.updateCountLabel(count: 10)
         print("✨✨✨", target.achieveButton)
         reloadItems(at: [IndexPath(item: sender.tag, section: 0)])
     }
