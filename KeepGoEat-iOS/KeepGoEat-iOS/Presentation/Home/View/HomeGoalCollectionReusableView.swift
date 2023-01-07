@@ -72,10 +72,13 @@ class HomeGoalCollectionReusableView: UICollectionReusableView {
         switch count {
         case 1:
             subLabel.text = Const.String.homeNewSub1
+            newGoalImage.isHidden = false
         case 2:
             subLabel.text = Const.String.homeNewSub2
+            newGoalImage.isHidden = false
         case 3:
             subLabel.text = Const.String.homeNewSub3
+            newGoalImage.isHidden = true
         default:
             subLabel.text = ""
         }
