@@ -17,8 +17,12 @@ extension Const {
         
         // MARK: Home
         static let hoemHeader = "오늘 식습관 목표"
+        static let homeEmptyTitle = "아직 목표를 정하지 않았어요."
+        static let homeEmptySub = "새로운 목표를 추가해보세요."
+        static let addGoal = "목표 추가하기"
         
         // MARK: GoalDetail
+        static let myGoal = "나의 목표"
         static let previousGoalStatsTitle = "지난달 먹은 날"
         static let presentGoalStatsTitle = "이번달 먹은 날"
         
