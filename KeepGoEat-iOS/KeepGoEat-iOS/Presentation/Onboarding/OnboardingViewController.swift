@@ -44,9 +44,11 @@ class OnboardingViewController: UIViewController {
         $0.pageIndicatorTintColor = .gray300
         $0.isUserInteractionEnabled = false
         $0.currentPageIndicatorTintColor = .orange600
+        $0.isUserInteractionEnabled = false
     }
     
     private let collectionViewLayout: UICollectionViewFlowLayout = UICollectionViewFlowLayout().then {
+        $0.minimumLineSpacing = 0
         $0.scrollDirection = .horizontal
     }
     
@@ -66,7 +68,6 @@ class OnboardingViewController: UIViewController {
         $0.setTitleColor(.white, for: .normal)
         $0.backgroundColor = .orange600
         $0.layer.cornerRadius = 9
-        pageControl.isUserInteractionEnabled = false
     }
     
     // MARK: - Constants
@@ -79,6 +80,7 @@ class OnboardingViewController: UIViewController {
         super.viewDidLoad()
         layout()
         register()
+        setAddTarget() 
     }
 }
 
@@ -122,17 +124,32 @@ extension OnboardingViewController {
     private func register() {
         onboardingCollectionView.register(OnboardingCollectionViewCell.self, forCellWithReuseIdentifier: OnboardingCollectionViewCell.identifier)
     }
+    
+    private func setAddTarget() {
+        nextButton.addTarget(self, action: #selector(tapNextButton), for: .touchUpInside)
+    }
+    
+    @objc
+    private func tapNextButton() {
+        if currentPage == onboardingData.count - 1 {
+            print("go to main")
+        } else {
+            currentPage += 1
+            let indexPath = IndexPath(item: currentPage, section: 0)
+            onboardingCollectionView.scrollToItem(at: indexPath, at: .centeredHorizontally, animated: true)
+        }
+    }
 }
 
 // MARK: - Custom Functions
 extension OnboardingViewController: UICollectionViewDelegateFlowLayout {
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         let width = scrollView.frame.width
-        currentPage = Int(scrollView.contentOffset.x / width)
+        currentPage = Int(scrollView.contentOffset.x / width.adjusted)
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: collectionView.frame.width, height: collectionView.frame.height)
+        return CGSize(width: UIScreen.main.bounds.width, height: collectionView.frame.height)
     }
 }
 
@@ -146,6 +163,6 @@ extension OnboardingViewController: UICollectionViewDataSource {
         
         onboardingCell.dataBind(model: onboardingList[indexPath.item])
         return onboardingCell
-                
+            
     }
 }
