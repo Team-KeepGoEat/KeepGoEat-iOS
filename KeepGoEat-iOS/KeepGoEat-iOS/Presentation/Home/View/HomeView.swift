@@ -61,21 +61,35 @@ class HomeView: UIView {
     }
     
     private func setLayout() {
-        self.addSubview(homeCheerView)
-        
-        homeCheerView.snp.makeConstraints {
-            $0.top.horizontalEdges.equalTo(self.safeAreaLayoutGuide)
-        }
-        
         switch homeType {
         case .exist:
-            self.addSubview(homeExistView)
+            self.addSubview(scrollView)
+            scrollView.addSubviews(
+                homeCheerView,
+                homeExistView
+            )
+            
+            scrollView.snp.makeConstraints {
+                $0.edges.equalToSuperview()
+            }
+            homeCheerView.snp.makeConstraints {
+                $0.top.equalToSuperview()
+                $0.width.equalTo(scrollView.snp.width)
+            }
             homeExistView.snp.makeConstraints {
                 $0.top.equalTo(homeCheerView.snp.bottom).inset(5.adjusted)
                 $0.horizontalEdges.bottom.equalToSuperview()
+                $0.width.equalTo(scrollView.snp.width)
+                $0.height.greaterThanOrEqualTo(self.snp.height).priority(.low)
             }
         case .empty:
-            self.addSubview(homeEmptyView)
+            self.addSubviews(
+                homeCheerView,
+                homeEmptyView
+            )
+            homeCheerView.snp.makeConstraints {
+                $0.top.horizontalEdges.equalTo(self.safeAreaLayoutGuide)
+            }
             homeEmptyView.snp.makeConstraints {
                 $0.top.equalTo(homeCheerView.snp.bottom).inset(5.adjusted)
                 $0.horizontalEdges.bottom.equalToSuperview()
