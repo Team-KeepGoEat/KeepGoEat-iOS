@@ -24,7 +24,9 @@ class HomeView: UIView {
     private let homeCheerView = HomeCheerView()
     private let homeEmptyView = HomeEmptyView()
     private let homeExistView = HomeExistView()
-    private let scrollView = UIScrollView()
+    private let scrollView = UIScrollView().then {
+        $0.showsHorizontalScrollIndicator = false
+    }
     
     // MARK: - Function
     // MARK: LifeCycle
@@ -78,9 +80,9 @@ class HomeView: UIView {
             }
             homeExistView.snp.makeConstraints {
                 $0.top.equalTo(homeCheerView.snp.bottom).inset(5.adjusted)
-                $0.horizontalEdges.bottom.equalToSuperview()
                 $0.width.equalTo(scrollView.snp.width)
-                $0.height.greaterThanOrEqualTo(self.snp.height).priority(.low)
+                $0.height.greaterThanOrEqualTo(scrollView.snp.height).priority(.low)
+                $0.bottom.equalTo(scrollView.snp.bottom)
             }
         case .empty:
             self.addSubviews(
