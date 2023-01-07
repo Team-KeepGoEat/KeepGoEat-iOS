@@ -79,6 +79,8 @@
 		DDE12FEA295B14AE008CF91B /* Then in Frameworks */ = {isa = PBXBuildFile; productRef = DDE12FE9295B14AE008CF91B /* Then */; };
 		DDE12FED295B14FB008CF91B /* Moya in Frameworks */ = {isa = PBXBuildFile; productRef = DDE12FEC295B14FB008CF91B /* Moya */; };
 		DDE12FF0295B15AC008CF91B /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = DDE12FEF295B15AC008CF91B /* Lottie */; };
+		DDE8D3882969FF3800331E3C /* StoreGoalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDE8D3872969FF3800331E3C /* StoreGoalView.swift */; };
+		DDE8D38A296A078C00331E3C /* StoreCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDE8D389296A078C00331E3C /* StoreCollectionViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -150,6 +152,8 @@
 		DDE12FDA295B136C008CF91B /* HomeResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeResponse.swift; sourceTree = "<group>"; };
 		DDE12FDC295B137E008CF91B /* GoalDetailResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoalDetailResponse.swift; sourceTree = "<group>"; };
 		DDE12FDE295B1389008CF91B /* NewGoalResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewGoalResponse.swift; sourceTree = "<group>"; };
+		DDE8D3872969FF3800331E3C /* StoreGoalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreGoalView.swift; sourceTree = "<group>"; };
+		DDE8D389296A078C00331E3C /* StoreCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreCollectionViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -312,7 +316,9 @@
 		DD849B06295E761F0030AF2F /* StoreGoal */ = {
 			isa = PBXGroup;
 			children = (
-				DD849B07295E763F0030AF2F /* StoreGoalViewController.swift */,
+				DDE8D3862969FF1700331E3C /* Cell */,
+				DDE8D3852969FF1100331E3C /* Controller */,
+				DDE8D3842969FF0D00331E3C /* View */,
 			);
 			path = StoreGoal;
 			sourceTree = "<group>";
@@ -587,6 +593,30 @@
 			path = NewGoal;
 			sourceTree = "<group>";
 		};
+		DDE8D3842969FF0D00331E3C /* View */ = {
+			isa = PBXGroup;
+			children = (
+				DDE8D3872969FF3800331E3C /* StoreGoalView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		DDE8D3852969FF1100331E3C /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				DD849B07295E763F0030AF2F /* StoreGoalViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		DDE8D3862969FF1700331E3C /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				DDE8D389296A078C00331E3C /* StoreCollectionViewCell.swift */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -702,6 +732,7 @@
 				DDE12FD5295B1334008CF91B /* GoalDetailRequest.swift in Sources */,
 				DDE12FD1295B1325008CF91B /* LoginRequest.swift in Sources */,
 				DDE12FAF295B1011008CF91B /* NewGoalViewController.swift in Sources */,
+				DDE8D38A296A078C00331E3C /* StoreCollectionViewCell.swift in Sources */,
 				DD849B12295E80630030AF2F /* NetworkConstant.swift in Sources */,
 				DDE12F9B295B0CAA008CF91B /* KeychainHandler.swift in Sources */,
 				D69F23BB296316A80078FCF1 /* GoalDetailView.swift in Sources */,
@@ -733,6 +764,7 @@
 				DDE12FBB295B11BC008CF91B /* LoginRouter.swift in Sources */,
 				DDE12FC9295B123B008CF91B /* GoalDetailService.swift in Sources */,
 				DDE12FC5295B122A008CF91B /* LoginService.swift in Sources */,
+				DDE8D3882969FF3800331E3C /* StoreGoalView.swift in Sources */,
 				D65C62F62962DEF30085832C /* adjust+.swift in Sources */,
 				DD849B0C295E7BAE0030AF2F /* BaseNavigationController.swift in Sources */,
 				DDE12FDB295B136C008CF91B /* HomeResponse.swift in Sources */,
