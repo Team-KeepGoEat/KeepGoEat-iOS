@@ -22,13 +22,13 @@ class NewGoalViewController: UIViewController {
     
     // MARK: Component
     private let textMyGoalLabel = UILabel().then {
-        $0.text = "나의 목표를 입력해볼까요?"
+        $0.text = Const.String.textMyGoalTitle
         $0.textColor = .gray700
         $0.font = .system2Bold
     }
     
     private lazy var moreVegetabletextField = UITextField().then {
-        $0.placeholder = "ex) 하루 1끼 이상 야채"
+        $0.placeholder = Const.String.moreVegetablePlaceHoleder
         $0.font = .system4Bold
         $0.delegate = self
         $0.becomeFirstResponder()
@@ -40,7 +40,7 @@ class NewGoalViewController: UIViewController {
     }
     
     private let countTextLabel = UILabel().then {
-        $0.text = "(0/20)"
+        $0.text = Const.String.textCount
         $0.textColor = .gray400
         $0.font = .system5
     }
@@ -51,14 +51,14 @@ class NewGoalViewController: UIViewController {
         
         switch eatType {
         case .more:
-            $0.text = "더먹기"
+            $0.text = Const.String.moreEat
         case .less:
-            $0.text = "덜먹기"
+            $0.text = Const.String.lessEat
         }
     }
     
     private lazy var completeButton = UIButton().then {
-        $0.setTitle("완료", for: .normal)
+        $0.setTitle(Const.String.complete, for: .normal)
         $0.titleLabel?.font = .system4Bold
         $0.setTitleColor(.gray400, for: .normal)
         $0.backgroundColor = .gray200
@@ -67,7 +67,7 @@ class NewGoalViewController: UIViewController {
     }
     
     private let warningLabel = UILabel().then {
-        $0.text = "한글, 영문,숫자만 입력 가능합니다."
+        $0.text = Const.String.warning
         $0.textColor = .orange400
         $0.font = .system6
         $0.isHidden = true
@@ -201,8 +201,6 @@ extension NewGoalViewController: UITextFieldDelegate {
         }
         
         countTextLabel.text = "(\(changedText.count)/20)"
-        
-        print(" ".hasCharacters())
         
         func searchPressed(_ sender: UIButton) {
             moreVegetabletextField.endEditing(true)
