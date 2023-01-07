@@ -67,7 +67,7 @@ class HomeAchieveButton: UIButton {
             case .less:
                 config.image = Const.Image.icnCheckGreen
                 config.baseForegroundColor = .green600
-                config.background.backgroundColor = .green50
+                config.background.backgroundColor = .green100
                 config.attributedTitle = AttributedString(Const.String.homeAddGoal, attributes: AttributeContainer([NSAttributedString.Key.font: UIFont.system4Bold]))
             case .more:
                 config.image = Const.Image.icnCheckOrange
