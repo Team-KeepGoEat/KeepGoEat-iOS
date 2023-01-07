@@ -47,8 +47,9 @@ extension HomeGoalCollectionView: UICollectionViewDataSource {
 extension HomeGoalCollectionView: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
         if kind == UICollectionView.elementKindSectionFooter {
-            let footer = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: HomeGoalCollectionReusableView.identifier, for: indexPath)
-            return footer
+            guard let footerCell = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: HomeGoalCollectionReusableView.identifier, for: indexPath) as? HomeGoalCollectionReusableView else { return UICollectionViewCell() }
+            footerCell.setSubTitleText(count: data.goalCount)
+            return footerCell
         } else {
             return UICollectionReusableView()
         }
