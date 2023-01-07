@@ -8,11 +8,16 @@
 import UIKit
 
 class StoreGoalViewController: UIViewController {
+    
+    private let storeGoalView = StoreGoalView()
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
     }
 
+    override func loadView() {
+        self.view = storeGoalView
+    }
+    
 }
