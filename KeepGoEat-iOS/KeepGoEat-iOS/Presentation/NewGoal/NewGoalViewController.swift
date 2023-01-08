@@ -21,9 +21,9 @@ class NewGoalViewController: UIViewController {
     private let eatType: EatType = .less
     
     // MARK: Component
+    private let headerView: HeaderView = HeaderView()
     
-    private let emptyView = UIView().then {_ in
-    }
+    private let emptyView = UIView()
     
     private let textMyGoalLabel = UILabel().then {
         $0.text = Const.String.textMyGoalTitle
@@ -47,6 +47,12 @@ class NewGoalViewController: UIViewController {
         $0.text = Const.String.textCount
         $0.textColor = .gray400
         $0.font = .system5
+    }
+    
+    private let GoalHederLabel = UILabel().then {
+        $0.text = Const.String.GoalHeader
+        $0.textColor = .gray700
+        $0.font = .system4Bold
     }
     
     private lazy var moreEatLabel = UILabel().then {
@@ -95,15 +101,29 @@ class NewGoalViewController: UIViewController {
     }
     
     private func layout() {
+        view.addSubview(headerView)
         view.addSubview(emptyView)
         view.addSubview(completeButton)
+        
+        headerView.addSubview(GoalHederLabel)
         
         [textMyGoalLabel, moreVegetabletextField, countTextLabel, moreEatLabel, underLineLabel, warningLabel ].forEach {
             emptyView.addSubview($0)
         }
         
+        headerView.snp.makeConstraints {
+            $0.top.equalTo(self.view.safeAreaLayoutGuide)
+            $0.leading.trailing.equalToSuperview()
+            $0.centerX.equalToSuperview()
+        }
+        
+        GoalHederLabel.snp.makeConstraints {
+            $0.centerX.equalToSuperview()
+            $0.centerY.equalToSuperview()
+        }
+        
         emptyView.snp.makeConstraints {
-            $0.top.equalToSuperview().offset(92.adjusted)
+            $0.top.equalTo(self.view.safeAreaLayoutGuide).offset(72.adjusted)
             $0.width.equalTo(375.adjusted)
             $0.height.equalTo(200.adjusted)
             $0.centerX.equalToSuperview()
@@ -178,8 +198,9 @@ extension NewGoalViewController {
             let keyboardHeight: CGFloat
             keyboardHeight = keyboardSize.height - self.view.safeAreaInsets.bottom
             completeButton.snp.updateConstraints {
-                $0.bottom.equalToSuperview().inset(keyboardHeight + 16.adjusted)
+                $0.bottom.equalToSuperview().inset(keyboardHeight.adjusted + 16.adjusted)
             }
+            
             self.view.layoutIfNeeded()
         }
     }
