@@ -45,5 +45,9 @@ extension Const {
         static let warning = "한글, 영문,숫자만 입력 가능합니다."
         
         // MARK: StoreGoal
+        static let storeTitle = "보관한 목표"
+        static let storeFilterAll = "전체"
+        static let storeFilterMore = "더먹기"
+        static let storeFilterLess = "덜먹기"
     }
 }
