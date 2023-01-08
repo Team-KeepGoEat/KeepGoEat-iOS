@@ -29,6 +29,7 @@
 		DD38AD6F295B02B70084FA70 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD38AD6E295B02B70084FA70 /* SceneDelegate.swift */; };
 		DD38AD76295B02B80084FA70 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DD38AD75295B02B80084FA70 /* Assets.xcassets */; };
 		DD38AD79295B02B80084FA70 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DD38AD77295B02B80084FA70 /* LaunchScreen.storyboard */; };
+		DD526893296ABBCE005C8376 /* BaseTargetType.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD526892296ABBCE005C8376 /* BaseTargetType.swift */; };
 		DD64902E2968C53900A73CF4 /* HomeExistView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD64902D2968C53900A73CF4 /* HomeExistView.swift */; };
 		DD6490302968CB0900A73CF4 /* HomeGoalCollectionReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD64902F2968CB0900A73CF4 /* HomeGoalCollectionReusableView.swift */; };
 		DD849AFE295E758A0030AF2F /* StoreGoalRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD849AFD295E758A0030AF2F /* StoreGoalRequest.swift */; };
@@ -118,6 +119,7 @@
 		DD38AD75295B02B80084FA70 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		DD38AD78295B02B80084FA70 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		DD38AD7A295B02B80084FA70 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DD526892296ABBCE005C8376 /* BaseTargetType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseTargetType.swift; sourceTree = "<group>"; };
 		DD64902D2968C53900A73CF4 /* HomeExistView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeExistView.swift; sourceTree = "<group>"; };
 		DD64902F2968CB0900A73CF4 /* HomeGoalCollectionReusableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeGoalCollectionReusableView.swift; sourceTree = "<group>"; };
 		DD849AFD295E758A0030AF2F /* StoreGoalRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreGoalRequest.swift; sourceTree = "<group>"; };
@@ -395,6 +397,7 @@
 		DDE12F86295B0B18008CF91B /* Network */ = {
 			isa = PBXGroup;
 			children = (
+				DD526892296ABBCE005C8376 /* BaseTargetType.swift */,
 				DD849B0D295E7E0F0030AF2F /* MoyaLoggingPlugin.swift */,
 				DDE12FB0295B110C008CF91B /* URLConstant.swift */,
 				DDE12FB2295B1114008CF91B /* GeneralResponse.swift */,
@@ -821,6 +824,7 @@
 				DDE12FDB295B136C008CF91B /* HomeResponse.swift in Sources */,
 				DD849B05295E760C0030AF2F /* StoreGoalService.swift in Sources */,
 				DDE12FDF295B1389008CF91B /* NewGoalResponse.swift in Sources */,
+				DD526893296ABBCE005C8376 /* BaseTargetType.swift in Sources */,
 				DDA7B72229689333001950A2 /* HomeGoalCollectionView.swift in Sources */,
 				DD849B0E295E7E0F0030AF2F /* MoyaLoggingPlugin.swift in Sources */,
 				DDDBC878296045AA00F65F23 /* String.swift in Sources */,
