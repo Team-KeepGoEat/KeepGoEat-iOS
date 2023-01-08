@@ -12,6 +12,7 @@ import Then
 
 class StoreGoalView: UIView {
 
+    // MARK: - Variables
     // MARK: Component
     private let headerView = HeaderView()
     private let headerLabel = UILabel().then {
@@ -23,6 +24,8 @@ class StoreGoalView: UIView {
     private let moreButton = StoreFilterButton(frame: .zero, title: Const.String.storeFilterMore, selectType: .unselected)
     private let lessButton = StoreFilterButton(frame: .zero, title: Const.String.storeFilterLess, selectType: .unselected)
     
+    // MARK: - Function
+    // MARK: LifeCycle
     override init(frame: CGRect) {
         super.init(frame: frame)
         setUI()
@@ -32,6 +35,7 @@ class StoreGoalView: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
+    // MARK: Layout Helpers
     private func setUI() {
         self.backgroundColor = .gray50
     }
