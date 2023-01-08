@@ -42,10 +42,7 @@ class HomeBaseView: UIView {
         self.addSubviews(
             homeHeaderLabel
         )
-        
-        self.snp.makeConstraints {
-            $0.edges.equalTo(self.safeAreaLayoutGuide)
-        }
+    
         homeHeaderLabel.snp.makeConstraints {
             $0.top.equalTo(self.snp.top).inset(20.adjusted)
             $0.leading.equalTo(self.snp.leading).inset(16.adjusted)
