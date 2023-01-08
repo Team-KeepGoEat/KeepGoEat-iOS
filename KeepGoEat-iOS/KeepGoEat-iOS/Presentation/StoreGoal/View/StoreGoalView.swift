@@ -9,6 +9,7 @@ import UIKit
 
 import SnapKit
 import Then
+import Lottie
 
 class StoreGoalView: UIView {
 
@@ -22,11 +23,13 @@ class StoreGoalView: UIView {
     private let totalButton = StoreFilterButton(frame: .zero, title: Const.String.storeFilterAll, selectType: .seleted)
     private let moreButton = StoreFilterButton(frame: .zero, title: Const.String.storeFilterMore, selectType: .unselected)
     private let lessButton = StoreFilterButton(frame: .zero, title: Const.String.storeFilterLess, selectType: .unselected)
+    let animationView: LottieAnimationView = .init(name: "onboarding3_1x")
     
     override init(frame: CGRect) {
         super.init(frame: frame)
         setUI()
         setLayout()
+        setLottie()
     }
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
@@ -63,5 +66,18 @@ class StoreGoalView: UIView {
             $0.top.equalTo(headerView.snp.bottom).offset(24.adjusted)
             $0.trailing.equalTo(moreButton.snp.leading).inset(8.adjusted)
         }
+    }
+    private func setLottie() {
+        self.addSubview(animationView)
+        
+        // animationView의 설정 작업은 알아서 하세요
+        animationView.snp.makeConstraints {
+            $0.center.equalToSuperview()
+            $0.width.equalTo(375.adjusted)
+            $0.height.equalTo(268.adjusted)
+        }
+        animationView.contentMode = .scaleAspectFit
+        animationView.loopMode = .loop
+        animationView.play()
     }
 }

@@ -10,10 +10,9 @@ import UIKit
 class StoreGoalViewController: UIViewController {
     
     private let storeGoalView = StoreGoalView()
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
     }
 
     override func loadView() {
