@@ -60,6 +60,10 @@ extension HomeGoalCollectionView: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return data.goalCount
     }
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        guard let goalCell = collectionView.dequeueReusableCell(withReuseIdentifier: HomeGoalCollectionViewCell.identifier, for: indexPath) as? HomeGoalCollectionViewCell else { return }
+        print("✨상세뷰로 전환", goalCell)
+    }
 }
 
 // MARK: UICollectionViewDelegateFlowLayout
