@@ -56,7 +56,7 @@ class HomeGoalCollectionReusableView: UICollectionReusableView {
         containerView.snp.makeConstraints {
             $0.centerX.equalToSuperview()
             $0.top.equalToSuperview()
-            $0.width.equalTo(343.adjusted)
+            $0.width.equalTo(343.adjustedWidth)
             $0.height.equalTo(82.adjusted)
         }
         titleLabel.snp.makeConstraints {
