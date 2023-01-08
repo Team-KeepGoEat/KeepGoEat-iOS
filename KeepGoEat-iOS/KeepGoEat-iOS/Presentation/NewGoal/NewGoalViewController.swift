@@ -101,9 +101,11 @@ class NewGoalViewController: UIViewController {
     }
     
     private func layout() {
-        view.addSubview(headerView)
-        view.addSubview(emptyView)
-        view.addSubview(completeButton)
+        view.addSubviews(
+            headerView,
+            emptyView,
+            completeButton
+        )
         
         headerView.addSubview(GoalHederLabel)
         
@@ -162,7 +164,7 @@ class NewGoalViewController: UIViewController {
         }
         
         completeButton.snp.makeConstraints {
-            $0.bottom.equalToSuperview().inset(52.adjusted)
+            $0.bottom.equalTo(view.safeAreaLayoutGuide).inset(44.adjusted)
             $0.centerX.equalToSuperview()
             $0.width.equalTo(343.adjusted)
             $0.height.equalTo(48.adjusted)
@@ -198,16 +200,15 @@ extension NewGoalViewController {
             let keyboardHeight: CGFloat
             keyboardHeight = keyboardSize.height - self.view.safeAreaInsets.bottom
             completeButton.snp.updateConstraints {
-                $0.bottom.equalToSuperview().inset(keyboardHeight.adjusted + 16.adjusted)
+                $0.bottom.equalTo(view.safeAreaLayoutGuide).inset(keyboardHeight + 16.adjusted)
             }
-            
             self.view.layoutIfNeeded()
         }
     }
     
     @objc private func keyboardWillHide(notification: NSNotification) {
         completeButton.snp.updateConstraints {
-            $0.bottom.equalToSuperview().inset(52)
+            $0.bottom.equalTo(view.safeAreaLayoutGuide).inset(44.adjusted)
         }
         self.view.layoutIfNeeded()
     }
