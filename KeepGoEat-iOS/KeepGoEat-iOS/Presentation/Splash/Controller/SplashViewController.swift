@@ -7,6 +7,7 @@
 
 import UIKit
 
+import KakaoSDKCommon
 import KakaoSDKAuth
 import KakaoSDKUser
 
@@ -24,10 +25,24 @@ class SplashViewController: UIViewController {
         self.view = splashView
         DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 1) {
             if AuthApi.hasToken() {
-                let homeViewController: HomeViewController = HomeViewController()
-                
-                if let window = self.view.window?.windowScene?.keyWindow {
-                    window.rootViewController = homeViewController
+                UserApi.shared.accessTokenInfo { (_, error) in
+                    if let error = error {
+                        if let sdkError = error as? SdkError, sdkError.isInvalidTokenError() == true {
+                            let loginViewController: LoginViewController = LoginViewController()
+                            
+                            if let window = self.view.window?.windowScene?.keyWindow {
+                                window.rootViewController = loginViewController
+                            }
+                        } else {
+                            print(error)
+                        }
+                    } else {
+                        let homeViewController: HomeViewController = HomeViewController()
+                        
+                        if let window = self.view.window?.windowScene?.keyWindow {
+                            window.rootViewController = homeViewController
+                        }
+                    }
                 }
             } else {
                 let loginViewController: LoginViewController = LoginViewController()
