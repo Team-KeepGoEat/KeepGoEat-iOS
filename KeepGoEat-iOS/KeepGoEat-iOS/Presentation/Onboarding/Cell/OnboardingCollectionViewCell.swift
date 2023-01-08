@@ -15,7 +15,6 @@ import Then
 final class OnboardingCollectionViewCell: UICollectionViewCell {
     
     // MARK: - Identifier
-       
     static let identifier = "OnboardingCollectionViewCell"
     
     // MARK: - UI Component
@@ -45,10 +44,9 @@ final class OnboardingCollectionViewCell: UICollectionViewCell {
         setAnimationView(lottieName: lottieName)
     }
     
-    override func prepareForReuse() {
-            // 해당 처리를 해준 이유가 계속 로티 이미지가 겹쳐서 생성되는 문제가 있었기 때문
-            animationView.stop()
-        }
+//    override func prepareForReuse() {
+//            animationView.stop()
+//        }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
@@ -64,10 +62,8 @@ extension OnboardingCollectionViewCell {
     }
     
     private func layout() {
-    
-        emtyView.addSubview(animationView)
-        
-        [titleLabel, descrtiptionLabel, emtyView].forEach {
+            
+        [titleLabel, descrtiptionLabel, animationView].forEach {
             contentView.addSubview($0)
         }
         
@@ -81,15 +77,11 @@ extension OnboardingCollectionViewCell {
             $0.centerX.equalToSuperview()
         }
         
-        emtyView.snp.makeConstraints {
+        animationView.snp.makeConstraints {
             $0.top.equalTo(descrtiptionLabel.snp.bottom).offset(26.adjusted)
             $0.width.equalTo(375.adjusted)
             $0.height.equalTo(268.adjusted)
             $0.centerX.equalToSuperview()
-        }
-        
-        animationView.snp.makeConstraints {
-            $0.edges.equalToSuperview()
         }
     }
 
