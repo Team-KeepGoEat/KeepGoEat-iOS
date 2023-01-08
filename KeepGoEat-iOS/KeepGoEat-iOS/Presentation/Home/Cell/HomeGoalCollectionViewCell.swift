@@ -23,6 +23,7 @@ class HomeGoalCollectionViewCell: UICollectionViewCell {
     private let goalContentLabel = UILabel().then {
         $0.font = .system4Bold
         $0.text = "오늘의 목표 내용"
+        $0.textColor = .gray800
     }
     private let goalCountLabel = UILabel().then {
         $0.attributedText = NSMutableAttributedString()
