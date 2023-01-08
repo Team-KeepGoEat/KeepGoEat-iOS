@@ -13,6 +13,8 @@ extension Const {
         // MARK: icon
         static let icnBox = UIImage(named: "icnBox")
         static let icnCheck = UIImage(named: "icnCheck")
+        static let icnCheckOrange = UIImage(named: "icn_check_orange")
+        static let icnCheckGreen = UIImage(named: "icn_check_green")
         static let icnLeft = UIImage(named: "icnLeft")
         static let icnMypage = UIImage(named: "icnMypage")
         static let icnPen = UIImage(named: "icnPen")

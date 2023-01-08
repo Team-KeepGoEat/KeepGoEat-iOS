@@ -29,6 +29,8 @@
 		DD38AD6F295B02B70084FA70 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD38AD6E295B02B70084FA70 /* SceneDelegate.swift */; };
 		DD38AD76295B02B80084FA70 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DD38AD75295B02B80084FA70 /* Assets.xcassets */; };
 		DD38AD79295B02B80084FA70 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DD38AD77295B02B80084FA70 /* LaunchScreen.storyboard */; };
+		DD64902E2968C53900A73CF4 /* HomeExistView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD64902D2968C53900A73CF4 /* HomeExistView.swift */; };
+		DD6490302968CB0900A73CF4 /* HomeGoalCollectionReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD64902F2968CB0900A73CF4 /* HomeGoalCollectionReusableView.swift */; };
 		DD849AFE295E758A0030AF2F /* StoreGoalRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD849AFD295E758A0030AF2F /* StoreGoalRequest.swift */; };
 		DD849B00295E759E0030AF2F /* StoreGoalResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD849AFF295E759E0030AF2F /* StoreGoalResponse.swift */; };
 		DD849B03295E75D80030AF2F /* StoreGoalRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD849B02295E75D80030AF2F /* StoreGoalRouter.swift */; };
@@ -42,6 +44,10 @@
 		DDA7B71029672B14001950A2 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDA7B70F29672B14001950A2 /* HomeView.swift */; };
 		DDA7B71229673F76001950A2 /* HomeEmptyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDA7B71129673F76001950A2 /* HomeEmptyView.swift */; };
 		DDA7B7142967413F001950A2 /* HomeBaseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDA7B7132967413F001950A2 /* HomeBaseView.swift */; };
+		DDA7B71C29685E67001950A2 /* HomeGoalCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDA7B71B29685E67001950A2 /* HomeGoalCollectionViewCell.swift */; };
+		DDA7B71E29686D83001950A2 /* NSMutableAttributedString+.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDA7B71D29686D83001950A2 /* NSMutableAttributedString+.swift */; };
+		DDA7B72029687B91001950A2 /* HomeAchieveButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDA7B71F29687B91001950A2 /* HomeAchieveButton.swift */; };
+		DDA7B72229689333001950A2 /* HomeGoalCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDA7B72129689333001950A2 /* HomeGoalCollectionView.swift */; };
 		DDDBC876296045A200F65F23 /* Const.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDDBC875296045A200F65F23 /* Const.swift */; };
 		DDDBC878296045AA00F65F23 /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDDBC877296045AA00F65F23 /* String.swift */; };
 		DDDBC88029618A7D00F65F23 /* .swiftlint.yml in Resources */ = {isa = PBXBuildFile; fileRef = DDDBC87F29618A7D00F65F23 /* .swiftlint.yml */; };
@@ -112,6 +118,8 @@
 		DD38AD75295B02B80084FA70 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		DD38AD78295B02B80084FA70 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		DD38AD7A295B02B80084FA70 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DD64902D2968C53900A73CF4 /* HomeExistView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeExistView.swift; sourceTree = "<group>"; };
+		DD64902F2968CB0900A73CF4 /* HomeGoalCollectionReusableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeGoalCollectionReusableView.swift; sourceTree = "<group>"; };
 		DD849AFD295E758A0030AF2F /* StoreGoalRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreGoalRequest.swift; sourceTree = "<group>"; };
 		DD849AFF295E759E0030AF2F /* StoreGoalResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreGoalResponse.swift; sourceTree = "<group>"; };
 		DD849B02295E75D80030AF2F /* StoreGoalRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreGoalRouter.swift; sourceTree = "<group>"; };
@@ -125,6 +133,10 @@
 		DDA7B70F29672B14001950A2 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		DDA7B71129673F76001950A2 /* HomeEmptyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeEmptyView.swift; sourceTree = "<group>"; };
 		DDA7B7132967413F001950A2 /* HomeBaseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeBaseView.swift; sourceTree = "<group>"; };
+		DDA7B71B29685E67001950A2 /* HomeGoalCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeGoalCollectionViewCell.swift; sourceTree = "<group>"; };
+		DDA7B71D29686D83001950A2 /* NSMutableAttributedString+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSMutableAttributedString+.swift"; sourceTree = "<group>"; };
+		DDA7B71F29687B91001950A2 /* HomeAchieveButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeAchieveButton.swift; sourceTree = "<group>"; };
+		DDA7B72129689333001950A2 /* HomeGoalCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeGoalCollectionView.swift; sourceTree = "<group>"; };
 		DDDBC86E295EE52B00F65F23 /* Pretendard-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-Bold.otf"; sourceTree = "<group>"; };
 		DDDBC86F295EE52B00F65F23 /* Pretendard-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-Regular.otf"; sourceTree = "<group>"; };
 		DDDBC875296045A200F65F23 /* Const.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Const.swift; sourceTree = "<group>"; };
@@ -345,6 +357,14 @@
 			path = Controller;
 			sourceTree = "<group>";
 		};
+		DDA7B71A2968562B001950A2 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				DDA7B71B29685E67001950A2 /* HomeGoalCollectionViewCell.swift */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
 		DDDBC88329618FB100F65F23 /* View */ = {
 			isa = PBXGroup;
 			children = (
@@ -352,6 +372,10 @@
 				DDA7B70F29672B14001950A2 /* HomeView.swift */,
 				DDA7B71129673F76001950A2 /* HomeEmptyView.swift */,
 				DDA7B7132967413F001950A2 /* HomeBaseView.swift */,
+				DDA7B71F29687B91001950A2 /* HomeAchieveButton.swift */,
+				DDA7B72129689333001950A2 /* HomeGoalCollectionView.swift */,
+				DD64902D2968C53900A73CF4 /* HomeExistView.swift */,
+				DD64902F2968CB0900A73CF4 /* HomeGoalCollectionReusableView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -464,6 +488,7 @@
 				D65C62F52962DEF30085832C /* adjust+.swift */,
 				315AC8862966D4FF0005CCF2 /* String+.swift */,
 				D6F427B02967CA2E00065A24 /* UILabel+.swift */,
+				DDA7B71D29686D83001950A2 /* NSMutableAttributedString+.swift */,
 				D67E6116296AAC3600CA8CEB /* Encodable+.swift */,
 			);
 			path = Extensions;
@@ -512,6 +537,7 @@
 		DDE12FA5295B0E49008CF91B /* Home */ = {
 			isa = PBXGroup;
 			children = (
+				DDA7B71A2968562B001950A2 /* Cell */,
 				DDDBC88329618FB100F65F23 /* View */,
 				DDA7B70E29672AE3001950A2 /* Controller */,
 			);
@@ -752,6 +778,7 @@
 				DDE8D38A296A078C00331E3C /* StoreCollectionViewCell.swift in Sources */,
 				DD849B12295E80630030AF2F /* NetworkConstant.swift in Sources */,
 				DDE12F9B295B0CAA008CF91B /* KeychainHandler.swift in Sources */,
+				DDA7B71E29686D83001950A2 /* NSMutableAttributedString+.swift in Sources */,
 				D69F23BB296316A80078FCF1 /* GoalDetailView.swift in Sources */,
 				DDE8D38C296A0C3800331E3C /* StoreFilterButton.swift in Sources */,
 				DD849B00295E759E0030AF2F /* StoreGoalResponse.swift in Sources */,
@@ -764,6 +791,7 @@
 				DDE12FC1295B1212008CF91B /* GoalDetailRouter.swift in Sources */,
 				D69F23BD296317210078FCF1 /* GoalDetailCollectionViewCell.swift in Sources */,
 				DD38AD6D295B02B70084FA70 /* AppDelegate.swift in Sources */,
+				DDA7B71C29685E67001950A2 /* HomeGoalCollectionViewCell.swift in Sources */,
 				D67E6117296AAC3600CA8CEB /* Encodable+.swift in Sources */,
 				DDE12FB1295B110C008CF91B /* URLConstant.swift in Sources */,
 				D6C505822969A7C600BE4543 /* DeleteBottomSheetView.swift in Sources */,
@@ -777,6 +805,7 @@
 				DD849B08295E763F0030AF2F /* StoreGoalViewController.swift in Sources */,
 				DD849B10295E800C0030AF2F /* NetworkBase.swift in Sources */,
 				DDE12FAC295B0FDB008CF91B /* GoalDetailViewController.swift in Sources */,
+				DD64902E2968C53900A73CF4 /* HomeExistView.swift in Sources */,
 				D6C7B3CF296183D7006877F3 /* SocialLoginButton.swift in Sources */,
 				DDDBC876296045A200F65F23 /* Const.swift in Sources */,
 				DD38AD6F295B02B70084FA70 /* SceneDelegate.swift in Sources */,
@@ -784,6 +813,7 @@
 				DDE12FB3295B1114008CF91B /* GeneralResponse.swift in Sources */,
 				DDE12FBB295B11BC008CF91B /* LoginRouter.swift in Sources */,
 				DDE12FC9295B123B008CF91B /* GoalDetailService.swift in Sources */,
+				DD6490302968CB0900A73CF4 /* HomeGoalCollectionReusableView.swift in Sources */,
 				DDE12FC5295B122A008CF91B /* LoginService.swift in Sources */,
 				DDE8D3882969FF3800331E3C /* StoreGoalView.swift in Sources */,
 				D65C62F62962DEF30085832C /* adjust+.swift in Sources */,
@@ -791,6 +821,7 @@
 				DDE12FDB295B136C008CF91B /* HomeResponse.swift in Sources */,
 				DD849B05295E760C0030AF2F /* StoreGoalService.swift in Sources */,
 				DDE12FDF295B1389008CF91B /* NewGoalResponse.swift in Sources */,
+				DDA7B72229689333001950A2 /* HomeGoalCollectionView.swift in Sources */,
 				DD849B0E295E7E0F0030AF2F /* MoyaLoggingPlugin.swift in Sources */,
 				DDDBC878296045AA00F65F23 /* String.swift in Sources */,
 				D6B4D2332965BB6700661083 /* BottomSheetView.swift in Sources */,
@@ -805,6 +836,7 @@
 				DDE12FA4295B0E2A008CF91B /* LoginViewController.swift in Sources */,
 				D6C505802969A7B900BE4543 /* SaveBottomSheetView.swift in Sources */,
 				D69FA2C829617D890056A175 /* SplashViewController.swift in Sources */,
+				DDA7B72029687B91001950A2 /* HomeAchieveButton.swift in Sources */,
 				DDA7B7142967413F001950A2 /* HomeBaseView.swift in Sources */,
 				D64DCBA229650F020046C719 /* GoalDetailCollectionView.swift in Sources */,
 				DDE12FCB295B1244008CF91B /* NewGoalService.swift in Sources */,
