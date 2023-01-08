@@ -10,7 +10,7 @@ import UIKit
 class HomeGoalCollectionView: UICollectionView {
     
     // MARK: - Variables
-    let data = GetHomeResponse.setHomeDummy2()
+    let data = gethomeDataList[3]
 
     override init(frame: CGRect, collectionViewLayout layout: UICollectionViewLayout) {
         super.init(frame: frame, collectionViewLayout: layout)
