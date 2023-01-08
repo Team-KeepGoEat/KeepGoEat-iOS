@@ -21,6 +21,7 @@
 		D6C7B3D02961DFC2006877F3 /* Pretendard-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = DDDBC86E295EE52B00F65F23 /* Pretendard-Bold.otf */; };
 		D6C7B3D12961DFC4006877F3 /* Pretendard-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = DDDBC86F295EE52B00F65F23 /* Pretendard-Regular.otf */; };
 		D6F0233C29632EF700524000 /* GoalStatsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6F0233B29632EF700524000 /* GoalStatsView.swift */; };
+		DD21F034296AA31C00A57AD0 /* StoreTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD21F033296AA31C00A57AD0 /* StoreTableViewCell.swift */; };
 		DD38AD6D295B02B70084FA70 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD38AD6C295B02B70084FA70 /* AppDelegate.swift */; };
 		DD38AD6F295B02B70084FA70 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD38AD6E295B02B70084FA70 /* SceneDelegate.swift */; };
 		DD38AD76295B02B80084FA70 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DD38AD75295B02B80084FA70 /* Assets.xcassets */; };
@@ -80,7 +81,6 @@
 		DDE12FED295B14FB008CF91B /* Moya in Frameworks */ = {isa = PBXBuildFile; productRef = DDE12FEC295B14FB008CF91B /* Moya */; };
 		DDE12FF0295B15AC008CF91B /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = DDE12FEF295B15AC008CF91B /* Lottie */; };
 		DDE8D3882969FF3800331E3C /* StoreGoalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDE8D3872969FF3800331E3C /* StoreGoalView.swift */; };
-		DDE8D38A296A078C00331E3C /* StoreCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDE8D389296A078C00331E3C /* StoreCollectionViewCell.swift */; };
 		DDE8D38C296A0C3800331E3C /* StoreFilterButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDE8D38B296A0C3800331E3C /* StoreFilterButton.swift */; };
 /* End PBXBuildFile section */
 
@@ -97,6 +97,7 @@
 		D6B4D2322965BB6700661083 /* BottomSheetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomSheetViewController.swift; sourceTree = "<group>"; };
 		D6C7B3CE296183D7006877F3 /* SocialLoginButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocialLoginButton.swift; sourceTree = "<group>"; };
 		D6F0233B29632EF700524000 /* GoalStatsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoalStatsView.swift; sourceTree = "<group>"; };
+		DD21F033296AA31C00A57AD0 /* StoreTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreTableViewCell.swift; sourceTree = "<group>"; };
 		DD38AD69295B02B70084FA70 /* KeepGoEat-iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "KeepGoEat-iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		DD38AD6C295B02B70084FA70 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DD38AD6E295B02B70084FA70 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -154,7 +155,6 @@
 		DDE12FDC295B137E008CF91B /* GoalDetailResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoalDetailResponse.swift; sourceTree = "<group>"; };
 		DDE12FDE295B1389008CF91B /* NewGoalResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewGoalResponse.swift; sourceTree = "<group>"; };
 		DDE8D3872969FF3800331E3C /* StoreGoalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreGoalView.swift; sourceTree = "<group>"; };
-		DDE8D389296A078C00331E3C /* StoreCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreCollectionViewCell.swift; sourceTree = "<group>"; };
 		DDE8D38B296A0C3800331E3C /* StoreFilterButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreFilterButton.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -615,7 +615,7 @@
 		DDE8D3862969FF1700331E3C /* Cell */ = {
 			isa = PBXGroup;
 			children = (
-				DDE8D389296A078C00331E3C /* StoreCollectionViewCell.swift */,
+				DD21F033296AA31C00A57AD0 /* StoreTableViewCell.swift */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -734,8 +734,8 @@
 				DDE12F99295B0C24008CF91B /* UIViewController+.swift in Sources */,
 				DDE12FD5295B1334008CF91B /* GoalDetailRequest.swift in Sources */,
 				DDE12FD1295B1325008CF91B /* LoginRequest.swift in Sources */,
+				DD21F034296AA31C00A57AD0 /* StoreTableViewCell.swift in Sources */,
 				DDE12FAF295B1011008CF91B /* NewGoalViewController.swift in Sources */,
-				DDE8D38A296A078C00331E3C /* StoreCollectionViewCell.swift in Sources */,
 				DD849B12295E80630030AF2F /* NetworkConstant.swift in Sources */,
 				DDE12F9B295B0CAA008CF91B /* KeychainHandler.swift in Sources */,
 				D69F23BB296316A80078FCF1 /* GoalDetailView.swift in Sources */,
