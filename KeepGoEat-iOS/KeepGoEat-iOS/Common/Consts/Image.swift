@@ -59,5 +59,6 @@ extension Const {
         static let homeBackgroundImageDay = UIImage(named: "homeBackgroundImage0")
         static let homeBackgroundImageSun = UIImage(named: "homeBackgroundImage1")
         static let homeBackgroundImageNight = UIImage(named: "homeBackgroundImage2")
+        static let trashImage = UIImage(named: "trash")
     }
 }
