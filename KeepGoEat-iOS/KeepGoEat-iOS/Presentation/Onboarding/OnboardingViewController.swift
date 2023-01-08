@@ -110,7 +110,7 @@ extension OnboardingViewController {
        onboardingCollectionView.snp.makeConstraints {
            $0.top.equalTo(self.pageControl.snp.bottom).offset(55.adjusted)
            $0.leading.trailing.equalToSuperview()
-           $0.height.equalTo(364.adjusted)
+           $0.height.equalTo(471.adjusted)
         }
         
         nextButton.snp.makeConstraints {
