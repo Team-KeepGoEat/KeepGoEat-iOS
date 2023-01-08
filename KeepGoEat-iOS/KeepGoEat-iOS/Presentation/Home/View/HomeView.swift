@@ -23,7 +23,6 @@ class HomeView: UIView {
         
         setLayout()
     }
-    
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
@@ -39,7 +38,6 @@ class HomeView: UIView {
             self.backgroundColor = .homeBg2
         }
     }
-    
     private func setLayout() {
         self.addSubviews(
             homeCheerView,
