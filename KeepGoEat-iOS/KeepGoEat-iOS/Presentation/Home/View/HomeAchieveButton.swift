@@ -52,13 +52,8 @@ class HomeAchieveButton: UIButton {
     }
     
     func setUI() {
-        config.imagePadding = 8
+        config.imagePadding = 4.adjustedWidth
         config.imagePlacement = .leading
-        config.baseForegroundColor = .gray50
-        config.image = Const.Image.icnCheck
-        config.background.backgroundColor = .green600
-        config.attributedTitle = AttributedString(Const.String.homeLessButtonBefore, attributes: AttributeContainer([NSAttributedString.Key.font: UIFont.system4Bold]))
-        self.configuration = config
     }
     
     private func yetMore() {
