@@ -97,17 +97,9 @@ extension OnboardingCollectionViewCell {
         titleLabel.text = model.title
         descrtiptionLabel.text = model.descrtiption
         setAnimationView(lottieName: model.animation)
-//        animationView = .init(name: model.animation)
     }
     
     // MARK: - Custom Functions
-//    func setOnboardingSlides(_ slides: OnboardingDataModel) {
-////        setAnimationView()
-//        animationView = .init(name: slides.animation)
-//        titleLabel.text = slides.title
-//        descrtiptionLabel.text = slides.descrtiption
-//    }
-    
     private func setAnimationView(lottieName: String) {
         animationView.animation = LottieAnimation.named(lottieName)
         animationView.contentMode = .scaleAspectFit
