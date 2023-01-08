@@ -43,6 +43,7 @@ class HomeGoalCollectionViewCell: UICollectionViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
+    // MARK: Layout Helpers
     private func setUI() {
         self.setCellShadow(shadowBase: shadowBaseView)
     }
@@ -76,6 +77,8 @@ class HomeGoalCollectionViewCell: UICollectionViewCell {
             $0.centerX.equalToSuperview()
         }
     }
+    
+    // MARK: Custom Function
     func databind(data: Goal) {
         if data.isMore {
             kindTagImage.image = Const.Image.moreTag
