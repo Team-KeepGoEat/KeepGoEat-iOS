@@ -38,18 +38,13 @@ class HomeGoalCollectionReusableView: UICollectionReusableView {
         super.init(frame: frame)
         
         setLayout()
-        setUI()
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-
+    
     // MARK: Layout Helpers
-    private func setUI() {
-        self.backgroundColor = .orange20
-        self.makeColorRounded(12, 1, .orange50)
-    }
     private func setLayout() {
         self.addSubviews(
             titleLabel,
