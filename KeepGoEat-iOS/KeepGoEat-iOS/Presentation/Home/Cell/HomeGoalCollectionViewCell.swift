@@ -83,14 +83,14 @@ class HomeGoalCollectionViewCell: UICollectionViewCell {
             goalCountLabel.attributedText = NSMutableAttributedString()
                 .setCountTitleTextStyle(string: String(data.thisMonthCount), isMore: true)
                 .setCountSubTextStyle(string: Const.String.homeCountGuide)
-            achieveButton.setUI(kindType: .more, stateType: data.isAchieved ? .after : .before)
+            achieveButton.isAchievedMore = data.isAchieved
         } else {
             kindTagImage.image = Const.Image.lessTag
             goalContentLabel.text = data.goalContent + " 덜 먹기"
             goalCountLabel.attributedText = NSMutableAttributedString()
                 .setCountTitleTextStyle(string: String(data.thisMonthCount), isMore: false)
                 .setCountSubTextStyle(string: Const.String.homeCountGuide)
-            achieveButton.setUI(kindType: .less, stateType: data.isAchieved ? .after : .before)
+            achieveButton.isAchievedLess = data.isAchieved
         }
     }
     func updateCountLabel(count: Int) {
