@@ -99,6 +99,7 @@
 		D6B4D2322965BB6700661083 /* BottomSheetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomSheetViewController.swift; sourceTree = "<group>"; };
 		D6C7B3CE296183D7006877F3 /* SocialLoginButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocialLoginButton.swift; sourceTree = "<group>"; };
 		D6F0233B29632EF700524000 /* GoalStatsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoalStatsView.swift; sourceTree = "<group>"; };
+		D6F5BB3D29680DE800C722AA /* Config.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Config.xcconfig; sourceTree = "<group>"; };
 		DD38AD69295B02B70084FA70 /* KeepGoEat-iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "KeepGoEat-iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		DD38AD6C295B02B70084FA70 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DD38AD6E295B02B70084FA70 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -271,6 +272,7 @@
 		DD38AD60295B02B70084FA70 = {
 			isa = PBXGroup;
 			children = (
+				D6F5BB3D29680DE800C722AA /* Config.xcconfig */,
 				DDDBC87F29618A7D00F65F23 /* .swiftlint.yml */,
 				DD38AD6B295B02B70084FA70 /* KeepGoEat-iOS */,
 				DD38AD6A295B02B70084FA70 /* Products */,
@@ -931,6 +933,7 @@
 		};
 		DD38AD7E295B02B80084FA70 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = D6F5BB3D29680DE800C722AA /* Config.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -963,6 +966,7 @@
 		};
 		DD38AD7F295B02B80084FA70 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = D6F5BB3D29680DE800C722AA /* Config.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
