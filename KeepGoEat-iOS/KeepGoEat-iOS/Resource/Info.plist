@@ -20,6 +20,8 @@
 			</array>
 		</dict>
 	</array>
+	<key>BASE_URL</key>
+	<string>$(BASE_URL)</string>
 	<key>NSAppTransportSecurity</key>
 	<dict>
 		<key>NSAllowsArbitraryLoads</key>
