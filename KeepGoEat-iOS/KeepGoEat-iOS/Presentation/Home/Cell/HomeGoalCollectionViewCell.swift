@@ -16,7 +16,7 @@ class HomeGoalCollectionViewCell: UICollectionViewCell {
     static let identifier = "HomeGoalCollectionViewCell"
     
     // MARK: Component
-    private let backView = UIView()
+    private let shadowBaseView = UIView()
     private let kindTagImage = UIImageView().then {
         $0.image = Const.Image.moreTag
     }
@@ -44,18 +44,18 @@ class HomeGoalCollectionViewCell: UICollectionViewCell {
     }
     
     private func setUI() {
-        self.setCellShadow(backView: backView)
+        self.setCellShadow(shadowBase: shadowBaseView)
     }
     private func setLayout() {
         self.addSubviews(
-            backView,
+            shadowBaseView,
             kindTagImage,
             goalContentLabel,
             goalCountLabel,
             achieveButton
         )
         
-        backView.snp.makeConstraints {
+        shadowBaseView.snp.makeConstraints {
             $0.edges.equalToSuperview()
         }
         kindTagImage.snp.makeConstraints {

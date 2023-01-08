@@ -48,10 +48,10 @@ extension UIView {
         self.layer.maskedCorners = CACornerMask(arrayLiteral: .layerMinXMinYCorner, .layerMaxXMinYCorner)
     }
     
-    func setCellShadow(backView: UIView) {
-        backView.backgroundColor = .gray50
-        backView.layer.masksToBounds = true
-        backView.layer.cornerRadius = 12
+    func setCellShadow(shadowBase: UIView) {
+        shadowBase.backgroundColor = .gray50
+        shadowBase.layer.masksToBounds = true
+        shadowBase.layer.cornerRadius = 12
         layer.masksToBounds = false
         layer.shadowColor = UIColor.gray400.cgColor
         layer.shadowOffset = CGSize(width: 0, height: 0)
