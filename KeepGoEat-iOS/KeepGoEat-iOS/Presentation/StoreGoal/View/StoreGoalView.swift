@@ -23,7 +23,7 @@ class StoreGoalView: UIView {
     private let totalButton = StoreFilterButton(frame: .zero, title: Const.String.storeFilterAll, selectType: .seleted)
     private let moreButton = StoreFilterButton(frame: .zero, title: Const.String.storeFilterMore, selectType: .unselected)
     private let lessButton = StoreFilterButton(frame: .zero, title: Const.String.storeFilterLess, selectType: .unselected)
-    let animationView: LottieAnimationView = .init(name: "onboarding2_1x")
+    let animationView: LottieAnimationView = .init(name: "homeSnailLottie")
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -77,7 +77,7 @@ class StoreGoalView: UIView {
             $0.height.equalTo(268.adjusted)
         }
         animationView.contentMode = .scaleAspectFit
-        animationView.loopMode = .loop
+        animationView.loopMode = .repeat(3)
         animationView.play()
     }
 }
