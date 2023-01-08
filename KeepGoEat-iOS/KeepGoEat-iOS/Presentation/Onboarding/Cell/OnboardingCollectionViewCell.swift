@@ -35,7 +35,7 @@ final class OnboardingCollectionViewCell: UICollectionViewCell {
     private lazy var animationView = LottieAnimationView()
     
     private var lottieName: String = ""
-
+    
     // MARK: - Life Cycles
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -43,10 +43,6 @@ final class OnboardingCollectionViewCell: UICollectionViewCell {
         setUI()
         setAnimationView(lottieName: lottieName)
     }
-    
-//    override func prepareForReuse() {
-//            animationView.stop()
-//        }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
@@ -62,7 +58,7 @@ extension OnboardingCollectionViewCell {
     }
     
     private func layout() {
-            
+        
         [titleLabel, descrtiptionLabel, animationView].forEach {
             contentView.addSubview($0)
         }
@@ -84,7 +80,7 @@ extension OnboardingCollectionViewCell {
             $0.centerX.equalToSuperview()
         }
     }
-
+    
     func dataBind(model: OnboardingDataModel) {
         titleLabel.text = model.title
         descrtiptionLabel.text = model.descrtiption
@@ -97,6 +93,5 @@ extension OnboardingCollectionViewCell {
         animationView.contentMode = .scaleAspectFit
         animationView.loopMode = .playOnce
         animationView.play()
-        
     }
 }
