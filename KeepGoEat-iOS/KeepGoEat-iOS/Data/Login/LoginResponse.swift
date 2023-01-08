@@ -6,3 +6,10 @@
 //
 
 import Foundation
+
+struct LoginResponseDto: Codable {
+    var type: String
+    var email: String
+    var accessToken: String
+    var refreshToken: String
+}
