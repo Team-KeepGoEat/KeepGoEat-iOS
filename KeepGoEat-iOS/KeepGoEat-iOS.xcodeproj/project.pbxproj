@@ -13,6 +13,7 @@
 		D643DFD82963E39F000296D3 /* GoalDetailStampModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D643DFD72963E39F000296D3 /* GoalDetailStampModel.swift */; };
 		D64DCBA229650F020046C719 /* GoalDetailCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D64DCBA129650F020046C719 /* GoalDetailCollectionView.swift */; };
 		D65C62F62962DEF30085832C /* adjust+.swift in Sources */ = {isa = PBXBuildFile; fileRef = D65C62F52962DEF30085832C /* adjust+.swift */; };
+		D67E6117296AAC3600CA8CEB /* Encodable+.swift in Sources */ = {isa = PBXBuildFile; fileRef = D67E6116296AAC3600CA8CEB /* Encodable+.swift */; };
 		D69F23BB296316A80078FCF1 /* GoalDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D69F23BA296316A80078FCF1 /* GoalDetailView.swift */; };
 		D69F23BD296317210078FCF1 /* GoalDetailCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D69F23BC296317210078FCF1 /* GoalDetailCollectionViewCell.swift */; };
 		D69FA2C829617D890056A175 /* SplashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D69FA2C729617D890056A175 /* SplashViewController.swift */; };
@@ -82,6 +83,9 @@
 		DDE12FEA295B14AE008CF91B /* Then in Frameworks */ = {isa = PBXBuildFile; productRef = DDE12FE9295B14AE008CF91B /* Then */; };
 		DDE12FED295B14FB008CF91B /* Moya in Frameworks */ = {isa = PBXBuildFile; productRef = DDE12FEC295B14FB008CF91B /* Moya */; };
 		DDE12FF0295B15AC008CF91B /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = DDE12FEF295B15AC008CF91B /* Lottie */; };
+		DDE8D3882969FF3800331E3C /* StoreGoalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDE8D3872969FF3800331E3C /* StoreGoalView.swift */; };
+		DDE8D38A296A078C00331E3C /* StoreCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDE8D389296A078C00331E3C /* StoreCollectionViewCell.swift */; };
+		DDE8D38C296A0C3800331E3C /* StoreFilterButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDE8D38B296A0C3800331E3C /* StoreFilterButton.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -91,6 +95,7 @@
 		D643DFD72963E39F000296D3 /* GoalDetailStampModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoalDetailStampModel.swift; sourceTree = "<group>"; };
 		D64DCBA129650F020046C719 /* GoalDetailCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoalDetailCollectionView.swift; sourceTree = "<group>"; };
 		D65C62F52962DEF30085832C /* adjust+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "adjust+.swift"; sourceTree = "<group>"; };
+		D67E6116296AAC3600CA8CEB /* Encodable+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Encodable+.swift"; sourceTree = "<group>"; };
 		D69F23BA296316A80078FCF1 /* GoalDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoalDetailView.swift; sourceTree = "<group>"; };
 		D69F23BC296317210078FCF1 /* GoalDetailCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoalDetailCollectionViewCell.swift; sourceTree = "<group>"; };
 		D69FA2C729617D890056A175 /* SplashViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashViewController.swift; sourceTree = "<group>"; };
@@ -100,6 +105,7 @@
 		D6C7B3CE296183D7006877F3 /* SocialLoginButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocialLoginButton.swift; sourceTree = "<group>"; };
 		D6F0233B29632EF700524000 /* GoalStatsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoalStatsView.swift; sourceTree = "<group>"; };
 		D6F427B02967CA2E00065A24 /* UILabel+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel+.swift"; sourceTree = "<group>"; };
+		D6F5BB3D29680DE800C722AA /* Config.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Config.xcconfig; sourceTree = "<group>"; };
 		DD38AD69295B02B70084FA70 /* KeepGoEat-iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "KeepGoEat-iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		DD38AD6C295B02B70084FA70 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DD38AD6E295B02B70084FA70 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -156,6 +162,9 @@
 		DDE12FDA295B136C008CF91B /* HomeResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeResponse.swift; sourceTree = "<group>"; };
 		DDE12FDC295B137E008CF91B /* GoalDetailResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoalDetailResponse.swift; sourceTree = "<group>"; };
 		DDE12FDE295B1389008CF91B /* NewGoalResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewGoalResponse.swift; sourceTree = "<group>"; };
+		DDE8D3872969FF3800331E3C /* StoreGoalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreGoalView.swift; sourceTree = "<group>"; };
+		DDE8D389296A078C00331E3C /* StoreCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreCollectionViewCell.swift; sourceTree = "<group>"; };
+		DDE8D38B296A0C3800331E3C /* StoreFilterButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreFilterButton.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -271,6 +280,7 @@
 		DD38AD60295B02B70084FA70 = {
 			isa = PBXGroup;
 			children = (
+				D6F5BB3D29680DE800C722AA /* Config.xcconfig */,
 				DDDBC87F29618A7D00F65F23 /* .swiftlint.yml */,
 				DD38AD6B295B02B70084FA70 /* KeepGoEat-iOS */,
 				DD38AD6A295B02B70084FA70 /* Products */,
@@ -320,7 +330,9 @@
 		DD849B06295E761F0030AF2F /* StoreGoal */ = {
 			isa = PBXGroup;
 			children = (
-				DD849B07295E763F0030AF2F /* StoreGoalViewController.swift */,
+				DDE8D3862969FF1700331E3C /* Cell */,
+				DDE8D3852969FF1100331E3C /* Controller */,
+				DDE8D3842969FF0D00331E3C /* View */,
 			);
 			path = StoreGoal;
 			sourceTree = "<group>";
@@ -452,6 +464,7 @@
 				D65C62F52962DEF30085832C /* adjust+.swift */,
 				315AC8862966D4FF0005CCF2 /* String+.swift */,
 				D6F427B02967CA2E00065A24 /* UILabel+.swift */,
+				D67E6116296AAC3600CA8CEB /* Encodable+.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -596,6 +609,31 @@
 			path = NewGoal;
 			sourceTree = "<group>";
 		};
+		DDE8D3842969FF0D00331E3C /* View */ = {
+			isa = PBXGroup;
+			children = (
+				DDE8D3872969FF3800331E3C /* StoreGoalView.swift */,
+				DDE8D38B296A0C3800331E3C /* StoreFilterButton.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		DDE8D3852969FF1100331E3C /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				DD849B07295E763F0030AF2F /* StoreGoalViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		DDE8D3862969FF1700331E3C /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				DDE8D389296A078C00331E3C /* StoreCollectionViewCell.swift */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -711,9 +749,11 @@
 				DDE12FD5295B1334008CF91B /* GoalDetailRequest.swift in Sources */,
 				DDE12FD1295B1325008CF91B /* LoginRequest.swift in Sources */,
 				DDE12FAF295B1011008CF91B /* NewGoalViewController.swift in Sources */,
+				DDE8D38A296A078C00331E3C /* StoreCollectionViewCell.swift in Sources */,
 				DD849B12295E80630030AF2F /* NetworkConstant.swift in Sources */,
 				DDE12F9B295B0CAA008CF91B /* KeychainHandler.swift in Sources */,
 				D69F23BB296316A80078FCF1 /* GoalDetailView.swift in Sources */,
+				DDE8D38C296A0C3800331E3C /* StoreFilterButton.swift in Sources */,
 				DD849B00295E759E0030AF2F /* StoreGoalResponse.swift in Sources */,
 				DDE12FBD295B11E8008CF91B /* HomeRouter.swift in Sources */,
 				DDE12F93295B0BED008CF91B /* Image.swift in Sources */,
@@ -724,6 +764,7 @@
 				DDE12FC1295B1212008CF91B /* GoalDetailRouter.swift in Sources */,
 				D69F23BD296317210078FCF1 /* GoalDetailCollectionViewCell.swift in Sources */,
 				DD38AD6D295B02B70084FA70 /* AppDelegate.swift in Sources */,
+				D67E6117296AAC3600CA8CEB /* Encodable+.swift in Sources */,
 				DDE12FB1295B110C008CF91B /* URLConstant.swift in Sources */,
 				D6C505822969A7C600BE4543 /* DeleteBottomSheetView.swift in Sources */,
 				DDE12FD7295B1347008CF91B /* NewGoalRequest.swift in Sources */,
@@ -744,6 +785,7 @@
 				DDE12FBB295B11BC008CF91B /* LoginRouter.swift in Sources */,
 				DDE12FC9295B123B008CF91B /* GoalDetailService.swift in Sources */,
 				DDE12FC5295B122A008CF91B /* LoginService.swift in Sources */,
+				DDE8D3882969FF3800331E3C /* StoreGoalView.swift in Sources */,
 				D65C62F62962DEF30085832C /* adjust+.swift in Sources */,
 				DD849B0C295E7BAE0030AF2F /* BaseNavigationController.swift in Sources */,
 				DDE12FDB295B136C008CF91B /* HomeResponse.swift in Sources */,
@@ -904,9 +946,11 @@
 		};
 		DD38AD7E295B02B80084FA70 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = D6F5BB3D29680DE800C722AA /* Config.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				BASE_URL = "http://52.79.88.68:3000";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = Z429BM88YZ;
@@ -935,9 +979,11 @@
 		};
 		DD38AD7F295B02B80084FA70 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = D6F5BB3D29680DE800C722AA /* Config.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				BASE_URL = "http://52.79.88.68:3000";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = Z429BM88YZ;

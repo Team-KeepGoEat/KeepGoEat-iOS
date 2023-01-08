@@ -7,6 +7,8 @@
 
 import UIKit
 
+import KakaoSDKUser
+
 class LoginViewController: UIViewController {
     
     // MARK: Component
@@ -40,10 +42,10 @@ extension LoginViewController {
             $0.centerY.equalTo(view.safeAreaLayoutGuide)
             $0.centerX.equalTo(view.safeAreaLayoutGuide)
         }
-        
+
         loginButton.snp.makeConstraints {
-            $0.directionalHorizontalEdges.equalToSuperview().inset(16)
-            $0.bottom.equalToSuperview().inset(34)
+            $0.directionalHorizontalEdges.equalToSuperview().inset(16.adjusted)
+            $0.bottom.equalToSuperview().inset(44.adjusted)
         }
     }
 }
