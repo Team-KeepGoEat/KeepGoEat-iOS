@@ -7,6 +7,7 @@
 
 import UIKit
 
+import Lottie
 import SnapKit
 import Then
 
@@ -30,14 +31,24 @@ final class OnboardingCollectionViewCell: UICollectionViewCell {
         $0.textAlignment = .center
     }
     
-    private let animation = UIImageView()
+    private var emtyView = UIView()
     
+    private lazy var animationView = LottieAnimationView()
+    
+    private var lottieName: String = ""
+
     // MARK: - Life Cycles
     override init(frame: CGRect) {
         super.init(frame: frame)
         layout()
         setUI()
+        setAnimationView(lottieName: lottieName)
     }
+    
+    override func prepareForReuse() {
+            // 해당 처리를 해준 이유가 계속 로티 이미지가 겹쳐서 생성되는 문제가 있었기 때문
+            animationView.stop()
+        }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
@@ -45,7 +56,6 @@ final class OnboardingCollectionViewCell: UICollectionViewCell {
 }
 
 // MARK: - Extensions
-
 extension OnboardingCollectionViewCell {
     
     // MARK: - Layout Helpers
@@ -54,8 +64,10 @@ extension OnboardingCollectionViewCell {
     }
     
     private func layout() {
+    
+        emtyView.addSubview(animationView)
         
-        [titleLabel, descrtiptionLabel, animation].forEach {
+        [titleLabel, descrtiptionLabel, emtyView].forEach {
             contentView.addSubview($0)
         }
         
@@ -69,17 +81,38 @@ extension OnboardingCollectionViewCell {
             $0.centerX.equalToSuperview()
         }
         
-        animation.snp.makeConstraints {
+        emtyView.snp.makeConstraints {
             $0.top.equalTo(descrtiptionLabel.snp.bottom).offset(26.adjusted)
             $0.width.equalTo(375.adjusted)
             $0.height.equalTo(268.adjusted)
             $0.centerX.equalToSuperview()
         }
+        
+        animationView.snp.makeConstraints {
+            $0.edges.equalToSuperview()
+        }
     }
-    
+
     func dataBind(model: OnboardingDataModel) {
         titleLabel.text = model.title
         descrtiptionLabel.text = model.descrtiption
-        animation.image = UIImage(named: model.animation)
+        setAnimationView(lottieName: model.animation)
+//        animationView = .init(name: model.animation)
+    }
+    
+    // MARK: - Custom Functions
+//    func setOnboardingSlides(_ slides: OnboardingDataModel) {
+////        setAnimationView()
+//        animationView = .init(name: slides.animation)
+//        titleLabel.text = slides.title
+//        descrtiptionLabel.text = slides.descrtiption
+//    }
+    
+    private func setAnimationView(lottieName: String) {
+        animationView.animation = LottieAnimation.named(lottieName)
+        animationView.contentMode = .scaleAspectFit
+        animationView.loopMode = .playOnce
+        animationView.play()
+        
     }
 }
