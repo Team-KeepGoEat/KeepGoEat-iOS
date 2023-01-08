@@ -46,12 +46,19 @@ class HomeGoalCollectionReusableView: UICollectionReusableView {
     
     // MARK: Layout Helpers
     private func setLayout() {
-        self.addSubviews(
+        self.addSubview(containerView)
+        containerView.addSubviews(
             titleLabel,
             subLabel,
             newGoalImage
         )
         
+        containerView.snp.makeConstraints {
+            $0.centerX.equalToSuperview()
+            $0.top.equalToSuperview()
+            $0.width.equalTo(343.adjusted)
+            $0.height.equalTo(82.adjusted)
+        }
         titleLabel.snp.makeConstraints {
             $0.top.equalToSuperview().inset(24)
             $0.leading.equalToSuperview().inset(16)
