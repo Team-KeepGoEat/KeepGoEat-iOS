@@ -33,13 +33,13 @@ class HomeGoalCollectionView: UICollectionView {
         let currentData = data.goals[sender.tag]
         print("✨", target.achieveButton)
         if currentData.isMore && currentData.isAchieved {
-            target.achieveButton.setUI(kindType: .more, stateType: .before)
+            target.achieveButton.isAchievedMore.toggle()
         } else if currentData.isMore && !currentData.isAchieved {
-            target.achieveButton.setUI(kindType: .more, stateType: .after)
+            target.achieveButton.isAchievedMore.toggle()
         } else if !currentData.isMore && currentData.isAchieved {
-            target.achieveButton.setUI(kindType: .less, stateType: .before)
+            target.achieveButton.isAchievedLess.toggle()
         } else {
-            target.achieveButton.setUI(kindType: .less, stateType: .after)
+            target.achieveButton.isAchievedLess.toggle()
         }
         target.updateCountLabel(count: 10)
         print("✨✨✨", target.achieveButton)
