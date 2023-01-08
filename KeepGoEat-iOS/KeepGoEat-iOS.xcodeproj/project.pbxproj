@@ -10,6 +10,13 @@
 		311F8FC72967FD2D00278E8F /* OnboardingDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 311F8FC62967FD2D00278E8F /* OnboardingDataModel.swift */; };
 		311F8FCA2967FD9C00278E8F /* OnboardingCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 311F8FC92967FD9C00278E8F /* OnboardingCollectionViewCell.swift */; };
 		315AC8872966D4FF0005CCF2 /* String+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 315AC8862966D4FF0005CCF2 /* String+.swift */; };
+		317DD55B296AEBA0002C5B79 /* onboarding1_1x.json in Resources */ = {isa = PBXBuildFile; fileRef = 317DD558296AEB9F002C5B79 /* onboarding1_1x.json */; };
+		317DD55C296AEBA0002C5B79 /* onboarding2_1x.json in Resources */ = {isa = PBXBuildFile; fileRef = 317DD559296AEBA0002C5B79 /* onboarding2_1x.json */; };
+		317DD55D296AEBA0002C5B79 /* onboarding3_1x.json in Resources */ = {isa = PBXBuildFile; fileRef = 317DD55A296AEBA0002C5B79 /* onboarding3_1x.json */; };
+		317DD563296AEBB7002C5B79 /* plus.png in Resources */ = {isa = PBXBuildFile; fileRef = 317DD55F296AEBB7002C5B79 /* plus.png */; };
+		317DD564296AEBB7002C5B79 /* snail_green_sticker1.png in Resources */ = {isa = PBXBuildFile; fileRef = 317DD560296AEBB7002C5B79 /* snail_green_sticker1.png */; };
+		317DD565296AEBB7002C5B79 /* snail_orange_cheer.png in Resources */ = {isa = PBXBuildFile; fileRef = 317DD561296AEBB7002C5B79 /* snail_orange_cheer.png */; };
+		317DD566296AEBB7002C5B79 /* snail_green_cheer.png in Resources */ = {isa = PBXBuildFile; fileRef = 317DD562296AEBB7002C5B79 /* snail_green_cheer.png */; };
 		D63110AC29628F1B00E7D52D /* SplashView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D63110AB29628F1B00E7D52D /* SplashView.swift */; };
 		D63D64092966C77A00EC1BB7 /* HeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D63D64082966C77A00EC1BB7 /* HeaderView.swift */; };
 		D643DFD82963E39F000296D3 /* GoalDetailStampModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D643DFD72963E39F000296D3 /* GoalDetailStampModel.swift */; };
@@ -101,6 +108,13 @@
 		311F8FC62967FD2D00278E8F /* OnboardingDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingDataModel.swift; sourceTree = "<group>"; };
 		311F8FC92967FD9C00278E8F /* OnboardingCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingCollectionViewCell.swift; sourceTree = "<group>"; };
 		315AC8862966D4FF0005CCF2 /* String+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+.swift"; sourceTree = "<group>"; };
+		317DD558296AEB9F002C5B79 /* onboarding1_1x.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = onboarding1_1x.json; sourceTree = "<group>"; };
+		317DD559296AEBA0002C5B79 /* onboarding2_1x.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = onboarding2_1x.json; sourceTree = "<group>"; };
+		317DD55A296AEBA0002C5B79 /* onboarding3_1x.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = onboarding3_1x.json; sourceTree = "<group>"; };
+		317DD55F296AEBB7002C5B79 /* plus.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = plus.png; sourceTree = "<group>"; };
+		317DD560296AEBB7002C5B79 /* snail_green_sticker1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = snail_green_sticker1.png; sourceTree = "<group>"; };
+		317DD561296AEBB7002C5B79 /* snail_orange_cheer.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = snail_orange_cheer.png; sourceTree = "<group>"; };
+		317DD562296AEBB7002C5B79 /* snail_green_cheer.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = snail_green_cheer.png; sourceTree = "<group>"; };
 		D63110AB29628F1B00E7D52D /* SplashView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashView.swift; sourceTree = "<group>"; };
 		D63D64082966C77A00EC1BB7 /* HeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderView.swift; sourceTree = "<group>"; };
 		D643DFD72963E39F000296D3 /* GoalDetailStampModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoalDetailStampModel.swift; sourceTree = "<group>"; };
@@ -216,6 +230,28 @@
 				311F8FC62967FD2D00278E8F /* OnboardingDataModel.swift */,
 			);
 			path = Onboarding;
+			sourceTree = "<group>";
+		};
+		31403F57296AC7E000CD3037 /* Lotties */ = {
+			isa = PBXGroup;
+			children = (
+				317DD55E296AEBB7002C5B79 /* images */,
+				317DD558296AEB9F002C5B79 /* onboarding1_1x.json */,
+				317DD559296AEBA0002C5B79 /* onboarding2_1x.json */,
+				317DD55A296AEBA0002C5B79 /* onboarding3_1x.json */,
+			);
+			path = Lotties;
+			sourceTree = "<group>";
+		};
+		317DD55E296AEBB7002C5B79 /* images */ = {
+			isa = PBXGroup;
+			children = (
+				317DD55F296AEBB7002C5B79 /* plus.png */,
+				317DD560296AEBB7002C5B79 /* snail_green_sticker1.png */,
+				317DD561296AEBB7002C5B79 /* snail_orange_cheer.png */,
+				317DD562296AEBB7002C5B79 /* snail_green_cheer.png */,
+			);
+			path = images;
 			sourceTree = "<group>";
 		};
 		D63110A929628EFB00E7D52D /* Controller */ = {
@@ -462,6 +498,7 @@
 		DDE12F89295B0B2D008CF91B /* Resource */ = {
 			isa = PBXGroup;
 			children = (
+				31403F57296AC7E000CD3037 /* Lotties */,
 				DDE12F8E295B0BB3008CF91B /* Fonts */,
 				DD38AD75295B02B80084FA70 /* Assets.xcassets */,
 				DDE12F8B295B0B7E008CF91B /* Colors.xcassets */,
@@ -759,12 +796,19 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				317DD55C296AEBA0002C5B79 /* onboarding2_1x.json in Resources */,
+				317DD563296AEBB7002C5B79 /* plus.png in Resources */,
 				DDDBC88029618A7D00F65F23 /* .swiftlint.yml in Resources */,
 				DD38AD79295B02B80084FA70 /* LaunchScreen.storyboard in Resources */,
 				D6C7B3D02961DFC2006877F3 /* Pretendard-Bold.otf in Resources */,
+				317DD565296AEBB7002C5B79 /* snail_orange_cheer.png in Resources */,
+				317DD566296AEBB7002C5B79 /* snail_green_cheer.png in Resources */,
 				D6C7B3D12961DFC4006877F3 /* Pretendard-Regular.otf in Resources */,
 				DDE12F8C295B0B7E008CF91B /* Colors.xcassets in Resources */,
 				DD38AD76295B02B80084FA70 /* Assets.xcassets in Resources */,
+				317DD564296AEBB7002C5B79 /* snail_green_sticker1.png in Resources */,
+				317DD55B296AEBA0002C5B79 /* onboarding1_1x.json in Resources */,
+				317DD55D296AEBA0002C5B79 /* onboarding3_1x.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
