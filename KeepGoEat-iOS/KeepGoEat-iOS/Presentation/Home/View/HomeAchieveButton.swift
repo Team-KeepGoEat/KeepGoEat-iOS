@@ -50,6 +50,7 @@ class HomeAchieveButton: UIButton {
             $0.height.equalTo(42.adjusted)
         }
     }
+    
     func setUI() {
         config.imagePadding = 8
         config.imagePlacement = .leading
@@ -59,6 +60,7 @@ class HomeAchieveButton: UIButton {
         config.attributedTitle = AttributedString(Const.String.homeLessButtonBefore, attributes: AttributeContainer([NSAttributedString.Key.font: UIFont.system4Bold]))
         self.configuration = config
     }
+    
     private func yetMore() {
         config.baseForegroundColor = .gray50
         config.image = Const.Image.icnCheck
@@ -66,6 +68,7 @@ class HomeAchieveButton: UIButton {
         config.attributedTitle = AttributedString(Const.String.homeMoreButtonBefore, attributes: AttributeContainer([NSAttributedString.Key.font: UIFont.system4Bold]))
         self.configuration = config
     }
+    
     private func achievedMore() {
         config.image = Const.Image.icnCheckOrange
         config.baseForegroundColor = .orange600
@@ -73,6 +76,7 @@ class HomeAchieveButton: UIButton {
         config.attributedTitle = AttributedString(Const.String.homeMoreButtonAfter, attributes: AttributeContainer([NSAttributedString.Key.font: UIFont.system4Bold]))
         self.configuration = config
     }
+    
     private func yetLess() {
         config.baseForegroundColor = .gray50
         config.image = Const.Image.icnCheck
@@ -80,6 +84,7 @@ class HomeAchieveButton: UIButton {
         config.attributedTitle = AttributedString(Const.String.homeLessButtonBefore, attributes: AttributeContainer([NSAttributedString.Key.font: UIFont.system4Bold]))
         self.configuration = config
     }
+    
     private func achievedLess() {
         config.image = Const.Image.icnCheckGreen
         config.baseForegroundColor = .green600
