@@ -30,7 +30,7 @@ class StoreFilterButton: UIButton {
     private func setUI(title: String, selectType: SelectType) {
         var config = UIButton.Configuration.plain()
         config.background.backgroundColor = .gray50
-        config.contentInsets = NSDirectionalEdgeInsets(top: 2, leading: 5, bottom: 2, trailing: 5)
+        config.contentInsets = NSDirectionalEdgeInsets(top: 6, leading: 6, bottom: 6, trailing: 6)
         switch selectType {
         case .seleted:
             config.baseForegroundColor = .gray800
