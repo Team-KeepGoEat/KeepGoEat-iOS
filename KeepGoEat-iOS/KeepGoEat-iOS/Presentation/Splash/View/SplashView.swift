@@ -49,8 +49,8 @@ extension SplashView {
         }
         
         mainImage.snp.makeConstraints {
-            $0.width.equalTo(375.adjusted)
-            $0.height.equalTo(472.adjusted)
+            $0.width.equalTo(375.adjustedWidth)
+            $0.height.equalTo(472.adjustedWidth)
             $0.bottom.equalToSuperview().inset(39.adjusted)
             $0.centerX.equalToSuperview()
         }

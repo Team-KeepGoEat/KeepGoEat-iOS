@@ -10,7 +10,7 @@ import Foundation
 struct URLConstant {
     
     // MARK: Base
-    static let baseURL = ""
+    static let baseURL = Bundle.main.infoDictionary?["BASE_URL"] as! String
     
     // MARK: Login
     

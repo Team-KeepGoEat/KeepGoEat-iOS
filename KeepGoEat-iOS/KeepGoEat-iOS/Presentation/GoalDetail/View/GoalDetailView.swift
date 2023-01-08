@@ -27,11 +27,11 @@ class GoalDetailView: UIView {
         $0.text = Const.String.myGoal
     }
     
-    private let editGoalButton: UIButton = UIButton().then {
+    public let editGoalButton: UIButton = UIButton().then {
         $0.setImage(Const.Image.icnPen, for: .normal)
     }
     
-    private let saveGoalButton: UIButton = UIButton().then {
+    public let saveGoalButton: UIButton = UIButton().then {
         $0.setImage(Const.Image.icnBox, for: .normal)
     }
     
@@ -72,9 +72,23 @@ class GoalDetailView: UIView {
     
     private lazy var goalStatsCollectionView: GoalDetailCollectionView = GoalDetailCollectionView(frame: .zero, collectionViewLayout: collectionViewFlowLayout, goalType: goalType)
     
+    let dimmedView: UIView = UIView().then {
+        $0.backgroundColor = .black.withAlphaComponent(0.5)
+        $0.isHidden = true
+    }
+    
+    let bottomSheetView: BottomSheetView = BottomSheetView()
+    
+    let saveBottomSheetView: SaveBottomSheetView = SaveBottomSheetView()
+    
+    let deleteBottomSheetView: DeleteBottomSheetView = DeleteBottomSheetView().then {
+        $0.isHidden = true
+    }
+    
     init(frame: CGRect, goalType: GoalType) {
         self.goalType = goalType
         super.init(frame: frame)
+        
         setUI()
         setLayout()
     }
@@ -104,13 +118,20 @@ extension GoalDetailView {
             goalTypeImageView,
             goalTitleLabel,
             goalStatsWrapView,
-            goalStatsCollectionView
+            goalStatsCollectionView,
+            dimmedView,
+            bottomSheetView
         )
         
         headerView.addSubviews(
             editGoalButton,
             headerViewTitle,
             saveGoalButton
+        )
+        
+        bottomSheetView.addSubviews(
+            saveBottomSheetView,
+            deleteBottomSheetView
         )
         
         goalStatsWrapView.addSubview(
@@ -167,10 +188,28 @@ extension GoalDetailView {
         }
         
         goalStatsCollectionView.snp.makeConstraints {
-            $0.bottom.equalToSuperview().inset(101.adjusted)
+            $0.top.equalTo(goalStatsWrapView.snp.bottom).inset(-16.adjustedHeight)
             $0.width.equalTo(336.adjusted)
             $0.height.equalTo(240.adjusted)
             $0.centerX.equalToSuperview()
+        }
+        
+        bottomSheetView.snp.makeConstraints {
+            $0.top.equalToSuperview().inset(UIScreen.main.bounds.height)
+            $0.height.equalTo(325.adjusted)
+            $0.directionalHorizontalEdges.equalToSuperview()
+        }
+        
+        dimmedView.snp.makeConstraints {
+            $0.edges.equalToSuperview()
+        }
+        
+        saveBottomSheetView.snp.makeConstraints {
+            $0.edges.equalToSuperview()
+        }
+        
+        deleteBottomSheetView.snp.makeConstraints {
+            $0.edges.equalToSuperview()
         }
     }
 }
