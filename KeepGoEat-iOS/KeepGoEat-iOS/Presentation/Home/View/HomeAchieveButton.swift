@@ -13,27 +13,31 @@ enum KindType: String {
     case less
     case more
 }
-enum StateType: String {
-    case before
-    case after
-}
 
 class HomeAchieveButton: UIButton {
     // MARK: - Variables
-    private let kindType: KindType
-    private let stateType: StateType
+    private var config = UIButton.Configuration.plain()
+    
+    var isAchievedMore: Bool = false {
+        didSet {
+            isAchievedMore ? achievedMore() : yetMore()
+        }
+    }
+    var isAchievedLess: Bool = false {
+        didSet {
+            isAchievedLess ? achievedLess() : yetLess()
+        }
+    }
     
     // MARK: Component
     
     // MARK: - Function
     // MARK: LifeCycle
-    init(frame: CGRect, kindType: KindType = .more, stateType: StateType = .before) {
-        self.kindType = kindType
-        self.stateType = stateType
+    override init(frame: CGRect) {
         super.init(frame: frame)
         
         setLayout()
-        setUI(kindType: .more, stateType: .after)
+        setUI()
     }
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
@@ -46,36 +50,41 @@ class HomeAchieveButton: UIButton {
             $0.height.equalTo(42.adjusted)
         }
     }
-    func setUI(kindType: KindType, stateType: StateType) {
-        var config = UIButton.Configuration.plain()
+    func setUI() {
         config.imagePadding = 8
         config.imagePlacement = .leading
-        switch stateType {
-        case .before:
-            config.baseForegroundColor = .gray50
-            config.image = Const.Image.icnCheck
-            switch kindType {
-            case .less:
-                config.background.backgroundColor = .green600
-                config.attributedTitle = AttributedString(Const.String.homeLessButtonBefore, attributes: AttributeContainer([NSAttributedString.Key.font: UIFont.system4Bold]))
-            case .more:
-                config.background.backgroundColor = .orange600
-                config.attributedTitle = AttributedString(Const.String.homeMoreButtonBefore, attributes: AttributeContainer([NSAttributedString.Key.font: UIFont.system4Bold]))
-            }
-        case .after:
-            switch kindType {
-            case .less:
-                config.image = Const.Image.icnCheckGreen
-                config.baseForegroundColor = .green600
-                config.background.backgroundColor = .green100
-                config.attributedTitle = AttributedString(Const.String.homeLessButtonAfter, attributes: AttributeContainer([NSAttributedString.Key.font: UIFont.system4Bold]))
-            case .more:
-                config.image = Const.Image.icnCheckOrange
-                config.baseForegroundColor = .orange600
-                config.background.backgroundColor = .orange50
-                config.attributedTitle = AttributedString(Const.String.homeMoreButtonAfter, attributes: AttributeContainer([NSAttributedString.Key.font: UIFont.system4Bold]))
-            }
-        }
+        config.baseForegroundColor = .gray50
+        config.image = Const.Image.icnCheck
+        config.background.backgroundColor = .green600
+        config.attributedTitle = AttributedString(Const.String.homeLessButtonBefore, attributes: AttributeContainer([NSAttributedString.Key.font: UIFont.system4Bold]))
+        self.configuration = config
+    }
+    private func yetMore() {
+        config.baseForegroundColor = .gray50
+        config.image = Const.Image.icnCheck
+        config.background.backgroundColor = .orange600
+        config.attributedTitle = AttributedString(Const.String.homeMoreButtonBefore, attributes: AttributeContainer([NSAttributedString.Key.font: UIFont.system4Bold]))
+        self.configuration = config
+    }
+    private func achievedMore() {
+        config.image = Const.Image.icnCheckOrange
+        config.baseForegroundColor = .orange600
+        config.background.backgroundColor = .orange50
+        config.attributedTitle = AttributedString(Const.String.homeMoreButtonAfter, attributes: AttributeContainer([NSAttributedString.Key.font: UIFont.system4Bold]))
+        self.configuration = config
+    }
+    private func yetLess() {
+        config.baseForegroundColor = .gray50
+        config.image = Const.Image.icnCheck
+        config.background.backgroundColor = .green600
+        config.attributedTitle = AttributedString(Const.String.homeLessButtonBefore, attributes: AttributeContainer([NSAttributedString.Key.font: UIFont.system4Bold]))
+        self.configuration = config
+    }
+    private func achievedLess() {
+        config.image = Const.Image.icnCheckGreen
+        config.baseForegroundColor = .green600
+        config.background.backgroundColor = .green100
+        config.attributedTitle = AttributedString(Const.String.homeLessButtonAfter, attributes: AttributeContainer([NSAttributedString.Key.font: UIFont.system4Bold]))
         self.configuration = config
     }
 }
