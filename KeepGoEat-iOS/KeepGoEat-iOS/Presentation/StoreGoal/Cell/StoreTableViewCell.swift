@@ -49,12 +49,59 @@ class StoreTableViewCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         
+        setLayout()
+        setUI()
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
 
         // Configure the view for the selected state
+    }
+    
+    private func setUI() {
+        self.setCellShadow(shadowBase: shadowBaseView)
+    }
+    private func setLayout() {
+        self.addSubviews(
+            shadowBaseView,
+            kindTagImage,
+            goalContentLabel,
+            totalSubLabel,
+            totalCountLabel,
+            termSubLabel,
+            termCountLabel
+        )
+        
+        shadowBaseView.snp.makeConstraints {
+            $0.edges.equalToSuperview()
+        }
+        kindTagImage.snp.makeConstraints {
+            $0.width.equalTo(60.adjusted)
+            $0.height.equalTo(20.adjusted)
+            $0.top.equalToSuperview().offset(16.adjusted)
+            $0.leading.equalToSuperview().offset(20.adjusted)
+        }
+        goalContentLabel.snp.makeConstraints {
+            $0.top.equalTo(kindTagImage.snp.bottom).offset(8.adjusted)
+            $0.leading.equalToSuperview().offset(20.adjusted)
+        }
+        totalSubLabel.snp.makeConstraints {
+            $0.top.equalTo(goalContentLabel.snp.bottom).offset(16.adjusted)
+            $0.leading.equalToSuperview().offset(20.adjusted)
+        }
+        totalCountLabel.snp.makeConstraints {
+            $0.centerY.equalTo(totalSubLabel)
+            $0.leading.equalTo(totalSubLabel.snp.trailing).offset(8.adjusted)
+        }
+        termSubLabel.snp.makeConstraints {
+            $0.leading.equalToSuperview().offset(20.adjusted)
+            $0.top.equalTo(totalSubLabel.snp.bottom).offset(16.adjusted)
+        }
+        termCountLabel.snp.makeConstraints {
+            $0.centerY.equalTo(termSubLabel)
+            $0.leading.equalTo(termSubLabel.snp.trailing).offset(12.adjusted)
+        }
     }
 
 }
