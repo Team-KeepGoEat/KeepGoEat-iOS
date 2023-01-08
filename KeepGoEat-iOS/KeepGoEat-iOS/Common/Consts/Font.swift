@@ -13,6 +13,10 @@ extension UIFont {
         return UIFont(name: "Pretendard-Bold", size: 48.0)!
     }
     
+    class var systemCard: UIFont {
+        return UIFont(name: "Pretendard-Bold", size: 36.0)!
+    }
+    
     class var system1Bold: UIFont {
         return UIFont(name: "Pretendard-Bold", size: 24.0)!
     }

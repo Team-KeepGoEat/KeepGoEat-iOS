@@ -8,13 +8,22 @@
 import UIKit
 
 import SnapKit
+import Then
+
+enum HomeType: String {
+    case exist
+    case empty
+}
 
 class HomeView: UIView {
     
     // MARK: - Variables
+    private let homeType: HomeType = .exist
+    
     // MARK: Component
     private let homeCheerView = HomeCheerView()
     private let homeEmptyView = HomeEmptyView()
+    private let homeExistView = HomeExistView()
     
     // MARK: - Function
     // MARK: LifeCycle
@@ -22,6 +31,7 @@ class HomeView: UIView {
         super.init(frame: frame)
         
         setLayout()
+        setUI()
     }
     
     required init?(coder: NSCoder) {
@@ -40,18 +50,35 @@ class HomeView: UIView {
         }
     }
     
+    private func setUI() {
+        switch homeType {
+        case .exist:
+            homeCheerView.setCharacterImage(characterType: .cheer)
+        case .empty:
+            homeCheerView.setCharacterImage(characterType: .hungry)
+        }
+    }
+    
     private func setLayout() {
-        self.addSubviews(
-            homeCheerView,
-            homeEmptyView
-        )
+        self.addSubview(homeCheerView)
         
         homeCheerView.snp.makeConstraints {
             $0.top.horizontalEdges.equalTo(self.safeAreaLayoutGuide)
         }
-        homeEmptyView.snp.makeConstraints {
-            $0.top.equalTo(homeCheerView.snp.bottom).inset(5.adjusted)
-            $0.horizontalEdges.bottom.equalToSuperview()
+        
+        switch homeType {
+        case .exist:
+            self.addSubview(homeExistView)
+            homeExistView.snp.makeConstraints {
+                $0.top.equalTo(homeCheerView.snp.bottom).inset(5.adjusted)
+                $0.horizontalEdges.bottom.equalToSuperview()
+            }
+        case .empty:
+            self.addSubview(homeEmptyView)
+            homeEmptyView.snp.makeConstraints {
+                $0.top.equalTo(homeCheerView.snp.bottom).inset(5.adjusted)
+                $0.horizontalEdges.bottom.equalToSuperview()
+            }
         }
     }
     
