@@ -18,6 +18,11 @@ extension CGFloat {
         let ratio: CGFloat = UIScreen.main.bounds.width / 375
         return CGFloat(self) * ratio
     }
+    
+    var adjustedHeight: CGFloat {
+        let ratio: CGFloat = UIScreen.main.bounds.height / 667
+        return CGFloat(self) * ratio
+    }
 }
 
 extension Int {
@@ -31,6 +36,11 @@ extension Int {
         let ratio: CGFloat = UIScreen.main.bounds.width / 375
         return CGFloat(self) * ratio
     }
+    
+    var adjustedHeight: CGFloat {
+        let ratio: CGFloat = UIScreen.main.bounds.height / 667
+        return CGFloat(self) * ratio
+    }
 }
 
 extension Double {
@@ -42,6 +52,11 @@ extension Double {
     
     var adjustedWidth: CGFloat {
         let ratio: CGFloat = UIScreen.main.bounds.width / 375
+        return CGFloat(self) * ratio
+    }
+    
+    var adjustedHeight: CGFloat {
+        let ratio: CGFloat = UIScreen.main.bounds.height / 667
         return CGFloat(self) * ratio
     }
 }
