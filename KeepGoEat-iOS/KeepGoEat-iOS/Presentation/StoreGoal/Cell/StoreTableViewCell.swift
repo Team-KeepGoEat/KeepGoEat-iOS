@@ -46,17 +46,14 @@ class StoreTableViewCell: UITableViewCell {
     
     // MARK: - Function
     // MARK: LifeCycle
-    override func awakeFromNib() {
-        super.awakeFromNib()
+    override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
+        super.init(style: style, reuseIdentifier: reuseIdentifier)
         
         setLayout()
         setUI()
     }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
     }
     
     private func setUI() {
@@ -87,7 +84,7 @@ class StoreTableViewCell: UITableViewCell {
             $0.leading.equalToSuperview().offset(20.adjusted)
         }
         totalSubLabel.snp.makeConstraints {
-            $0.top.equalTo(goalContentLabel.snp.bottom).offset(16.adjusted)
+            $0.bottom.equalTo(termSubLabel.snp.top).offset(-16.adjusted)
             $0.leading.equalToSuperview().offset(20.adjusted)
         }
         totalCountLabel.snp.makeConstraints {
@@ -96,7 +93,7 @@ class StoreTableViewCell: UITableViewCell {
         }
         termSubLabel.snp.makeConstraints {
             $0.leading.equalToSuperview().offset(20.adjusted)
-            $0.top.equalTo(totalSubLabel.snp.bottom).offset(16.adjusted)
+            $0.bottom.equalToSuperview().offset(-16.adjusted)
         }
         termCountLabel.snp.makeConstraints {
             $0.centerY.equalTo(termSubLabel)
