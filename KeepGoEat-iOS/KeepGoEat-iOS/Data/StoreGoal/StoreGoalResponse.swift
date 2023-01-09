@@ -14,7 +14,7 @@ struct GetStoreGoalResponse: Codable {
 }
 
 // MARK: Goal
-struct StoreGoal: Codable {
+struct StoreGoal: Codable, Hashable {
     let goalID: Int
     let goalContent: String
     let isMore, isOngoing: Bool
