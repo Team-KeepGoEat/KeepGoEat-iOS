@@ -14,6 +14,7 @@ class StoreGoalView: UIView {
 
     // MARK: - Variables
     let dummyData: GetStoreGoalResponse = getStoreGoalDataList[1]
+    var dataSource: UICollectionViewDiffableDataSource<StoreSection, StoreGoal>!
     
     // MARK: Component
     private let headerView = HeaderView()
@@ -30,13 +31,14 @@ class StoreGoalView: UIView {
         $0.minimumLineSpacing = 16.adjusted
         $0.sectionInset = UIEdgeInsets(top: 3.adjusted, left: 0, bottom: 16.adjusted, right: 0)
     }
-    private lazy var storeCollectionView = StoreCollectionView(frame: .zero, collectionViewLayout: layout)
+    lazy var storeCollectionView = StoreCollectionView(frame: .zero, collectionViewLayout: layout)
     
     // MARK: - Function
     // MARK: LifeCycle
     override init(frame: CGRect) {
         super.init(frame: frame)
         
+        setDataSource()
         setUI()
         setLayout()
     }
@@ -45,6 +47,13 @@ class StoreGoalView: UIView {
     }
     
     // MARK: Layout Helpers
+    private func setDataSource() {
+        dataSource = UICollectionViewDiffableDataSource<StoreSection, StoreGoal>(collectionView: storeCollectionView, cellProvider: { collectionView, indexPath, goal in
+            guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: StoreCollectionViewCell.identifier, for: indexPath) as? StoreCollectionViewCell else { fatalError() }
+            cell.dataBind(data: goal)
+            return cell
+        })
+    }
     
     private func setUI() {
         self.backgroundColor = .gray50
@@ -83,4 +92,8 @@ class StoreGoalView: UIView {
             $0.horizontalEdges.bottom.equalToSuperview()
         }
     }
+}
+
+enum StoreSection {
+    case main
 }
