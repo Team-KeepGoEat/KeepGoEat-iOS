@@ -110,7 +110,7 @@ extension OnboardingViewController {
         onboardingCollectionView.snp.makeConstraints {
             $0.top.equalTo(self.pageControl.snp.bottom).offset(55.adjusted)
             $0.leading.trailing.equalToSuperview()
-            $0.height.equalTo(471.adjusted)
+            $0.bottom.equalTo(self.nextButton.snp.top)
         }
         
         nextButton.snp.makeConstraints {
@@ -133,10 +133,8 @@ extension OnboardingViewController {
     private func tapNextButton() {
         currentPage += 1
         if currentPage == 3 {
-            print("✨홈으로, currentPage:", currentPage)
             goToHomeView()
         } else {
-            print("✨다음으로, currentPage:", currentPage)
             let indexPath = IndexPath(item: currentPage, section: 0)
             onboardingCollectionView.scrollToItem(at: indexPath, at: .centeredHorizontally, animated: true)
         }
@@ -171,6 +169,5 @@ extension OnboardingViewController: UICollectionViewDataSource {
         
         onboardingCell.dataBind(model: onboardingList[indexPath.item])
         return onboardingCell
-        
     }
 }
