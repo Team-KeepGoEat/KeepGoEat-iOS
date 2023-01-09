@@ -86,21 +86,21 @@ class StoreCollectionViewCell: UICollectionViewCell {
             $0.top.equalTo(kindTagImage.snp.bottom).offset(8.adjusted)
             $0.leading.equalToSuperview().offset(20.adjusted)
         }
-        totalSubLabel.snp.makeConstraints {
-            $0.bottom.equalTo(termSubLabel.snp.top).offset(-16.adjusted)
-            $0.leading.equalToSuperview().offset(20.adjusted)
-        }
         totalCountLabel.snp.makeConstraints {
-            $0.centerY.equalTo(totalSubLabel)
-            $0.leading.equalTo(totalSubLabel.snp.trailing).offset(8.adjusted)
+            $0.top.equalTo(goalContentLabel.snp.bottom).offset(2.adjusted)
+            $0.leading.equalToSuperview().offset(80.adjusted)
         }
-        termSubLabel.snp.makeConstraints {
+        totalSubLabel.snp.makeConstraints {
+            $0.centerY.equalTo(totalCountLabel)
             $0.leading.equalToSuperview().offset(20.adjusted)
-            $0.bottom.equalToSuperview().offset(-16.adjusted)
         }
         termCountLabel.snp.makeConstraints {
-            $0.centerY.equalTo(termSubLabel)
-            $0.leading.equalTo(termSubLabel.snp.trailing).offset(12.adjusted)
+            $0.bottom.equalToSuperview().offset(-16.adjusted)
+            $0.leading.equalToSuperview().offset(81.adjusted)
+        }
+        termSubLabel.snp.makeConstraints {
+            $0.centerY.equalTo(termCountLabel)
+            $0.leading.equalToSuperview().offset(20.adjusted)
         }
     }
 
