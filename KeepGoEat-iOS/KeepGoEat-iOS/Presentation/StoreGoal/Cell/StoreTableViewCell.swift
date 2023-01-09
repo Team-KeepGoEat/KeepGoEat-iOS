@@ -106,4 +106,16 @@ class StoreTableViewCell: UITableViewCell {
         }
     }
 
+    func dataBind(data: StoreGoal) {
+        if data.isMore {
+            kindTagImage.image = Const.Image.moreTag
+            totalCountLabel.textColor = .orange500
+        } else {
+            kindTagImage.image = Const.Image.lessTag
+            totalCountLabel.textColor = .green600
+        }
+        goalContentLabel.text = data.goalContent
+        totalCountLabel.text = String(data.totalCount)
+        termCountLabel.text = "\(data.startedAt) ~ \(data.keptAt)"
+    }
 }
