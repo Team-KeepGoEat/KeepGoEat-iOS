@@ -10,6 +10,10 @@ import Foundation
 extension Const {
     struct String {
         
+        // MARK: Keychain
+        static let userAccessToken = "userAccessToken"
+        static let userRefreshToken = "userRefreshToken"
+        
         // MARK: Onboarding
         
         // MARK: Login

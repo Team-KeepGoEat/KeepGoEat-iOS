@@ -1,6 +1,7 @@
 disabled_rules:
 - trailing_whitespace
 - force_cast
+- force_try
 - force_unwrapping
 - identifier_name
 - line_length
