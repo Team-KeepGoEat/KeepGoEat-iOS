@@ -23,7 +23,3 @@ class StoreCollectionView: UICollectionView {
     }
     
 }
-
-//extension StoreCollectionView: UICollectionViewDelegate {
-//
-//}
