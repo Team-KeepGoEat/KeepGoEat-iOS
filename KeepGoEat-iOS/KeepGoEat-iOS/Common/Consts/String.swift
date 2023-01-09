@@ -54,7 +54,7 @@ extension Const {
         // MARK: StoreGoal
         static let storeTitle = "보관한 목표"
         static let storeFilterAll = "전체"
-        static let storeFilterMore = "더먹기"
-        static let storeFilterLess = "덜먹기"
+        static let storeFilterMore = "더 먹기"
+        static let storeFilterLess = "덜 먹기"
     }
 }
