@@ -19,12 +19,11 @@ class StoreCollectionView: UICollectionView {
     }
     
     private func setRegister() {
-        self.delegate = self
         self.register(StoreCollectionViewCell.self, forCellWithReuseIdentifier: StoreCollectionViewCell.identifier)
     }
     
 }
 
-extension StoreCollectionView: UICollectionViewDelegate {
-    
-}
+//extension StoreCollectionView: UICollectionViewDelegate {
+//
+//}
