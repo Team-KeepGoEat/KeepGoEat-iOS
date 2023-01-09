@@ -11,6 +11,9 @@ import KakaoSDKUser
 
 class LoginViewController: UIViewController {
     
+    // MAKR: Variables
+    var loginResponse: LoginResponseDto?
+    
     // MARK: Component
     private let loginImageView: UIImageView = UIImageView().then {
         $0.image = UIImage(named: "imgSignup")

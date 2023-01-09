@@ -11,12 +11,9 @@ class SplashView: UIView {
     
     // MARK: Component
     
-    private let logoImage: UIImageView = UIImageView().then {
-        $0.image = Const.Image.splashLogo
-    }
-    
-    private let mainImage: UIImageView = UIImageView().then {
+    private let splashImage: UIImageView = UIImageView().then {
         $0.image = Const.Image.splashImage
+        $0.contentMode = .scaleAspectFit
     }
     
     override init(frame: CGRect) {
@@ -37,22 +34,11 @@ extension SplashView {
     
     private func setLayout() {
         self.addSubviews(
-            logoImage,
-            mainImage
+            splashImage
         )
         
-        logoImage.snp.makeConstraints {
-            $0.width.equalTo(200.adjusted)
-            $0.height.equalTo(120.adjusted)
-            $0.top.equalTo(self.safeAreaLayoutGuide).inset(16.adjusted)
-            $0.leading.equalTo(self.safeAreaLayoutGuide).inset(16.adjusted)
-        }
-        
-        mainImage.snp.makeConstraints {
-            $0.width.equalTo(375.adjustedWidth)
-            $0.height.equalTo(472.adjustedWidth)
-            $0.bottom.equalToSuperview().inset(39.adjusted)
-            $0.centerX.equalToSuperview()
+        splashImage.snp.makeConstraints {
+            $0.edges.equalTo(self.safeAreaLayoutGuide)
         }
     }
 }
