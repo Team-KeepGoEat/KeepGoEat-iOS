@@ -10,21 +10,9 @@ import UIKit
 import SnapKit
 import Then
 
-enum StoreSection {
-    case main
-}
-enum SortType: String {
-    case all
-    case more
-    case less
-}
-
 class StoreGoalView: UIView {
     
     // MARK: - Variables
-    let data: GetStoreGoalResponse = getStoreGoalDataList[1]
-    var dataSource: UICollectionViewDiffableDataSource<StoreSection, StoreGoal>!
-    
     // MARK: Component
     private let headerView = HeaderView()
     private let headerLabel = UILabel().then {
@@ -32,9 +20,9 @@ class StoreGoalView: UIView {
         $0.textColor = .gray800
         $0.text = Const.String.storeTitle
     }
-    private let totalButton = StoreFilterButton(frame: .zero, title: Const.String.storeFilterAll, selectType: .selected)
-    private let moreButton = StoreFilterButton(frame: .zero, title: Const.String.storeFilterMore, selectType: .unselected)
-    private let lessButton = StoreFilterButton(frame: .zero, title: Const.String.storeFilterLess, selectType: .unselected)
+    let totalButton = StoreFilterButton(frame: .zero, title: Const.String.storeFilterAll, selectType: .selected)
+    let moreButton = StoreFilterButton(frame: .zero, title: Const.String.storeFilterMore, selectType: .unselected)
+    let lessButton = StoreFilterButton(frame: .zero, title: Const.String.storeFilterLess, selectType: .unselected)
     private let layout = UICollectionViewFlowLayout().then {
         $0.estimatedItemSize = CGSize(width: 343.adjustedWidth, height: 160.adjustedWidth)
         $0.minimumLineSpacing = 16.adjusted
@@ -47,11 +35,7 @@ class StoreGoalView: UIView {
     override init(frame: CGRect) {
         super.init(frame: frame)
         
-        setDataSource()
         setUI()
-        setLayout()
-        setAddTarget()
-        applySnapshot(sort: .all)
     }
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
@@ -94,54 +78,5 @@ class StoreGoalView: UIView {
             $0.top.equalTo(headerLabel.snp.bottom).offset(24.adjusted)
             $0.horizontalEdges.bottom.equalToSuperview()
         }
-    }
-    
-    // MARK: Custom Function
-    private func setAddTarget() {
-        totalButton.addTarget(self, action: #selector(totalButtonDidTap), for: .touchUpInside)
-        moreButton.addTarget(self, action: #selector(moreButtonDidTap), for: .touchUpInside)
-        lessButton.addTarget(self, action: #selector(lessButtonDidTap), for: .touchUpInside)
-    }
-    private func setDataSource() {
-        dataSource = UICollectionViewDiffableDataSource<StoreSection, StoreGoal>(collectionView: storeCollectionView, cellProvider: { collectionView, indexPath, goal in
-            guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: StoreCollectionViewCell.identifier, for: indexPath) as? StoreCollectionViewCell else { fatalError() }
-            cell.dataBind(data: goal)
-            return cell
-        })
-    }
-    private func applySnapshot(sort: SortType, isAnimated: Bool = true) {
-        var snapshot = NSDiffableDataSourceSnapshot<StoreSection, StoreGoal>()
-        snapshot.appendSections([.main])
-        switch sort {
-        case .all:
-            snapshot.appendItems(data.goals, toSection: .main)
-        case .more:
-            snapshot.appendItems(data.goals.filter({ $0.isMore }), toSection: .main)
-        case .less:
-            snapshot.appendItems(data.goals.filter({ !$0.isMore }), toSection: .main)
-        }
-        dataSource.apply(snapshot, animatingDifferences: isAnimated)
-    }
-    
-    @objc
-    private func totalButtonDidTap() {
-        applySnapshot(sort: .all)
-        totalButton.setUI(title: Const.String.storeFilterAll, selectType: .selected)
-        moreButton.setUI(title: Const.String.storeFilterMore, selectType: .unselected)
-        lessButton.setUI(title: Const.String.storeFilterLess, selectType: .unselected)
-    }
-    @objc
-    private func moreButtonDidTap() {
-        applySnapshot(sort: .more)
-        totalButton.setUI(title: Const.String.storeFilterAll, selectType: .unselected)
-        moreButton.setUI(title: Const.String.storeFilterMore, selectType: .selected)
-        lessButton.setUI(title: Const.String.storeFilterLess, selectType: .unselected)
-    }
-    @objc
-    private func lessButtonDidTap() {
-        applySnapshot(sort: .less)
-        totalButton.setUI(title: Const.String.storeFilterAll, selectType: .unselected)
-        moreButton.setUI(title: Const.String.storeFilterMore, selectType: .unselected)
-        lessButton.setUI(title: Const.String.storeFilterLess, selectType: .selected)
     }
 }
