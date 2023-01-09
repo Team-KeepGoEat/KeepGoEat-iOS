@@ -9,11 +9,6 @@ import UIKit
 
 import SnapKit
 
-enum KindType: String {
-    case less
-    case more
-}
-
 class HomeAchieveButton: UIButton {
     // MARK: - Variables
     private var config = UIButton.Configuration.plain()
