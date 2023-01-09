@@ -254,6 +254,13 @@
 			path = images;
 			sourceTree = "<group>";
 		};
+		31B295DE296BFDC50062CD79 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		D63110A929628EFB00E7D52D /* Controller */ = {
 			isa = PBXGroup;
 			children = (
@@ -581,6 +588,7 @@
 		DDE12F9F295B0D60008CF91B /* Onboarding */ = {
 			isa = PBXGroup;
 			children = (
+				31B295DE296BFDC50062CD79 /* View */,
 				DDE12FA0295B0D88008CF91B /* OnboardingViewController.swift */,
 				311F8FC52967FCB300278E8F /* Cell */,
 			);
