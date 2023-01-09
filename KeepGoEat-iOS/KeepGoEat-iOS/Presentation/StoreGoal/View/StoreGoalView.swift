@@ -27,7 +27,7 @@ class StoreGoalView: UIView {
     private let moreButton = StoreFilterButton(frame: .zero, title: Const.String.storeFilterMore, selectType: .unselected)
     private let lessButton = StoreFilterButton(frame: .zero, title: Const.String.storeFilterLess, selectType: .unselected)
     private let layout = UICollectionViewFlowLayout().then {
-        $0.estimatedItemSize = CGSize(width: 343.adjustedWidth, height: 160.adjusted)
+        $0.estimatedItemSize = CGSize(width: 343.adjustedWidth, height: 160.adjustedWidth)
         $0.minimumLineSpacing = 16.adjusted
         $0.sectionInset = UIEdgeInsets(top: 3.adjusted, left: 0, bottom: 16.adjusted, right: 0)
     }
@@ -41,6 +41,7 @@ class StoreGoalView: UIView {
         setDataSource()
         setUI()
         setLayout()
+        applySnapshot()
     }
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
@@ -53,6 +54,12 @@ class StoreGoalView: UIView {
             cell.dataBind(data: goal)
             return cell
         })
+    }
+    private func applySnapshot(isAnimated: Bool = true) {
+        var snapshot = NSDiffableDataSourceSnapshot<StoreSection, StoreGoal>()
+        snapshot.appendSections([.main])
+        snapshot.appendItems(dummyData.goals, toSection: .main)
+        dataSource.apply(snapshot, animatingDifferences: isAnimated)
     }
     
     private func setUI() {
