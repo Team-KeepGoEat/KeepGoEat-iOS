@@ -21,5 +21,4 @@ class StoreCollectionView: UICollectionView {
     private func setRegister() {
         self.register(StoreCollectionViewCell.self, forCellWithReuseIdentifier: StoreCollectionViewCell.identifier)
     }
-    
 }

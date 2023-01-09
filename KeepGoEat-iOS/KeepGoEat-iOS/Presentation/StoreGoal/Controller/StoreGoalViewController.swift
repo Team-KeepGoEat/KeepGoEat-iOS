@@ -19,9 +19,7 @@ class StoreGoalViewController: UIViewController {
     // MARK: LifeCycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        
     }
-
     override func loadView() {
         super.loadView()
         
