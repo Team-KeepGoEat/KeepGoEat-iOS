@@ -10,9 +10,21 @@ import UIKit
 import SnapKit
 import Then
 
+enum StoreSection {
+    case main
+}
+enum SortType: String {
+    case all
+    case more
+    case less
+}
+
 class StoreGoalView: UIView {
     
     // MARK: - Variables
+    let data: GetStoreGoalResponse = getStoreGoalDataList[1]
+    var dataSource: UICollectionViewDiffableDataSource<StoreSection, StoreGoal>!
+    
     // MARK: Component
     private let headerView = HeaderView()
     private let headerLabel = UILabel().then {
@@ -35,7 +47,10 @@ class StoreGoalView: UIView {
     override init(frame: CGRect) {
         super.init(frame: frame)
         
+        setDataSource()
         setUI()
+        setLayout()
+        applySnapshot(sort: .all)
     }
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
@@ -78,5 +93,27 @@ class StoreGoalView: UIView {
             $0.top.equalTo(headerLabel.snp.bottom).offset(24.adjusted)
             $0.horizontalEdges.bottom.equalToSuperview()
         }
+    }
+    
+    // MARK: Custom Function
+    private func setDataSource() {
+        dataSource = UICollectionViewDiffableDataSource<StoreSection, StoreGoal>(collectionView: storeCollectionView, cellProvider: { collectionView, indexPath, goal in
+            guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: StoreCollectionViewCell.identifier, for: indexPath) as? StoreCollectionViewCell else { fatalError() }
+            cell.dataBind(data: goal)
+            return cell
+        })
+    }
+    func applySnapshot(sort: SortType, isAnimated: Bool = true) {
+        var snapshot = NSDiffableDataSourceSnapshot<StoreSection, StoreGoal>()
+        snapshot.appendSections([.main])
+        switch sort {
+        case .all:
+            snapshot.appendItems(data.goals, toSection: .main)
+        case .more:
+            snapshot.appendItems(data.goals.filter({ $0.isMore }), toSection: .main)
+        case .less:
+            snapshot.appendItems(data.goals.filter({ !$0.isMore }), toSection: .main)
+        }
+        dataSource.apply(snapshot, animatingDifferences: isAnimated)
     }
 }
