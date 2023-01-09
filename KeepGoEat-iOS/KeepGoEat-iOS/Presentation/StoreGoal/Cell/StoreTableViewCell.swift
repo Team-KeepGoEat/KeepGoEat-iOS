@@ -55,6 +55,11 @@ class StoreTableViewCell: UITableViewCell {
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        
+        contentView.frame = contentView.frame.inset(by: UIEdgeInsets(top: 0, left: 0, bottom: 16.adjusted, right: 0))
+    }
     
     private func setUI() {
         self.setCellShadow(shadowBase: shadowBaseView)
