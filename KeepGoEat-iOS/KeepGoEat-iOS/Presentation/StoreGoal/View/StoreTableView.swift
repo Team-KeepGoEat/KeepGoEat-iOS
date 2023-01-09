@@ -31,4 +31,10 @@ class StoreTableView: UITableView {
     }
 }
 
+// MARK: - extension
+// MARK: UITableViewDelegate
+extension StoreTableView: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 176.adjusted
+    }
 }
