@@ -7,6 +7,8 @@
 
 import UIKit
 
+import SwiftUI
+
 class StoreGoalViewController: UIViewController {
     
     // MARK: - Variables
@@ -17,7 +19,7 @@ class StoreGoalViewController: UIViewController {
     // MARK: LifeCycle
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
     }
 
     override func loadView() {
@@ -25,5 +27,10 @@ class StoreGoalViewController: UIViewController {
         
         self.view = storeGoalView
     }
-    
+}
+
+struct StoreGoalViewControllerPreView: PreviewProvider {
+    static var previews: some View {
+        StoreGoalViewController().toPreview()
+    }
 }
