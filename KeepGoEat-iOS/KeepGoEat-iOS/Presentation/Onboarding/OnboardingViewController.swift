@@ -61,7 +61,7 @@ class OnboardingViewController: UIViewController {
         $0.delegate = self
         $0.dataSource = self
     }
-
+    
     private lazy var nextButton = UIButton().then {
         $0.setTitle("조금 더 설명해주세요!", for: .normal)
         $0.titleLabel?.font = .system4Bold
@@ -80,7 +80,7 @@ class OnboardingViewController: UIViewController {
         super.viewDidLoad()
         layout()
         register()
-        setAddTarget() 
+        setAddTarget()
     }
 }
 
@@ -94,7 +94,7 @@ extension OnboardingViewController {
             view.addSubview($0)
         }
         view.addSubview(onboardingCollectionView)
-
+        
         pageControl.snp.makeConstraints {
             $0.top.equalTo(self.view.safeAreaLayoutGuide).offset(14.adjusted)
             $0.centerX.equalToSuperview()
@@ -107,10 +107,10 @@ extension OnboardingViewController {
             $0.width.equalTo(49.adjusted)
         }
         
-       onboardingCollectionView.snp.makeConstraints {
-           $0.top.equalTo(self.pageControl.snp.bottom).offset(55.adjusted)
-           $0.leading.trailing.equalToSuperview()
-           $0.height.equalTo(471.adjusted)
+        onboardingCollectionView.snp.makeConstraints {
+            $0.top.equalTo(self.pageControl.snp.bottom).offset(55.adjusted)
+            $0.leading.trailing.equalToSuperview()
+            $0.height.equalTo(471.adjusted)
         }
         
         nextButton.snp.makeConstraints {
@@ -131,13 +131,21 @@ extension OnboardingViewController {
     
     @objc
     private func tapNextButton() {
-        if currentPage == onboardingData.count - 1 {
-            print("go to main")
+        currentPage += 1
+        if currentPage == 3 {
+            print("✨홈으로, currentPage:", currentPage)
+            goToHomeView()
         } else {
-            currentPage += 1
+            print("✨다음으로, currentPage:", currentPage)
             let indexPath = IndexPath(item: currentPage, section: 0)
             onboardingCollectionView.scrollToItem(at: indexPath, at: .centeredHorizontally, animated: true)
         }
+        
+    }
+    private func goToHomeView() {
+        let sceneDelegate = UIApplication.shared.connectedScenes.first?.delegate as? SceneDelegate
+        guard let delegate = sceneDelegate else { return }
+        delegate.window?.rootViewController = HomeViewController()
     }
 }
 
@@ -163,6 +171,6 @@ extension OnboardingViewController: UICollectionViewDataSource {
         
         onboardingCell.dataBind(model: onboardingList[indexPath.item])
         return onboardingCell
-            
+        
     }
 }
