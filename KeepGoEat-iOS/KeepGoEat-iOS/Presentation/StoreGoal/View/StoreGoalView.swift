@@ -13,6 +13,8 @@ import Then
 class StoreGoalView: UIView {
 
     // MARK: - Variables
+    let dummyData: GetStoreGoalResponse = getStoreGoalDataList[1]
+    
     // MARK: Component
     private let headerView = HeaderView()
     private let headerLabel = UILabel().then {
@@ -23,11 +25,18 @@ class StoreGoalView: UIView {
     private let totalButton = StoreFilterButton(frame: .zero, title: Const.String.storeFilterAll, selectType: .seleted)
     private let moreButton = StoreFilterButton(frame: .zero, title: Const.String.storeFilterMore, selectType: .unselected)
     private let lessButton = StoreFilterButton(frame: .zero, title: Const.String.storeFilterLess, selectType: .unselected)
+    private let layout = UICollectionViewFlowLayout().then {
+        $0.estimatedItemSize = CGSize(width: 343.adjustedWidth, height: 160.adjusted)
+        $0.minimumLineSpacing = 16.adjusted
+        $0.sectionInset = UIEdgeInsets(top: 3.adjusted, left: 0, bottom: 16.adjusted, right: 0)
+    }
+    private lazy var storeCollectionView = StoreCollectionView(frame: .zero, collectionViewLayout: layout)
     
     // MARK: - Function
     // MARK: LifeCycle
     override init(frame: CGRect) {
         super.init(frame: frame)
+        
         setUI()
         setLayout()
     }
@@ -36,6 +45,7 @@ class StoreGoalView: UIView {
     }
     
     // MARK: Layout Helpers
+    
     private func setUI() {
         self.backgroundColor = .gray50
     }
@@ -45,7 +55,8 @@ class StoreGoalView: UIView {
             headerLabel,
             lessButton,
             moreButton,
-            totalButton
+            totalButton,
+            storeCollectionView
         )
         
         headerView.snp.makeConstraints {
@@ -66,6 +77,10 @@ class StoreGoalView: UIView {
         totalButton.snp.makeConstraints {
             $0.top.equalTo(headerView.snp.bottom).offset(24.adjusted)
             $0.trailing.equalTo(moreButton.snp.leading).offset(-8.adjusted)
+        }
+        storeCollectionView.snp.makeConstraints {
+            $0.top.equalTo(headerLabel).offset(24.adjusted)
+            $0.horizontalEdges.bottom.equalToSuperview()
         }
     }
 }
