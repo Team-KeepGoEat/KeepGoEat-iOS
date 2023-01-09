@@ -9,8 +9,8 @@ import UIKit
 
 class GoalDetailViewController: UIViewController {
     
-    private let goalDetailView: GoalDetailView = GoalDetailView(frame: CGRect(), goalType: .more)
-
+    private var goalDetailView: GoalDetailView = GoalDetailView()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -20,6 +20,10 @@ class GoalDetailViewController: UIViewController {
     
     override func loadView() {
         self.view = goalDetailView
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        getGoalDetailData()
     }
 }
 
@@ -34,7 +38,27 @@ extension GoalDetailViewController {
             let dimmedTap = UITapGestureRecognizer(target: self, action: #selector(dimmedViewTapped(_: )))
         goalDetailView.dimmedView.addGestureRecognizer(dimmedTap)
         goalDetailView.dimmedView.isUserInteractionEnabled = true
+    }
+    
+    private func getGoalDetailData() {
+        GoalDetailService.shared.getGoalDetail(goalId: 42) { data in
+            if let data = data {
+                DispatchQueue.main.async {
+                    if data.isMore {
+                        self.goalDetailView.goalType = .more
+                    } else {
+                        self.goalDetailView.goalType = .less
+                    }
+                    self.goalDetailView.goalTitleLabel.text = data.goalContent
+                    self.goalDetailView.previousGoalStatsView.goalStatsCountLabel.text = String(data.lastMonthCount)
+                    self.goalDetailView.presentGoalStatsView.goalStatsCountLabel.text = String(data.thisMonthCount)
+                    self.goalDetailView.goalStatsCollectionView.thisMonthCount = data.thisMonthCount
+                    self.goalDetailView.goalStatsCollectionView.blankBoxCount = data.blankBoxCount
+                    self.goalDetailView.goalStatsCollectionView.emptyBoxCount = data.emptyBoxCount
+                }
+            }
         }
+    }
     
     private func showSaveBottomSheetView() {
         goalDetailView.saveBottomSheetView.isHidden = false
