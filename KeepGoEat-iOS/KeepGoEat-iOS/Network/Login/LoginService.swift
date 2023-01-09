@@ -27,16 +27,18 @@ extension LoginService {
                     addUserTokenOnKeyChain(tokenName: Const.String.userAccessToken, tokenContent: data.accessToken)
                     addUserTokenOnKeyChain(tokenName: Const.String.userRefreshToken, tokenContent: data.refreshToken)
                     print(data)
-                case .requestErr(_):
-                    print("request error")
+                case .requestErr(let data):
+                    guard let data = data as? String else { return }
+                    print(data)
                 case .pathErr:
                     print("path error")
                 case .serverErr:
                     print("server error")
                 case .networkFail:
                     print("network fail error")
-                case .authErr(_):
-                    print("auth error")
+                case .authErr(let data):
+                    guard let data = data as? String else { return }
+                    print(data)
                 }
             case .failure(let error):
                 print(error.localizedDescription)
