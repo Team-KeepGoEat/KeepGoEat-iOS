@@ -23,27 +23,24 @@ class StoreCollectionViewCell: UICollectionViewCell {
     }
     private let goalContentLabel = UILabel().then {
         $0.font = .system2Bold
-        $0.text = "오늘의 목표 내용"
         $0.textColor = .gray800
     }
     private let totalSubLabel = UILabel().then {
         $0.font = .system5
-        $0.text = "총 달성일"
+        $0.text = Const.String.totalSub
         $0.textColor = .gray500
     }
     private let totalCountLabel = UILabel().then {
         $0.font = .systemDate
-        $0.text = "300"
         $0.textColor = .green600
     }
     private let termSubLabel = UILabel().then {
         $0.font = .system5
-        $0.text = "진행기간"
+        $0.text = Const.String.termSub
         $0.textColor = .gray500
     }
     private let termCountLabel = UILabel().then {
         $0.font = .system5
-        $0.text = "2022. 09. 01 ~ 2022. 12. 31"
         $0.textColor = .gray700
     }
     
@@ -108,11 +105,11 @@ class StoreCollectionViewCell: UICollectionViewCell {
         if data.isMore {
             kindTagImage.image = Const.Image.moreTag
             totalCountLabel.textColor = .orange500
-            goalContentLabel.text = "\(data.goalContent) 더 먹기"
+            goalContentLabel.text = "\(data.goalContent) \(Const.String.moreEat)"
         } else {
             kindTagImage.image = Const.Image.lessTag
             totalCountLabel.textColor = .green600
-            goalContentLabel.text = "\(data.goalContent) 덜 먹기"
+            goalContentLabel.text = "\(data.goalContent) \(Const.String.lessEat)"
         }
         totalCountLabel.text = String(data.totalCount)
         termCountLabel.text = "\(data.startedAt) ~ \(data.keptAt)"

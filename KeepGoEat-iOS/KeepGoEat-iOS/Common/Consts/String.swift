@@ -50,8 +50,8 @@ extension Const {
         static let textMyGoalTitle = "나의 목표를 입력해볼까요?"
         static let moreVegetablePlaceHoleder = "ex) 하루 1끼 이상 야채"
         static let textCount = "(0/20)"
-        static let moreEat =  "더먹기"
-        static let lessEat = "덜먹기"
+        static let moreEat =  "더 먹기"
+        static let lessEat = "덜 먹기"
         static let complete = "완료"
         static let warning = "한글, 영문,숫자만 입력 가능합니다."
         
@@ -60,5 +60,7 @@ extension Const {
         static let storeFilterAll = "전체"
         static let storeFilterMore = "더 먹기"
         static let storeFilterLess = "덜 먹기"
+        static let totalSub = "총 달성일"
+        static let termSub = "진행기간"
     }
 }
