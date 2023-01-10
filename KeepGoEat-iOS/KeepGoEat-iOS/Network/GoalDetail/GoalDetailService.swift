@@ -75,4 +75,35 @@ extension GoalDetailService {
             }
         }
     }
+    
+    func saveGoal(goalId: Int) {
+        goalDetailProvider.request(.saveGoal(goalId: goalId)) { response in
+            switch response {
+            case .success(let result):
+                let status = result.statusCode
+                let data = result.data
+                let networkData = NetworkBase.judgeStatus(by: status, data, StoreGoalResponseDto.self)
+                switch networkData {
+                case .success(let data):
+                    guard let data = data as? StoreGoalResponseDto else { return }
+                    print(data)
+                case .requestErr(let data):
+                    guard let data = data as? String else { return }
+                    print(data)
+                case .authErr(let data):
+                    guard let data = data as? String else { return }
+                    print(data)
+                case .serverErr(let data):
+                    guard let data = data as? String else { return }
+                    print(data)
+                case .pathErr:
+                    print("path error")
+                case .networkFail:
+                    print("network fail error")
+                }
+            case .failure(let error):
+                print(error.localizedDescription)
+            }
+        }
+    }
 }
