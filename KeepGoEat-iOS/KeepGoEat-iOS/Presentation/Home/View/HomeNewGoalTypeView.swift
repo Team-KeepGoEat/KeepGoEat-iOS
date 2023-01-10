@@ -27,6 +27,7 @@ class HomeNewGoalTypeView: UIView {
         super.init(frame: frame)
         
         setUI(eatType: eatType)
+        setLayout()
         setAddTarget(eatType: eatType)
     }
     required init?(coder: NSCoder) {
@@ -34,19 +35,36 @@ class HomeNewGoalTypeView: UIView {
     }
     
     private func setUI(eatType: EatType) {
+        self.makeRounded(radius: 12)
         switch eatType {
         case .more:
+            self.backgroundColor = .orange200.withAlphaComponent(0.25)
             titleLabel.text = Const.String.moreEat
             titleLabel.textColor = .orange600
             subLabel.text = Const.String.homeNewBottomSubMore
             snailImage.image = Const.Image.snailOrangeSpoon
         case .less:
+            self.backgroundColor = .green500.withAlphaComponent(0.1)
             titleLabel.text = Const.String.lessEat
             titleLabel.textColor = .green600
             subLabel.text = Const.String.homeNewBottomSubLess
             snailImage.image = Const.Image.snailGreenRibon
         }
     }
+    private func setLayout() {
+        self.addSubviews(
+            titleLabel,
+            subLabel,
+            snailImage
+        )
+        
+        self.snp.makeConstraints {
+            $0.width.equalTo(343.adjustedWidth)
+            $0.height.equalTo(122.adjusted)
+        }
+        titleLabel
+    }
+    
     private func setAddTarget(eatType: EatType) {
         switch eatType {
         case .more:
