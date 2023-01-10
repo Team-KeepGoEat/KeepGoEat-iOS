@@ -13,7 +13,6 @@ import Then
 class OnboardingViewController: UIViewController {
     
     // MARK: - Variables
-    var onboardingData: [OnboardingDataModel] = []
     var currentPage: Int = 0 {
         didSet {
             pageControl.currentPage = currentPage
