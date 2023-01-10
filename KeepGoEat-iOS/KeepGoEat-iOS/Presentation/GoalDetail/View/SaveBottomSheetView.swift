@@ -9,6 +9,13 @@ import UIKit
 
 class SaveBottomSheetView: UIView {
     
+    // MAKR: Variables
+    var goalType: GoalType {
+        didSet {
+            setUI()
+        }
+    }
+    
     private let bottomSheetTitleLabel: UILabel = UILabel().then {
         $0.font = .system5
         $0.textColor = .gray600
@@ -19,7 +26,7 @@ class SaveBottomSheetView: UIView {
         $0.image = Const.Image.snailOrangeCheerLeft
     }
     
-    private let bottomSheetSaveButton: UIButton = UIButton().then {
+    let bottomSheetSaveButton: UIButton = UIButton().then {
         $0.setTitle(Const.String.goalDetailBottomSheetSaveButton, for: .normal)
         $0.backgroundColor = .orange600
         $0.titleLabel?.font = .system4Bold
@@ -34,7 +41,8 @@ class SaveBottomSheetView: UIView {
         $0.setTitleColor(.gray500, for: .normal)
     }
     
-    override init(frame: CGRect) {
+    init(frame: CGRect, goalType: GoalType) {
+        self.goalType = goalType
         super.init(frame: frame)
         
         setUI()
@@ -49,6 +57,13 @@ class SaveBottomSheetView: UIView {
 extension SaveBottomSheetView {
     private func setUI() {
         self.backgroundColor = .clear
+        
+        switch goalType {
+        case .less:
+            bottomSheetImageView.image = Const.Image.snailGreenCheerLeft
+        case .more:
+            bottomSheetImageView.image = Const.Image.snailOrangeCheerLeft
+        }
     }
     
     private func setLayout() {
