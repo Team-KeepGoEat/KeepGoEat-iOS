@@ -47,6 +47,7 @@ class SaveBottomSheetView: UIView {
         
         setUI()
         setLayout()
+        setAddTarget()
     }
     
     required init?(coder: NSCoder) {
@@ -96,5 +97,18 @@ extension SaveBottomSheetView {
             $0.top.equalTo(bottomSheetSaveButton.snp.bottom).inset(-12.adjusted)
             $0.centerX.equalToSuperview()
         }
+    }
+    
+    private func setAddTarget() {
+        bottomSheetSaveButton.addTarget(self, action: #selector(tapSaveButton), for: .touchUpInside)
+    }
+    
+    private func saveGoal() {
+        GoalDetailService.shared.saveGoal(goalId: 43)
+    }
+    
+    @objc
+    private func tapSaveButton() {
+        saveGoal()
     }
 }
