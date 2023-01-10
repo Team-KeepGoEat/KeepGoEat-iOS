@@ -6,3 +6,7 @@
 //
 
 import Foundation
+
+struct StoreGoalResponseDto: Codable {
+    var goalId: Int
+}
