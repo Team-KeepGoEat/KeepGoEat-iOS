@@ -6,3 +6,8 @@
 //
 
 import Foundation
+
+struct LoginRequestDto: Codable {
+    var platformAccessToken: String
+    var platform: String
+}

@@ -17,8 +17,12 @@ enum GoalType: String {
 class GoalDetailView: UIView {
     
     // MARK: - Variables
-    private let goalType: GoalType
-    
+    var goalType: GoalType {
+        didSet {
+            setUI()
+        }
+    }
+
     // MARK: Component
     private let headerView: HeaderView = HeaderView()
     
@@ -37,7 +41,7 @@ class GoalDetailView: UIView {
     
     private let goalTypeImageView: UIImageView = UIImageView()
     
-    private let goalTitleLabel: UILabel = UILabel().then {
+    let goalTitleLabel: UILabel = UILabel().then {
         $0.text = "하루 1끼 이상 야채 더 먹기"
         $0.font = .system2Bold
         $0.textColor = .gray800
@@ -49,9 +53,9 @@ class GoalDetailView: UIView {
         $0.layer.cornerRadius = 8
     }
     
-    private let previousGoalStatsView: GoalStatsView = GoalStatsView(frame: CGRect(), text: Const.String.previousGoalStatsTitle)
+    let previousGoalStatsView: GoalStatsView = GoalStatsView(frame: CGRect())
     
-    private let presentGoalStatsView: GoalStatsView = GoalStatsView(frame: CGRect(), text: Const.String.presentGoalStatsTitle)
+    let presentGoalStatsView: GoalStatsView = GoalStatsView(frame: CGRect())
     
     private let goalStatsBorderLineView: UIView = UIView().then {
         $0.backgroundColor = .gray300
@@ -70,7 +74,7 @@ class GoalDetailView: UIView {
         $0.scrollDirection = .vertical
     }
     
-    private lazy var goalStatsCollectionView: GoalDetailCollectionView = GoalDetailCollectionView(frame: .zero, collectionViewLayout: collectionViewFlowLayout, goalType: goalType)
+    lazy var goalStatsCollectionView: GoalDetailCollectionView = GoalDetailCollectionView(frame: .zero, collectionViewLayout: collectionViewFlowLayout, goalType: goalType)
     
     let dimmedView: UIView = UIView().then {
         $0.backgroundColor = .black.withAlphaComponent(0.5)
@@ -79,14 +83,14 @@ class GoalDetailView: UIView {
     
     let bottomSheetView: BottomSheetView = BottomSheetView()
     
-    let saveBottomSheetView: SaveBottomSheetView = SaveBottomSheetView()
+    lazy var saveBottomSheetView: SaveBottomSheetView = SaveBottomSheetView(frame: CGRect(), goalType: goalType)
     
     let deleteBottomSheetView: DeleteBottomSheetView = DeleteBottomSheetView().then {
         $0.isHidden = true
     }
     
-    init(frame: CGRect, goalType: GoalType) {
-        self.goalType = goalType
+    override init(frame: CGRect) {
+        self.goalType = .more
         super.init(frame: frame)
         
         setUI()
@@ -105,10 +109,23 @@ extension GoalDetailView {
         switch goalType {
         case .more:
             goalTypeImageView.image = Const.Image.moreTag
+            previousGoalStatsView.goalStatsTitleLabel.text = Const.String.previousMoreGoalStatsTitle
+            presentGoalStatsView.goalStatsTitleLabel.text = Const.String.presentMoreGoalStatsTitle
             presentGoalStatsView.goalStatsCountLabel.textColor = .orange600
+            saveBottomSheetView.bottomSheetSaveButton.backgroundColor = .orange600
+            deleteBottomSheetView.cancelButton.backgroundColor = .orange600
+            goalStatsCollectionView.goalType = goalType
+            saveBottomSheetView.goalType = goalType
+            
         case .less:
             goalTypeImageView.image = Const.Image.lessTag
+            previousGoalStatsView.goalStatsTitleLabel.text = Const.String.previousLessGoalStatsTitle
+            presentGoalStatsView.goalStatsTitleLabel.text = Const.String.presentLessGoalStatsTitle
             presentGoalStatsView.goalStatsCountLabel.textColor = .green600
+            saveBottomSheetView.bottomSheetSaveButton.backgroundColor = .green600
+            deleteBottomSheetView.cancelButton.backgroundColor = .green600
+            goalStatsCollectionView.goalType = goalType
+            saveBottomSheetView.goalType = goalType
         }
     }
     

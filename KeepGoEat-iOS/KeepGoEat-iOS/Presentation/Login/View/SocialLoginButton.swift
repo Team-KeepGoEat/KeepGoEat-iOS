@@ -21,6 +21,10 @@ class SocialLoginButton: UIButton {
     // MARK: - Variables
     private let socialType: SocialType
     
+    private var platformAccessToken: String?
+    
+    private var platform: String?
+    
     // MARK: Component
     private let socialLogo: UIImageView = UIImageView()
     
@@ -30,6 +34,12 @@ class SocialLoginButton: UIButton {
     
     init(frame: CGRect, socialType: SocialType) {
         self.socialType = socialType
+        switch socialType {
+        case .apple:
+            platform = "APPLE"
+        case .kakao:
+            platform = "KAKAO"
+        }
         super.init(frame: frame)
         setUI()
         setLayout()
@@ -88,7 +98,13 @@ extension SocialLoginButton {
                 } else {
                     print("login With KakaoTalk success")
                     
-                    _ = oauthToken
+                    self.platformAccessToken = oauthToken?.accessToken ?? ""
+                    
+                    if let platformAccessToken = self.platformAccessToken,
+                       let platform = self.platform {
+                        let param = LoginRequestDto(platformAccessToken: platformAccessToken, platform: platform)
+                        LoginService.shared.postSocialLogin(param: param)
+                    }
                 }
             }
         }
