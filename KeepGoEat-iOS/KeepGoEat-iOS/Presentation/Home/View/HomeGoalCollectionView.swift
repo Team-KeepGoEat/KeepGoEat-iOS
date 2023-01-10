@@ -51,30 +51,43 @@ class HomeGoalCollectionView: UICollectionView {
 // MARK: UICollectionViewDataSource
 extension HomeGoalCollectionView: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let goalCell = collectionView.dequeueReusableCell(withReuseIdentifier: HomeGoalCollectionViewCell.identifier, for: indexPath) as? HomeGoalCollectionViewCell else { return UICollectionViewCell() }
-        goalCell.databind(data: data.goals[indexPath.item])
-        goalCell.achieveButton.tag = indexPath.item
-        goalCell.achieveButton.addTarget(self, action: #selector(achieveButtonDidTap(sender: )), for: .touchUpInside)
-        return goalCell
+        if indexPath.item < 3 {
+            print(indexPath.item)
+            guard let goalCell = collectionView.dequeueReusableCell(withReuseIdentifier: HomeGoalCollectionViewCell.identifier, for: indexPath) as? HomeGoalCollectionViewCell else { return UICollectionViewCell() }
+            goalCell.databind(data: data.goals[indexPath.item])
+            goalCell.achieveButton.tag = indexPath.item
+            goalCell.achieveButton.addTarget(self, action: #selector(achieveButtonDidTap(sender: )), for: .touchUpInside)
+            return goalCell
+        } else {
+            print("dkssud")
+            guard let footerCell = collectionView.dequeueReusableCell(withReuseIdentifier: HomeGoalCollectionReusableView.identifier, for: indexPath) as? HomeGoalCollectionReusableView else { return UICollectionViewCell() }
+            footerCell.setSubTitleText(count: data.goals.count)
+            return footerCell
+        }
     }
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return data.goalCount
+        return data.goals.count
     }
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        guard let goalCell = collectionView.dequeueReusableCell(withReuseIdentifier: HomeGoalCollectionViewCell.identifier, for: indexPath) as? HomeGoalCollectionViewCell else { return }
-        print("✨상세뷰로 전환", goalCell)
+        if indexPath.item < data.goals.count {
+            guard let goalCell = collectionView.dequeueReusableCell(withReuseIdentifier: HomeGoalCollectionViewCell.identifier, for: indexPath) as? HomeGoalCollectionViewCell else { return }
+            print("✨상세뷰로 전환", goalCell)
+        } else {
+            guard let footerCell = collectionView.dequeueReusableCell(withReuseIdentifier: HomeGoalCollectionReusableView.identifier, for: indexPath) as? HomeGoalCollectionReusableView else { return }
+            print("✨바텀시트 전환", footerCell)
+        }
     }
 }
 
 // MARK: UICollectionViewDelegateFlowLayout
 extension HomeGoalCollectionView: UICollectionViewDelegateFlowLayout {
-    func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
-        if kind == UICollectionView.elementKindSectionFooter {
-            guard let footerCell = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: HomeGoalCollectionReusableView.identifier, for: indexPath) as? HomeGoalCollectionReusableView else { return UICollectionViewCell() }
-            footerCell.setSubTitleText(count: data.goalCount)
-            return footerCell
-        } else {
-            return UICollectionReusableView()
-        }
-    }
+//    func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
+//        if kind == UICollectionView.elementKindSectionFooter {
+//            guard let footerCell = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: HomeGoalCollectionReusableView.identifier, for: indexPath) as? HomeGoalCollectionReusableView else { return UICollectionViewCell() }
+//            footerCell.setSubTitleText(count: data.goalCount)
+//            return footerCell
+//        } else {
+//            return UICollectionReusableView()
+//        }
+//    }
 }

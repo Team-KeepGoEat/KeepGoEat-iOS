@@ -10,7 +10,7 @@ import UIKit
 import SnapKit
 import Then
 
-class HomeGoalCollectionReusableView: UICollectionReusableView {
+class HomeGoalCollectionReusableView: UICollectionViewCell {
     // MARK: - Variables
     static let identifier = "HomeGoalCollectionReusableView"
     

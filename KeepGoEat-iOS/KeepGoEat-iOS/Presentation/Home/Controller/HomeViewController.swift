@@ -28,6 +28,15 @@ class HomeViewController: UIViewController {
         
         self.view = homeView
     }
+    
+    @objc func addGoalButtonDidTap() {
+        print("안녕하세요옹옹")
+        self.showBottomSheet(bottomSheetView: homeView.bottomSheetView, dimmedView: homeView.dimmedView)
+    }
+    @objc private func dimmedViewTapped(_ tapRecognizer: UITapGestureRecognizer) {
+        self.hideBottomSheet(bottomSheetView: homeView.bottomSheetView, dimmedView: homeView.dimmedView)
+        homeView.bottomSheetView.isHidden = true
+    }
 }
 
 // MARK: Preview
