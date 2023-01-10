@@ -80,7 +80,7 @@ extension OnboardingCollectionViewCell {
     
     func dataBind(model: OnboardingDataModel) {
         titleLabel.text = model.title
-        descrtiptionLabel.text = model.descrtiption
+        descrtiptionLabel.setTextWithLineHeight(text: model.descrtiption, lineHeight: 21)
         setAnimationView(lottieName: model.animation)
     }
     
