@@ -10,20 +10,20 @@ import UIKit
 class GoalStatsView: UIView {
     
     // MARK: Component
-    private let goalStatsTitleLabel: UILabel = UILabel().then {
+    let goalStatsTitleLabel: UILabel = UILabel().then {
         $0.font = .system5
         $0.textColor = .gray600
     }
     
-    public let goalStatsCountLabel: UILabel = UILabel().then {
+    let goalStatsCountLabel: UILabel = UILabel().then {
         $0.text = "4"
         $0.font = .systemDate
         $0.textColor = .gray700
     }
     
-    init(frame: CGRect, text: String) {
+    override init(frame: CGRect) {
         super.init(frame: frame)
-        setUI(text: text)
+        setUI()
         setLayout()
     }
     
@@ -33,9 +33,8 @@ class GoalStatsView: UIView {
 }
 
 extension GoalStatsView {
-    private func setUI(text: String) {
+    private func setUI() {
         self.backgroundColor = .white
-        self.goalStatsTitleLabel.text = text
     }
     
     private func setLayout() {

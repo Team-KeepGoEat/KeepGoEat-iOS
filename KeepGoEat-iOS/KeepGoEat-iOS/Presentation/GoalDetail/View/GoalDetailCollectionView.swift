@@ -10,7 +10,27 @@ import UIKit
 class GoalDetailCollectionView: UICollectionView {
     
     // MARK: - Variables
-    private let goalType: GoalType
+    var blankBoxCount: Int {
+        didSet {
+            self.reloadData()
+        }
+    }
+    var emptyBoxCount: Int {
+        didSet {
+            self.reloadData()
+        }
+    }
+    var thisMonthCount: Int {
+        didSet {
+            self.reloadData()
+        }
+    }
+    
+    var goalType: GoalType {
+        didSet {
+            setUI()
+        }
+    }
     
     private final let inset: UIEdgeInsets = UIEdgeInsets(top: 1, left: 1, bottom: 1, right: 1)
     
@@ -22,6 +42,9 @@ class GoalDetailCollectionView: UICollectionView {
     
     init(frame: CGRect, collectionViewLayout layout: UICollectionViewLayout, goalType: GoalType) {
         self.goalType = goalType
+        self.blankBoxCount = 0
+        self.emptyBoxCount = 0
+        self.thisMonthCount = 0
         super.init(frame: frame, collectionViewLayout: layout)
         self.delegate = self
         self.dataSource = self
@@ -74,10 +97,18 @@ extension GoalDetailCollectionView: UICollectionViewDataSource {
         switch goalType {
         case .less:
             stampCell.backgroundColor = .green200Opacity3
-            stampCell.dataBind(model: lessSuccessStampDummy)
+            if thisMonthCount > indexPath.row {
+                stampCell.dataBind(model: lessSuccessStampDummy)
+            } else if (35 - blankBoxCount) <= indexPath.row {
+                stampCell.dataBind(model: lessStaticStampDummy)
+            }
         case .more:
             stampCell.backgroundColor = .orange200Opacity3
-            stampCell.dataBind(model: moreSuccessStampDummy)
+            if thisMonthCount > indexPath.row {
+                stampCell.dataBind(model: moreSuccessStampDummy)
+            } else if (35 - blankBoxCount) <= indexPath.row {
+                stampCell.dataBind(model: moreStaticStampDummy)
+            }
         }
         
         return stampCell
