@@ -33,15 +33,12 @@ final class OnboardingCollectionViewCell: UICollectionViewCell {
     private var emtyView = UIView()
     
     private lazy var animationView = LottieAnimationView()
-    
-    private var lottieName: String = ""
-    
+        
     // MARK: - Life Cycles
     override init(frame: CGRect) {
         super.init(frame: frame)
         layout()
         setUI()
-        setAnimationView(lottieName: lottieName)
     }
     
     required init?(coder: NSCoder) {

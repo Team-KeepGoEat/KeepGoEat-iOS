@@ -12,8 +12,6 @@ import Then
 
 class OnboardingViewController: UIViewController {
     
-    private let onboardingView = StoreGoalView()
-    
     // MARK: - Variables
     var onboardingData: [OnboardingDataModel] = []
     var currentPage: Int = 0 {
@@ -46,7 +44,6 @@ class OnboardingViewController: UIViewController {
         $0.pageIndicatorTintColor = .gray300
         $0.isUserInteractionEnabled = false
         $0.currentPageIndicatorTintColor = .orange600
-        $0.isUserInteractionEnabled = false
     }
     
     private let collectionViewLayout: UICollectionViewFlowLayout = UICollectionViewFlowLayout().then {
