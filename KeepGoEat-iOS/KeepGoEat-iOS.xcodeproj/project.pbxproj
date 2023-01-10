@@ -59,6 +59,7 @@
 		DDA7B72029687B91001950A2 /* HomeAchieveButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDA7B71F29687B91001950A2 /* HomeAchieveButton.swift */; };
 		DDA7B72229689333001950A2 /* HomeGoalCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDA7B72129689333001950A2 /* HomeGoalCollectionView.swift */; };
 		DDB02FCB296D19CC00D1E7AB /* HomeNewGoalTypeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDB02FCA296D19CC00D1E7AB /* HomeNewGoalTypeView.swift */; };
+		DDB02FCD296DA5DD00D1E7AB /* HomeBottomSheetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDB02FCC296DA5DD00D1E7AB /* HomeBottomSheetView.swift */; };
 		DDDBC876296045A200F65F23 /* Const.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDDBC875296045A200F65F23 /* Const.swift */; };
 		DDDBC878296045AA00F65F23 /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDDBC877296045AA00F65F23 /* String.swift */; };
 		DDDBC88029618A7D00F65F23 /* .swiftlint.yml in Resources */ = {isa = PBXBuildFile; fileRef = DDDBC87F29618A7D00F65F23 /* .swiftlint.yml */; };
@@ -159,6 +160,7 @@
 		DDA7B71F29687B91001950A2 /* HomeAchieveButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeAchieveButton.swift; sourceTree = "<group>"; };
 		DDA7B72129689333001950A2 /* HomeGoalCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeGoalCollectionView.swift; sourceTree = "<group>"; };
 		DDB02FCA296D19CC00D1E7AB /* HomeNewGoalTypeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeNewGoalTypeView.swift; sourceTree = "<group>"; };
+		DDB02FCC296DA5DD00D1E7AB /* HomeBottomSheetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeBottomSheetView.swift; sourceTree = "<group>"; };
 		DDDBC86E295EE52B00F65F23 /* Pretendard-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-Bold.otf"; sourceTree = "<group>"; };
 		DDDBC86F295EE52B00F65F23 /* Pretendard-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-Regular.otf"; sourceTree = "<group>"; };
 		DDDBC875296045A200F65F23 /* Const.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Const.swift; sourceTree = "<group>"; };
@@ -445,6 +447,7 @@
 				DD64902D2968C53900A73CF4 /* HomeExistView.swift */,
 				DD64902F2968CB0900A73CF4 /* HomeGoalCollectionReusableView.swift */,
 				DDB02FCA296D19CC00D1E7AB /* HomeNewGoalTypeView.swift */,
+				DDB02FCC296DA5DD00D1E7AB /* HomeBottomSheetView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -874,6 +877,7 @@
 				DDA7B71C29685E67001950A2 /* HomeGoalCollectionViewCell.swift in Sources */,
 				D67E6117296AAC3600CA8CEB /* Encodable+.swift in Sources */,
 				DDE12FB1295B110C008CF91B /* URLConstant.swift in Sources */,
+				DDB02FCD296DA5DD00D1E7AB /* HomeBottomSheetView.swift in Sources */,
 				D6C505822969A7C600BE4543 /* DeleteBottomSheetView.swift in Sources */,
 				DDE12FD7295B1347008CF91B /* NewGoalRequest.swift in Sources */,
 				DDE12FD9295B1357008CF91B /* LoginResponse.swift in Sources */,
