@@ -30,8 +30,9 @@ extension GoalDetailService {
                     print(data)
                 case .pathErr:
                     print("path error")
-                case .serverErr:
-                    print("server error")
+                case .serverErr(let data):
+                    guard let data = data as? String else { return }
+                    print(data)
                 case .networkFail:
                     print("network fail error")
                 case .authErr(let data):

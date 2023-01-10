@@ -34,7 +34,6 @@ extension GoalDetailRouter: BaseTargetType {
     }
     
     var headers: [String: String]? {
-        print(NetworkConstant.accessTokenHeader)
         return NetworkConstant.accessTokenHeader
     }
 }

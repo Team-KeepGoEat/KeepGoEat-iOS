@@ -9,7 +9,7 @@ import UIKit
 
 class GoalDetailViewController: UIViewController {
     
-    private var goalDetailView: GoalDetailView = GoalDetailView()
+    private let goalDetailView: GoalDetailView = GoalDetailView()
     
     override func viewDidLoad() {
         super.viewDidLoad()
