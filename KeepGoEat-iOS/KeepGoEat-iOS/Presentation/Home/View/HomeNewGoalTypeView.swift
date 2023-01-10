@@ -62,7 +62,18 @@ class HomeNewGoalTypeView: UIView {
             $0.width.equalTo(343.adjustedWidth)
             $0.height.equalTo(122.adjusted)
         }
-        titleLabel
+        titleLabel.snp.makeConstraints {
+            $0.top.equalToSuperview().offset(20.adjusted)
+            $0.leading.equalToSuperview().offset(20.adjusted)
+        }
+        subLabel.snp.makeConstraints {
+            $0.top.equalTo(titleLabel.snp.bottom).offset(10.adjusted)
+            $0.leading.equalToSuperview().offset(20.adjusted)
+        }
+        snailImage.snp.makeConstraints {
+            $0.top.equalToSuperview().offset(16.adjusted)
+            $0.trailing.equalToSuperview().offset(-20.adjusted)
+        }
     }
     
     private func setAddTarget(eatType: EatType) {
