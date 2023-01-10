@@ -19,6 +19,7 @@ struct URLConstant {
     
     // MARK: GoalDetail
     static let getGoalDetail = "/history/"
+    static let deleteGoal = "/goal/"
     
     // MARK: NewGoal
     

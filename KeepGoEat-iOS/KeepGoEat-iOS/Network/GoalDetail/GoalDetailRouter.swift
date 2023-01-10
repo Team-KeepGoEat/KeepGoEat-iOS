@@ -9,6 +9,7 @@ import Moya
 
 enum GoalDetailRouter {
     case getGoalDetail(goalId: Int)
+    case deleteGoal(goalId: Int)
 }
 
 extension GoalDetailRouter: BaseTargetType {
@@ -16,6 +17,8 @@ extension GoalDetailRouter: BaseTargetType {
         switch self {
         case .getGoalDetail(goalId: let goalId):
             return URLConstant.getGoalDetail + String(goalId)
+        case .deleteGoal(goalId: let goalId):
+            return URLConstant.deleteGoal + String(goalId)
         }
     }
     
@@ -23,12 +26,16 @@ extension GoalDetailRouter: BaseTargetType {
         switch self {
         case .getGoalDetail(goalId: _):
             return .get
+        case .deleteGoal(goalId: _):
+            return .delete
         }
     }
     
     var task: Moya.Task {
         switch self {
         case .getGoalDetail(goalId: _):
+            return .requestPlain
+        case .deleteGoal(goalId: _):
             return .requestPlain
         }
     }
