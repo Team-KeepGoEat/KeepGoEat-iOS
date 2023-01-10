@@ -8,13 +8,33 @@
 import UIKit
 
 class HomeBottomSheetView: UIView {
+    
+    private let moreBottomView = HomeNewGoalTypeView(frame: .zero, eatType: .more)
+    private let lessBottomView = HomeNewGoalTypeView(frame: .zero, eatType: .less)
 
-    /*
-    // Only override draw() if you perform custom drawing.
-    // An empty implementation adversely affects performance during animation.
-    override func draw(_ rect: CGRect) {
-        // Drawing code
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        
+        setLayout()
     }
-    */
-
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+    private func setLayout() {
+        self.addSubviews(
+            moreBottomView,
+            lessBottomView
+        )
+        
+        moreBottomView.snp.makeConstraints {
+            $0.centerX.equalToSuperview()
+            $0.top.equalToSuperview().offset(20.adjusted)
+        }
+        lessBottomView.snp.makeConstraints {
+            $0.centerX.equalToSuperview()
+            $0.top.equalTo(moreBottomView.snp.bottom).offset(16.adjusted)
+        }
+    }
 }
