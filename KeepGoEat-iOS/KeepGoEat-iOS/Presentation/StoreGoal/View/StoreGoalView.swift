@@ -13,11 +13,6 @@ import Then
 enum StoreSection {
     case main
 }
-enum SortType: String {
-    case all
-    case more
-    case less
-}
 
 class StoreGoalView: UIView {
     
