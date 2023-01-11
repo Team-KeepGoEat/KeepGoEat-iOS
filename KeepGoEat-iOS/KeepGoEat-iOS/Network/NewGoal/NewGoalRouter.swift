@@ -44,4 +44,3 @@ extension NewGoalRouter: BaseTargetType {
             return NetworkConstant.accessTokenHeader
         }
     }
-

@@ -188,9 +188,17 @@ class NewGoalViewController: UIViewController {
         NewGoalService.shared.createNewGoal(body: body)
     }
     
+    private func editGoal() {
+        let body: NewGoalEditRequestDto = NewGoalEditRequestDto(
+            goalContent: moreVegetabletextField.text ?? ""
+        )
+        NewGoalService.shared.editNewGoal(body: body)
+    }
+    
     @objc
     private func tapCompleteButton() {
         createGoal()
+        editGoal()
     }
 }
 
