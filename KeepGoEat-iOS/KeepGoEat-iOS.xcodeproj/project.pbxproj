@@ -39,6 +39,7 @@
 		DD38AD76295B02B80084FA70 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DD38AD75295B02B80084FA70 /* Assets.xcassets */; };
 		DD38AD79295B02B80084FA70 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DD38AD77295B02B80084FA70 /* LaunchScreen.storyboard */; };
 		DD526893296ABBCE005C8376 /* BaseTargetType.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD526892296ABBCE005C8376 /* BaseTargetType.swift */; };
+		DD623418296E65FF008A35CD /* HomeGoalAddCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD623417296E65FF008A35CD /* HomeGoalAddCollectionViewCell.swift */; };
 		DD64902E2968C53900A73CF4 /* HomeExistView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD64902D2968C53900A73CF4 /* HomeExistView.swift */; };
 		DD6490302968CB0900A73CF4 /* HomeGoalCollectionReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD64902F2968CB0900A73CF4 /* HomeGoalCollectionReusableView.swift */; };
 		DD849AFE295E758A0030AF2F /* StoreGoalRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD849AFD295E758A0030AF2F /* StoreGoalRequest.swift */; };
@@ -140,6 +141,7 @@
 		DD38AD78295B02B80084FA70 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		DD38AD7A295B02B80084FA70 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DD526892296ABBCE005C8376 /* BaseTargetType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseTargetType.swift; sourceTree = "<group>"; };
+		DD623417296E65FF008A35CD /* HomeGoalAddCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeGoalAddCollectionViewCell.swift; sourceTree = "<group>"; };
 		DD64902D2968C53900A73CF4 /* HomeExistView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeExistView.swift; sourceTree = "<group>"; };
 		DD64902F2968CB0900A73CF4 /* HomeGoalCollectionReusableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeGoalCollectionReusableView.swift; sourceTree = "<group>"; };
 		DD849AFD295E758A0030AF2F /* StoreGoalRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreGoalRequest.swift; sourceTree = "<group>"; };
@@ -431,6 +433,7 @@
 			isa = PBXGroup;
 			children = (
 				DDA7B71B29685E67001950A2 /* HomeGoalCollectionViewCell.swift */,
+				DD623417296E65FF008A35CD /* HomeGoalAddCollectionViewCell.swift */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -880,6 +883,7 @@
 				DDB02FCD296DA5DD00D1E7AB /* HomeBottomSheetView.swift in Sources */,
 				D6C505822969A7C600BE4543 /* DeleteBottomSheetView.swift in Sources */,
 				DDE12FD7295B1347008CF91B /* NewGoalRequest.swift in Sources */,
+				DD623418296E65FF008A35CD /* HomeGoalAddCollectionViewCell.swift in Sources */,
 				DDE12FD9295B1357008CF91B /* LoginResponse.swift in Sources */,
 				DD849B03295E75D80030AF2F /* StoreGoalRouter.swift in Sources */,
 				DDB02FCB296D19CC00D1E7AB /* HomeNewGoalTypeView.swift in Sources */,
