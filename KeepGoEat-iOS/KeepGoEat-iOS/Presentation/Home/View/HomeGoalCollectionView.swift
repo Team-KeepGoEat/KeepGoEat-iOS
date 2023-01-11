@@ -30,7 +30,7 @@ class HomeGoalCollectionView: UICollectionView {
         self.dataSource = self
         self.delegate = self
         self.register(HomeGoalCollectionViewCell.self, forCellWithReuseIdentifier: HomeGoalCollectionViewCell.identifier)
-        self.register(HomeGoalCollectionReusableView.self, forCellWithReuseIdentifier: HomeGoalCollectionReusableView.identifier)
+        self.register(HomeGoalAddCollectionViewCell.self, forCellWithReuseIdentifier: HomeGoalAddCollectionViewCell.identifier)
     }
     
     @objc func achieveButtonDidTap(sender: UIButton) {
@@ -64,7 +64,7 @@ extension HomeGoalCollectionView: UICollectionViewDataSource {
             goalCell.achieveButton.addTarget(self, action: #selector(achieveButtonDidTap(sender: )), for: .touchUpInside)
             return goalCell
         } else {
-            guard let footerCell = collectionView.dequeueReusableCell(withReuseIdentifier: HomeGoalCollectionReusableView.identifier, for: indexPath) as? HomeGoalCollectionReusableView else { return UICollectionViewCell() }
+            guard let footerCell = collectionView.dequeueReusableCell(withReuseIdentifier: HomeGoalAddCollectionViewCell.identifier, for: indexPath) as? HomeGoalAddCollectionViewCell else { return UICollectionViewCell() }
             footerCell.setSubTitleText(count: data.goals.count)
             return footerCell
         }
@@ -77,7 +77,7 @@ extension HomeGoalCollectionView: UICollectionViewDataSource {
             guard let goalCell = collectionView.dequeueReusableCell(withReuseIdentifier: HomeGoalCollectionViewCell.identifier, for: indexPath) as? HomeGoalCollectionViewCell else { return }
             print("✨상세뷰로 전환", goalCell)
         } else {
-            guard let footerCell = collectionView.dequeueReusableCell(withReuseIdentifier: HomeGoalCollectionReusableView.identifier, for: indexPath) as? HomeGoalCollectionReusableView else { return }
+            guard let footerCell = collectionView.dequeueReusableCell(withReuseIdentifier: HomeGoalAddCollectionViewCell.identifier, for: indexPath) as? HomeGoalAddCollectionViewCell else { return }
             print("✨바텀시트 전환", footerCell)
             self.addGoalDelegate?.showHomeBottomSheet()
         }
