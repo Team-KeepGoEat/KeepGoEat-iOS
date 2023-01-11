@@ -129,15 +129,15 @@ extension OnboardingViewController {
     
     @objc
     private func tapNextButton() {
-        currentPage += 1
-        if currentPage == 3 {
+        if currentPage == onboardingList.count - 1 {
             goToHomeView()
         } else {
+            currentPage += 1
             let indexPath = IndexPath(item: currentPage, section: 0)
             onboardingCollectionView.scrollToItem(at: indexPath, at: .centeredHorizontally, animated: true)
         }
-        
     }
+    
     private func goToHomeView() {
         let sceneDelegate = UIApplication.shared.connectedScenes.first?.delegate as? SceneDelegate
         guard let delegate = sceneDelegate else { return }
