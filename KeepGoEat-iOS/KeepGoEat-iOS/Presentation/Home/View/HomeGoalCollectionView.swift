@@ -7,7 +7,7 @@
 
 import UIKit
 
-protocol addGoalViewHandleDelegate {
+protocol addGoalViewHandleDelegate: AnyObject {
     func showHomeBottomSheet()
 }
 
@@ -15,7 +15,7 @@ class HomeGoalCollectionView: UICollectionView {
     
     // MARK: - Variables
     let data = gethomeDataList[2]
-    var addGoalDelegate: addGoalViewHandleDelegate?
+    weak var addGoalDelegate: addGoalViewHandleDelegate?
 
     override init(frame: CGRect, collectionViewLayout layout: UICollectionViewLayout) {
         super.init(frame: frame, collectionViewLayout: layout)
