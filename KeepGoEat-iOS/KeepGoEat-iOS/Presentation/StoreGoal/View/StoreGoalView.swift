@@ -33,8 +33,8 @@ class StoreGoalView: UIView {
         $0.text = Const.String.storeTitle
     }
     let totalButton = StoreFilterButton(frame: .zero, title: Const.String.storeFilterAll, selectType: .selected)
-    let moreButton = StoreFilterButton(frame: .zero, title: Const.String.storeFilterMore, selectType: .unselected)
-    let lessButton = StoreFilterButton(frame: .zero, title: Const.String.storeFilterLess, selectType: .unselected)
+    let moreButton = StoreFilterButton(frame: .zero, title: Const.String.moreEat, selectType: .unselected)
+    let lessButton = StoreFilterButton(frame: .zero, title: Const.String.lessEat, selectType: .unselected)
     private let layout = UICollectionViewFlowLayout().then {
         $0.estimatedItemSize = CGSize(width: 343.adjustedWidth, height: 160.adjustedWidth)
         $0.minimumLineSpacing = 16.adjusted

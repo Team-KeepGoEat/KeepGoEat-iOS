@@ -39,22 +39,22 @@ class StoreGoalViewController: UIViewController {
     private func totalButtonDidTap() {
         storeGoalView.applySnapshot(sort: .all)
         storeGoalView.totalButton.setUI(title: Const.String.storeFilterAll, selectType: .selected)
-        storeGoalView.moreButton.setUI(title: Const.String.storeFilterMore, selectType: .unselected)
-        storeGoalView.lessButton.setUI(title: Const.String.storeFilterLess, selectType: .unselected)
+        storeGoalView.moreButton.setUI(title: Const.String.moreEat, selectType: .unselected)
+        storeGoalView.lessButton.setUI(title: Const.String.lessEat, selectType: .unselected)
     }
     @objc
     private func moreButtonDidTap() {
         storeGoalView.applySnapshot(sort: .more)
         storeGoalView.totalButton.setUI(title: Const.String.storeFilterAll, selectType: .unselected)
-        storeGoalView.moreButton.setUI(title: Const.String.storeFilterMore, selectType: .selected)
-        storeGoalView.lessButton.setUI(title: Const.String.storeFilterLess, selectType: .unselected)
+        storeGoalView.moreButton.setUI(title: Const.String.moreEat, selectType: .selected)
+        storeGoalView.lessButton.setUI(title: Const.String.lessEat, selectType: .unselected)
     }
     @objc
     private func lessButtonDidTap() {
         storeGoalView.applySnapshot(sort: .less)
         storeGoalView.totalButton.setUI(title: Const.String.storeFilterAll, selectType: .unselected)
-        storeGoalView.moreButton.setUI(title: Const.String.storeFilterMore, selectType: .unselected)
-        storeGoalView.lessButton.setUI(title: Const.String.storeFilterLess, selectType: .selected)
+        storeGoalView.moreButton.setUI(title: Const.String.moreEat, selectType: .unselected)
+        storeGoalView.lessButton.setUI(title: Const.String.lessEat, selectType: .selected)
     }
 }
 
