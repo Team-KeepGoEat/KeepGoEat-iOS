@@ -6,3 +6,8 @@
 //
 
 import Foundation
+
+struct NewGoalRequestDto: Codable {
+    var goalContent: String
+    var isMore: Bool
+}

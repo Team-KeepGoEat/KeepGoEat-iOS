@@ -23,6 +23,7 @@ struct URLConstant {
     static let saveGoal = "/goal/keep/"
     
     // MARK: NewGoal
+    static let NewGoal = "/goal"
     
     // MARK: StoreGoal
     

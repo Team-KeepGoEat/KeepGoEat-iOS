@@ -21,6 +21,10 @@ class NewGoalViewController: UIViewController {
     private let eatType: EatType = .less
     
     // MARK: Component
+    private let headerView: HeaderView = HeaderView()
+    
+    private let emptyView = UIView()
+    
     private let textMyGoalLabel = UILabel().then {
         $0.text = Const.String.textMyGoalTitle
         $0.textColor = .gray700
@@ -43,6 +47,12 @@ class NewGoalViewController: UIViewController {
         $0.text = Const.String.textCount
         $0.textColor = .gray400
         $0.font = .system5
+    }
+    
+    private let GoalHederLabel = UILabel().then {
+        $0.text = Const.String.GoalHeader
+        $0.textColor = .gray700
+        $0.font = .system4Bold
     }
     
     private lazy var moreEatLabel = UILabel().then {
@@ -81,6 +91,7 @@ class NewGoalViewController: UIViewController {
         layout()
         endEditingModeWhenUserTapOutside()
         setUI()
+        setAddTarget()
         
         NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
@@ -91,12 +102,38 @@ class NewGoalViewController: UIViewController {
     }
     
     private func layout() {
-        [textMyGoalLabel, moreVegetabletextField, countTextLabel, moreEatLabel, underLineLabel, warningLabel, completeButton].forEach {
-            view.addSubview($0)
+        view.addSubviews(
+            headerView,
+            emptyView,
+            completeButton
+        )
+        
+        headerView.addSubview(GoalHederLabel)
+        
+        [textMyGoalLabel, moreVegetabletextField, countTextLabel, moreEatLabel, underLineLabel, warningLabel ].forEach {
+            emptyView.addSubview($0)
+        }
+        
+        headerView.snp.makeConstraints {
+            $0.top.equalTo(self.view.safeAreaLayoutGuide)
+            $0.leading.trailing.equalToSuperview()
+            $0.centerX.equalToSuperview()
+        }
+        
+        GoalHederLabel.snp.makeConstraints {
+            $0.centerX.equalToSuperview()
+            $0.centerY.equalToSuperview()
+        }
+        
+        emptyView.snp.makeConstraints {
+            $0.top.equalTo(self.view.safeAreaLayoutGuide).offset(72.adjusted)
+            $0.width.equalTo(375.adjusted)
+            $0.height.equalTo(200.adjusted)
+            $0.centerX.equalToSuperview()
         }
         
         textMyGoalLabel.snp.makeConstraints {
-            $0.top.equalToSuperview().offset(92.adjusted)
+            $0.top.equalTo(emptyView)
             $0.leading.equalToSuperview().offset(20.adjusted)
         }
         
@@ -123,16 +160,37 @@ class NewGoalViewController: UIViewController {
         }
         
         moreEatLabel.snp.makeConstraints {
-            $0.top.equalToSuperview().offset(146.adjusted)
+            $0.top.equalToSuperview().offset(54.adjusted)
             $0.leading.equalTo(self.underLineLabel.snp.trailing).offset(16.adjusted)
         }
         
         completeButton.snp.makeConstraints {
-            $0.bottom.equalToSuperview().inset(52.adjusted)
+            $0.bottom.equalTo(view.safeAreaLayoutGuide).inset(44.adjusted)
             $0.centerX.equalToSuperview()
             $0.width.equalTo(343.adjusted)
             $0.height.equalTo(48.adjusted)
         }
+    }
+    
+    private func setAddTarget() {
+        completeButton.addTarget(self, action: #selector(tapCompleteButton), for: .touchUpInside)
+    }
+    
+    private func createGoal() {
+        var check: Bool = true
+        if eatType == .less {
+            check = false
+        }
+        let body: NewGoalRequestDto = NewGoalRequestDto(
+            goalContent: moreVegetabletextField.text ?? "",
+            isMore: check
+        )
+        NewGoalService.shared.createNewGoal(body: body)
+    }
+    
+    @objc
+    private func tapCompleteButton() {
+        createGoal()
     }
 }
 
@@ -164,7 +222,7 @@ extension NewGoalViewController {
             let keyboardHeight: CGFloat
             keyboardHeight = keyboardSize.height - self.view.safeAreaInsets.bottom
             completeButton.snp.updateConstraints {
-                $0.bottom.equalToSuperview().inset(keyboardHeight + 16)
+                $0.bottom.equalTo(view.safeAreaLayoutGuide).inset(keyboardHeight + 16.adjusted)
             }
             self.view.layoutIfNeeded()
         }
@@ -172,7 +230,7 @@ extension NewGoalViewController {
     
     @objc private func keyboardWillHide(notification: NSNotification) {
         completeButton.snp.updateConstraints {
-            $0.bottom.equalToSuperview().inset(52)
+            $0.bottom.equalTo(view.safeAreaLayoutGuide).inset(44.adjusted)
         }
         self.view.layoutIfNeeded()
     }

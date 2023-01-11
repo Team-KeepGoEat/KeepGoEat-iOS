@@ -41,7 +41,7 @@ extension GoalDetailViewController {
     }
     
     private func getGoalDetailData() {
-        GoalDetailService.shared.getGoalDetail(goalId: 43) { data in
+        GoalDetailService.shared.getGoalDetail(goalId: 62) { data in
             if let data = data {
                 DispatchQueue.main.async {
                     if data.isMore {
