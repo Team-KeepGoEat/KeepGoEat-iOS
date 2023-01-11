@@ -9,7 +9,7 @@ import Moya
 
 enum NewGoalRouter {
     case createGoal(body: NewGoalRequestDto)
-    case editGoal(body: NewGoalEditRequestDto)
+    case editGoal(body: NewGoalEditRequestDto, param: Int)
 }
 
 extension NewGoalRouter: BaseTargetType {
@@ -17,8 +17,8 @@ extension NewGoalRouter: BaseTargetType {
         switch self {
         case .createGoal:
             return URLConstant.NewGoal
-        case .editGoal:
-            return URLConstant.editGoal
+        case .editGoal(_, param: let param):
+            return URLConstant.editGoal + String(param)
         }
     }
     
@@ -35,7 +35,7 @@ extension NewGoalRouter: BaseTargetType {
         switch self {
         case .createGoal(body: let body):
             return .requestParameters(parameters: try! body.asParameter(), encoding: JSONEncoding.default)
-        case .editGoal(body: let body):
+        case .editGoal(body: let body, _):
             return .requestParameters(parameters: try! body.asParameter(), encoding: JSONEncoding.default)
         }
     }

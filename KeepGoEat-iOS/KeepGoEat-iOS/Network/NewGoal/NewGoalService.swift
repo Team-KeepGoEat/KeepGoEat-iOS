@@ -43,8 +43,8 @@ extension NewGoalService {
         }
     }
     
-    func editNewGoal(body: NewGoalEditRequestDto) {
-        newGoalProvider.request(.editGoal(body: body)) { response in
+    func editNewGoal(body: NewGoalEditRequestDto, param: Int) {
+        newGoalProvider.request(.editGoal(body: body, param: param)) { response in
             switch response {
             case .success(let data):
                 let status = data.statusCode

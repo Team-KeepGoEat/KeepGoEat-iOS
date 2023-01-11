@@ -115,7 +115,7 @@ class NewGoalViewController: UIViewController {
         }
         
         headerView.snp.makeConstraints {
-            $0.top.equalTo(self.view.safeAreaLayoutGuide)
+            $0.top.equalTo(self.view.safeAreaLayoutGuide).offset(20.adjusted)
             $0.leading.trailing.equalToSuperview()
             $0.centerX.equalToSuperview()
         }
@@ -192,12 +192,12 @@ class NewGoalViewController: UIViewController {
         let body: NewGoalEditRequestDto = NewGoalEditRequestDto(
             goalContent: moreVegetabletextField.text ?? ""
         )
-        NewGoalService.shared.editNewGoal(body: body)
+        NewGoalService.shared.editNewGoal(body: body, param: 62)
     }
     
     @objc
     private func tapCompleteButton() {
-        createGoal()
+//        createGoal()
         editGoal()
     }
 }
