@@ -33,6 +33,8 @@ extension Const {
         static let homeNewSub1 = "2개의 목표를 더 정할 수 있어요."
         static let homeNewSub2 = "1개의 목표를 더 정할 수 있어요."
         static let homeNewSub3 = "3개의 목표까지 동시에 진행할 수 있어요."
+        static let homeNewBottomSubMore = "건강한 음식을 더 먹어볼까?"
+        static let homeNewBottomSubLess = "안 좋은 식습관을 줄여가보자!"
         
         // MARK: GoalDetail
         static let myGoal = "나의 목표"

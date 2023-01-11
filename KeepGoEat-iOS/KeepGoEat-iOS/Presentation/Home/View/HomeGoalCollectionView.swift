@@ -7,10 +7,15 @@
 
 import UIKit
 
+protocol addGoalViewHandleDelegate: AnyObject {
+    func showHomeBottomSheet()
+}
+
 class HomeGoalCollectionView: UICollectionView {
     
     // MARK: - Variables
-    let data = gethomeDataList[3]
+    let data = gethomeDataList[2]
+    weak var addGoalDelegate: addGoalViewHandleDelegate?
 
     override init(frame: CGRect, collectionViewLayout layout: UICollectionViewLayout) {
         super.init(frame: frame, collectionViewLayout: layout)
@@ -25,13 +30,12 @@ class HomeGoalCollectionView: UICollectionView {
         self.dataSource = self
         self.delegate = self
         self.register(HomeGoalCollectionViewCell.self, forCellWithReuseIdentifier: HomeGoalCollectionViewCell.identifier)
-        self.register(HomeGoalCollectionReusableView.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionFooter, withReuseIdentifier: HomeGoalCollectionReusableView.identifier)
+        self.register(HomeGoalAddCollectionViewCell.self, forCellWithReuseIdentifier: HomeGoalAddCollectionViewCell.identifier)
     }
     
     @objc func achieveButtonDidTap(sender: UIButton) {
         guard let target = self.collectionView(self, cellForItemAt: IndexPath(item: sender.tag, section: 0)) as? HomeGoalCollectionViewCell else { return }
         let currentData = data.goals[sender.tag]
-        print("✨", target.achieveButton)
         if currentData.isMore && currentData.isAchieved {
             target.achieveButton.isAchievedMore.toggle()
         } else if currentData.isMore && !currentData.isAchieved {
@@ -42,7 +46,6 @@ class HomeGoalCollectionView: UICollectionView {
             target.achieveButton.isAchievedLess.toggle()
         }
         target.updateCountLabel(count: 10)
-        print("✨✨✨", target.achieveButton)
         reloadItems(at: [IndexPath(item: sender.tag, section: 0)])
     }
 }
@@ -51,30 +54,40 @@ class HomeGoalCollectionView: UICollectionView {
 // MARK: UICollectionViewDataSource
 extension HomeGoalCollectionView: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let goalCell = collectionView.dequeueReusableCell(withReuseIdentifier: HomeGoalCollectionViewCell.identifier, for: indexPath) as? HomeGoalCollectionViewCell else { return UICollectionViewCell() }
-        goalCell.databind(data: data.goals[indexPath.item])
-        goalCell.achieveButton.tag = indexPath.item
-        goalCell.achieveButton.addTarget(self, action: #selector(achieveButtonDidTap(sender: )), for: .touchUpInside)
-        return goalCell
+        if indexPath.item < data.goalCount {
+            guard let goalCell = collectionView.dequeueReusableCell(withReuseIdentifier: HomeGoalCollectionViewCell.identifier, for: indexPath) as? HomeGoalCollectionViewCell else { return UICollectionViewCell() }
+            goalCell.databind(data: data.goals[indexPath.item])
+            goalCell.achieveButton.tag = indexPath.item
+            goalCell.achieveButton.addTarget(self, action: #selector(achieveButtonDidTap(sender: )), for: .touchUpInside)
+            return goalCell
+        } else {
+            guard let footerCell = collectionView.dequeueReusableCell(withReuseIdentifier: HomeGoalAddCollectionViewCell.identifier, for: indexPath) as? HomeGoalAddCollectionViewCell else { return UICollectionViewCell() }
+            footerCell.setSubTitleText(count: data.goals.count)
+            return footerCell
+        }
     }
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return data.goalCount
+        return data.goalCount + 1
     }
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        guard let goalCell = collectionView.dequeueReusableCell(withReuseIdentifier: HomeGoalCollectionViewCell.identifier, for: indexPath) as? HomeGoalCollectionViewCell else { return }
-        print("✨상세뷰로 전환", goalCell)
+        if indexPath.item < data.goals.count {
+            guard let goalCell = collectionView.dequeueReusableCell(withReuseIdentifier: HomeGoalCollectionViewCell.identifier, for: indexPath) as? HomeGoalCollectionViewCell else { return }
+            print("✨상세뷰로 전환", goalCell)
+        } else {
+            guard let footerCell = collectionView.dequeueReusableCell(withReuseIdentifier: HomeGoalAddCollectionViewCell.identifier, for: indexPath) as? HomeGoalAddCollectionViewCell else { return }
+            print("✨바텀시트 전환", footerCell)
+            self.addGoalDelegate?.showHomeBottomSheet()
+        }
     }
 }
 
 // MARK: UICollectionViewDelegateFlowLayout
 extension HomeGoalCollectionView: UICollectionViewDelegateFlowLayout {
-    func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
-        if kind == UICollectionView.elementKindSectionFooter {
-            guard let footerCell = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: HomeGoalCollectionReusableView.identifier, for: indexPath) as? HomeGoalCollectionReusableView else { return UICollectionViewCell() }
-            footerCell.setSubTitleText(count: data.goalCount)
-            return footerCell
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        if indexPath.item < data.goals.count {
+            return CGSize(width: 343.adjustedWidth, height: 184.adjusted)
         } else {
-            return UICollectionReusableView()
+            return CGSize(width: 343.adjustedWidth, height: 82.adjusted)
         }
     }
 }

@@ -39,8 +39,8 @@
 		DD38AD76295B02B80084FA70 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DD38AD75295B02B80084FA70 /* Assets.xcassets */; };
 		DD38AD79295B02B80084FA70 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DD38AD77295B02B80084FA70 /* LaunchScreen.storyboard */; };
 		DD526893296ABBCE005C8376 /* BaseTargetType.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD526892296ABBCE005C8376 /* BaseTargetType.swift */; };
+		DD623418296E65FF008A35CD /* HomeGoalAddCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD623417296E65FF008A35CD /* HomeGoalAddCollectionViewCell.swift */; };
 		DD64902E2968C53900A73CF4 /* HomeExistView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD64902D2968C53900A73CF4 /* HomeExistView.swift */; };
-		DD6490302968CB0900A73CF4 /* HomeGoalCollectionReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD64902F2968CB0900A73CF4 /* HomeGoalCollectionReusableView.swift */; };
 		DD849AFE295E758A0030AF2F /* StoreGoalRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD849AFD295E758A0030AF2F /* StoreGoalRequest.swift */; };
 		DD849B00295E759E0030AF2F /* StoreGoalResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD849AFF295E759E0030AF2F /* StoreGoalResponse.swift */; };
 		DD849B03295E75D80030AF2F /* StoreGoalRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD849B02295E75D80030AF2F /* StoreGoalRouter.swift */; };
@@ -58,6 +58,8 @@
 		DDA7B71E29686D83001950A2 /* NSMutableAttributedString+.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDA7B71D29686D83001950A2 /* NSMutableAttributedString+.swift */; };
 		DDA7B72029687B91001950A2 /* HomeAchieveButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDA7B71F29687B91001950A2 /* HomeAchieveButton.swift */; };
 		DDA7B72229689333001950A2 /* HomeGoalCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDA7B72129689333001950A2 /* HomeGoalCollectionView.swift */; };
+		DDB02FCB296D19CC00D1E7AB /* HomeNewGoalTypeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDB02FCA296D19CC00D1E7AB /* HomeNewGoalTypeView.swift */; };
+		DDB02FCD296DA5DD00D1E7AB /* HomeBottomSheetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDB02FCC296DA5DD00D1E7AB /* HomeBottomSheetView.swift */; };
 		DDDBC876296045A200F65F23 /* Const.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDDBC875296045A200F65F23 /* Const.swift */; };
 		DDDBC878296045AA00F65F23 /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDDBC877296045AA00F65F23 /* String.swift */; };
 		DDDBC88029618A7D00F65F23 /* .swiftlint.yml in Resources */ = {isa = PBXBuildFile; fileRef = DDDBC87F29618A7D00F65F23 /* .swiftlint.yml */; };
@@ -138,8 +140,8 @@
 		DD38AD78295B02B80084FA70 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		DD38AD7A295B02B80084FA70 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DD526892296ABBCE005C8376 /* BaseTargetType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseTargetType.swift; sourceTree = "<group>"; };
+		DD623417296E65FF008A35CD /* HomeGoalAddCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeGoalAddCollectionViewCell.swift; sourceTree = "<group>"; };
 		DD64902D2968C53900A73CF4 /* HomeExistView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeExistView.swift; sourceTree = "<group>"; };
-		DD64902F2968CB0900A73CF4 /* HomeGoalCollectionReusableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeGoalCollectionReusableView.swift; sourceTree = "<group>"; };
 		DD849AFD295E758A0030AF2F /* StoreGoalRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreGoalRequest.swift; sourceTree = "<group>"; };
 		DD849AFF295E759E0030AF2F /* StoreGoalResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreGoalResponse.swift; sourceTree = "<group>"; };
 		DD849B02295E75D80030AF2F /* StoreGoalRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreGoalRouter.swift; sourceTree = "<group>"; };
@@ -157,6 +159,8 @@
 		DDA7B71D29686D83001950A2 /* NSMutableAttributedString+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSMutableAttributedString+.swift"; sourceTree = "<group>"; };
 		DDA7B71F29687B91001950A2 /* HomeAchieveButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeAchieveButton.swift; sourceTree = "<group>"; };
 		DDA7B72129689333001950A2 /* HomeGoalCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeGoalCollectionView.swift; sourceTree = "<group>"; };
+		DDB02FCA296D19CC00D1E7AB /* HomeNewGoalTypeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeNewGoalTypeView.swift; sourceTree = "<group>"; };
+		DDB02FCC296DA5DD00D1E7AB /* HomeBottomSheetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeBottomSheetView.swift; sourceTree = "<group>"; };
 		DDDBC86E295EE52B00F65F23 /* Pretendard-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-Bold.otf"; sourceTree = "<group>"; };
 		DDDBC86F295EE52B00F65F23 /* Pretendard-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-Regular.otf"; sourceTree = "<group>"; };
 		DDDBC875296045A200F65F23 /* Const.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Const.swift; sourceTree = "<group>"; };
@@ -427,6 +431,7 @@
 			isa = PBXGroup;
 			children = (
 				DDA7B71B29685E67001950A2 /* HomeGoalCollectionViewCell.swift */,
+				DD623417296E65FF008A35CD /* HomeGoalAddCollectionViewCell.swift */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -441,7 +446,8 @@
 				DDA7B71F29687B91001950A2 /* HomeAchieveButton.swift */,
 				DDA7B72129689333001950A2 /* HomeGoalCollectionView.swift */,
 				DD64902D2968C53900A73CF4 /* HomeExistView.swift */,
-				DD64902F2968CB0900A73CF4 /* HomeGoalCollectionReusableView.swift */,
+				DDB02FCA296D19CC00D1E7AB /* HomeNewGoalTypeView.swift */,
+				DDB02FCC296DA5DD00D1E7AB /* HomeBottomSheetView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -871,10 +877,13 @@
 				DDA7B71C29685E67001950A2 /* HomeGoalCollectionViewCell.swift in Sources */,
 				D67E6117296AAC3600CA8CEB /* Encodable+.swift in Sources */,
 				DDE12FB1295B110C008CF91B /* URLConstant.swift in Sources */,
+				DDB02FCD296DA5DD00D1E7AB /* HomeBottomSheetView.swift in Sources */,
 				D6C505822969A7C600BE4543 /* DeleteBottomSheetView.swift in Sources */,
 				DDE12FD7295B1347008CF91B /* NewGoalRequest.swift in Sources */,
+				DD623418296E65FF008A35CD /* HomeGoalAddCollectionViewCell.swift in Sources */,
 				DDE12FD9295B1357008CF91B /* LoginResponse.swift in Sources */,
 				DD849B03295E75D80030AF2F /* StoreGoalRouter.swift in Sources */,
+				DDB02FCB296D19CC00D1E7AB /* HomeNewGoalTypeView.swift in Sources */,
 				DDE12FA1295B0D88008CF91B /* OnboardingViewController.swift in Sources */,
 				D643DFD82963E39F000296D3 /* GoalDetailStampModel.swift in Sources */,
 				DDE12F95295B0BF6008CF91B /* Color.swift in Sources */,
@@ -892,7 +901,6 @@
 				DDE12FB3295B1114008CF91B /* GeneralResponse.swift in Sources */,
 				DDE12FBB295B11BC008CF91B /* LoginRouter.swift in Sources */,
 				DDE12FC9295B123B008CF91B /* GoalDetailService.swift in Sources */,
-				DD6490302968CB0900A73CF4 /* HomeGoalCollectionReusableView.swift in Sources */,
 				DDE12FC5295B122A008CF91B /* LoginService.swift in Sources */,
 				DDE8D3882969FF3800331E3C /* StoreGoalView.swift in Sources */,
 				D65C62F62962DEF30085832C /* adjust+.swift in Sources */,
