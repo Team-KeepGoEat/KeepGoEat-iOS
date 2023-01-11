@@ -37,7 +37,6 @@ extension NewGoalRouter: BaseTargetType {
             return .requestParameters(parameters: try! body.asParameter(), encoding: JSONEncoding.default)
         case .editGoal(body: let body):
             return .requestParameters(parameters: try! body.asParameter(), encoding: JSONEncoding.default)
-
         }
     }
     
