@@ -16,3 +16,7 @@ struct GoalDetailResponseDto: Codable {
     var blankBoxCount: Int
     var emptyBoxCount: Int
 }
+
+struct GoalDeleteResponseDto: Codable {
+    var goalId: Int
+}

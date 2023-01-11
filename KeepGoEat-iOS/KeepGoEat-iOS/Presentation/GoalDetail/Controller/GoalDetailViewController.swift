@@ -41,7 +41,7 @@ extension GoalDetailViewController {
     }
     
     private func getGoalDetailData() {
-        GoalDetailService.shared.getGoalDetail(goalId: 42) { data in
+        GoalDetailService.shared.getGoalDetail(goalId: 50) { data in
             if let data = data {
                 DispatchQueue.main.async {
                     if data.isMore {
@@ -58,6 +58,7 @@ extension GoalDetailViewController {
                 }
             }
         }
+        makeToast("목표 조회 성공", withDuration: 1, delay: 1)
     }
     
     private func showSaveBottomSheetView() {

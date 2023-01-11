@@ -157,6 +157,8 @@ extension GoalDetailView {
         
         headerView.snp.makeConstraints {
             $0.top.equalTo(self.safeAreaLayoutGuide)
+            $0.horizontalEdges.equalTo(self.safeAreaLayoutGuide)
+            $0.height.equalTo(48.adjusted)
         }
         
         headerViewTitle.snp.makeConstraints {

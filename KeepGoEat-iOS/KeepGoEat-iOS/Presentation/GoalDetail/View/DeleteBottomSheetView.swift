@@ -45,6 +45,7 @@ class DeleteBottomSheetView: UIView {
         
         setUI()
         setLayout()
+        setAddTarget()
     }
     
     required init?(coder: NSCoder) {
@@ -96,5 +97,18 @@ extension DeleteBottomSheetView {
             $0.width.equalTo(165.adjusted)
             $0.height.equalTo(48.adjusted)
         }
+    }
+    
+    private func setAddTarget() {
+        deleteButton.addTarget(self, action: #selector(tapDeleteButton), for: .touchUpInside)
+    }
+    
+    private func deleteGoal() {
+        GoalDetailService.shared.deleteGoal(goalId: 42)
+    }
+    
+    @objc
+    private func tapDeleteButton() {
+        deleteGoal()
     }
 }
