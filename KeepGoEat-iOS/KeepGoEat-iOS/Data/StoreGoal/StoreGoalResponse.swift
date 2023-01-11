@@ -7,6 +7,11 @@
 
 import Foundation
 
+// MARK: - StoreGoalResponseDto
+struct StoreGoalResponseDto: Codable {
+    var goalId: Int
+}
+
 // MARK: - GetStoreGoalResponse
 struct GetStoreGoalResponse: Codable {
     let goals: [StoreGoal]
