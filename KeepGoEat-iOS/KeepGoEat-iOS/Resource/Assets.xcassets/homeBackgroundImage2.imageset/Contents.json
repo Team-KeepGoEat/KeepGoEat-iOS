@@ -6,13 +6,13 @@
       "idiom" : "universal"
     },
     {
-      "idiom" : "universal",
       "filename" : "homeBackgroundImage2@2x.png",
-      "scale" : "2x"
+      "scale" : "2x",
+      "idiom" : "universal"
     },
     {
-      "idiom" : "universal",
       "scale" : "3x",
+      "idiom" : "universal",
       "filename" : "homeBackgroundImage2@3x.png"
     }
   ],
