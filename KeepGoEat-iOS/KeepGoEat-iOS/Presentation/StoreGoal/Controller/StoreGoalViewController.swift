@@ -7,7 +7,7 @@
 
 import UIKit
 
-class StoreGoalViewController: UIViewController {
+class StoreGoalViewController: BaseViewController {
     
     private let storeGoalView = StoreGoalView()
 
