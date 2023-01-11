@@ -27,22 +27,22 @@ extension GoalDetailRouter: BaseTargetType {
     
     var method: Moya.Method {
         switch self {
-        case .getGoalDetail(goalId: _):
+        case .getGoalDetail:
             return .get
-        case .deleteGoal(goalId: _):
+        case .deleteGoal:
             return .delete
-        case .saveGoal(goalId: _):
+        case .saveGoal:
             return .post
         }
     }
     
     var task: Moya.Task {
         switch self {
-        case .getGoalDetail(goalId: _):
+        case .getGoalDetail:
             return .requestPlain
-        case .deleteGoal(goalId: _):
+        case .deleteGoal:
             return .requestPlain
-        case .saveGoal(goalId: _):
+        case .saveGoal:
             return .requestPlain
         }
     }
