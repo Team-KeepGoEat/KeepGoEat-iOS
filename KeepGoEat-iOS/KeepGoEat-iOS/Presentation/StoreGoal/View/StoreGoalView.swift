@@ -17,7 +17,7 @@ enum StoreSection {
 class StoreGoalView: UIView {
     
     // MARK: - Variables
-    let data: GetStoreGoalResponse = getStoreGoalDataList[1]
+    var data: GetStoreGoalResponse = getStoreGoalDataList[1]
     var dataSource: UICollectionViewDiffableDataSource<StoreSection, StoreGoal>!
     
     // MARK: Component
@@ -45,7 +45,6 @@ class StoreGoalView: UIView {
         setDataSource()
         setUI()
         setLayout()
-        applySnapshot(sort: .all)
     }
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
@@ -67,6 +66,7 @@ class StoreGoalView: UIView {
         
         headerView.snp.makeConstraints {
             $0.top.equalTo(self.safeAreaLayoutGuide)
+            $0.height.equalTo(48.adjusted)
         }
         headerLabel.snp.makeConstraints {
             $0.top.equalTo(headerView.snp.bottom).offset(24.adjusted)
