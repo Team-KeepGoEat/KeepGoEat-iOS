@@ -34,10 +34,11 @@
 		DD5268A7296AC74B005C8376 /* snail_green_sticker1.png in Resources */ = {isa = PBXBuildFile; fileRef = DD5268A0296AC74B005C8376 /* snail_green_sticker1.png */; };
 		DD5268A8296AC74B005C8376 /* snail_orange_cheer.png in Resources */ = {isa = PBXBuildFile; fileRef = DD5268A1296AC74B005C8376 /* snail_orange_cheer.png */; };
 		DD5268A9296AC74B005C8376 /* snail_green_cheer.png in Resources */ = {isa = PBXBuildFile; fileRef = DD5268A2296AC74B005C8376 /* snail_green_cheer.png */; };
-		DD5268AA296AC74B005C8376 /* onboarding2_1x.json in Resources */ = {isa = PBXBuildFile; fileRef = DD5268A3296AC74B005C8376 /* onboarding2_1x.json */; };
 		DD5268AC296AC74B005C8376 /* onboarding1_1x.json in Resources */ = {isa = PBXBuildFile; fileRef = DD5268A5296AC74B005C8376 /* onboarding1_1x.json */; };
 		DD5268AE296ACB60005C8376 /* homeSnailLottie.json in Resources */ = {isa = PBXBuildFile; fileRef = DD5268AD296ACB60005C8376 /* homeSnailLottie.json */; };
 		DD5268B2296ACC21005C8376 /* onboarding3_1x.json in Resources */ = {isa = PBXBuildFile; fileRef = DD5268B1296ACC21005C8376 /* onboarding3_1x.json */; };
+		DD62342F296EE5FD008A35CD /* onboarding2_1x.json in Resources */ = {isa = PBXBuildFile; fileRef = DD62342E296EE5FD008A35CD /* onboarding2_1x.json */; };
+		DD623431296EE605008A35CD /* card.png in Resources */ = {isa = PBXBuildFile; fileRef = DD623430296EE605008A35CD /* card.png */; };
 		DD64902E2968C53900A73CF4 /* HomeExistView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD64902D2968C53900A73CF4 /* HomeExistView.swift */; };
 		DD6490302968CB0900A73CF4 /* HomeGoalCollectionReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD64902F2968CB0900A73CF4 /* HomeGoalCollectionReusableView.swift */; };
 		DD849AFE295E758A0030AF2F /* StoreGoalRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD849AFD295E758A0030AF2F /* StoreGoalRequest.swift */; };
@@ -132,10 +133,11 @@
 		DD5268A0296AC74B005C8376 /* snail_green_sticker1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = snail_green_sticker1.png; sourceTree = "<group>"; };
 		DD5268A1296AC74B005C8376 /* snail_orange_cheer.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = snail_orange_cheer.png; sourceTree = "<group>"; };
 		DD5268A2296AC74B005C8376 /* snail_green_cheer.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = snail_green_cheer.png; sourceTree = "<group>"; };
-		DD5268A3296AC74B005C8376 /* onboarding2_1x.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = onboarding2_1x.json; sourceTree = "<group>"; };
 		DD5268A5296AC74B005C8376 /* onboarding1_1x.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = onboarding1_1x.json; sourceTree = "<group>"; };
 		DD5268AD296ACB60005C8376 /* homeSnailLottie.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = homeSnailLottie.json; sourceTree = "<group>"; };
 		DD5268B1296ACC21005C8376 /* onboarding3_1x.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = onboarding3_1x.json; sourceTree = "<group>"; };
+		DD62342E296EE5FD008A35CD /* onboarding2_1x.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = onboarding2_1x.json; sourceTree = "<group>"; };
+		DD623430296EE605008A35CD /* card.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = card.png; sourceTree = "<group>"; };
 		DD64902D2968C53900A73CF4 /* HomeExistView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeExistView.swift; sourceTree = "<group>"; };
 		DD64902F2968CB0900A73CF4 /* HomeGoalCollectionReusableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeGoalCollectionReusableView.swift; sourceTree = "<group>"; };
 		DD849AFD295E758A0030AF2F /* StoreGoalRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreGoalRequest.swift; sourceTree = "<group>"; };
@@ -344,7 +346,7 @@
 			children = (
 				DD52689E296AC74B005C8376 /* images */,
 				DD5268A5296AC74B005C8376 /* onboarding1_1x.json */,
-				DD5268A3296AC74B005C8376 /* onboarding2_1x.json */,
+				DD62342E296EE5FD008A35CD /* onboarding2_1x.json */,
 				DD5268B1296ACC21005C8376 /* onboarding3_1x.json */,
 				DD5268AD296ACB60005C8376 /* homeSnailLottie.json */,
 			);
@@ -354,6 +356,7 @@
 		DD52689E296AC74B005C8376 /* images */ = {
 			isa = PBXGroup;
 			children = (
+				DD623430296EE605008A35CD /* card.png */,
 				DD52689F296AC74B005C8376 /* plus.png */,
 				DD5268A0296AC74B005C8376 /* snail_green_sticker1.png */,
 				DD5268A1296AC74B005C8376 /* snail_orange_cheer.png */,
@@ -777,6 +780,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DD62342F296EE5FD008A35CD /* onboarding2_1x.json in Resources */,
 				DDDBC88029618A7D00F65F23 /* .swiftlint.yml in Resources */,
 				DD38AD79295B02B80084FA70 /* LaunchScreen.storyboard in Resources */,
 				DD5268A8296AC74B005C8376 /* snail_orange_cheer.png in Resources */,
@@ -787,8 +791,8 @@
 				DD5268A9296AC74B005C8376 /* snail_green_cheer.png in Resources */,
 				DD5268AE296ACB60005C8376 /* homeSnailLottie.json in Resources */,
 				DD38AD76295B02B80084FA70 /* Assets.xcassets in Resources */,
+				DD623431296EE605008A35CD /* card.png in Resources */,
 				DD5268A7296AC74B005C8376 /* snail_green_sticker1.png in Resources */,
-				DD5268AA296AC74B005C8376 /* onboarding2_1x.json in Resources */,
 				DD5268AC296AC74B005C8376 /* onboarding1_1x.json in Resources */,
 				DD5268B2296ACC21005C8376 /* onboarding3_1x.json in Resources */,
 			);
