@@ -22,7 +22,6 @@ class StoreGoalViewController: UIViewController {
         
         getStoreGoalData()
         setAddTarget()
-        print("✨\(readUserTokenOnKeyChain(tokenName: Const.String.userAccessToken))")
     }
     override func loadView() {
         super.loadView()
