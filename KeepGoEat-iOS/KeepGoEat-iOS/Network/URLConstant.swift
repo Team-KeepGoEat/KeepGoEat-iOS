@@ -26,5 +26,5 @@ struct URLConstant {
     static let NewGoal = "/goal"
     
     // MARK: StoreGoal
-    
+    static let storeGoal = "mypage?sort="
 }
