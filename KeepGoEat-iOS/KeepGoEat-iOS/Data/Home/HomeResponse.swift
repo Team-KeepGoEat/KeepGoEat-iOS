@@ -38,7 +38,6 @@ let gethomeDataList: [GetHomeResponse] = [
     GetHomeResponse(goals: [
         Goal(goalID: 1, goalContent: "하루 한 번 유산균", isMore: true, isOngoing: true, writerID: 1, totalCount: 7, startedAt: "2022. 08.10", keptAt: "", isAchieved: false, thisMonthCount: 6),
         Goal(goalID: 2, goalContent: "라면", isMore: false, isOngoing: true, writerID: 1, totalCount: 20, startedAt: "2022. 08.10", keptAt: "", isAchieved: true, thisMonthCount: 17),
-        Goal(goalID: 3, goalContent: "군것질거리", isMore: false, isOngoing: true, writerID: 1, totalCount: 4, startedAt: "2022. 08.10", keptAt: "", isAchieved: false, thisMonthCount: 3),
         Goal(goalID: 3, goalContent: "군것질거리", isMore: false, isOngoing: true, writerID: 1, totalCount: 4, startedAt: "2022. 08.10", keptAt: "", isAchieved: false, thisMonthCount: 3)
     ], goalCount: 3, cheeringMessage: "오늘도 3개 행복하게 내일 더 멋지게!", dayTime: 1)
 ]

@@ -79,12 +79,15 @@ class HomeGoalCollectionReusableView: UICollectionViewCell {
         case 1:
             subLabel.text = Const.String.homeNewSub1
             newGoalImage.isHidden = false
+            self.isUserInteractionEnabled = true
         case 2:
             subLabel.text = Const.String.homeNewSub2
             newGoalImage.isHidden = false
+            self.isUserInteractionEnabled = true
         case 3:
             subLabel.text = Const.String.homeNewSub3
             newGoalImage.isHidden = true
+            self.isUserInteractionEnabled = false
         default:
             subLabel.text = ""
         }

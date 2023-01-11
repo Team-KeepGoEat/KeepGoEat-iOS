@@ -73,6 +73,7 @@ class HomeNewGoalTypeView: UIView {
         snailImage.snp.makeConstraints {
             $0.top.equalToSuperview().offset(16.adjusted)
             $0.trailing.equalToSuperview().offset(-20.adjusted)
+            $0.width.height.equalTo(100.adjustedWidth)
         }
     }
     

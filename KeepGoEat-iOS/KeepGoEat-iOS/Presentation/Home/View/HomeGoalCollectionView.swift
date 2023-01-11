@@ -7,10 +7,15 @@
 
 import UIKit
 
+protocol addGoalViewHandleDelegate {
+    func showHomeBottomSheet()
+}
+
 class HomeGoalCollectionView: UICollectionView {
     
     // MARK: - Variables
-    let data = gethomeDataList[3]
+    let data = gethomeDataList[2]
+    var addGoalDelegate: addGoalViewHandleDelegate?
 
     override init(frame: CGRect, collectionViewLayout layout: UICollectionViewLayout) {
         super.init(frame: frame, collectionViewLayout: layout)
@@ -25,7 +30,7 @@ class HomeGoalCollectionView: UICollectionView {
         self.dataSource = self
         self.delegate = self
         self.register(HomeGoalCollectionViewCell.self, forCellWithReuseIdentifier: HomeGoalCollectionViewCell.identifier)
-        self.register(HomeGoalCollectionReusableView.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionFooter, withReuseIdentifier: HomeGoalCollectionReusableView.identifier)
+        self.register(HomeGoalCollectionReusableView.self, forCellWithReuseIdentifier: HomeGoalCollectionReusableView.identifier)
     }
     
     @objc func achieveButtonDidTap(sender: UIButton) {
@@ -51,7 +56,7 @@ class HomeGoalCollectionView: UICollectionView {
 // MARK: UICollectionViewDataSource
 extension HomeGoalCollectionView: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        if indexPath.item < 3 {
+        if indexPath.item < data.goalCount {
             print(indexPath.item)
             guard let goalCell = collectionView.dequeueReusableCell(withReuseIdentifier: HomeGoalCollectionViewCell.identifier, for: indexPath) as? HomeGoalCollectionViewCell else { return UICollectionViewCell() }
             goalCell.databind(data: data.goals[indexPath.item])
@@ -59,14 +64,13 @@ extension HomeGoalCollectionView: UICollectionViewDataSource {
             goalCell.achieveButton.addTarget(self, action: #selector(achieveButtonDidTap(sender: )), for: .touchUpInside)
             return goalCell
         } else {
-            print("dkssud")
             guard let footerCell = collectionView.dequeueReusableCell(withReuseIdentifier: HomeGoalCollectionReusableView.identifier, for: indexPath) as? HomeGoalCollectionReusableView else { return UICollectionViewCell() }
             footerCell.setSubTitleText(count: data.goals.count)
             return footerCell
         }
     }
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return data.goals.count
+        return data.goalCount + 1
     }
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         if indexPath.item < data.goals.count {
@@ -75,19 +79,18 @@ extension HomeGoalCollectionView: UICollectionViewDataSource {
         } else {
             guard let footerCell = collectionView.dequeueReusableCell(withReuseIdentifier: HomeGoalCollectionReusableView.identifier, for: indexPath) as? HomeGoalCollectionReusableView else { return }
             print("✨바텀시트 전환", footerCell)
+            self.addGoalDelegate?.showHomeBottomSheet()
         }
     }
 }
 
 // MARK: UICollectionViewDelegateFlowLayout
 extension HomeGoalCollectionView: UICollectionViewDelegateFlowLayout {
-//    func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
-//        if kind == UICollectionView.elementKindSectionFooter {
-//            guard let footerCell = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: HomeGoalCollectionReusableView.identifier, for: indexPath) as? HomeGoalCollectionReusableView else { return UICollectionViewCell() }
-//            footerCell.setSubTitleText(count: data.goalCount)
-//            return footerCell
-//        } else {
-//            return UICollectionReusableView()
-//        }
-//    }
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        if indexPath.item < data.goals.count {
+            return CGSize(width: 343.adjustedWidth, height: 184.adjusted)
+        } else {
+            return CGSize(width: 343.adjustedWidth, height: 82.adjusted)
+        }
+    }
 }
