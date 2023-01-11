@@ -39,7 +39,6 @@ class HomeView: UIView {
         setLayout()
         setUI()
     }
-    
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }

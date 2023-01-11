@@ -8,7 +8,7 @@
 import UIKit
 
 enum SelectType: String {
-    case seleted
+    case selected
     case unselected
 }
 
@@ -27,12 +27,12 @@ class StoreFilterButton: UIButton {
         fatalError("init(coder:) has not been implemented")
     }
 
-    private func setUI(title: String, selectType: SelectType) {
+    func setUI(title: String, selectType: SelectType) {
         var config = UIButton.Configuration.plain()
         config.background.backgroundColor = .gray50
         config.contentInsets = NSDirectionalEdgeInsets(top: 6, leading: 6, bottom: 6, trailing: 6)
         switch selectType {
-        case .seleted:
+        case .selected:
             config.baseForegroundColor = .gray800
             config.attributedTitle = AttributedString(title, attributes: AttributeContainer([NSAttributedString.Key.font: UIFont.system5Bold]))
         case .unselected:
