@@ -10,10 +10,10 @@ import UIKit
 import SnapKit
 import Then
 
-enum TimezoneType: String {
+enum TimezoneType: Int {
     case day
-    case sun
     case night
+    case sun
 }
 enum CharacterType: String {
     case hungry
@@ -25,7 +25,7 @@ class HomeCheerView: UIView {
     // MARK: - Variables
     // MARK: Component
     private let backgroundImage = UIImageView().then {
-        $0.image = Const.Image.homeBackground
+        $0.image = Const.Image.homeBackgroundImageDay
     }
     private let myPageButton = UIButton().then {
         $0.setImage(Const.Image.icnMypage, for: .normal)

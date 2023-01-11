@@ -8,18 +8,18 @@
 import UIKit
 import SwiftUI
 
-class HomeViewController: UIViewController {
+class HomeViewController: BaseViewController {
     
     // MARK: - Variables
     // MARK: Component
-    private let homeView = HomeView()
+    private var homeView = HomeView()
 
     // MARK: - Function
     // MARK: LifeCycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        // API 연결 후 뷰 업데이트를 위해 사용 예정
-        homeView.updateCheerBackgroundUI(timezoneType: .sun)
+        
+        getHomeData()
         setDelegate()
         setAddTarget()
         setupGestureRecognizer()
@@ -31,6 +31,19 @@ class HomeViewController: UIViewController {
         self.view = homeView
     }
     
+    private func getHomeData() {
+        HomeService.shared.getHome() { data in
+            guard let data = data else { return }
+            self.homeView.updateCheerBackgroundUI(timezoneType: TimezoneType(rawValue: data.daytime) ?? .day)
+            if data.goalCount == 0 {
+                self.homeView.homeType = .empty
+            } else {
+                self.homeView.homeType = .exist
+                self.homeView.homeExistView.homeGoalCollectionView.data = data
+                self.homeView.homeExistView.homeGoalCollectionView.reloadData()
+            }
+        }
+    }
     private func setDelegate() {
         homeView.homeExistView.homeGoalCollectionView.addGoalDelegate = self
     }

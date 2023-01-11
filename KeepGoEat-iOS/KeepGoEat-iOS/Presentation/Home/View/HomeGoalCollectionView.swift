@@ -14,7 +14,7 @@ protocol addGoalViewHandleDelegate: AnyObject {
 class HomeGoalCollectionView: UICollectionView {
     
     // MARK: - Variables
-    let data = gethomeDataList[2]
+    var data = gethomeDataList[2]
     weak var addGoalDelegate: addGoalViewHandleDelegate?
 
     override init(frame: CGRect, collectionViewLayout layout: UICollectionViewLayout) {
