@@ -11,3 +11,7 @@ struct NewGoalRequestDto: Codable {
     var goalContent: String
     var isMore: Bool
 }
+
+struct NewGoalEditRequestDto: Codable {
+    var goalContent: String
+}
