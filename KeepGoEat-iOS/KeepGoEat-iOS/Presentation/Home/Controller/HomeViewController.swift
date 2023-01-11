@@ -21,6 +21,8 @@ class HomeViewController: UIViewController {
 
         // API 연결 후 뷰 업데이트를 위해 사용 예정
         homeView.updateCheerBackgroundUI(timezoneType: .sun)
+        setAddTarget()
+        setupGestureRecognizer()
     }
     
     override func loadView() {
@@ -29,9 +31,18 @@ class HomeViewController: UIViewController {
         self.view = homeView
     }
     
+    private func setAddTarget() {
+        homeView.homeEmptyView.addGoalButton.addTarget(self, action: #selector(addGoalButtonDidTap), for: .touchUpInside)
+    }
+    private func setupGestureRecognizer() {
+            let dimmedTap = UITapGestureRecognizer(target: self, action: #selector(dimmedViewTapped(_: )))
+        homeView.dimmedView.addGestureRecognizer(dimmedTap)
+        homeView.dimmedView.isUserInteractionEnabled = true
+    }
+    
     @objc func addGoalButtonDidTap() {
-        print("안녕하세요옹옹")
         self.showBottomSheet(bottomSheetView: homeView.bottomSheetView, dimmedView: homeView.dimmedView)
+        homeView.bottomSheetView.isHidden = false
     }
     @objc private func dimmedViewTapped(_ tapRecognizer: UITapGestureRecognizer) {
         self.hideBottomSheet(bottomSheetView: homeView.bottomSheetView, dimmedView: homeView.dimmedView)

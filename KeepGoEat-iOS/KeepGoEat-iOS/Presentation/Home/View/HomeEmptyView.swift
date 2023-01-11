@@ -28,7 +28,7 @@ class HomeEmptyView: UIView {
         $0.font = .system4
         $0.textColor = .gray600
     }
-    private let addGoalButton = UIButton.init(type: .custom).then {
+    let addGoalButton = UIButton.init(type: .custom).then {
         var config = UIButton.Configuration.plain()
         config.attributedTitle = AttributedString(Const.String.homeAddGoal, attributes: AttributeContainer([NSAttributedString.Key.font: UIFont.system4Bold]))
         config.baseForegroundColor = .gray50

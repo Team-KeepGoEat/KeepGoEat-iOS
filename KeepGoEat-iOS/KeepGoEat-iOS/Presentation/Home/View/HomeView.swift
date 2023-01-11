@@ -18,11 +18,11 @@ enum HomeType: String {
 class HomeView: UIView {
     
     // MARK: - Variables
-    private let homeType: HomeType = .exist
+    private let homeType: HomeType = .empty
     
     // MARK: Component
     private let homeCheerView = HomeCheerView()
-    private let homeEmptyView = HomeEmptyView()
+    let homeEmptyView = HomeEmptyView()
     private let homeExistView = HomeExistView()
     let dimmedView: UIView = UIView().then {
         $0.backgroundColor = .black.withAlphaComponent(0.5)
