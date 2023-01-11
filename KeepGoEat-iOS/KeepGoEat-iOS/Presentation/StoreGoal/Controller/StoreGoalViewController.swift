@@ -20,6 +20,7 @@ class StoreGoalViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        getStoreGoalData()
         setAddTarget()
     }
     override func loadView() {
@@ -29,6 +30,14 @@ class StoreGoalViewController: UIViewController {
     }
     
     // MARK: Custom Function
+    private func getStoreGoalData() {
+        StoreGoalService.shared.getStoreGoal(sortType: .all) { data in
+            guard let data = data else { return }
+            self.storeGoalView.data = data
+            self.storeGoalView.applySnapshot(sort: .all)
+        }
+    }
+    
     private func setAddTarget() {
         storeGoalView.totalButton.addTarget(self, action: #selector(totalButtonDidTap), for: .touchUpInside)
         storeGoalView.moreButton.addTarget(self, action: #selector(moreButtonDidTap), for: .touchUpInside)
