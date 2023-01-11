@@ -9,7 +9,7 @@ import Moya
 
 final class StoreGoalService {
     static let shared = StoreGoalService()
-    private let storeGoalProvider = MoyaProvider<StoreGoalRouter>(plugins: [NetworkLoggerPlugin()])
+    private let storeGoalProvider = MoyaProvider<StoreGoalRouter>(plugins: [MoyaLoggingPlugin()])
     private init() { }
 }
 

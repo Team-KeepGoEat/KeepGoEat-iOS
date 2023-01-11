@@ -8,34 +8,33 @@
 import Moya
 
 enum StoreGoalRouter {
-    case getMypage(sortType: String)
+    case getStoreGoal(sortType: String)
 }
 
 extension StoreGoalRouter: BaseTargetType {
     var path: String {
         switch self {
-        case .getMypage(sortType: let sortType):
-            return URLConstant.storeGoal + sortType
+        case .getStoreGoal:
+            return URLConstant.storeGoal
         }
     }
     
     var method: Moya.Method {
         switch self {
-        case .getMypage:
+        case .getStoreGoal:
             return .get
         }
     }
     
     var task: Moya.Task {
         switch self {
-        case .getMypage:
-            return .requestPlain
+        case .getStoreGoal(let sortType):
+            return .requestParameters(parameters: ["sort": sortType], encoding: URLEncoding.default)
         }
     }
     
-    var headers: [String : String]? {
+    var headers: [String: String]? {
         return NetworkConstant.accessTokenHeader
     }
-    
     
 }
