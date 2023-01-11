@@ -107,6 +107,21 @@ extension SocialLoginButton {
                     }
                 }
             }
+        } else {
+            UserApi.shared.loginWithKakaoAccount {(oauthToken, error) in
+                if let error = error {
+                    print(error)
+                } else {
+                    print("login With Kakao Account success")
+                    
+                    self.platformAccessToken = oauthToken?.accessToken ?? ""
+                    if let platformAccessToken = self.platformAccessToken,
+                       let platform = self.platform {
+                        let param = LoginRequestDto(platformAccessToken: platformAccessToken, platform: platform)
+                        LoginService.shared.postSocialLogin(param: param)
+                    }
+                }
+            }
         }
     }
     
