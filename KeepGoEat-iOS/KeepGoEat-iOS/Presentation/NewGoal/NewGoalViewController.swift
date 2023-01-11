@@ -91,6 +91,7 @@ class NewGoalViewController: UIViewController {
         layout()
         endEditingModeWhenUserTapOutside()
         setUI()
+        setAddTarget()
         
         NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
@@ -169,6 +170,27 @@ class NewGoalViewController: UIViewController {
             $0.width.equalTo(343.adjusted)
             $0.height.equalTo(48.adjusted)
         }
+    }
+    
+    private func setAddTarget() {
+        completeButton.addTarget(self, action: #selector(tapCompleteButton), for: .touchUpInside)
+    }
+    
+    private func createGoal() {
+        var check: Bool = true
+        if eatType == .less {
+            check = false
+        }
+        let body: NewGoalRequestDto = NewGoalRequestDto(
+            goalContent: moreVegetabletextField.text ?? "",
+            isMore: check
+        )
+        NewGoalService.shared.createNewGoal(body: body)
+    }
+    
+    @objc
+    private func tapCompleteButton() {
+        createGoal()
     }
 }
 
