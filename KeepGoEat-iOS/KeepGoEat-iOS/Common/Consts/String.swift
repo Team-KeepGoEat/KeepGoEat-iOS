@@ -33,6 +33,8 @@ extension Const {
         static let homeNewSub1 = "2개의 목표를 더 정할 수 있어요."
         static let homeNewSub2 = "1개의 목표를 더 정할 수 있어요."
         static let homeNewSub3 = "3개의 목표까지 동시에 진행할 수 있어요."
+        static let homeNewBottomSubMore = "건강한 음식을 더 먹어볼까?"
+        static let homeNewBottomSubLess = "안 좋은 식습관을 줄여가보자!"
         
         // MARK: GoalDetail
         static let myGoal = "나의 목표"
@@ -53,15 +55,15 @@ extension Const {
         static let GoalHeader = "목표 입력"
         static let moreVegetablePlaceHoleder = "ex) 하루 1끼 이상 야채"
         static let textCount = "(0/20)"
-        static let moreEat =  "더먹기"
-        static let lessEat = "덜먹기"
+        static let moreEat =  "더 먹기"
+        static let lessEat = "덜 먹기"
         static let complete = "완료"
         static let warning = "한글, 영문,숫자만 입력 가능합니다."
         
         // MARK: StoreGoal
         static let storeTitle = "보관한 목표"
         static let storeFilterAll = "전체"
-        static let storeFilterMore = "더먹기"
-        static let storeFilterLess = "덜먹기"
+        static let totalSub = "총 달성일"
+        static let termSub = "진행기간"
     }
 }

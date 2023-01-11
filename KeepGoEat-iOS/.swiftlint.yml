@@ -10,6 +10,7 @@ disabled_rules:
 - function_parameter_count
 - function_body_length
 - nesting
+- cyclomatic_complexity
 
 opt_in_rules:
 - mark

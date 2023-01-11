@@ -22,8 +22,14 @@ class HomeView: UIView {
     
     // MARK: Component
     private let homeCheerView = HomeCheerView()
-    private let homeEmptyView = HomeEmptyView()
-    private let homeExistView = HomeExistView()
+    let homeEmptyView = HomeEmptyView()
+    let homeExistView = HomeExistView()
+    let dimmedView: UIView = UIView().then {
+        $0.backgroundColor = .black.withAlphaComponent(0.5)
+        $0.isHidden = true
+    }
+    let bottomSheetView: BottomSheetView = BottomSheetView()
+    private let homeBottomSheetView = HomeBottomSheetView()
     
     // MARK: - Function
     // MARK: LifeCycle
@@ -33,7 +39,6 @@ class HomeView: UIView {
         setLayout()
         setUI()
     }
-    
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
@@ -79,6 +84,24 @@ class HomeView: UIView {
                 $0.top.equalTo(homeCheerView.snp.bottom).inset(5.adjusted)
                 $0.horizontalEdges.bottom.equalToSuperview()
             }
+        }
+        self.addSubviews(
+            dimmedView,
+            bottomSheetView
+        )
+        bottomSheetView.addSubview(homeBottomSheetView)
+        
+        bottomSheetView.snp.makeConstraints {
+            $0.top.equalToSuperview().inset(UIScreen.main.bounds.height)
+            $0.height.equalTo(325.adjusted)
+            $0.directionalHorizontalEdges.equalToSuperview()
+        }
+        
+        dimmedView.snp.makeConstraints {
+            $0.edges.equalToSuperview()
+        }
+        homeBottomSheetView.snp.makeConstraints {
+            $0.edges.equalToSuperview()
         }
     }
     

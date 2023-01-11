@@ -1,8 +1,8 @@
 //
-//  HomeGoalCollectionReusableView.swift
+//  HomeGoalAddCollectionViewCell.swift
 //  KeepGoEat-iOS
 //
-//  Created by 양정연 on 2023/01/07.
+//  Created by 양정연 on 2023/01/11.
 //
 
 import UIKit
@@ -10,9 +10,9 @@ import UIKit
 import SnapKit
 import Then
 
-class HomeGoalCollectionReusableView: UICollectionReusableView {
+class HomeGoalAddCollectionViewCell: UICollectionViewCell {
     // MARK: - Variables
-    static let identifier = "HomeGoalCollectionReusableView"
+    static let identifier = "HomeGoalAddCollectionViewCell"
     
     // MARK: Component
     private let containerView = UIView().then {
@@ -79,12 +79,15 @@ class HomeGoalCollectionReusableView: UICollectionReusableView {
         case 1:
             subLabel.text = Const.String.homeNewSub1
             newGoalImage.isHidden = false
+            self.isUserInteractionEnabled = true
         case 2:
             subLabel.text = Const.String.homeNewSub2
             newGoalImage.isHidden = false
+            self.isUserInteractionEnabled = true
         case 3:
             subLabel.text = Const.String.homeNewSub3
             newGoalImage.isHidden = true
+            self.isUserInteractionEnabled = false
         default:
             subLabel.text = ""
         }

@@ -53,6 +53,7 @@ class HomeCheerView: UIView {
         super.init(frame: frame)
         
         setLayout()
+        setAddTarget()
     }
     
     required init?(coder: NSCoder) {
@@ -97,6 +98,9 @@ class HomeCheerView: UIView {
     }
     
     // MARK: Custom Function
+    private func setAddTarget() {
+        myPageButton.addTarget(self, action: #selector(myPageButtonDidTap), for: .touchUpInside)
+    }
     func setCharacterImage(characterType: CharacterType) {
         switch characterType {
         case .hungry:
@@ -117,5 +121,10 @@ class HomeCheerView: UIView {
     }
     func updatecheerMessageLabelText(string: String) {
         cheerMessageLabel.text = string
+    }
+    
+    @objc
+    private func myPageButtonDidTap() {
+        // TODO: 마이페이지로 연결
     }
 }
