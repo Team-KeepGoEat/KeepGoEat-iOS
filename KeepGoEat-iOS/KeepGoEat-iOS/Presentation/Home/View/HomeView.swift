@@ -18,7 +18,12 @@ enum HomeType: String {
 class HomeView: UIView {
     
     // MARK: - Variables
-    private let homeType: HomeType = .exist
+    var homeType: HomeType {
+        didSet {
+            setLayout()
+            setUI()
+        }
+    }
     
     // MARK: Component
     private let homeCheerView = HomeCheerView()
@@ -34,6 +39,7 @@ class HomeView: UIView {
     // MARK: - Function
     // MARK: LifeCycle
     override init(frame: CGRect) {
+        self.homeType = .empty
         super.init(frame: frame)
         
         setLayout()
