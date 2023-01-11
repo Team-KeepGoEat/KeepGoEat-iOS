@@ -36,7 +36,6 @@ class HomeGoalCollectionView: UICollectionView {
     @objc func achieveButtonDidTap(sender: UIButton) {
         guard let target = self.collectionView(self, cellForItemAt: IndexPath(item: sender.tag, section: 0)) as? HomeGoalCollectionViewCell else { return }
         let currentData = data.goals[sender.tag]
-        print("✨", target.achieveButton)
         if currentData.isMore && currentData.isAchieved {
             target.achieveButton.isAchievedMore.toggle()
         } else if currentData.isMore && !currentData.isAchieved {
@@ -47,7 +46,6 @@ class HomeGoalCollectionView: UICollectionView {
             target.achieveButton.isAchievedLess.toggle()
         }
         target.updateCountLabel(count: 10)
-        print("✨✨✨", target.achieveButton)
         reloadItems(at: [IndexPath(item: sender.tag, section: 0)])
     }
 }
@@ -57,7 +55,6 @@ class HomeGoalCollectionView: UICollectionView {
 extension HomeGoalCollectionView: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         if indexPath.item < data.goalCount {
-            print(indexPath.item)
             guard let goalCell = collectionView.dequeueReusableCell(withReuseIdentifier: HomeGoalCollectionViewCell.identifier, for: indexPath) as? HomeGoalCollectionViewCell else { return UICollectionViewCell() }
             goalCell.databind(data: data.goals[indexPath.item])
             goalCell.achieveButton.tag = indexPath.item
