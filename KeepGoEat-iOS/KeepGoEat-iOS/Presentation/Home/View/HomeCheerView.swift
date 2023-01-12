@@ -133,9 +133,11 @@ class HomeCheerView: UIView {
         switch characterType {
         case .hungry:
             characterImage.image = Const.Image.snailOrangeHungry
+            characterAnimationView.isHidden = true
         case .cheer:
             characterImage.image = Const.Image.snailOrangeCheer
             setAnimationView()
+            characterAnimationView.isHidden = false
         }
     }
     func setBackgroundImage(timezoneType: TimezoneType) {
