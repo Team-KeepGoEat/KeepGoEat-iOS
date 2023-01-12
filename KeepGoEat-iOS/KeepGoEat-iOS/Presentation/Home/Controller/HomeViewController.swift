@@ -32,9 +32,10 @@ class HomeViewController: BaseViewController {
     }
     
     private func getHomeData() {
-        HomeService.shared.getHome() { data in
+        HomeService.shared.getHome { data in
             guard let data = data else { return }
             self.homeView.updateCheerBackgroundUI(timezoneType: TimezoneType(rawValue: data.daytime) ?? .day)
+            self.homeView.homeCheerView.updatecheerMessageLabelText(string: data.cheeringMessage)
             if data.goalCount == 0 {
                 self.homeView.homeType = .empty
             } else {
@@ -71,8 +72,8 @@ class HomeViewController: BaseViewController {
 extension HomeViewController: HandleCustomButtonDelegate {
     func pushGoalDetail(goalId: Int) {
         let goalDetailViewController = GoalDetailViewController()
-        goalDetailViewController.setGoalId(goalId: goalId)
-        self.navigationController?.pushViewController(GoalDetailViewController(), animated: true)
+        goalDetailViewController.setGoalId(id: goalId)
+        self.navigationController?.pushViewController(goalDetailViewController, animated: true)
     }
     func showHomeBottomSheet() {
         self.showBottomSheet(bottomSheetView: homeView.bottomSheetView, dimmedView: homeView.dimmedView)

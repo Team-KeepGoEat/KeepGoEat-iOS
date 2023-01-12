@@ -8,9 +8,10 @@
 import UIKit
 
 class GoalDetailViewController: BaseViewController {
-        
+    
     // MARK: Varialbes
     private var goalId: Int = 0
+    
     private var data: GoalDetailResponseDto = GoalDetailResponseDto(
         goalId: 0,
         isMore: true,
@@ -37,6 +38,7 @@ class GoalDetailViewController: BaseViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         getGoalDetailData()
+        
     }
 }
 
@@ -49,7 +51,7 @@ extension GoalDetailViewController {
     }
     
     private func setupGestureRecognizer() {
-            let dimmedTap = UITapGestureRecognizer(target: self, action: #selector(dimmedViewTapped(_: )))
+        let dimmedTap = UITapGestureRecognizer(target: self, action: #selector(dimmedViewTapped(_: )))
         goalDetailView.dimmedView.addGestureRecognizer(dimmedTap)
         goalDetailView.dimmedView.isUserInteractionEnabled = true
     }
@@ -60,23 +62,22 @@ extension GoalDetailViewController {
     }
     
     private func getGoalDetailData() {
-        GoalDetailService.shared.getGoalDetail(goalId: 50) { data in
+        GoalDetailService.shared.getGoalDetail(goalId: goalId) { data in
             if let data = data {
-                DispatchQueue.main.async {
-                    if data.isMore {
-                        self.goalDetailView.goalType = .more
-                    } else {
-                        self.goalDetailView.goalType = .less
-                    }
-                    self.goalDetailView.goalTitleLabel.text = data.goalContent
-                    self.goalDetailView.previousGoalStatsView.goalStatsCountLabel.text = String(data.lastMonthCount)
-                    self.goalDetailView.presentGoalStatsView.goalStatsCountLabel.text = String(data.thisMonthCount)
-                    self.goalDetailView.goalStatsCollectionView.thisMonthCount = data.thisMonthCount
-                    self.goalDetailView.goalStatsCollectionView.blankBoxCount = data.blankBoxCount
-                    self.goalDetailView.goalStatsCollectionView.emptyBoxCount = data.emptyBoxCount
-                    
-                    self.data = data
+                if data.isMore {
+                    self.goalDetailView.goalType = .more
+                } else {
+                    self.goalDetailView.goalType = .less
                 }
+                print("✨✨✨✨, \(data)")
+                self.data = data
+                self.goalDetailView.goalTitleLabel.text = data.goalContent
+                self.goalDetailView.previousGoalStatsView.goalStatsCountLabel.text = String(data.lastMonthCount)
+                self.goalDetailView.presentGoalStatsView.goalStatsCountLabel.text = String(data.thisMonthCount)
+                self.goalDetailView.goalStatsCollectionView.thisMonthCount = data.thisMonthCount
+                self.goalDetailView.goalStatsCollectionView.blankBoxCount = data.blankBoxCount
+                self.goalDetailView.goalStatsCollectionView.emptyBoxCount = data.emptyBoxCount
+                
             }
         }
         makeToast("목표 조회 성공", withDuration: 1, delay: 1)
@@ -92,8 +93,9 @@ extension GoalDetailViewController {
         goalDetailView.deleteBottomSheetView.isHidden = false
     }
     
-    func setGoalId(goalId: Int) {
-        self.goalId = goalId
+    func setGoalId(id: Int) {
+        self.goalId = id
+        print("✨✨✨goalId: ", goalId)
     }
     
     @objc
