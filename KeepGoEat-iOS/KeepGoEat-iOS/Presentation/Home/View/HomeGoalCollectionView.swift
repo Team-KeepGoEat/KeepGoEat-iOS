@@ -16,7 +16,7 @@ class HomeGoalCollectionView: UICollectionView {
     // MARK: - Variables
     var data = gethomeDataList[2]
     weak var addGoalDelegate: addGoalViewHandleDelegate?
-
+    
     override init(frame: CGRect, collectionViewLayout layout: UICollectionViewLayout) {
         super.init(frame: frame, collectionViewLayout: layout)
         
@@ -32,21 +32,26 @@ class HomeGoalCollectionView: UICollectionView {
         self.register(HomeGoalCollectionViewCell.self, forCellWithReuseIdentifier: HomeGoalCollectionViewCell.identifier)
         self.register(HomeGoalAddCollectionViewCell.self, forCellWithReuseIdentifier: HomeGoalAddCollectionViewCell.identifier)
     }
+    private func postAchieveGoal(goal: Goal) {
+        HomeService.shared.postAchieveGoal(body: PostGoalAchieveRequest(isAchieved: !goal.isAchieved), param: goal.goalId) { data in
+            guard let data = data else { return }
+            if data.updatedIsAchieved != goal.isAchieved {
+                self.getHomeData()
+            }
+        }
+    }
+    private func getHomeData() {
+        HomeService.shared.getHome() { data in
+            guard let data = data else { return }
+            self.data = data
+            self.reloadData()
+        }
+    }
     
     @objc func achieveButtonDidTap(sender: UIButton) {
         guard let target = self.collectionView(self, cellForItemAt: IndexPath(item: sender.tag, section: 0)) as? HomeGoalCollectionViewCell else { return }
-        let currentData = data.goals[sender.tag]
-        if currentData.isMore && currentData.isAchieved {
-            target.achieveButton.isAchievedMore.toggle()
-        } else if currentData.isMore && !currentData.isAchieved {
-            target.achieveButton.isAchievedMore.toggle()
-        } else if !currentData.isMore && currentData.isAchieved {
-            target.achieveButton.isAchievedLess.toggle()
-        } else {
-            target.achieveButton.isAchievedLess.toggle()
-        }
-        target.updateCountLabel(count: 10)
-        reloadItems(at: [IndexPath(item: sender.tag, section: 0)])
+        let currentGoal = data.goals[sender.tag]
+        self.postAchieveGoal(goal: currentGoal)
     }
 }
 
