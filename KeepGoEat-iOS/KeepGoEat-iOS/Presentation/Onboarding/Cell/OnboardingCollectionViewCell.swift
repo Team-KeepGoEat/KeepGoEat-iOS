@@ -88,7 +88,7 @@ extension OnboardingCollectionViewCell {
     private func setAnimationView(lottieName: String) {
         animationView.animation = LottieAnimation.named(lottieName)
         animationView.contentMode = .scaleAspectFit
-        animationView.loopMode = .playOnce
+        animationView.loopMode = .loop
         animationView.play()
     }
 }

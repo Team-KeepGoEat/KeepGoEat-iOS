@@ -198,6 +198,9 @@ class NewGoalViewController: BaseViewController {
             isMore: check
         )
         NewGoalService.shared.createNewGoal(body: body)
+        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 0.1) {
+            self.navigationController?.popToRootViewController(animated: true)
+        }
     }
     
     private func editGoal() {
@@ -214,9 +217,6 @@ class NewGoalViewController: BaseViewController {
     private func tapCompleteButton() {
         if isCreated {
             createGoal()
-            DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 0.1) {
-                self.navigationController?.popToRootViewController(animated: true)
-            }
         } else {
             editGoal()
         }
@@ -296,16 +296,6 @@ extension NewGoalViewController: UITextFieldDelegate {
         guard let stringRange = Range(range, in: cuerrentText) else { return false }
         let changedText = cuerrentText.replacingCharacters(in: stringRange, with: string)
         
-        if changedText.isEmpty {
-            self.completeButton.isEnabled = false
-            completeButton.backgroundColor = .gray200
-            completeButton.setTitleColor(.gray400, for: .disabled)
-        } else {
-            self.completeButton.isEnabled = true
-            completeButton.backgroundColor = .orange600
-            completeButton.setTitleColor(.gray50, for: .normal)
-        }
-        
         countTextLabel.text = "(\(changedText.count)/20)"
         
         func searchPressed(_ sender: UIButton) {
@@ -324,6 +314,16 @@ extension NewGoalViewController: UITextFieldDelegate {
         
         if changedText.hasCharacters() {
             warningLabel.isHidden = true
+        }
+        
+        if changedText.isEmpty || !changedText.hasCharacters() {
+            self.completeButton.isEnabled = false
+            completeButton.backgroundColor = .gray200
+            completeButton.setTitleColor(.gray400, for: .disabled)
+        } else {
+            self.completeButton.isEnabled = true
+            completeButton.backgroundColor = .orange600
+            completeButton.setTitleColor(.gray50, for: .normal)
         }
         
         return (changedText.count <= 19)
