@@ -7,15 +7,16 @@
 
 import UIKit
 
-protocol addGoalViewHandleDelegate: AnyObject {
+protocol CustomButtonHandleDelegate: AnyObject {
     func showHomeBottomSheet()
+    func playHomeLottie()
 }
 
 class HomeGoalCollectionView: UICollectionView {
     
     // MARK: - Variables
     var data = gethomeDataList[2]
-    weak var addGoalDelegate: addGoalViewHandleDelegate?
+    weak var customButtonDelegate: CustomButtonHandleDelegate?
     
     override init(frame: CGRect, collectionViewLayout layout: UICollectionViewLayout) {
         super.init(frame: frame, collectionViewLayout: layout)
@@ -51,6 +52,9 @@ class HomeGoalCollectionView: UICollectionView {
     @objc func achieveButtonDidTap(sender: UIButton) {
         let currentGoal = data.goals[sender.tag]
         self.postAchieveGoal(goal: currentGoal)
+        if currentGoal.isAchieved == false {
+            self.customButtonDelegate?.playHomeLottie()
+        }
     }
 }
 
@@ -80,7 +84,7 @@ extension HomeGoalCollectionView: UICollectionViewDataSource {
         } else {
             guard let footerCell = collectionView.dequeueReusableCell(withReuseIdentifier: HomeGoalAddCollectionViewCell.identifier, for: indexPath) as? HomeGoalAddCollectionViewCell else { return }
             print("✨바텀시트 전환", footerCell)
-            self.addGoalDelegate?.showHomeBottomSheet()
+            self.customButtonDelegate?.showHomeBottomSheet()
         }
     }
 }
