@@ -11,7 +11,7 @@ import KakaoSDKCommon
 import KakaoSDKAuth
 import KakaoSDKUser
 
-class SplashViewController: UIViewController {
+class SplashViewController: BaseViewController {
     
     private let splashView: SplashView = SplashView()
     
