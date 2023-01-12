@@ -25,6 +25,8 @@ class NewGoalViewController: BaseViewController {
     }
     private var goalId: Int = 0
     
+    private var isCreated: Bool = true
+    
     // MARK: Component
     private let headerView: HeaderView = HeaderView()
     
@@ -202,17 +204,22 @@ class NewGoalViewController: BaseViewController {
         let body: NewGoalEditRequestDto = NewGoalEditRequestDto(
             goalContent: moreVegetabletextField.text ?? ""
         )
-        NewGoalService.shared.editNewGoal(body: body, param: 62)
+        NewGoalService.shared.editNewGoal(body: body, param: goalId)
+        self.navigationController?.popViewController(animated: true)
     }
     
     @objc
     private func tapCompleteButton() {
-//        createGoal()
-        editGoal()
+        if isCreated {
+            createGoal()
+        } else {
+            editGoal()
+        }
     }
     
-    func dataBind(goalId: Int?, eatType: EatType, content: String?) {
+    func dataBind(goalId: Int?, eatType: EatType, content: String?, isCreated: Bool) {
         self.eatType = eatType
+        self.isCreated = isCreated
         if let content = content {
             moreVegetabletextField.text = content
         }

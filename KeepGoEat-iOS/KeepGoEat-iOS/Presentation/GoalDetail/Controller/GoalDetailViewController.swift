@@ -38,7 +38,6 @@ class GoalDetailViewController: BaseViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         getGoalDetailData()
-        
     }
 }
 
@@ -66,12 +65,13 @@ extension GoalDetailViewController {
             if let data = data {
                 if data.isMore {
                     self.goalDetailView.goalType = .more
+                    self.goalDetailView.goalTitleLabel.text = data.goalContent + " \(Const.String.moreEat)"
                 } else {
                     self.goalDetailView.goalType = .less
+                    self.goalDetailView.goalTitleLabel.text = data.goalContent + " \(Const.String.lessEat)"
                 }
                 print("✨✨✨✨, \(data)")
                 self.data = data
-                self.goalDetailView.goalTitleLabel.text = data.goalContent
                 self.goalDetailView.previousGoalStatsView.goalStatsCountLabel.text = String(data.lastMonthCount)
                 self.goalDetailView.presentGoalStatsView.goalStatsCountLabel.text = String(data.thisMonthCount)
                 self.goalDetailView.goalStatsCollectionView.thisMonthCount = data.thisMonthCount
@@ -102,9 +102,9 @@ extension GoalDetailViewController {
     private func editButtonDidTap() {
         let newGoalViewController = NewGoalViewController()
         if data.isMore {
-            newGoalViewController.dataBind(goalId: data.goalId, eatType: .more, content: data.goalContent)
+            newGoalViewController.dataBind(goalId: data.goalId, eatType: .more, content: data.goalContent, isCreated: false)
         } else {
-            newGoalViewController.dataBind(goalId: data.goalId, eatType: .less, content: data.goalContent)
+            newGoalViewController.dataBind(goalId: data.goalId, eatType: .less, content: data.goalContent, isCreated: false)
         }
         self.navigationController?.pushViewController(newGoalViewController, animated: true)
     }

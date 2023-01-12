@@ -19,10 +19,12 @@ class HomeViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        getHomeData()
         setDelegate()
         setAddTarget()
         setupGestureRecognizer()
+    }
+    override func viewWillAppear(_ animated: Bool) {
+        getHomeData()
     }
     
     override func loadView() {
@@ -93,7 +95,7 @@ extension HomeViewController: HandleMyPageButtonDelegate {
 extension HomeViewController: HandleNewGoalButtonDelegate {
     func pushNewGoalView(eatType: EatType) {
         let newGoalViewController = NewGoalViewController()
-        newGoalViewController.dataBind(goalId: nil, eatType: eatType, content: nil)
+        newGoalViewController.dataBind(goalId: nil, eatType: eatType, content: nil, isCreated: true`)
         self.navigationController?.pushViewController(newGoalViewController, animated: true)
     }
 }
