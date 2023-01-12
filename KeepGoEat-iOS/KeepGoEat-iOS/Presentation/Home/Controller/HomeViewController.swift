@@ -69,6 +69,9 @@ class HomeViewController: BaseViewController {
 }
 
 extension HomeViewController: HandleCustomButtonDelegate {
+    func pushGoalDetail() {
+        self.navigationController?.pushViewController(GoalDetailViewController(), animated: true)
+    }
     func showHomeBottomSheet() {
         self.showBottomSheet(bottomSheetView: homeView.bottomSheetView, dimmedView: homeView.dimmedView)
         homeView.bottomSheetView.isHidden = false
