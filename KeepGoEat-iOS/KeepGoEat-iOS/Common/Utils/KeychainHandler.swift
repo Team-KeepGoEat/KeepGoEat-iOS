@@ -29,11 +29,11 @@ func addUserTokenOnKeyChain(tokenName: String, tokenContent: String) {
 
 func updateUserTokenOnKeyChain(tokenName: String, tokenContent: String) {
     let previousQuery: [CFString: Any] = [kSecClass: kSecClassGenericPassword, kSecAttrAccount: tokenName]
-    let updateQuery: [CFString: Any] = [kSecValueData: tokenContent]
+    let updateQuery: [CFString: Any] = [kSecValueData: tokenContent.data(using: String.Encoding.utf8)!]
     let status = SecItemUpdate(previousQuery as CFDictionary, updateQuery as CFDictionary)
-    
+
     if status == errSecSuccess {
-        print("Create Keychain Success")
+        print("Update Keychain Success")
     } else {
         print("Update Keychain Fail")
     }

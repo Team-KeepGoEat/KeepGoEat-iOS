@@ -8,8 +8,13 @@
 import Foundation
 
 struct LoginResponseDto: Codable {
-    var type: String
-    var email: String
-    var accessToken: String
-    var refreshToken: String
+    let type: String
+    let email: String
+    let accessToken: String
+    let refreshToken: String
+}
+
+struct RefreshResponseDto: Codable {
+    let accessToken: String
+    let refreshToken: String
 }

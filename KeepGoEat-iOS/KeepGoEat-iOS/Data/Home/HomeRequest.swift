@@ -6,3 +6,8 @@
 //
 
 import Foundation
+
+// MARK: - GetHomeResponse
+struct PostGoalAchieveRequest: Codable {
+    let isAchieved: Bool
+}

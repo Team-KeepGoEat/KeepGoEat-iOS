@@ -14,9 +14,11 @@ struct URLConstant {
     
     // MARK: Login
     static let postSocialLogin = "/auth"
+    static let refreshToken = "/auth/refresh"
     
     // MARK: Home
     static let getHome = "/home"
+    static let postGoalAchieve = "/goal/achieve/"
     
     // MARK: GoalDetail
     static let getGoalDetail = "/history/"

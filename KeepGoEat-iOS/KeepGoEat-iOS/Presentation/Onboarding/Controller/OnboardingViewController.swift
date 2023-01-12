@@ -10,7 +10,7 @@ import UIKit
 import SnapKit
 import Then
 
-class OnboardingViewController: UIViewController {
+class OnboardingViewController: BaseViewController {
     
     // MARK: - Variables
     var currentPage: Int = 0 {

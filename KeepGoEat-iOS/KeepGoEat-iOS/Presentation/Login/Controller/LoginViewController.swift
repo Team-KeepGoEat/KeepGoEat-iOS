@@ -9,7 +9,7 @@ import UIKit
 
 import KakaoSDKUser
 
-class LoginViewController: UIViewController {
+class LoginViewController: BaseViewController {
     
     // MAKR: Variables
     var loginResponse: LoginResponseDto?
