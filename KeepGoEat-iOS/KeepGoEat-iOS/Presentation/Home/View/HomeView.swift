@@ -26,7 +26,7 @@ class HomeView: UIView {
     }
     
     // MARK: Component
-    private let homeCheerView = HomeCheerView()
+    let homeCheerView = HomeCheerView()
     let homeEmptyView = HomeEmptyView()
     let homeExistView = HomeExistView()
     let dimmedView: UIView = UIView().then {
