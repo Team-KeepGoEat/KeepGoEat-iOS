@@ -14,18 +14,25 @@ enum NavigationMode {
     case home
 }
 
-func changeRootViewController(navigationMode: NavigationMode) {
-    let sceneDelegate = UIApplication.shared.connectedScenes.first?.delegate as? SceneDelegate
-    guard let delegate = sceneDelegate else { return }
+class RootViewControllerSwithcer {
+   
+    static let shared = RootViewControllerSwithcer()
     
-    switch navigationMode {
-    case .splash:
-        delegate.window?.rootViewController = SplashViewController()
-    case .login:
-        delegate.window?.rootViewController = LoginViewController()
-    case .onboarding:
-        delegate.window?.rootViewController = OnboardingViewController()
-    case .home:
-        delegate.window?.rootViewController = UINavigationController(rootViewController: HomeViewController())
+    func changeRootViewController(navigationMode: NavigationMode) {
+        let sceneDelegate = UIApplication.shared.connectedScenes.first?.delegate as? SceneDelegate
+        guard let delegate = sceneDelegate else { return }
+        
+        switch navigationMode {
+        case .splash:
+            delegate.window?.rootViewController = SplashViewController()
+        case .login:
+            delegate.window?.rootViewController = LoginViewController()
+        case .onboarding:
+            delegate.window?.rootViewController = OnboardingViewController()
+        case .home:
+            delegate.window?.rootViewController = UINavigationController(rootViewController: HomeViewController())
+        }
+        
+        delegate.window?.makeKeyAndVisible()
     }
 }
