@@ -24,6 +24,7 @@ class HomeViewController: BaseViewController {
         setupGestureRecognizer()
     }
     override func viewWillAppear(_ animated: Bool) {
+        self.hideBottomSheet(bottomSheetView: homeView.bottomSheetView, dimmedView: homeView.dimmedView)
         navigationController?.setNavigationBarHidden(true, animated: true)
         getHomeData()
     }

@@ -205,14 +205,18 @@ class NewGoalViewController: BaseViewController {
             goalContent: moreVegetabletextField.text ?? ""
         )
         NewGoalService.shared.editNewGoal(body: body, param: goalId)
-        self.navigationController?.popViewController(animated: true)
+        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 0.1) {
+            self.navigationController?.popViewController(animated: true)
+        }
     }
     
     @objc
     private func tapCompleteButton() {
         if isCreated {
             createGoal()
-            self.navigationController?.popToRootViewController(animated: true)
+            DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 0.1) {
+                self.navigationController?.popToRootViewController(animated: true)
+            }
         } else {
             editGoal()
         }
