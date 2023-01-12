@@ -16,7 +16,7 @@ extension NewGoalRouter: BaseTargetType {
     var path: String {
         switch self {
         case .createGoal:
-            return URLConstant.NewGoal
+            return URLConstant.newGoal
         case .editGoal(_, param: let param):
             return URLConstant.editGoal + String(param)
         }
