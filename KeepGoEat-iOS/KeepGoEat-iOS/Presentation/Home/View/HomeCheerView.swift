@@ -7,6 +7,7 @@
 
 import UIKit
 
+import Lottie
 import SnapKit
 import Then
 
@@ -45,6 +46,16 @@ class HomeCheerView: UIView {
         $0.text = "완벽하지 않아도 괜찮아요, 오늘도 킵고잇!"
         $0.numberOfLines = 3
         $0.font = .system4Bold
+    }
+    private lazy var backgroundAnimationView = LottieAnimationView().then {
+        $0.animation = LottieAnimation.named("homeBackground")
+        $0.contentMode = .scaleAspectFit
+        $0.loopMode = .playOnce
+    }
+    private lazy var characterAnimationView = LottieAnimationView().then {
+        $0.animation = LottieAnimation.named("homeSnail")
+        $0.contentMode = .scaleAspectFit
+        $0.loopMode = .playOnce
     }
     
     // MARK: - Function
@@ -98,6 +109,17 @@ class HomeCheerView: UIView {
     }
     
     // MARK: Custom Function
+    private func setAnimationView() {
+        backgroundImage.addSubview(backgroundAnimationView)
+        characterImage.addSubview(characterAnimationView)
+        backgroundAnimationView.snp.makeConstraints {
+            $0.edges.equalToSuperview()
+        }
+        characterAnimationView.snp.makeConstraints {
+            $0.edges.equalToSuperview()
+        }
+    }
+
     private func setAddTarget() {
         myPageButton.addTarget(self, action: #selector(myPageButtonDidTap), for: .touchUpInside)
     }
@@ -107,6 +129,7 @@ class HomeCheerView: UIView {
             characterImage.image = Const.Image.snailOrangeHungry
         case .cheer:
             characterImage.image = Const.Image.snailOrangeCheer
+            setAnimationView()
         }
     }
     func setBackgroundImage(timezoneType: TimezoneType) {
@@ -121,6 +144,12 @@ class HomeCheerView: UIView {
     }
     func updatecheerMessageLabelText(string: String) {
         cheerMessageLabel.text = string
+    }
+    func playHomeLottie() {
+        backgroundAnimationView.stop()
+        characterAnimationView.stop()
+        backgroundAnimationView.play()
+        characterAnimationView.play()
     }
     
     @objc
