@@ -81,8 +81,6 @@ class HomeCheerView: UIView {
             cheerMessageView
         )
         self.sendSubviewToBack(backgroundImage)
-        backgroundImage.addSubview(backgroundAnimationView)
-        characterImage.addSubview(characterAnimationView)
         
         self.snp.makeConstraints {
             $0.height.equalTo(245.adjusted)
@@ -108,6 +106,12 @@ class HomeCheerView: UIView {
         cheerMessageLabel.snp.makeConstraints {
             $0.edges.equalToSuperview().inset(12)
         }
+    }
+    
+    // MARK: Custom Function
+    private func setAnimationView() {
+        backgroundImage.addSubview(backgroundAnimationView)
+        characterImage.addSubview(characterAnimationView)
         backgroundAnimationView.snp.makeConstraints {
             $0.edges.equalToSuperview()
         }
@@ -115,11 +119,7 @@ class HomeCheerView: UIView {
             $0.edges.equalToSuperview()
         }
     }
-    
-    // MARK: Custom Function
-    private func setDelegate() {
-        
-    }
+
     private func setAddTarget() {
         myPageButton.addTarget(self, action: #selector(myPageButtonDidTap), for: .touchUpInside)
     }
@@ -129,6 +129,7 @@ class HomeCheerView: UIView {
             characterImage.image = Const.Image.snailOrangeHungry
         case .cheer:
             characterImage.image = Const.Image.snailOrangeCheer
+            setAnimationView()
         }
     }
     func setBackgroundImage(timezoneType: TimezoneType) {
