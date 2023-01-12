@@ -23,6 +23,7 @@ class NewGoalViewController: BaseViewController {
             setUI()
         }
     }
+    private var goalId: Int = 0
     
     // MARK: Component
     private let headerView: HeaderView = HeaderView()
@@ -210,10 +211,13 @@ class NewGoalViewController: BaseViewController {
         editGoal()
     }
     
-    func dataBind(eatType: EatType, content: String?) {
+    func dataBind(goalId: Int?, eatType: EatType, content: String?) {
         self.eatType = eatType
         if let content = content {
             moreVegetabletextField.text = content
+        }
+        if let goalId = goalId {
+            self.goalId = goalId
         }
     }
 }

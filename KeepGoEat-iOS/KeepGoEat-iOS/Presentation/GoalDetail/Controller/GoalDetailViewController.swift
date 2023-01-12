@@ -95,9 +95,9 @@ extension GoalDetailViewController {
     private func editButtonDidTap() {
         let newGoalViewController = NewGoalViewController()
         if data.isMore {
-            newGoalViewController.dataBind(eatType: .more, content: data.goalContent)
+            newGoalViewController.dataBind(goalId: data.goalId, eatType: .more, content: data.goalContent)
         } else {
-            newGoalViewController.dataBind(eatType: .less, content: data.goalContent)
+            newGoalViewController.dataBind(goalId: data.goalId, eatType: .less, content: data.goalContent)
         }
         self.navigationController?.pushViewController(newGoalViewController, animated: true)
     }

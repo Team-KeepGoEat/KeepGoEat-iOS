@@ -80,12 +80,8 @@ extension HomeGoalCollectionView: UICollectionViewDataSource {
     }
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         if indexPath.item < data.goals.count {
-            guard let goalCell = collectionView.dequeueReusableCell(withReuseIdentifier: HomeGoalCollectionViewCell.identifier, for: indexPath) as? HomeGoalCollectionViewCell else { return }
-            print("✨상세뷰로 전환", goalCell)
             self.customButtonDelegate?.pushGoalDetail()
         } else {
-            guard let footerCell = collectionView.dequeueReusableCell(withReuseIdentifier: HomeGoalAddCollectionViewCell.identifier, for: indexPath) as? HomeGoalAddCollectionViewCell else { return }
-            print("✨바텀시트 전환", footerCell)
             self.customButtonDelegate?.showHomeBottomSheet()
         }
     }

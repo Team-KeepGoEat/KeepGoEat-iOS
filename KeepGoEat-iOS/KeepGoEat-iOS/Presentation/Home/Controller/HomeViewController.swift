@@ -90,7 +90,7 @@ extension HomeViewController: HandleMyPageButtonDelegate {
 extension HomeViewController: HandleNewGoalButtonDelegate {
     func pushNewGoalView(eatType: EatType) {
         let newGoalViewController = NewGoalViewController()
-        newGoalViewController.dataBind(eatType: eatType, content: nil)
+        newGoalViewController.dataBind(goalId: nil, eatType: eatType, content: nil)
         self.navigationController?.pushViewController(newGoalViewController, animated: true)
     }
 }
