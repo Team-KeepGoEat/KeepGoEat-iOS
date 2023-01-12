@@ -21,11 +21,15 @@ class StoreGoalViewController: BaseViewController {
         
         getStoreGoalData()
         setAddTarget()
+        setDelegate()
     }
     override func loadView() {
         super.loadView()
         
         self.view = storeGoalView
+    }
+    override func viewWillAppear(_ animated: Bool) {
+        navigationController?.setNavigationBarHidden(true, animated: true)
     }
     
     // MARK: Custom Function
@@ -41,6 +45,10 @@ class StoreGoalViewController: BaseViewController {
         storeGoalView.totalButton.addTarget(self, action: #selector(totalButtonDidTap), for: .touchUpInside)
         storeGoalView.moreButton.addTarget(self, action: #selector(moreButtonDidTap), for: .touchUpInside)
         storeGoalView.lessButton.addTarget(self, action: #selector(lessButtonDidTap), for: .touchUpInside)
+    }
+    
+    private func setDelegate() {
+        storeGoalView.headerView.handleBackButtonDelegate = self
     }
     
     @objc
@@ -63,6 +71,12 @@ class StoreGoalViewController: BaseViewController {
         storeGoalView.totalButton.setUI(title: Const.String.storeFilterAll, selectType: .unselected)
         storeGoalView.moreButton.setUI(title: Const.String.moreEat, selectType: .unselected)
         storeGoalView.lessButton.setUI(title: Const.String.lessEat, selectType: .selected)
+    }
+}
+
+extension StoreGoalViewController: HandleBackButtonDelegate {
+    func popView() {
+        self.navigationController?.popToRootViewController(animated: true)
     }
 }
 

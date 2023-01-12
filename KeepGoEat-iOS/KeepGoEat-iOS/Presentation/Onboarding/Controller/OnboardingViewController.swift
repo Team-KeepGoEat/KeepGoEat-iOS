@@ -125,6 +125,12 @@ extension OnboardingViewController {
     
     private func setAddTarget() {
         nextButton.addTarget(self, action: #selector(tapNextButton), for: .touchUpInside)
+        passButton.addTarget(self, action: #selector(tapPassButton), for: .touchUpInside)
+    }
+    
+    @objc
+    private func tapPassButton() {
+        goToHomeView()
     }
     
     @objc
@@ -139,9 +145,7 @@ extension OnboardingViewController {
     }
     
     private func goToHomeView() {
-        let sceneDelegate = UIApplication.shared.connectedScenes.first?.delegate as? SceneDelegate
-        guard let delegate = sceneDelegate else { return }
-        delegate.window?.rootViewController = HomeViewController()
+        RootViewControllerSwithcer.shared.changeRootViewController(navigationMode: .home)
     }
 }
 

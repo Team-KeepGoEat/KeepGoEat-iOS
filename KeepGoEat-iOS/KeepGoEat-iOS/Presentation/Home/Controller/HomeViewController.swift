@@ -19,10 +19,13 @@ class HomeViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        getHomeData()
         setDelegate()
         setAddTarget()
         setupGestureRecognizer()
+    }
+    override func viewWillAppear(_ animated: Bool) {
+        navigationController?.setNavigationBarHidden(true, animated: true)
+        getHomeData()
     }
     
     override func loadView() {
@@ -32,9 +35,10 @@ class HomeViewController: BaseViewController {
     }
     
     private func getHomeData() {
-        HomeService.shared.getHome() { data in
+        HomeService.shared.getHome { data in
             guard let data = data else { return }
             self.homeView.updateCheerBackgroundUI(timezoneType: TimezoneType(rawValue: data.daytime) ?? .day)
+            self.homeView.homeCheerView.updatecheerMessageLabelText(string: data.cheeringMessage)
             if data.goalCount == 0 {
                 self.homeView.homeType = .empty
             } else {
@@ -46,13 +50,15 @@ class HomeViewController: BaseViewController {
     }
     private func setDelegate() {
         homeView.homeExistView.homeGoalCollectionView.customButtonDelegate = self
-        
+        homeView.homeCheerView.handleMyPageButtonDelegate = self
+        homeView.homeBottomSheetView.moreBottomView.handleNewGoalButtonDelegate = self
+        homeView.homeBottomSheetView.lessBottomView.handleNewGoalButtonDelegate = self
     }
     private func setAddTarget() {
         homeView.homeEmptyView.addGoalButton.addTarget(self, action: #selector(addGoalButtonDidTap), for: .touchUpInside)
     }
     private func setupGestureRecognizer() {
-            let dimmedTap = UITapGestureRecognizer(target: self, action: #selector(dimmedViewTapped(_: )))
+        let dimmedTap = UITapGestureRecognizer(target: self, action: #selector(dimmedViewTapped(_: )))
         homeView.dimmedView.addGestureRecognizer(dimmedTap)
         homeView.dimmedView.isUserInteractionEnabled = true
     }
@@ -67,12 +73,31 @@ class HomeViewController: BaseViewController {
 }
 
 extension HomeViewController: HandleCustomButtonDelegate {
+    func pushGoalDetail(goalId: Int) {
+        let goalDetailViewController = GoalDetailViewController()
+        goalDetailViewController.setGoalId(id: goalId)
+        self.navigationController?.pushViewController(goalDetailViewController, animated: true)
+    }
     func showHomeBottomSheet() {
         self.showBottomSheet(bottomSheetView: homeView.bottomSheetView, dimmedView: homeView.dimmedView)
         homeView.bottomSheetView.isHidden = false
     }
     func playHomeLottie() {
         self.homeView.homeCheerView.playHomeLottie()
+    }
+}
+
+extension HomeViewController: HandleMyPageButtonDelegate {
+    func pushMyPage() {
+        self.navigationController?.pushViewController(StoreGoalViewController(), animated: true)
+    }
+}
+
+extension HomeViewController: HandleNewGoalButtonDelegate {
+    func pushNewGoalView(eatType: EatType) {
+        let newGoalViewController = NewGoalViewController()
+        newGoalViewController.dataBind(goalId: nil, eatType: eatType, content: nil, isCreated: true)
+        self.navigationController?.pushViewController(newGoalViewController, animated: true)
     }
 }
 

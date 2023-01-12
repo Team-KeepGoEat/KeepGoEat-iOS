@@ -7,6 +7,10 @@
 
 import UIKit
 
+protocol HandleSaveGoalButtonDelegate: AnyObject {
+    func pushStoreGoal()
+}
+
 class SaveBottomSheetView: UIView {
     
     // MAKR: Variables
@@ -15,6 +19,8 @@ class SaveBottomSheetView: UIView {
             setUI()
         }
     }
+    
+    weak var handleSaveGoalButtonDelegate: HandleSaveGoalButtonDelegate?
     
     private let bottomSheetTitleLabel: UILabel = UILabel().then {
         $0.font = .system5
@@ -105,6 +111,7 @@ extension SaveBottomSheetView {
     
     private func saveGoal() {
         GoalDetailService.shared.saveGoal(goalId: 43)
+        self.handleSaveGoalButtonDelegate?.pushStoreGoal()
     }
     
     @objc

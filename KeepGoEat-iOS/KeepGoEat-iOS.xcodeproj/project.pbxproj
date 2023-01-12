@@ -32,6 +32,7 @@
 		D6C7B3CF296183D7006877F3 /* SocialLoginButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6C7B3CE296183D7006877F3 /* SocialLoginButton.swift */; };
 		D6C7B3D02961DFC2006877F3 /* Pretendard-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = DDDBC86E295EE52B00F65F23 /* Pretendard-Bold.otf */; };
 		D6C7B3D12961DFC4006877F3 /* Pretendard-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = DDDBC86F295EE52B00F65F23 /* Pretendard-Regular.otf */; };
+		D6E74E51296FEF8A00F278EC /* RootViewControllerSwitcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6E74E50296FEF8A00F278EC /* RootViewControllerSwitcher.swift */; };
 		D6F0233C29632EF700524000 /* GoalStatsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6F0233B29632EF700524000 /* GoalStatsView.swift */; };
 		D6F427B12967CA2E00065A24 /* UILabel+.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6F427B02967CA2E00065A24 /* UILabel+.swift */; };
 		DD38AD6D295B02B70084FA70 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD38AD6C295B02B70084FA70 /* AppDelegate.swift */; };
@@ -133,6 +134,7 @@
 		D6C5057F2969A7B900BE4543 /* SaveBottomSheetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaveBottomSheetView.swift; sourceTree = "<group>"; };
 		D6C505812969A7C600BE4543 /* DeleteBottomSheetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteBottomSheetView.swift; sourceTree = "<group>"; };
 		D6C7B3CE296183D7006877F3 /* SocialLoginButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocialLoginButton.swift; sourceTree = "<group>"; };
+		D6E74E50296FEF8A00F278EC /* RootViewControllerSwitcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootViewControllerSwitcher.swift; sourceTree = "<group>"; };
 		D6F0233B29632EF700524000 /* GoalStatsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoalStatsView.swift; sourceTree = "<group>"; };
 		D6F427B02967CA2E00065A24 /* UILabel+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel+.swift"; sourceTree = "<group>"; };
 		D6F5BB3D29680DE800C722AA /* Config.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Config.xcconfig; sourceTree = "<group>"; };
@@ -559,6 +561,7 @@
 			isa = PBXGroup;
 			children = (
 				DDE12F9A295B0CAA008CF91B /* KeychainHandler.swift */,
+				D6E74E50296FEF8A00F278EC /* RootViewControllerSwitcher.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -874,6 +877,7 @@
 				DDA7B71E29686D83001950A2 /* NSMutableAttributedString+.swift in Sources */,
 				D69F23BB296316A80078FCF1 /* GoalDetailView.swift in Sources */,
 				DDE8D38C296A0C3800331E3C /* StoreFilterButton.swift in Sources */,
+				D6E74E51296FEF8A00F278EC /* RootViewControllerSwitcher.swift in Sources */,
 				DD849B00295E759E0030AF2F /* StoreGoalResponse.swift in Sources */,
 				DDE12FBD295B11E8008CF91B /* HomeRouter.swift in Sources */,
 				DD5F29FF296C39D400CAEB2D /* StoreCollectionView.swift in Sources */,

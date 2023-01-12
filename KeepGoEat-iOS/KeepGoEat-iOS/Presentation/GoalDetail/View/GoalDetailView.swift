@@ -24,7 +24,7 @@ class GoalDetailView: UIView {
     }
 
     // MARK: Component
-    private let headerView: HeaderView = HeaderView()
+    let headerView: HeaderView = HeaderView()
     
     private let headerViewTitle: UILabel = UILabel().then {
         $0.font = .system4Bold

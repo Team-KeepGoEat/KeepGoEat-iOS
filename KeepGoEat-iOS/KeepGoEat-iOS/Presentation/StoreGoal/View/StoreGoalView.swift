@@ -21,7 +21,7 @@ class StoreGoalView: UIView {
     var dataSource: UICollectionViewDiffableDataSource<StoreSection, StoreGoal>!
     
     // MARK: Component
-    private let headerView = HeaderView()
+    let headerView = HeaderView()
     private let headerLabel = UILabel().then {
         $0.font = .system4Bold
         $0.textColor = .gray800

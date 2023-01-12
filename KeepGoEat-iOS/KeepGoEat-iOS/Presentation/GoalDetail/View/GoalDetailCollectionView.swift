@@ -17,12 +17,12 @@ class GoalDetailCollectionView: UICollectionView {
     }
     var emptyBoxCount: Int {
         didSet {
-            self.reloadData()
+//            self.reloadData()
         }
     }
     var thisMonthCount: Int {
         didSet {
-            self.reloadData()
+//            self.reloadData()
         }
     }
     
@@ -96,18 +96,23 @@ extension GoalDetailCollectionView: UICollectionViewDataSource {
         guard let stampCell = collectionView.dequeueReusableCell(withReuseIdentifier: GoalDetailCollectionViewCell.identifier, for: indexPath) as? GoalDetailCollectionViewCell else { return UICollectionViewCell() }
         switch goalType {
         case .less:
-            stampCell.backgroundColor = .green200Opacity3
+            stampCell.backgroundColor = .green100
+            print(thisMonthCount)
             if thisMonthCount > indexPath.row {
                 stampCell.dataBind(model: lessSuccessStampDummy)
             } else if (35 - blankBoxCount) <= indexPath.row {
                 stampCell.dataBind(model: lessStaticStampDummy)
+            } else {
+                stampCell.dataBind(model: lessEmptyStampDummy)
             }
         case .more:
-            stampCell.backgroundColor = .orange200Opacity3
+            stampCell.backgroundColor = .orange50
             if thisMonthCount > indexPath.row {
                 stampCell.dataBind(model: moreSuccessStampDummy)
             } else if (35 - blankBoxCount) <= indexPath.row {
                 stampCell.dataBind(model: moreStaticStampDummy)
+            } else {
+                stampCell.dataBind(model: moreEmptyStampDummy)
             }
         }
         

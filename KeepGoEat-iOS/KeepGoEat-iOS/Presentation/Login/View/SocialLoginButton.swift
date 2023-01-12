@@ -107,6 +107,8 @@ extension SocialLoginButton {
                     }
                 }
             }
+            
+            RootViewControllerSwithcer.shared.changeRootViewController(navigationMode: .home)
         } else {
             UserApi.shared.loginWithKakaoAccount {(oauthToken, error) in
                 if let error = error {
@@ -122,6 +124,8 @@ extension SocialLoginButton {
                     }
                 }
             }
+            
+            RootViewControllerSwithcer.shared.changeRootViewController(navigationMode: .home)
         }
     }
     

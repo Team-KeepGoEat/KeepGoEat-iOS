@@ -11,7 +11,7 @@ import KakaoSDKCommon
 import KakaoSDKAuth
 import KakaoSDKUser
 
-class SplashViewController: UIViewController {
+class SplashViewController: BaseViewController {
     
     private let splashView: SplashView = SplashView()
     
@@ -22,34 +22,31 @@ class SplashViewController: UIViewController {
     override func loadView() {
         super.loadView()
         
+        UserApi.shared.logout {(error) in
+            if let error = error {
+                print(error)
+            }
+            else {
+                print("logout() success.")
+            }
+        }
+        
         self.view = splashView
         DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 1) {
             if AuthApi.hasToken() {
                 UserApi.shared.accessTokenInfo { (_, error) in
                     if let error = error {
                         if let sdkError = error as? SdkError, sdkError.isInvalidTokenError() == true {
-                            let loginViewController: LoginViewController = LoginViewController()
-                            
-                            if let window = self.view.window?.windowScene?.keyWindow {
-                                window.rootViewController = loginViewController
-                            }
+                            RootViewControllerSwithcer.shared.changeRootViewController(navigationMode: .login)
                         } else {
                             print(error)
                         }
                     } else {
-                        let homeViewController: HomeViewController = HomeViewController()
-                        
-                        if let window = self.view.window?.windowScene?.keyWindow {
-                            window.rootViewController = homeViewController
-                        }
+                        RootViewControllerSwithcer.shared.changeRootViewController(navigationMode: .home)
                     }
                 }
             } else {
-                let loginViewController: LoginViewController = LoginViewController()
-                
-                if let window = self.view.window?.windowScene?.keyWindow {
-                    window.rootViewController = loginViewController
-                }
+                RootViewControllerSwithcer.shared.changeRootViewController(navigationMode: .login)
             }
         }
     }

@@ -18,7 +18,14 @@ enum EatType: String {
 class NewGoalViewController: BaseViewController {
     
     // MARK: - Variables
-    private let eatType: EatType = .less
+    private var eatType: EatType = .less {
+        didSet {
+            setUI()
+        }
+    }
+    private var goalId: Int = 0
+    
+    private var isCreated: Bool = true
     
     // MARK: Component
     private let headerView: HeaderView = HeaderView()
@@ -92,6 +99,7 @@ class NewGoalViewController: BaseViewController {
         endEditingModeWhenUserTapOutside()
         setUI()
         setAddTarget()
+        setDelegate()
         
         NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
@@ -115,7 +123,7 @@ class NewGoalViewController: BaseViewController {
         }
         
         headerView.snp.makeConstraints {
-            $0.top.equalTo(self.view.safeAreaLayoutGuide).offset(20.adjusted)
+            $0.top.equalTo(self.view.safeAreaLayoutGuide)
             $0.leading.trailing.equalToSuperview()
             $0.centerX.equalToSuperview()
         }
@@ -172,6 +180,10 @@ class NewGoalViewController: BaseViewController {
         }
     }
     
+    private func setDelegate() {
+        self.headerView.handleBackButtonDelegate = self
+    }
+    
     private func setAddTarget() {
         completeButton.addTarget(self, action: #selector(tapCompleteButton), for: .touchUpInside)
     }
@@ -192,13 +204,35 @@ class NewGoalViewController: BaseViewController {
         let body: NewGoalEditRequestDto = NewGoalEditRequestDto(
             goalContent: moreVegetabletextField.text ?? ""
         )
-        NewGoalService.shared.editNewGoal(body: body, param: 62)
+        NewGoalService.shared.editNewGoal(body: body, param: goalId)
+        self.navigationController?.popViewController(animated: true)
     }
     
     @objc
     private func tapCompleteButton() {
-//        createGoal()
-        editGoal()
+        if isCreated {
+            createGoal()
+            self.navigationController?.popToRootViewController(animated: true)
+        } else {
+            editGoal()
+        }
+    }
+    
+    func dataBind(goalId: Int?, eatType: EatType, content: String?, isCreated: Bool) {
+        self.eatType = eatType
+        self.isCreated = isCreated
+        if let content = content {
+            moreVegetabletextField.text = content
+        }
+        if let goalId = goalId {
+            self.goalId = goalId
+        }
+    }
+}
+
+extension NewGoalViewController: HandleBackButtonDelegate {
+    func popView() {
+        self.navigationController?.popViewController(animated: true)
     }
 }
 

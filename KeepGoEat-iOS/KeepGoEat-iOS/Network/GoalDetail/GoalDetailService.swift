@@ -14,7 +14,7 @@ final class GoalDetailService {
 }
 
 extension GoalDetailService {
-    func getGoalDetail(goalId: Int, completion: @escaping (GoalDetailResponseDto?) -> ()) {
+    func getGoalDetail(goalId: Int, completion: @escaping (GoalDetailResponseDto?) -> Void) {
         goalDetailProvider.request(.getGoalDetail(goalId: goalId)) { response in
             switch response {
             case .success(let result):
@@ -24,6 +24,7 @@ extension GoalDetailService {
                 switch networkData {
                 case .success(let data):
                     guard let data = data as? GoalDetailResponseDto else { return }
+                    print(data)
                     completion(data)
                 case .requestErr(let data):
                     guard let data = data as? String else { return }

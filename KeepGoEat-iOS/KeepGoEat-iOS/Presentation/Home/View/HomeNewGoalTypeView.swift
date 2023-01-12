@@ -7,10 +7,16 @@
 
 import UIKit
 
+protocol HandleNewGoalButtonDelegate: AnyObject {
+    func pushNewGoalView(eatType: EatType)
+}
+
 class HomeNewGoalTypeView: UIView {
 
     // MARK: - Variables
     private let eatType: EatType
+    
+    weak var handleNewGoalButtonDelegate: HandleNewGoalButtonDelegate?
     
     // MARK: Component
     private let titleLabel = UILabel().then {
@@ -28,7 +34,7 @@ class HomeNewGoalTypeView: UIView {
         
         setUI(eatType: eatType)
         setLayout()
-        setAddTarget(eatType: eatType)
+        setAddTarget()
     }
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
@@ -77,14 +83,17 @@ class HomeNewGoalTypeView: UIView {
         }
     }
     
-    private func setAddTarget(eatType: EatType) {
+    private func setAddTarget() {
+        let addMoreGoalGesture = UITapGestureRecognizer(target: self, action: #selector(addMoreGoalDidTap))
+        self.addGestureRecognizer(addMoreGoalGesture)
+    }
+    
+    @objc private func addMoreGoalDidTap() {
         switch eatType {
         case .more:
-            // TODO: addTarget 함수 연결
-            print("더 먹기")
+            handleNewGoalButtonDelegate?.pushNewGoalView(eatType: .more)
         case .less:
-            // TODO: addTarget 함수 연결
-            print("덜 먹기")
+            handleNewGoalButtonDelegate?.pushNewGoalView(eatType: .less)
         }
     }
 }
