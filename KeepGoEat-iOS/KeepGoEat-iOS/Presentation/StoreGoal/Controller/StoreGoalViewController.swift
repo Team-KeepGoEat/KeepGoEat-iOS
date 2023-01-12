@@ -6,10 +6,9 @@
 //
 
 import UIKit
-
 import SwiftUI
 
-class StoreGoalViewController: UIViewController {
+class StoreGoalViewController: BaseViewController {
     
     // MARK: - Variables
     // MARK: Component

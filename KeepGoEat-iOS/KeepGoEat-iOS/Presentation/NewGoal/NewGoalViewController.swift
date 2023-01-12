@@ -15,7 +15,7 @@ enum EatType: String {
     case less
 }
 
-class NewGoalViewController: UIViewController {
+class NewGoalViewController: BaseViewController {
     
     // MARK: - Variables
     private let eatType: EatType = .less

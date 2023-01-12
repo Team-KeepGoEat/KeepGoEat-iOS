@@ -7,7 +7,7 @@
 
 import UIKit
 
-class GoalDetailViewController: UIViewController {
+class GoalDetailViewController: BaseViewController {
     
     private let goalDetailView: GoalDetailView = GoalDetailView()
     
