@@ -69,7 +69,9 @@ class HomeViewController: BaseViewController {
 }
 
 extension HomeViewController: HandleCustomButtonDelegate {
-    func pushGoalDetail() {
+    func pushGoalDetail(goalId: Int) {
+        let goalDetailViewController = GoalDetailViewController()
+        goalDetailViewController.setGoalId(goalId: goalId)
         self.navigationController?.pushViewController(GoalDetailViewController(), animated: true)
     }
     func showHomeBottomSheet() {

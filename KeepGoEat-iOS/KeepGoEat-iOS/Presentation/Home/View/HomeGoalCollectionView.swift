@@ -10,7 +10,7 @@ import UIKit
 protocol HandleCustomButtonDelegate: AnyObject {
     func showHomeBottomSheet()
     func playHomeLottie()
-    func pushGoalDetail()
+    func pushGoalDetail(goalId: Int)
 }
 
 class HomeGoalCollectionView: UICollectionView {
@@ -80,7 +80,7 @@ extension HomeGoalCollectionView: UICollectionViewDataSource {
     }
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         if indexPath.item < data.goals.count {
-            self.customButtonDelegate?.pushGoalDetail()
+            self.customButtonDelegate?.pushGoalDetail(goalId: data.goals[indexPath.item].goalId)
         } else {
             self.customButtonDelegate?.showHomeBottomSheet()
         }

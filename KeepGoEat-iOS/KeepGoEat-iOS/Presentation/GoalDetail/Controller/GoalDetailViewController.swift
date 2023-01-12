@@ -8,8 +8,9 @@
 import UIKit
 
 class GoalDetailViewController: BaseViewController {
-    
+        
     // MARK: Varialbes
+    private var goalId: Int = 0
     private var data: GoalDetailResponseDto = GoalDetailResponseDto(
         goalId: 0,
         isMore: true,
@@ -89,6 +90,10 @@ extension GoalDetailViewController {
     private func showDeleteBottomSheetView() {
         goalDetailView.saveBottomSheetView.isHidden = true
         goalDetailView.deleteBottomSheetView.isHidden = false
+    }
+    
+    func setGoalId(goalId: Int) {
+        self.goalId = goalId
     }
     
     @objc
