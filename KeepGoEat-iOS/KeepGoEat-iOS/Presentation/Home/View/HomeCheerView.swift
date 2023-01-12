@@ -7,6 +7,7 @@
 
 import UIKit
 
+import Lottie
 import SnapKit
 import Then
 
@@ -46,6 +47,16 @@ class HomeCheerView: UIView {
         $0.numberOfLines = 3
         $0.font = .system4Bold
     }
+    private lazy var backgroundAnimationView = LottieAnimationView().then {
+        $0.animation = LottieAnimation.named("homeBackground")
+        $0.contentMode = .scaleAspectFit
+        $0.loopMode = .playOnce
+    }
+    private lazy var characterAnimationView = LottieAnimationView().then {
+        $0.animation = LottieAnimation.named("homeSnail")
+        $0.contentMode = .scaleAspectFit
+        $0.loopMode = .playOnce
+    }
     
     // MARK: - Function
     // MARK: LifeCycle
@@ -70,6 +81,8 @@ class HomeCheerView: UIView {
             cheerMessageView
         )
         self.sendSubviewToBack(backgroundImage)
+        backgroundImage.addSubview(backgroundAnimationView)
+        characterImage.addSubview(characterAnimationView)
         
         self.snp.makeConstraints {
             $0.height.equalTo(245.adjusted)
@@ -94,6 +107,12 @@ class HomeCheerView: UIView {
         }
         cheerMessageLabel.snp.makeConstraints {
             $0.edges.equalToSuperview().inset(12)
+        }
+        backgroundAnimationView.snp.makeConstraints {
+            $0.edges.equalToSuperview()
+        }
+        characterAnimationView.snp.makeConstraints {
+            $0.edges.equalToSuperview()
         }
     }
     
@@ -121,6 +140,13 @@ class HomeCheerView: UIView {
     }
     func updatecheerMessageLabelText(string: String) {
         cheerMessageLabel.text = string
+    }
+    
+    func playHomeLottie() {
+        backgroundAnimationView.stop()
+        characterAnimationView.stop()
+        backgroundAnimationView.play()
+        characterAnimationView.play()
     }
     
     @objc
