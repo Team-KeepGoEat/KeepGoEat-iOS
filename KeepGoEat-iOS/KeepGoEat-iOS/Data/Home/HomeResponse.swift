@@ -29,6 +29,13 @@ struct Goal: Codable {
     let thisMonthCount: Int
 }
 
+// MARK: - PostGoalAchieveResponse
+struct PostGoalAchieveResponse: Codable {
+    let thisMonthCount: Int
+    let goalId: Int
+    let updatedIsAchieved: Bool
+}
+
 let gethomeDataList: [GetHomeResponse] = [
     GetHomeResponse(goals: [], goalCount: 0, cheeringMessage: "오늘도 0개 행복하게 내일 더 멋지게!", daytime: 0),
     GetHomeResponse(goals: [

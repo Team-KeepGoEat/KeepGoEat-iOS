@@ -44,4 +44,31 @@ extension HomeService {
             }
         }
     }
+    func postAchieveGoal(body: PostGoalAchieveRequest, param: Int, completion: @escaping (PostGoalAchieveResponse?) -> Void) {
+        homeProvider.request(.postGoalAchieve(body: body, param: param)) { response in
+            switch response {
+            case .success(let data):
+                let status = data.statusCode
+                let data = data.data
+                let networkData = NetworkBase.judgeStatus(by: status, data, PostGoalAchieveResponse.self)
+                switch networkData {
+                case .success(let data):
+                    guard let data = data as? PostGoalAchieveResponse else { return }
+                    completion(data)
+                case .requestErr(let error):
+                    print(error)
+                case .authErr(let error):
+                    print(error)
+                case .serverErr(let error):
+                    print(error)
+                case .pathErr:
+                    print("pathErr")
+                case .networkFail:
+                    print("networkFailErr")
+                }
+            case .failure(let error):
+                print(error.localizedDescription)
+            }
+        }
+    }
 }
