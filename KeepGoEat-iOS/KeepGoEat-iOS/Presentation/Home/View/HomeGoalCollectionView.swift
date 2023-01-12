@@ -49,7 +49,6 @@ class HomeGoalCollectionView: UICollectionView {
     }
     
     @objc func achieveButtonDidTap(sender: UIButton) {
-        guard let target = self.collectionView(self, cellForItemAt: IndexPath(item: sender.tag, section: 0)) as? HomeGoalCollectionViewCell else { return }
         let currentGoal = data.goals[sender.tag]
         self.postAchieveGoal(goal: currentGoal)
     }
