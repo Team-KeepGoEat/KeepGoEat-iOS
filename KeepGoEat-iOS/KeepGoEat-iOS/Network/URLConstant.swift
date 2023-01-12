@@ -14,6 +14,7 @@ struct URLConstant {
     
     // MARK: Login
     static let postSocialLogin = "/auth"
+    static let refreshToken = "/auth/refresh"
     
     // MARK: Home
     static let getHome = "/home"

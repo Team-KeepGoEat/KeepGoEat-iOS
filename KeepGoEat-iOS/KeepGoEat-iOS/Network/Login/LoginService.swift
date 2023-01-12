@@ -45,4 +45,34 @@ extension LoginService {
             }
         }
     }
+    
+    func refreshToken() {
+        loginProvider.request(.refresh) { response in
+            switch response {
+            case .success(let result):
+                let status = result.statusCode
+                let data = result.data
+                let networkData = NetworkBase.judgeStatus(by: status, data, RefreshResponseDto.self)
+                switch networkData {
+                case .success(let data):
+                    guard let data = data as? RefreshResponseDto else { return }
+                    updateUserTokenOnKeyChain(tokenName: Const.String.userAccessToken, tokenContent: data.accessToken)
+                case .requestErr(let data):
+                    guard let data = data as? String else { return }
+                    print(data)
+                case .pathErr:
+                    print("path error")
+                case .serverErr:
+                    print("server error")
+                case .networkFail:
+                    print("network fail error")
+                case .authErr(let data):
+                    guard let data = data as? String else { return }
+                    print(data)
+                }
+            case .failure(let error):
+                print(error.localizedDescription)
+            }
+        }
+    }
 }
