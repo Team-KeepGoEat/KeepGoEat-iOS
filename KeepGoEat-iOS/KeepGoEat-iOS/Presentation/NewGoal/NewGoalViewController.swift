@@ -212,6 +212,7 @@ class NewGoalViewController: BaseViewController {
     private func tapCompleteButton() {
         if isCreated {
             createGoal()
+            self.navigationController?.popToRootViewController(animated: true)
         } else {
             editGoal()
         }
