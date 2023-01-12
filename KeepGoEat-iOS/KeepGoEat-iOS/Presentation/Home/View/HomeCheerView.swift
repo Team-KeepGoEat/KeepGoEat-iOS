@@ -117,6 +117,9 @@ class HomeCheerView: UIView {
     }
     
     // MARK: Custom Function
+    private func setDelegate() {
+        
+    }
     private func setAddTarget() {
         myPageButton.addTarget(self, action: #selector(myPageButtonDidTap), for: .touchUpInside)
     }
@@ -141,7 +144,6 @@ class HomeCheerView: UIView {
     func updatecheerMessageLabelText(string: String) {
         cheerMessageLabel.text = string
     }
-    
     func playHomeLottie() {
         backgroundAnimationView.stop()
         characterAnimationView.stop()
