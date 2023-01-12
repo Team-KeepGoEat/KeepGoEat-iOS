@@ -9,6 +9,7 @@ import Moya
 
 enum HomeRouter {
     case getHome
+    case postGoalAchieve(body: PostGoalAchieveRequest, param: Int)
 }
 
 extension HomeRouter: BaseTargetType {
@@ -16,6 +17,8 @@ extension HomeRouter: BaseTargetType {
         switch self {
         case .getHome:
             return URLConstant.getHome
+        case .postGoalAchieve(_, param: let param):
+            return URLConstant.postGoalAchieve + String(param)
         }
     }
     
@@ -23,6 +26,8 @@ extension HomeRouter: BaseTargetType {
         switch self {
         case .getHome:
             return .get
+        case .postGoalAchieve:
+            return .post
         }
     }
     
@@ -30,6 +35,8 @@ extension HomeRouter: BaseTargetType {
         switch self {
         case .getHome:
             return .requestPlain
+        case .postGoalAchieve(body: let body, param: _):
+            return .requestParameters(parameters: try! body.asParameter(), encoding: JSONEncoding.default)
         }
     }
     
