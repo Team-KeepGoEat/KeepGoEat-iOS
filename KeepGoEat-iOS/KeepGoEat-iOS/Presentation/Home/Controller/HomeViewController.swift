@@ -46,7 +46,9 @@ class HomeViewController: BaseViewController {
     }
     private func setDelegate() {
         homeView.homeExistView.homeGoalCollectionView.customButtonDelegate = self
-        
+        homeView.homeCheerView.handleMyPageButtonDelegate = self
+        homeView.homeBottomSheetView.moreBottomView.handleNewGoalButtonDelegate = self
+        homeView.homeBottomSheetView.lessBottomView.handleNewGoalButtonDelegate = self
     }
     private func setAddTarget() {
         homeView.homeEmptyView.addGoalButton.addTarget(self, action: #selector(addGoalButtonDidTap), for: .touchUpInside)
@@ -73,6 +75,19 @@ extension HomeViewController: HandleCustomButtonDelegate {
     }
     func playHomeLottie() {
         self.homeView.homeCheerView.playHomeLottie()
+    }
+}
+
+extension HomeViewController: HandleMyPageButtonDelegate {
+    func pushMyPage() {
+        self.navigationController?.pushViewController(StoreGoalViewController(), animated: true)
+    }
+}
+
+extension HomeViewController: HandleNewGoalButtonDelegate {
+    func pushNewGoalView(eatType: EatType) {
+        print(eatType)
+        self.navigationController?.pushViewController(NewGoalViewController(), animated: true)
     }
 }
 

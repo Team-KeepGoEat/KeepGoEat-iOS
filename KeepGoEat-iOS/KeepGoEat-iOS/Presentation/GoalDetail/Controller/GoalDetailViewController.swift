@@ -16,6 +16,7 @@ class GoalDetailViewController: BaseViewController {
         
         setAddTarget()
         setupGestureRecognizer()
+        setDelegate()
     }
     
     override func loadView() {
@@ -38,6 +39,11 @@ extension GoalDetailViewController {
             let dimmedTap = UITapGestureRecognizer(target: self, action: #selector(dimmedViewTapped(_: )))
         goalDetailView.dimmedView.addGestureRecognizer(dimmedTap)
         goalDetailView.dimmedView.isUserInteractionEnabled = true
+    }
+    
+    private func setDelegate() {
+        goalDetailView.saveBottomSheetView.handleSaveGoalButtonDelegate = self
+        goalDetailView.headerView.handleBackButtonDelegate = self
     }
     
     private func getGoalDetailData() {
@@ -91,5 +97,18 @@ extension GoalDetailViewController {
         self.hideBottomSheet(bottomSheetView: goalDetailView.bottomSheetView, dimmedView: goalDetailView.dimmedView)
         goalDetailView.saveBottomSheetView.isHidden = false
         goalDetailView.deleteBottomSheetView.isHidden = true
+    }
+}
+
+extension GoalDetailViewController: HandleSaveGoalButtonDelegate {
+    func pushStoreGoal() {
+        self.navigationController?.popViewController(animated: false)
+        self.navigationController?.pushViewController(StoreGoalViewController(), animated: true)
+    }
+}
+
+extension GoalDetailViewController: HandleBackButtonDelegate {
+    func popView() {
+        self.navigationController?.popViewController(animated: true)
     }
 }

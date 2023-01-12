@@ -11,6 +11,10 @@ import Lottie
 import SnapKit
 import Then
 
+protocol HandleMyPageButtonDelegate: AnyObject {
+    func pushMyPage()
+}
+
 enum TimezoneType: Int {
     case day
     case night
@@ -24,6 +28,8 @@ enum CharacterType: String {
 class HomeCheerView: UIView {
     
     // MARK: - Variables
+    weak var handleMyPageButtonDelegate: HandleMyPageButtonDelegate?
+    
     // MARK: Component
     private let backgroundImage = UIImageView().then {
         $0.image = Const.Image.homeBackgroundImageDay
@@ -154,6 +160,6 @@ class HomeCheerView: UIView {
     
     @objc
     private func myPageButtonDidTap() {
-        // TODO: 마이페이지로 연결
+        self.handleMyPageButtonDelegate?.pushMyPage()
     }
 }

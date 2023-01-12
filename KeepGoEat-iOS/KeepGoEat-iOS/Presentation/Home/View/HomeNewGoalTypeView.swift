@@ -7,10 +7,16 @@
 
 import UIKit
 
+protocol HandleNewGoalButtonDelegate: AnyObject {
+    func pushNewGoalView(eatType: EatType)
+}
+
 class HomeNewGoalTypeView: UIView {
 
     // MARK: - Variables
     private let eatType: EatType
+    
+    weak var handleNewGoalButtonDelegate: HandleNewGoalButtonDelegate?
     
     // MARK: Component
     private let titleLabel = UILabel().then {
@@ -80,11 +86,9 @@ class HomeNewGoalTypeView: UIView {
     private func setAddTarget(eatType: EatType) {
         switch eatType {
         case .more:
-            // TODO: addTarget 함수 연결
-            print("더 먹기")
+            self.handleNewGoalButtonDelegate?.pushNewGoalView(eatType: .more)
         case .less:
-            // TODO: addTarget 함수 연결
-            print("덜 먹기")
+            self.handleNewGoalButtonDelegate?.pushNewGoalView(eatType: .less)
         }
     }
 }

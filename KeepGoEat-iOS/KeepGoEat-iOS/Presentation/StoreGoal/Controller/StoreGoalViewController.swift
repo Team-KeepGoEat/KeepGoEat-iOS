@@ -21,6 +21,7 @@ class StoreGoalViewController: BaseViewController {
         
         getStoreGoalData()
         setAddTarget()
+        setDelegate()
     }
     override func loadView() {
         super.loadView()
@@ -43,6 +44,10 @@ class StoreGoalViewController: BaseViewController {
         storeGoalView.lessButton.addTarget(self, action: #selector(lessButtonDidTap), for: .touchUpInside)
     }
     
+    private func setDelegate() {
+        storeGoalView.headerView.handleBackButtonDelegate = self
+    }
+    
     @objc
     private func totalButtonDidTap() {
         storeGoalView.applySnapshot(sort: .all)
@@ -63,6 +68,12 @@ class StoreGoalViewController: BaseViewController {
         storeGoalView.totalButton.setUI(title: Const.String.storeFilterAll, selectType: .unselected)
         storeGoalView.moreButton.setUI(title: Const.String.moreEat, selectType: .unselected)
         storeGoalView.lessButton.setUI(title: Const.String.lessEat, selectType: .selected)
+    }
+}
+
+extension StoreGoalViewController: HandleBackButtonDelegate {
+    func popView() {
+        self.navigationController?.popViewController(animated: true)
     }
 }
 

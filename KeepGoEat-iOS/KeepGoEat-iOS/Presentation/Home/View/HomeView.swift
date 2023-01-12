@@ -34,7 +34,7 @@ class HomeView: UIView {
         $0.isHidden = true
     }
     let bottomSheetView: BottomSheetView = BottomSheetView()
-    private let homeBottomSheetView = HomeBottomSheetView()
+    let homeBottomSheetView = HomeBottomSheetView()
     
     // MARK: - Function
     // MARK: LifeCycle

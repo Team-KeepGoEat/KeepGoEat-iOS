@@ -9,8 +9,8 @@ import UIKit
 
 class HomeBottomSheetView: UIView {
     
-    private let moreBottomView = HomeNewGoalTypeView(frame: .zero, eatType: .more)
-    private let lessBottomView = HomeNewGoalTypeView(frame: .zero, eatType: .less)
+    let moreBottomView = HomeNewGoalTypeView(frame: .zero, eatType: .more)
+    let lessBottomView = HomeNewGoalTypeView(frame: .zero, eatType: .less)
 
     override init(frame: CGRect) {
         super.init(frame: frame)
