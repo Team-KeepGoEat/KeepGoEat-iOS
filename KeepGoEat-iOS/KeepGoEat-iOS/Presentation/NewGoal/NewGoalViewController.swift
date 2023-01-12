@@ -18,7 +18,11 @@ enum EatType: String {
 class NewGoalViewController: BaseViewController {
     
     // MARK: - Variables
-    private let eatType: EatType = .less
+    private var eatType: EatType = .less {
+        didSet {
+            setUI()
+        }
+    }
     
     // MARK: Component
     private let headerView: HeaderView = HeaderView()
@@ -92,6 +96,7 @@ class NewGoalViewController: BaseViewController {
         endEditingModeWhenUserTapOutside()
         setUI()
         setAddTarget()
+        setDelegate()
         
         NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
@@ -115,7 +120,7 @@ class NewGoalViewController: BaseViewController {
         }
         
         headerView.snp.makeConstraints {
-            $0.top.equalTo(self.view.safeAreaLayoutGuide).offset(20.adjusted)
+            $0.top.equalTo(self.view.safeAreaLayoutGuide)
             $0.leading.trailing.equalToSuperview()
             $0.centerX.equalToSuperview()
         }
@@ -172,6 +177,10 @@ class NewGoalViewController: BaseViewController {
         }
     }
     
+    private func setDelegate() {
+        self.headerView.handleBackButtonDelegate = self
+    }
+    
     private func setAddTarget() {
         completeButton.addTarget(self, action: #selector(tapCompleteButton), for: .touchUpInside)
     }
@@ -199,6 +208,17 @@ class NewGoalViewController: BaseViewController {
     private func tapCompleteButton() {
 //        createGoal()
         editGoal()
+    }
+    
+    func dataBind(eatType: EatType, content: String) {
+        self.eatType = eatType
+        moreVegetabletextField.text = content
+    }
+}
+
+extension NewGoalViewController: HandleBackButtonDelegate {
+    func popView() {
+        self.navigationController?.popViewController(animated: true)
     }
 }
 

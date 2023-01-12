@@ -9,6 +9,17 @@ import UIKit
 
 class GoalDetailViewController: BaseViewController {
     
+    // MARK: Varialbes
+    private var data: GoalDetailResponseDto = GoalDetailResponseDto(
+        goalId: 0,
+        isMore: true,
+        thisMonthCount: 0,
+        lastMonthCount: 0,
+        goalContent: "테스트",
+        blankBoxCount: 0,
+        emptyBoxCount: 0
+    )
+    
     private let goalDetailView: GoalDetailView = GoalDetailView()
     
     override func viewDidLoad() {
@@ -33,6 +44,7 @@ extension GoalDetailViewController {
         goalDetailView.saveGoalButton.addTarget(self, action: #selector(tapSaveGoalButton), for: .touchUpInside)
         goalDetailView.saveBottomSheetView.bottomSheetDeleteButton.addTarget(self, action: #selector(tapDeleteGoalButton), for: .touchUpInside)
         goalDetailView.deleteBottomSheetView.cancelButton.addTarget(self, action: #selector(tapCancelButton), for: .touchUpInside)
+        goalDetailView.editGoalButton.addTarget(self, action: #selector(editButtonDidTap), for: .touchUpInside)
     }
     
     private func setupGestureRecognizer() {
@@ -61,6 +73,8 @@ extension GoalDetailViewController {
                     self.goalDetailView.goalStatsCollectionView.thisMonthCount = data.thisMonthCount
                     self.goalDetailView.goalStatsCollectionView.blankBoxCount = data.blankBoxCount
                     self.goalDetailView.goalStatsCollectionView.emptyBoxCount = data.emptyBoxCount
+                    
+                    self.data = data
                 }
             }
         }
@@ -75,6 +89,17 @@ extension GoalDetailViewController {
     private func showDeleteBottomSheetView() {
         goalDetailView.saveBottomSheetView.isHidden = true
         goalDetailView.deleteBottomSheetView.isHidden = false
+    }
+    
+    @objc
+    private func editButtonDidTap() {
+        let newGoalViewController = NewGoalViewController()
+        if data.isMore {
+            newGoalViewController.dataBind(eatType: .more, content: data.goalContent)
+        } else {
+            newGoalViewController.dataBind(eatType: .less, content: data.goalContent)
+        }
+        self.navigationController?.pushViewController(newGoalViewController, animated: true)
     }
     
     @objc
