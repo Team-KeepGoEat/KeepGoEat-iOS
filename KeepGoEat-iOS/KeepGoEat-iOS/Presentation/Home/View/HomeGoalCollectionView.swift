@@ -7,7 +7,7 @@
 
 import UIKit
 
-protocol CustomButtonHandleDelegate: AnyObject {
+protocol HandleCustomButtonDelegate: AnyObject {
     func showHomeBottomSheet()
     func playHomeLottie()
 }
@@ -16,7 +16,7 @@ class HomeGoalCollectionView: UICollectionView {
     
     // MARK: - Variables
     var data = gethomeDataList[2]
-    weak var customButtonDelegate: CustomButtonHandleDelegate?
+    weak var customButtonDelegate: HandleCustomButtonDelegate?
     
     override init(frame: CGRect, collectionViewLayout layout: UICollectionViewLayout) {
         super.init(frame: frame, collectionViewLayout: layout)

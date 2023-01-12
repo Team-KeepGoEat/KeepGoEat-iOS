@@ -66,7 +66,7 @@ class HomeViewController: BaseViewController {
     }
 }
 
-extension HomeViewController: CustomButtonHandleDelegate {
+extension HomeViewController: HandleCustomButtonDelegate {
     func showHomeBottomSheet() {
         self.showBottomSheet(bottomSheetView: homeView.bottomSheetView, dimmedView: homeView.dimmedView)
         homeView.bottomSheetView.isHidden = false
