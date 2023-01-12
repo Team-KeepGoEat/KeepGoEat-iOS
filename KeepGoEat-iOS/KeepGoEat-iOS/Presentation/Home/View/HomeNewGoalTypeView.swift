@@ -34,7 +34,7 @@ class HomeNewGoalTypeView: UIView {
         
         setUI(eatType: eatType)
         setLayout()
-        setAddTarget(eatType: eatType)
+        setAddTarget()
     }
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
@@ -83,12 +83,17 @@ class HomeNewGoalTypeView: UIView {
         }
     }
     
-    private func setAddTarget(eatType: EatType) {
+    private func setAddTarget() {
+        let addMoreGoalGesture = UITapGestureRecognizer(target: self, action: #selector(addMoreGoalDidTap))
+        self.addGestureRecognizer(addMoreGoalGesture)
+    }
+    
+    @objc private func addMoreGoalDidTap() {
         switch eatType {
         case .more:
-            self.handleNewGoalButtonDelegate?.pushNewGoalView(eatType: .more)
+            handleNewGoalButtonDelegate?.pushNewGoalView(eatType: .more)
         case .less:
-            self.handleNewGoalButtonDelegate?.pushNewGoalView(eatType: .less)
+            handleNewGoalButtonDelegate?.pushNewGoalView(eatType: .less)
         }
     }
 }

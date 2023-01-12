@@ -210,9 +210,11 @@ class NewGoalViewController: BaseViewController {
         editGoal()
     }
     
-    func dataBind(eatType: EatType, content: String) {
+    func dataBind(eatType: EatType, content: String?) {
         self.eatType = eatType
-        moreVegetabletextField.text = content
+        if let content = content {
+            moreVegetabletextField.text = content
+        }
     }
 }
 

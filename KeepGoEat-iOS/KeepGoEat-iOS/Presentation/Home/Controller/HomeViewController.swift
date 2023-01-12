@@ -54,7 +54,7 @@ class HomeViewController: BaseViewController {
         homeView.homeEmptyView.addGoalButton.addTarget(self, action: #selector(addGoalButtonDidTap), for: .touchUpInside)
     }
     private func setupGestureRecognizer() {
-            let dimmedTap = UITapGestureRecognizer(target: self, action: #selector(dimmedViewTapped(_: )))
+        let dimmedTap = UITapGestureRecognizer(target: self, action: #selector(dimmedViewTapped(_: )))
         homeView.dimmedView.addGestureRecognizer(dimmedTap)
         homeView.dimmedView.isUserInteractionEnabled = true
     }
@@ -89,8 +89,9 @@ extension HomeViewController: HandleMyPageButtonDelegate {
 
 extension HomeViewController: HandleNewGoalButtonDelegate {
     func pushNewGoalView(eatType: EatType) {
-        print(eatType)
-        self.navigationController?.pushViewController(NewGoalViewController(), animated: true)
+        let newGoalViewController = NewGoalViewController()
+        newGoalViewController.dataBind(eatType: eatType, content: nil)
+        self.navigationController?.pushViewController(newGoalViewController, animated: true)
     }
 }
 
