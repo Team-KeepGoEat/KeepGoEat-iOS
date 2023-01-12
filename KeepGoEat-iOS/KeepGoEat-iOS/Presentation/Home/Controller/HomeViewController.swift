@@ -24,6 +24,7 @@ class HomeViewController: BaseViewController {
         setupGestureRecognizer()
     }
     override func viewWillAppear(_ animated: Bool) {
+        self.hideBottomSheet(bottomSheetView: homeView.bottomSheetView, dimmedView: homeView.dimmedView)
         navigationController?.setNavigationBarHidden(true, animated: true)
         getHomeData()
     }
@@ -95,6 +96,7 @@ extension HomeViewController: HandleMyPageButtonDelegate {
 
 extension HomeViewController: HandleNewGoalButtonDelegate {
     func pushNewGoalView(eatType: EatType) {
+        
         let newGoalViewController = NewGoalViewController()
         newGoalViewController.dataBind(goalId: nil, eatType: eatType, content: nil, isCreated: true)
         self.navigationController?.pushViewController(newGoalViewController, animated: true)

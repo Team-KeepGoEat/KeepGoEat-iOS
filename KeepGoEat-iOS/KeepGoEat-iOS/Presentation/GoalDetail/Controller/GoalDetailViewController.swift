@@ -48,6 +48,8 @@ extension GoalDetailViewController {
         goalDetailView.saveBottomSheetView.bottomSheetDeleteButton.addTarget(self, action: #selector(tapDeleteGoalButton), for: .touchUpInside)
         goalDetailView.deleteBottomSheetView.cancelButton.addTarget(self, action: #selector(tapCancelButton), for: .touchUpInside)
         goalDetailView.editGoalButton.addTarget(self, action: #selector(editButtonDidTap), for: .touchUpInside)
+        goalDetailView.deleteBottomSheetView.deleteButton.addTarget(self, action: #selector(deleteButtonDidTap), for: .touchUpInside)
+        goalDetailView.saveBottomSheetView.bottomSheetSaveButton.addTarget(self, action: #selector(saveButtonDidTap), for: .touchUpInside)
     }
     
     private func setupGestureRecognizer() {
@@ -61,28 +63,53 @@ extension GoalDetailViewController {
         goalDetailView.headerView.handleBackButtonDelegate = self
     }
     
+    private func saveGoal() {
+        GoalDetailService.shared.saveGoal(goalId: goalId)
+        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 0.1) {
+            self.navigationController?.popViewController(animated: false)
+            self.navigationController?.pushViewController(StoreGoalViewController(), animated: true)
+        }
+    }
+    
+    @objc
+    private func saveButtonDidTap() {
+        saveGoal()
+    }
+    
     private func getGoalDetailData() {
         GoalDetailService.shared.getGoalDetail(goalId: goalId) { data in
             if let data = data {
-                if data.isMore {
-                    self.goalDetailView.goalType = .more
-                    self.goalDetailView.goalTitleLabel.text = data.goalContent + " \(Const.String.moreEat)"
-                } else {
-                    self.goalDetailView.goalType = .less
-                    self.goalDetailView.goalTitleLabel.text = data.goalContent + " \(Const.String.lessEat)"
+                DispatchQueue.main.async {
+                    if data.isMore {
+                        self.goalDetailView.goalType = .more
+                        self.goalDetailView.goalTitleLabel.text = data.goalContent + " \(Const.String.moreEat)"
+                    } else {
+                        self.goalDetailView.goalType = .less
+                        self.goalDetailView.goalTitleLabel.text = data.goalContent + " \(Const.String.lessEat)"
+                    }
+                    print("✨✨✨✨, \(data)")
+                    self.data = data
+                    self.goalDetailView.previousGoalStatsView.goalStatsCountLabel.text = String(data.lastMonthCount)
+                    self.goalDetailView.presentGoalStatsView.goalStatsCountLabel.text = String(data.thisMonthCount)
+                    
+                    self.goalDetailView.goalStatsCollectionView.thisMonthCount = data.thisMonthCount
+                    self.goalDetailView.goalStatsCollectionView.blankBoxCount = data.blankBoxCount
+                    self.goalDetailView.goalStatsCollectionView.emptyBoxCount = data.emptyBoxCount
                 }
-                print("✨✨✨✨, \(data)")
-                self.data = data
-                self.goalDetailView.previousGoalStatsView.goalStatsCountLabel.text = String(data.lastMonthCount)
-                self.goalDetailView.presentGoalStatsView.goalStatsCountLabel.text = String(data.thisMonthCount)
-                
-                self.goalDetailView.goalStatsCollectionView.thisMonthCount = data.thisMonthCount
-                self.goalDetailView.goalStatsCollectionView.blankBoxCount = data.blankBoxCount
-                self.goalDetailView.goalStatsCollectionView.emptyBoxCount = data.emptyBoxCount
-                
             }
         }
-        makeToast("목표 조회 성공", withDuration: 1, delay: 1)
+    }
+    
+    private func deleteGoal() {
+        GoalDetailService.shared.deleteGoal(goalId: self.goalId)
+    }
+    
+    @objc
+    private func deleteButtonDidTap() {
+        deleteGoal()
+        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 0.1) {
+            self.navigationController?.popViewController(animated: true)
+        }
     }
     
     private func showSaveBottomSheetView() {

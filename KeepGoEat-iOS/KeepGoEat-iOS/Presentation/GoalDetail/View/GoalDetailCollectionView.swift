@@ -97,7 +97,6 @@ extension GoalDetailCollectionView: UICollectionViewDataSource {
         switch goalType {
         case .less:
             stampCell.backgroundColor = .green100
-            print(thisMonthCount)
             if thisMonthCount > indexPath.row {
                 stampCell.dataBind(model: lessSuccessStampDummy)
             } else if (35 - blankBoxCount) <= indexPath.row {
