@@ -28,6 +28,9 @@ class StoreGoalViewController: BaseViewController {
         
         self.view = storeGoalView
     }
+    override func viewWillAppear(_ animated: Bool) {
+        navigationController?.setNavigationBarHidden(true, animated: true)
+    }
     
     // MARK: Custom Function
     private func getStoreGoalData() {

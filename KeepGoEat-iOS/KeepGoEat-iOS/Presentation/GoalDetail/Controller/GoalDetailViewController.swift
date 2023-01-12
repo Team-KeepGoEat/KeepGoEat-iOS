@@ -38,6 +38,7 @@ class GoalDetailViewController: BaseViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         getGoalDetailData()
+        navigationController?.setNavigationBarHidden(true, animated: true)
     }
 }
 
@@ -74,6 +75,7 @@ extension GoalDetailViewController {
                 self.data = data
                 self.goalDetailView.previousGoalStatsView.goalStatsCountLabel.text = String(data.lastMonthCount)
                 self.goalDetailView.presentGoalStatsView.goalStatsCountLabel.text = String(data.thisMonthCount)
+                
                 self.goalDetailView.goalStatsCollectionView.thisMonthCount = data.thisMonthCount
                 self.goalDetailView.goalStatsCollectionView.blankBoxCount = data.blankBoxCount
                 self.goalDetailView.goalStatsCollectionView.emptyBoxCount = data.emptyBoxCount

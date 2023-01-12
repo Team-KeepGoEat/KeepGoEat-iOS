@@ -15,6 +15,10 @@ let moreSuccessStampDummy: GoalDetailStampModel = GoalDetailStampModel(stampImag
 
 let moreStaticStampDummy: GoalDetailStampModel = GoalDetailStampModel(stampImage: Const.Image.moreStaticStampImage!)
 
+let moreEmptyStampDummy: GoalDetailStampModel = GoalDetailStampModel(stampImage: Const.Image.moreEmptyStampImage!)
+
 let lessSuccessStampDummy: GoalDetailStampModel = GoalDetailStampModel(stampImage: Const.Image.lessStampImage!)
 
 let lessStaticStampDummy: GoalDetailStampModel = GoalDetailStampModel(stampImage: Const.Image.lessStaticStampImage!)
+
+let lessEmptyStampDummy: GoalDetailStampModel = GoalDetailStampModel(stampImage: Const.Image.lessEmptyStampImage!)

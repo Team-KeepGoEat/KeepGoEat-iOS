@@ -30,7 +30,7 @@ class RootViewControllerSwithcer {
         case .onboarding:
             delegate.window?.rootViewController = OnboardingViewController()
         case .home:
-            delegate.window?.rootViewController = UINavigationController(rootViewController: HomeViewController())
+            delegate.window?.rootViewController = BaseNavigationController(rootViewController: HomeViewController())
         }
         
         delegate.window?.makeKeyAndVisible()

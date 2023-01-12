@@ -24,6 +24,7 @@ class HomeViewController: BaseViewController {
         setupGestureRecognizer()
     }
     override func viewWillAppear(_ animated: Bool) {
+        navigationController?.setNavigationBarHidden(true, animated: true)
         getHomeData()
     }
     
