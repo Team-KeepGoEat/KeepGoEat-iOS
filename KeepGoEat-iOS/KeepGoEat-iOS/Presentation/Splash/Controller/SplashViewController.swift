@@ -28,28 +28,16 @@ class SplashViewController: BaseViewController {
                 UserApi.shared.accessTokenInfo { (_, error) in
                     if let error = error {
                         if let sdkError = error as? SdkError, sdkError.isInvalidTokenError() == true {
-                            let loginViewController: LoginViewController = LoginViewController()
-                            
-                            if let window = self.view.window?.windowScene?.keyWindow {
-                                window.rootViewController = loginViewController
-                            }
+                            changeRootViewController(navigationMode: .login)
                         } else {
                             print(error)
                         }
                     } else {
-                        let homeViewController: HomeViewController = HomeViewController()
-                        
-                        if let window = self.view.window?.windowScene?.keyWindow {
-                            window.rootViewController = homeViewController
-                        }
+                        changeRootViewController(navigationMode: .home)
                     }
                 }
             } else {
-                let loginViewController: LoginViewController = LoginViewController()
-                
-                if let window = self.view.window?.windowScene?.keyWindow {
-                    window.rootViewController = loginViewController
-                }
+                changeRootViewController(navigationMode: .login)
             }
         }
     }
