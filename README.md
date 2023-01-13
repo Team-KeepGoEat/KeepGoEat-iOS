@@ -1,7 +1,9 @@
 # KeepGoEat-iOS
-킵고잇, 계속 먹어도 괜찮아.
+- 킵고잇, 계속 먹어도 괜찮아.
 
-![네이밍공모전](https://user-images.githubusercontent.com/75439868/209621755-9604686a-b3c3-4d21-b593-51be07a5f0df.png)
+![main](https://user-images.githubusercontent.com/75439868/212343665-3af49999-5f28-4875-a5d0-f3ba1225d67c.png)
+
+
 
 ## 프로젝트 설명
 ~~~
@@ -211,3 +213,5 @@
     <li>처음 개발 프로젝트를 진행하는거라 걱정되기도 해서 미리 승헌이에게 미니세미나 형식의 깃 강의, 객체 지향 설명을 듣고 갔는데 정연이와 승헌이가 차분하게 잘 알려주어 깃 협업을 할 때 충돌은 거의 나지 않아서 뿌듯했습니댜. 우리 정연, 승헌이가 잘 알려줘서 깃을 어떻게 사용하는지에 대한 이해가 생겨서 너무고마워요옹 사랑한당 베이비둘아</li>
 </ul>
 </details>
+
+![member](https://user-images.githubusercontent.com/75439868/212345026-b90de700-23d0-49ec-9dde-0c0db7163753.png)
