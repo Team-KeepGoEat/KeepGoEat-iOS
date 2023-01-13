@@ -6,7 +6,6 @@
 //
 
 import UIKit
-import SwiftUI
 
 class HomeViewController: BaseViewController {
     
@@ -100,12 +99,5 @@ extension HomeViewController: HandleNewGoalButtonDelegate {
         let newGoalViewController = NewGoalViewController()
         newGoalViewController.dataBind(goalId: nil, eatType: eatType, content: nil, isCreated: true)
         self.navigationController?.pushViewController(newGoalViewController, animated: true)
-    }
-}
-
-// MARK: Preview
-struct HomeViewControllerPreView: PreviewProvider {
-    static var previews: some View {
-        HomeViewController().toPreview()
     }
 }
