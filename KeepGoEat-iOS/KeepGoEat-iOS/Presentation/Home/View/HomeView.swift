@@ -20,8 +20,8 @@ class HomeView: UIView {
     // MARK: - Variables
     var homeType: HomeType {
         didSet {
-            setLayout()
             setUI()
+            setViewType()
         }
     }
     
@@ -44,6 +44,7 @@ class HomeView: UIView {
         
         setLayout()
         setUI()
+        setViewType()
     }
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
@@ -70,39 +71,43 @@ class HomeView: UIView {
         }
     }
     
-    private func setLayout() {
-        self.addSubview(homeCheerView)
-        
-        homeCheerView.snp.makeConstraints {
-            $0.top.horizontalEdges.equalTo(self.safeAreaLayoutGuide)
-        }
-        
+    private func setViewType() {
         switch homeType {
         case .exist:
-            self.addSubview(homeExistView)
-            homeExistView.snp.makeConstraints {
-                $0.top.equalTo(homeCheerView.snp.bottom).inset(5.adjusted)
-                $0.horizontalEdges.bottom.equalToSuperview()
-            }
+            homeExistView.isHidden = false
+            homeEmptyView.isHidden = true
         case .empty:
-            self.addSubview(homeEmptyView)
-            homeEmptyView.snp.makeConstraints {
-                $0.top.equalTo(homeCheerView.snp.bottom).inset(5.adjusted)
-                $0.horizontalEdges.bottom.equalToSuperview()
-            }
+            homeExistView.isHidden = true
+            homeEmptyView.isHidden = false
         }
+    }
+    
+    private func setLayout() {
         self.addSubviews(
+            homeCheerView,
+            homeExistView,
+            homeEmptyView,
             dimmedView,
             bottomSheetView
         )
         bottomSheetView.addSubview(homeBottomSheetView)
         
+        homeCheerView.snp.makeConstraints {
+            $0.top.horizontalEdges.equalTo(self.safeAreaLayoutGuide)
+        }
+        homeExistView.snp.makeConstraints {
+            $0.top.equalTo(homeCheerView.snp.bottom).inset(5.adjusted)
+            $0.horizontalEdges.bottom.equalToSuperview()
+        }
+        homeEmptyView.snp.makeConstraints {
+            $0.top.equalTo(homeCheerView.snp.bottom).inset(5.adjusted)
+            $0.horizontalEdges.bottom.equalToSuperview()
+        }
         bottomSheetView.snp.makeConstraints {
             $0.top.equalToSuperview().inset(UIScreen.main.bounds.height)
             $0.height.equalTo(325.adjusted)
             $0.directionalHorizontalEdges.equalToSuperview()
         }
-        
         dimmedView.snp.makeConstraints {
             $0.edges.equalToSuperview()
         }
