@@ -21,6 +21,7 @@ class StoreGoalViewController: BaseViewController {
         getStoreGoalData()
         setAddTarget()
         setDelegate()
+        self.makeToast("안녕하세요", withDuration: 1, delay: 1)
     }
     override func loadView() {
         super.loadView()
