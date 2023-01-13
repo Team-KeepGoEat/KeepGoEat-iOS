@@ -15,7 +15,6 @@ class OnboardingViewController: BaseViewController {
     // MARK: - Variables
     var currentPage: Int = 0 {
         didSet {
-            print(currentPage)
             pageControl.currentPage = currentPage
             switch currentPage {
             case 0:

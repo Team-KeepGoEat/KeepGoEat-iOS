@@ -349,7 +349,6 @@ extension NewGoalViewController: UITextFieldDelegate {
         
         // 특수문자 사용 불가능
         if !changedText.hasCharacters() {
-            print("공백")
             warningLabel.isHidden = false
             emptyWarningLabel.isHidden = true
         }

@@ -91,7 +91,6 @@ extension GoalDetailViewController {
                         self.goalDetailView.goalType = .less
                         self.goalDetailView.goalTitleLabel.text = data.goalContent + " \(Const.String.lessEat)"
                     }
-                    print("✨✨✨✨, \(data)")
                     self.data = data
                     self.goalDetailView.previousGoalStatsView.goalStatsCountLabel.text = String(data.lastMonthCount)
                     self.goalDetailView.presentGoalStatsView.goalStatsCountLabel.text = String(data.thisMonthCount)
@@ -130,7 +129,6 @@ extension GoalDetailViewController {
     
     func setGoalId(id: Int) {
         self.goalId = id
-        print("✨✨✨goalId: ", goalId)
     }
     
     @objc
