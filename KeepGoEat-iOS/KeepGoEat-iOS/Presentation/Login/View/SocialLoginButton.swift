@@ -103,12 +103,12 @@ extension SocialLoginButton {
                     if let platformAccessToken = self.platformAccessToken,
                        let platform = self.platform {
                         let param = LoginRequestDto(platformAccessToken: platformAccessToken, platform: platform)
-                        LoginService.shared.postSocialLogin(param: param)
+                        LoginService.shared.postSocialLogin(param: param) { _ in
+                            RootViewControllerSwithcer.shared.changeRootViewController(navigationMode: .onboarding)
+                        }
                     }
                 }
             }
-            
-            RootViewControllerSwithcer.shared.changeRootViewController(navigationMode: .onboarding)
         } else {
             UserApi.shared.loginWithKakaoAccount {(oauthToken, error) in
                 if let error = error {
@@ -120,7 +120,9 @@ extension SocialLoginButton {
                     if let platformAccessToken = self.platformAccessToken,
                        let platform = self.platform {
                         let param = LoginRequestDto(platformAccessToken: platformAccessToken, platform: platform)
-                        LoginService.shared.postSocialLogin(param: param)
+                        LoginService.shared.postSocialLogin(param: param) { _ in
+                            RootViewControllerSwithcer.shared.changeRootViewController(navigationMode: .onboarding)
+                        }
                     }
                 }
             }

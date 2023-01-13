@@ -14,7 +14,7 @@ final class LoginService {
 }
 
 extension LoginService {
-    func postSocialLogin(param: LoginRequestDto) {
+    func postSocialLogin(param: LoginRequestDto, completion: @escaping (LoginResponseDto?) -> Void) {
         loginProvider.request(.socialLogin(param: param)) { response in
             switch response {
             case .success(let result):
@@ -26,7 +26,7 @@ extension LoginService {
                     guard let data = data as? LoginResponseDto else { return }
                     addUserTokenOnKeyChain(tokenName: Const.String.userAccessToken, tokenContent: data.accessToken)
                     addUserTokenOnKeyChain(tokenName: Const.String.userRefreshToken, tokenContent: data.refreshToken)
-                    print(data)
+                    completion(data)
                 case .requestErr(let data):
                     guard let data = data as? String else { return }
                     print(data)

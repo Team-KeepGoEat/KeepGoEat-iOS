@@ -68,5 +68,6 @@ extension Const {
         static let storeFilterAll = "전체"
         static let totalSub = "총 달성일"
         static let termSub = "진행기간"
+        static let saveGoalToastMessage = "목표가 저장되었습니다."
     }
 }
