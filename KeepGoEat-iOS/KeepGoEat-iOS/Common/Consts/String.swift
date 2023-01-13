@@ -37,6 +37,7 @@ extension Const {
         static let homeNewBottomSubLess = "안 좋은 식습관을 줄여가보자!"
         static let createGoalToastMessage = "목표가 생성되었습니다."
         static let deleteGoalToastMessage = "목표가 삭제되었습니다."
+        static let storeGoalToastMessage = "목표가 보관되었습니다."
         
         // MARK: GoalDetail
         static let myGoal = "나의 목표"

@@ -84,12 +84,10 @@ class HomeGoalAddCollectionViewCell: UICollectionViewCell {
             subLabel.text = Const.String.homeNewSub2
             newGoalImage.isHidden = false
             self.isUserInteractionEnabled = true
-        case 3:
+        default:
             subLabel.text = Const.String.homeNewSub3
             newGoalImage.isHidden = true
             self.isUserInteractionEnabled = false
-        default:
-            subLabel.text = ""
         }
     }
 }
