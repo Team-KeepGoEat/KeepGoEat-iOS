@@ -35,6 +35,8 @@ extension Const {
         static let homeNewSub3 = "3개의 목표까지 동시에 진행할 수 있어요."
         static let homeNewBottomSubMore = "건강한 음식을 더 먹어볼까?"
         static let homeNewBottomSubLess = "안 좋은 식습관을 줄여가보자!"
+        static let createGoalToastMessage = "목표가 생성되었습니다."
+        static let deleteGoalToastMessage = "목표가 삭제되었습니다."
         
         // MARK: GoalDetail
         static let myGoal = "나의 목표"
@@ -49,6 +51,7 @@ extension Const {
         static let deleteDescription = "삭제한 목표는 복구할 수 없어요."
         static let cancelButton = "아니오"
         static let deleteButton = "네, 삭제할래요"
+        static let editGoalToastMessage = "목표가 수정되었습니다."
         
         // MARK: NewGoal
         static let textMyGoalTitle = "나의 목표를 입력해볼까요?"

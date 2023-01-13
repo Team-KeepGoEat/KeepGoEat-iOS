@@ -198,11 +198,10 @@ class NewGoalViewController: BaseViewController {
             isMore: check
         )
         NewGoalService.shared.createNewGoal(body: body)
-        let index = self.navigationController?.viewControllers.firstIndex(of: self)
-        guard let previousViewController = navigationController?.viewControllers[index!-1] as? UIViewController else { return }
+        guard let previousViewController = self.navigationController?.viewControllers.first as? UIViewController else { return }
         DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 0.1) {
             self.navigationController?.popToRootViewController(animated: true)
-            previousViewController.makeToast("목표가 생성되었습니다.", withDuration: 1, delay: 1)
+            previousViewController.makeToast(Const.String.createGoalToastMessage, withDuration: 1, delay: 1)
         }
     }
     
@@ -211,11 +210,10 @@ class NewGoalViewController: BaseViewController {
             goalContent: moreVegetabletextField.text ?? ""
         )
         NewGoalService.shared.editNewGoal(body: body, param: goalId)
-        let index = self.navigationController?.viewControllers.firstIndex(of: self)
-        guard let previousViewController = navigationController?.viewControllers[index!-1] as? UIViewController else { return }
+        let previousViewController = self.navigationController?.viewControllers.last { $0 != self }
         DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 0.1) {
             self.navigationController?.popViewController(animated: true)
-            previousViewController.makeToast("목표가 수정되었습니다.", withDuration: 1, delay: 1)
+            previousViewController!.makeToast(Const.String.editGoalToastMessage, withDuration: 1, delay: 1)
         }
     }
     
