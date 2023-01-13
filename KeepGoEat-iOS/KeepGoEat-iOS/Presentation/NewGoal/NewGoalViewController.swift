@@ -290,9 +290,11 @@ extension NewGoalViewController {
 extension NewGoalViewController: UITextFieldDelegate {
     
     func textFieldDidBeginEditing(_ textView: UITextField) {
-        if let text = textView.text, text.isEmpty {
-            textView.textColor = .gray700
-        }
+        textView.textColor = .gray700
+        underLineLabel.backgroundColor = .orange600
+    }
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        underLineLabel.backgroundColor = .gray400
     }
     
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
