@@ -27,6 +27,15 @@ class NewGoalViewController: BaseViewController {
     
     private var isCreated: Bool = true
     
+    var textLength: Int = 0 {
+        didSet {
+            DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 0.1) {
+                self.textLength = self.moreVegetabletextField.text?.count ?? 0
+                self.countTextLabel.text = "(\(self.textLength)/15)"
+            }
+        }
+    }
+    
     // MARK: Component
     private let headerView: HeaderView = HeaderView()
     
@@ -307,6 +316,7 @@ extension NewGoalViewController: UITextFieldDelegate {
         let textValue = textField.text ?? ""
         countTextLabel.text = "(\(textValue.count)/15)"
     }
+    
     func textFieldDidEndEditing(_ textField: UITextField) {
         underLineLabel.backgroundColor = .gray400
     }
@@ -318,9 +328,6 @@ extension NewGoalViewController: UITextFieldDelegate {
         let changedText = textValue.replacingCharacters(in: stringRange, with: string)
         warningLabel.isHidden = true
         emptyWarningLabel.isHidden = true
-        
-        // 글자 수 업데이트
-        countTextLabel.text = "(\(changedText.count)/15)"
         
         // 글자수 15자 제한 백스페이스는 가능
         guard let text = textField.text else { return false }
@@ -336,6 +343,7 @@ extension NewGoalViewController: UITextFieldDelegate {
         
         // 특수문자 사용 불가능
         if !changedText.hasCharacters() {
+            print("공백")
             warningLabel.isHidden = false
             emptyWarningLabel.isHidden = true
         }
@@ -355,41 +363,9 @@ extension NewGoalViewController: UITextFieldDelegate {
             completeButton.backgroundColor = .orange600
             completeButton.setTitleColor(.gray50, for: .normal)
         }
-//        let cuerrentText = textField.text ?? ""
-//        guard let stringRange = Range(range, in: cuerrentText) else { return false }
-//        let changedText = cuerrentText.replacingCharacters(in: stringRange, with: string)
-//
-//        countTextLabel.text = "(\(changedText.count)/20)"
-//
-//        func searchPressed(_ sender: UIButton) {
-//            moreVegetabletextField.endEditing(true)
-//        }
-//
-//        func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-//            moreVegetabletextField.endEditing(true)
-//            print(moreVegetabletextField.text!)
-//            return true
-//        }
-//
-//        if !string.hasCharacters() {
-//            warningLabel.isHidden = false
-//        }
-//
-//        if changedText.hasCharacters() {
-//            warningLabel.isHidden = true
-//        }
-//
-//        if changedText.isEmpty || !changedText.hasCharacters() {
-//            self.completeButton.isEnabled = false
-//            completeButton.backgroundColor = .gray200
-//            completeButton.setTitleColor(.gray400, for: .disabled)
-//        } else {
-//            self.completeButton.isEnabled = true
-//            completeButton.backgroundColor = .orange600
-//            completeButton.setTitleColor(.gray50, for: .normal)
-//        }
-//
-//        return (changedText.count <= 19)
+
+        // 글자 수 업데이트
+        textLength = 1
         return true
     }
 }
