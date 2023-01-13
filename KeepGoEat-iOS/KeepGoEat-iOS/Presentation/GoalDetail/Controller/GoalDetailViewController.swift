@@ -163,7 +163,9 @@ extension GoalDetailViewController {
 
 extension GoalDetailViewController: HandleSaveGoalButtonDelegate {
     func pushStoreGoal() {
-        self.navigationController?.pushViewController(StoreGoalViewController(), animated: false)
+        guard let rootViewController = navigationController?.viewControllers[0] as? UIViewController else { return }
+        self.navigationController?.popToRootViewController(animated: false)
+        rootViewController.navigationController?.pushViewController(StoreGoalViewController(), animated: false)
     }
 }
 
