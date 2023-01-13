@@ -6,3 +6,9 @@
 //
 
 import Foundation
+
+enum SortType: String, Codable {
+    case all
+    case more
+    case less
+}

@@ -1,15 +1,16 @@
 disabled_rules:
 - trailing_whitespace
 - force_cast
+- force_try
 - force_unwrapping
 - identifier_name
 - line_length
 - shorthand_operator
-- trailing_whitespace
 - type_name
 - function_parameter_count
 - function_body_length
 - nesting
+- cyclomatic_complexity
 
 opt_in_rules:
 - mark

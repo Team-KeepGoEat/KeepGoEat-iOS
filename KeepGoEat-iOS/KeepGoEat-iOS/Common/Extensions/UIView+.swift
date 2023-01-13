@@ -36,10 +36,26 @@ extension UIView {
         self.layer.cornerRadius = radius
     }
     
-    /// 
     public func makeColorRounded(_ radius: CGFloat, _ width: CGFloat, _ color: UIColor) {
         self.makeRounded(radius: radius)
         layer.borderWidth = width
         layer.borderColor = color.cgColor
+    }
+    
+    func makeTopRounded(radius: CGFloat) {
+        self.clipsToBounds = true
+        self.layer.cornerRadius = radius.adjusted
+        self.layer.maskedCorners = CACornerMask(arrayLiteral: .layerMinXMinYCorner, .layerMaxXMinYCorner)
+    }
+    
+    func setCellShadow(shadowBase: UIView) {
+        shadowBase.backgroundColor = .gray50
+        shadowBase.layer.masksToBounds = true
+        shadowBase.layer.cornerRadius = 12
+        layer.masksToBounds = false
+        layer.shadowColor = UIColor.gray400.cgColor
+        layer.shadowOffset = CGSize(width: 0, height: 0)
+        layer.shadowOpacity = 1
+        layer.shadowRadius = 2.5
     }
 }

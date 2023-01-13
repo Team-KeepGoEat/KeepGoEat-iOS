@@ -6,3 +6,15 @@
 //
 
 import Foundation
+
+struct LoginResponseDto: Codable {
+    let type: String
+    let email: String
+    let accessToken: String
+    let refreshToken: String
+}
+
+struct RefreshResponseDto: Codable {
+    let accessToken: String
+    let refreshToken: String
+}
