@@ -156,6 +156,7 @@ class HomeCheerView: UIView {
     func playHomeLottie() {
         backgroundAnimationView.stop()
         characterAnimationView.stop()
+        characterImage.image = Const.Image.snailEmpty
         backgroundAnimationView.play()
         characterAnimationView.play()
     }
