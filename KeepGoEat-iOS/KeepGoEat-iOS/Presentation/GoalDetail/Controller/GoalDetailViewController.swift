@@ -65,9 +65,11 @@ extension GoalDetailViewController {
     
     private func saveGoal() {
         GoalDetailService.shared.saveGoal(goalId: goalId)
+        let previousViewController = self.navigationController?.viewControllers.last { $0 != self }
         DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 0.1) {
             self.navigationController?.popViewController(animated: false)
-            self.navigationController?.pushViewController(StoreGoalViewController(), animated: true)
+            self.navigationController?.pushViewController(previousViewController!, animated: true)
+            previousViewController!.makeToast(Const.String.saveGoalToastMessage, withDuration: 1, delay: 1)
         }
     }
     
