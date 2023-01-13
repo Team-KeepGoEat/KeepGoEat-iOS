@@ -54,6 +54,7 @@
 		DD849B0E295E7E0F0030AF2F /* MoyaLoggingPlugin.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD849B0D295E7E0F0030AF2F /* MoyaLoggingPlugin.swift */; };
 		DD849B10295E800C0030AF2F /* NetworkBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD849B0F295E800C0030AF2F /* NetworkBase.swift */; };
 		DD849B12295E80630030AF2F /* NetworkConstant.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD849B11295E80630030AF2F /* NetworkConstant.swift */; };
+		DD9E4326297144A90058A715 /* homeSnail.json in Resources */ = {isa = PBXBuildFile; fileRef = DD9E4325297144A90058A715 /* homeSnail.json */; };
 		DDA7B71029672B14001950A2 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDA7B70F29672B14001950A2 /* HomeView.swift */; };
 		DDA7B71229673F76001950A2 /* HomeEmptyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDA7B71129673F76001950A2 /* HomeEmptyView.swift */; };
 		DDA7B7142967413F001950A2 /* HomeBaseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDA7B7132967413F001950A2 /* HomeBaseView.swift */; };
@@ -63,7 +64,6 @@
 		DDA7B72229689333001950A2 /* HomeGoalCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDA7B72129689333001950A2 /* HomeGoalCollectionView.swift */; };
 		DDB02FCB296D19CC00D1E7AB /* HomeNewGoalTypeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDB02FCA296D19CC00D1E7AB /* HomeNewGoalTypeView.swift */; };
 		DDB02FCD296DA5DD00D1E7AB /* HomeBottomSheetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDB02FCC296DA5DD00D1E7AB /* HomeBottomSheetView.swift */; };
-		DDC8FAB82970562700D10E2F /* homeSnail.json in Resources */ = {isa = PBXBuildFile; fileRef = DDC8FAB72970562700D10E2F /* homeSnail.json */; };
 		DDC8FABA29705C6D00D10E2F /* homeBackground.json in Resources */ = {isa = PBXBuildFile; fileRef = DDC8FAB929705C6D00D10E2F /* homeBackground.json */; };
 		DDDBC876296045A200F65F23 /* Const.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDDBC875296045A200F65F23 /* Const.swift */; };
 		DDDBC878296045AA00F65F23 /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDDBC877296045AA00F65F23 /* String.swift */; };
@@ -159,6 +159,7 @@
 		DD849B0D295E7E0F0030AF2F /* MoyaLoggingPlugin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoyaLoggingPlugin.swift; sourceTree = "<group>"; };
 		DD849B0F295E800C0030AF2F /* NetworkBase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkBase.swift; sourceTree = "<group>"; };
 		DD849B11295E80630030AF2F /* NetworkConstant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkConstant.swift; sourceTree = "<group>"; };
+		DD9E4325297144A90058A715 /* homeSnail.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = homeSnail.json; sourceTree = "<group>"; };
 		DDA7B70F29672B14001950A2 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		DDA7B71129673F76001950A2 /* HomeEmptyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeEmptyView.swift; sourceTree = "<group>"; };
 		DDA7B7132967413F001950A2 /* HomeBaseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeBaseView.swift; sourceTree = "<group>"; };
@@ -168,7 +169,6 @@
 		DDA7B72129689333001950A2 /* HomeGoalCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeGoalCollectionView.swift; sourceTree = "<group>"; };
 		DDB02FCA296D19CC00D1E7AB /* HomeNewGoalTypeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeNewGoalTypeView.swift; sourceTree = "<group>"; };
 		DDB02FCC296DA5DD00D1E7AB /* HomeBottomSheetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeBottomSheetView.swift; sourceTree = "<group>"; };
-		DDC8FAB72970562700D10E2F /* homeSnail.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = homeSnail.json; sourceTree = "<group>"; };
 		DDC8FAB929705C6D00D10E2F /* homeBackground.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = homeBackground.json; sourceTree = "<group>"; };
 		DDDBC86E295EE52B00F65F23 /* Pretendard-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-Bold.otf"; sourceTree = "<group>"; };
 		DDDBC86F295EE52B00F65F23 /* Pretendard-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-Regular.otf"; sourceTree = "<group>"; };
@@ -252,7 +252,7 @@
 				317DD559296AEBA0002C5B79 /* onboarding2_1x.json */,
 				317DD55A296AEBA0002C5B79 /* onboarding3_1x.json */,
 				DDC8FAB929705C6D00D10E2F /* homeBackground.json */,
-				DDC8FAB72970562700D10E2F /* homeSnail.json */,
+				DD9E4325297144A90058A715 /* homeSnail.json */,
 			);
 			path = Lotties;
 			sourceTree = "<group>";
@@ -824,7 +824,7 @@
 			files = (
 				317DD55C296AEBA0002C5B79 /* onboarding2_1x.json in Resources */,
 				317DD563296AEBB7002C5B79 /* plus.png in Resources */,
-				DDC8FAB82970562700D10E2F /* homeSnail.json in Resources */,
+				DD9E4326297144A90058A715 /* homeSnail.json in Resources */,
 				DDDBC88029618A7D00F65F23 /* .swiftlint.yml in Resources */,
 				DDC8FABA29705C6D00D10E2F /* homeBackground.json in Resources */,
 				DD38AD79295B02B80084FA70 /* LaunchScreen.storyboard in Resources */,
