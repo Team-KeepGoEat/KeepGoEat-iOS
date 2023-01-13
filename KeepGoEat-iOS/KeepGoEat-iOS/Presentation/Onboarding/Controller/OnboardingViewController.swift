@@ -15,16 +15,20 @@ class OnboardingViewController: BaseViewController {
     // MARK: - Variables
     var currentPage: Int = 0 {
         didSet {
+            print(currentPage)
             pageControl.currentPage = currentPage
             switch currentPage {
             case 0:
                 nextButton.setTitle("조금 더 설명해주세요!", for: .normal)
+                passButton.isHidden = false
             case 1:
                 nextButton.setTitle("매일 기록에 실패하면 어쩌죠?", for: .normal)
+                passButton.isHidden = false
             case 2:
                 nextButton.setTitle("KEEP GO EAT 시작하기", for: .normal)
+                passButton.isHidden = true
             default:
-                print("잘못된 값이 들어와쪄염")
+                passButton.isHidden = false
             }
         }
     }
@@ -130,9 +134,9 @@ extension OnboardingViewController {
     
     @objc
     private func tapPassButton() {
-        goToHomeView()
+            goToHomeView()
     }
-    
+ 
     @objc
     private func tapNextButton() {
         if currentPage == onboardingList.count - 1 {
