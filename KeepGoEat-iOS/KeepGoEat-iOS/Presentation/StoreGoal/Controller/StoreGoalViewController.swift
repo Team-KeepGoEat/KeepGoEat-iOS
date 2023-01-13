@@ -6,7 +6,6 @@
 //
 
 import UIKit
-import SwiftUI
 
 class StoreGoalViewController: BaseViewController {
     
@@ -77,11 +76,5 @@ class StoreGoalViewController: BaseViewController {
 extension StoreGoalViewController: HandleBackButtonDelegate {
     func popView() {
         self.navigationController?.popToRootViewController(animated: true)
-    }
-}
-
-struct StoreGoalViewControllerPreView: PreviewProvider {
-    static var previews: some View {
-        StoreGoalViewController().toPreview()
     }
 }
