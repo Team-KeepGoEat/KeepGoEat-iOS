@@ -22,14 +22,13 @@ class SplashViewController: BaseViewController {
     override func loadView() {
         super.loadView()
         
-        UserApi.shared.logout {(error) in
-            if let error = error {
-                print(error)
-            }
-            else {
-                print("logout() success.")
-            }
-        }
+//        UserApi.shared.logout {(error) in
+//            if let error = error {
+//                print(error)
+//            } else {
+//                print("logout() success.")
+//            }
+//        }
         
         self.view = splashView
         DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 1) {

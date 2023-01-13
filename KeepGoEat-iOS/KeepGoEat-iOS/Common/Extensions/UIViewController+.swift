@@ -53,7 +53,7 @@ extension UIViewController {
     
     func makeToast(_ message: String, withDuration: Double, delay: Double) {
         let labelLength: CGFloat = (message as NSString).size(withAttributes: [NSAttributedString.Key.font: UIFont.system5]).width
-        let toastLabel: UILabel = UILabel(frame: CGRect(x: self.view.frame.size.width / 2 - (labelLength + 32) / 2, y: self.view.frame.size.height - 88, width: labelLength + 32, height: 40)).then {
+        let toastLabel: UILabel = UILabel(frame: CGRect(x: UIScreen.main.bounds.width / 2 - (labelLength + 32) / 2, y: UIScreen.main.bounds.height - 88, width: labelLength + 32, height: 40)).then {
             $0.text = message
             $0.backgroundColor = .gray500
             $0.textColor = .white
