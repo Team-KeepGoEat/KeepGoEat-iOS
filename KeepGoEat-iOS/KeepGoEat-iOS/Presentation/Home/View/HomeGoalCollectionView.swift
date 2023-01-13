@@ -43,7 +43,7 @@ class HomeGoalCollectionView: UICollectionView {
         }
     }
     private func getHomeData() {
-        HomeService.shared.getHome() { data in
+        HomeService.shared.getHome { data in
             guard let data = data else { return }
             self.data = data
             self.reloadData()
