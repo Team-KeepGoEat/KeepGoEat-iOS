@@ -27,6 +27,15 @@ class NewGoalViewController: BaseViewController {
     
     private var isCreated: Bool = true
     
+    var textLength: Int = 0 {
+        didSet {
+            DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 0.1) {
+                self.textLength = self.moreVegetabletextField.text?.count ?? 0
+                self.countTextLabel.text = "(\(self.textLength)/15)"
+            }
+        }
+    }
+    
     // MARK: Component
     private let headerView: HeaderView = HeaderView()
     
@@ -39,11 +48,17 @@ class NewGoalViewController: BaseViewController {
     }
     
     private lazy var moreVegetabletextField = UITextField().then {
-        $0.placeholder = Const.String.moreVegetablePlaceHoleder
         $0.font = .system4Bold
         $0.delegate = self
         $0.becomeFirstResponder()
         $0.setPlaceholder(color: .gray400)
+        
+        switch eatType {
+        case .more:
+            $0.placeholder = Const.String.moreEatPlaceHoleder
+        case .less:
+            $0.placeholder = Const.String.lessEatPlaceHoleder
+        }
     }
     
     private let underLineLabel = UIView().then {
@@ -83,6 +98,13 @@ class NewGoalViewController: BaseViewController {
         $0.isEnabled = false
     }
     
+    private let emptyWarningLabel = UILabel().then {
+        $0.text = Const.String.emptyWarning
+        $0.textColor = .orange400
+        $0.font = .system6
+        $0.isHidden = true
+    }
+    
     private let warningLabel = UILabel().then {
         $0.text = Const.String.warning
         $0.textColor = .orange400
@@ -118,7 +140,7 @@ class NewGoalViewController: BaseViewController {
         
         headerView.addSubview(GoalHederLabel)
         
-        [textMyGoalLabel, moreVegetabletextField, countTextLabel, moreEatLabel, underLineLabel, warningLabel ].forEach {
+        [textMyGoalLabel, moreVegetabletextField, countTextLabel, moreEatLabel, underLineLabel, warningLabel, emptyWarningLabel ].forEach {
             emptyView.addSubview($0)
         }
         
@@ -163,6 +185,11 @@ class NewGoalViewController: BaseViewController {
         }
         
         warningLabel.snp.makeConstraints {
+            $0.top.equalTo(self.countTextLabel.snp.bottom).offset(12.adjusted)
+            $0.leading.equalTo(textMyGoalLabel)
+        }
+        
+        emptyWarningLabel.snp.makeConstraints {
             $0.top.equalTo(self.countTextLabel.snp.bottom).offset(12.adjusted)
             $0.leading.equalTo(textMyGoalLabel)
         }
@@ -213,7 +240,7 @@ class NewGoalViewController: BaseViewController {
         let previousViewController = self.navigationController?.viewControllers.last { $0 != self }
         DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 0.1) {
             self.navigationController?.popViewController(animated: true)
-            previousViewController!.makeToast(Const.String.saveGoalToastMessage, withDuration: 1, delay: 1)
+            previousViewController!.makeToast(Const.String.editGoalToastMessage, withDuration: 1, delay: 1)
         }
     }
     
@@ -289,37 +316,48 @@ extension NewGoalViewController {
 // MARK: UITextFieldDelegate
 extension NewGoalViewController: UITextFieldDelegate {
     
-    func textFieldDidBeginEditing(_ textView: UITextField) {
-        textView.textColor = .gray700
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        textField.textColor = .gray700
         underLineLabel.backgroundColor = .orange600
+        let textValue = textField.text ?? ""
+        countTextLabel.text = "(\(textValue.count)/15)"
     }
+    
     func textFieldDidEndEditing(_ textField: UITextField) {
         underLineLabel.backgroundColor = .gray400
     }
     
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
-        let cuerrentText = textField.text ?? ""
-        guard let stringRange = Range(range, in: cuerrentText) else { return false }
-        let changedText = cuerrentText.replacingCharacters(in: stringRange, with: string)
         
-        countTextLabel.text = "(\(changedText.count)/20)"
+        let textValue = textField.text ?? ""
+        guard let stringRange = Range(range, in: textValue) else { return false }
+        let changedText = textValue.replacingCharacters(in: stringRange, with: string)
+        warningLabel.isHidden = true
+        emptyWarningLabel.isHidden = true
         
-        func searchPressed(_ sender: UIButton) {
-            moreVegetabletextField.endEditing(true)
+        // 글자수 15자 제한 백스페이스는 가능
+        guard let text = textField.text else { return false }
+        if text.count >= 15 {
+            if let char = string.cString(using: String.Encoding.utf8) {
+                let isBackSpace = strcmp(char, "\\b")
+                if isBackSpace == -92 {
+                    return true
+                }
+            }
+            return false
         }
         
-        func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-            moreVegetabletextField.endEditing(true)
-            print(moreVegetabletextField.text!)
-            return true
-        }
-        
-        if !string.hasCharacters() {
+        // 특수문자 사용 불가능
+        if !changedText.hasCharacters() {
+            print("공백")
             warningLabel.isHidden = false
+            emptyWarningLabel.isHidden = true
         }
         
-        if changedText.hasCharacters() {
+        // 공백 사용 불가능
+        if changedText.isEmpty {
             warningLabel.isHidden = true
+            emptyWarningLabel.isHidden = false
         }
         
         if changedText.isEmpty || !changedText.hasCharacters() {
@@ -331,7 +369,9 @@ extension NewGoalViewController: UITextFieldDelegate {
             completeButton.backgroundColor = .orange600
             completeButton.setTitleColor(.gray50, for: .normal)
         }
-        
-        return (changedText.count <= 19)
+
+        // 글자 수 업데이트
+        textLength = 1
+        return true
     }
 }
