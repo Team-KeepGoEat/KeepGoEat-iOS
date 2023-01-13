@@ -59,15 +59,19 @@ extension GoalDetailViewController {
     }
     
     private func setDelegate() {
-        goalDetailView.saveBottomSheetView.handleSaveGoalButtonDelegate = self
+//        goalDetailView.saveBottomSheetView.handleSaveGoalButtonDelegate = self
         goalDetailView.headerView.handleBackButtonDelegate = self
     }
     
     private func saveGoal() {
         GoalDetailService.shared.saveGoal(goalId: goalId)
         DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 0.1) {
-            self.navigationController?.popViewController(animated: false)
-            self.navigationController?.pushViewController(StoreGoalViewController(), animated: true)
+            let storeGoalViewController = StoreGoalViewController()
+            guard let rootViewController = self.navigationController?.viewControllers.first as? UIViewController else { return }
+            self.navigationController?.popToRootViewController(animated: false)
+            
+            storeGoalViewController.makeToast(Const.String.saveGoalToastMessage, withDuration: 1, delay: 1)
+            rootViewController.navigationController?.pushViewController(storeGoalViewController, animated: false)
         }
     }
     
@@ -163,13 +167,13 @@ extension GoalDetailViewController {
     }
 }
 
-extension GoalDetailViewController: HandleSaveGoalButtonDelegate {
-    func pushStoreGoal() {
-        guard let rootViewController = navigationController?.viewControllers[0] as? UIViewController else { return }
-        self.navigationController?.popToRootViewController(animated: false)
-        rootViewController.navigationController?.pushViewController(StoreGoalViewController(), animated: false)
-    }
-}
+//extension GoalDetailViewController: HandleSaveGoalButtonDelegate {
+//    func pushStoreGoal() {
+//        guard let rootViewController = navigationController?.viewControllers[0] as? UIViewController else { return }
+//        self.navigationController?.popToRootViewController(animated: false)
+//        rootViewController.navigationController?.pushViewController(StoreGoalViewController(), animated: false)
+//    }
+//}
 
 extension GoalDetailViewController: HandleBackButtonDelegate {
     func popView() {
