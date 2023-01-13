@@ -51,7 +51,7 @@ extension Const {
         static let deleteButton = "네, 삭제할래요"
         
         // MARK: NewGoal
-        static let textMyGoalTitle = "나의 목표를 입력해볼까요?"
+        static let textMyGoalTitle = "나의 목표를 입력해 볼까요?"
         static let GoalHeader = "목표 입력"
         static let moreVegetablePlaceHoleder = "ex) 하루 1끼 이상 야채"
         static let textCount = "(0/20)"
