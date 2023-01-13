@@ -83,6 +83,13 @@ class NewGoalViewController: BaseViewController {
         $0.isEnabled = false
     }
     
+    private let emptyWarningLabel = UILabel().then {
+        $0.text = Const.String.emptyWarning
+        $0.textColor = .orange400
+        $0.font = .system6
+        $0.isHidden = true
+    }
+    
     private let warningLabel = UILabel().then {
         $0.text = Const.String.warning
         $0.textColor = .orange400
@@ -118,7 +125,7 @@ class NewGoalViewController: BaseViewController {
         
         headerView.addSubview(GoalHederLabel)
         
-        [textMyGoalLabel, moreVegetabletextField, countTextLabel, moreEatLabel, underLineLabel, warningLabel ].forEach {
+        [textMyGoalLabel, moreVegetabletextField, countTextLabel, moreEatLabel, underLineLabel, warningLabel, emptyWarningLabel ].forEach {
             emptyView.addSubview($0)
         }
         
@@ -163,6 +170,11 @@ class NewGoalViewController: BaseViewController {
         }
         
         warningLabel.snp.makeConstraints {
+            $0.top.equalTo(self.countTextLabel.snp.bottom).offset(12.adjusted)
+            $0.leading.equalTo(textMyGoalLabel)
+        }
+        
+        emptyWarningLabel.snp.makeConstraints {
             $0.top.equalTo(self.countTextLabel.snp.bottom).offset(12.adjusted)
             $0.leading.equalTo(textMyGoalLabel)
         }
@@ -213,7 +225,7 @@ class NewGoalViewController: BaseViewController {
         let previousViewController = self.navigationController?.viewControllers.last { $0 != self }
         DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 0.1) {
             self.navigationController?.popViewController(animated: true)
-            previousViewController!.makeToast(Const.String.saveGoalToastMessage, withDuration: 1, delay: 1)
+            previousViewController!.makeToast(Const.String.editGoalToastMessage, withDuration: 1, delay: 1)
         }
     }
     
@@ -289,37 +301,49 @@ extension NewGoalViewController {
 // MARK: UITextFieldDelegate
 extension NewGoalViewController: UITextFieldDelegate {
     
-    func textFieldDidBeginEditing(_ textView: UITextField) {
-        textView.textColor = .gray700
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        textField.textColor = .gray700
         underLineLabel.backgroundColor = .orange600
+        let textValue = textField.text ?? ""
+        countTextLabel.text = "(\(textValue.count)/15)"
     }
     func textFieldDidEndEditing(_ textField: UITextField) {
         underLineLabel.backgroundColor = .gray400
     }
     
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
-        let cuerrentText = textField.text ?? ""
-        guard let stringRange = Range(range, in: cuerrentText) else { return false }
-        let changedText = cuerrentText.replacingCharacters(in: stringRange, with: string)
         
-        countTextLabel.text = "(\(changedText.count)/20)"
+        let textValue = textField.text ?? ""
+        guard let stringRange = Range(range, in: textValue) else { return false }
+        let changedText = textValue.replacingCharacters(in: stringRange, with: string)
+        warningLabel.isHidden = true
+        emptyWarningLabel.isHidden = true
         
-        func searchPressed(_ sender: UIButton) {
-            moreVegetabletextField.endEditing(true)
+        // 글자 수 업데이트
+        countTextLabel.text = "(\(changedText.count)/15)"
+        
+        // 글자수 15자 제한 백스페이스는 가능
+        guard let text = textField.text else { return false }
+        if text.count >= 15 {
+            if let char = string.cString(using: String.Encoding.utf8) {
+                let isBackSpace = strcmp(char, "\\b")
+                if isBackSpace == -92 {
+                    return true
+                }
+            }
+            return false
         }
         
-        func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-            moreVegetabletextField.endEditing(true)
-            print(moreVegetabletextField.text!)
-            return true
-        }
-        
-        if !string.hasCharacters() {
+        // 특수문자 사용 불가능
+        if !changedText.hasCharacters() {
             warningLabel.isHidden = false
+            emptyWarningLabel.isHidden = true
         }
         
-        if changedText.hasCharacters() {
+        // 공백 사용 불가능
+        if changedText.isEmpty {
             warningLabel.isHidden = true
+            emptyWarningLabel.isHidden = false
         }
         
         if changedText.isEmpty || !changedText.hasCharacters() {
@@ -331,7 +355,41 @@ extension NewGoalViewController: UITextFieldDelegate {
             completeButton.backgroundColor = .orange600
             completeButton.setTitleColor(.gray50, for: .normal)
         }
-        
-        return (changedText.count <= 19)
+//        let cuerrentText = textField.text ?? ""
+//        guard let stringRange = Range(range, in: cuerrentText) else { return false }
+//        let changedText = cuerrentText.replacingCharacters(in: stringRange, with: string)
+//
+//        countTextLabel.text = "(\(changedText.count)/20)"
+//
+//        func searchPressed(_ sender: UIButton) {
+//            moreVegetabletextField.endEditing(true)
+//        }
+//
+//        func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+//            moreVegetabletextField.endEditing(true)
+//            print(moreVegetabletextField.text!)
+//            return true
+//        }
+//
+//        if !string.hasCharacters() {
+//            warningLabel.isHidden = false
+//        }
+//
+//        if changedText.hasCharacters() {
+//            warningLabel.isHidden = true
+//        }
+//
+//        if changedText.isEmpty || !changedText.hasCharacters() {
+//            self.completeButton.isEnabled = false
+//            completeButton.backgroundColor = .gray200
+//            completeButton.setTitleColor(.gray400, for: .disabled)
+//        } else {
+//            self.completeButton.isEnabled = true
+//            completeButton.backgroundColor = .orange600
+//            completeButton.setTitleColor(.gray50, for: .normal)
+//        }
+//
+//        return (changedText.count <= 19)
+        return true
     }
 }
