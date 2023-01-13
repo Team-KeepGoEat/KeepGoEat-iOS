@@ -36,6 +36,7 @@ class DeleteBottomSheetView: UIView {
     let deleteButton: UIButton = UIButton().then {
         $0.setTitle(Const.String.deleteButton, for: .normal)
         $0.setTitleColor(.gray400, for: .normal)
+        $0.titleLabel?.font = .system5Bold
         $0.backgroundColor = .gray200
         $0.layer.cornerRadius = 8
     }
