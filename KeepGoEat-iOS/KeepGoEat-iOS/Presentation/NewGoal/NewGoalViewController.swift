@@ -198,8 +198,10 @@ class NewGoalViewController: BaseViewController {
             isMore: check
         )
         NewGoalService.shared.createNewGoal(body: body)
+        guard let previousViewController = self.navigationController?.viewControllers.first as? UIViewController else { return }
         DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 0.1) {
             self.navigationController?.popToRootViewController(animated: true)
+            previousViewController.makeToast(Const.String.createGoalToastMessage, withDuration: 1, delay: 1)
         }
     }
     
@@ -208,8 +210,10 @@ class NewGoalViewController: BaseViewController {
             goalContent: moreVegetabletextField.text ?? ""
         )
         NewGoalService.shared.editNewGoal(body: body, param: goalId)
+        let previousViewController = self.navigationController?.viewControllers.last { $0 != self }
         DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 0.1) {
             self.navigationController?.popViewController(animated: true)
+            previousViewController!.makeToast(Const.String.editGoalToastMessage, withDuration: 1, delay: 1)
         }
     }
     

@@ -107,8 +107,10 @@ extension GoalDetailViewController {
     @objc
     private func deleteButtonDidTap() {
         deleteGoal()
+        guard let previousViewController = self.navigationController?.viewControllers.first as? UIViewController else { return }
         DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 0.1) {
             self.navigationController?.popViewController(animated: true)
+            previousViewController.makeToast(Const.String.deleteGoalToastMessage, withDuration: 1, delay: 1)
         }
     }
     
