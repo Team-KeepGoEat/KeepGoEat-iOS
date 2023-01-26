@@ -166,9 +166,9 @@
 </ul>
 </details>
 <details>
-<summary>CollectionView footer 크기 조절</summary>
+<summary>Home 목표 리스트 CollectionView와 목표 추가 버튼</summary>
 <ul>
-    <li>제대로 해결하지 못해서 footer 안에 UIView를 넣어서 그 view의 크기를 조절해줬는데, 이벤트 감지가 애매해서 결국엔 indexPath로 마지막 Cell일 때 Cell 종류를 바꿔주는 식으로 구현했다.</li>
+    <li>뷰 스케치시에는 collectionview의 footer로 넣으려 했는데, 목표를 추가하는 버튼처럼 동작하기에 collectionview의 cell로 처리해야겠다 판단했다. 이후에는 더 넓게 생각하면서 꼼꼼하게 스케치 해야겠다.</li>
 </ul>
 </details>
 <details>
