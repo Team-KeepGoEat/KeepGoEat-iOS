@@ -17,7 +17,8 @@ extension Const {
         // MARK: Onboarding
         
         // MARK: Login
-        static let kakaoLogin = "카카오톡 로그인"
+        static let appleLogin = "Apple로 로그인"
+        static let kakaoLogin = "카카오톡으로 로그인"
         
         // MARK: Home
         static let hoemHeader = "오늘 식습관 목표"
