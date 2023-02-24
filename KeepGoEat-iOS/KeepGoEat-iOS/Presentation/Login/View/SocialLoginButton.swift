@@ -88,7 +88,12 @@ extension SocialLoginButton {
     }
     
     private func setAddTarget() {
-        self.addTarget(self, action: #selector(tapKakaoLoginButton), for: .touchUpInside)
+        switch socialType {
+        case .kakao:
+            self.addTarget(self, action: #selector(tapKakaoLoginButton), for: .touchUpInside)
+        case .apple:
+            self.addTarget(self, action: #selector(tapAppleLoginButton), for: .touchUpInside)
+        }
     }
     
     private func kakaoTalkLogin() {
@@ -101,7 +106,7 @@ extension SocialLoginButton {
                     print("login With KakaoTalk success")
                     
                     self.platformAccessToken = oauthToken?.accessToken ?? ""
-                    
+                    print("👍platformAccessToken", oauthToken?.accessToken ?? "")
                     if let platformAccessToken = self.platformAccessToken,
                        let platform = self.platform {
                         let param = LoginRequestDto(platformAccessToken: platformAccessToken, platform: platform)
@@ -117,7 +122,7 @@ extension SocialLoginButton {
                     print(error)
                 } else {
                     print("login With Kakao Account success")
-                    
+                    print("👍platformAccessToken", oauthToken?.accessToken ?? "")
                     self.platformAccessToken = oauthToken?.accessToken ?? ""
                     if let platformAccessToken = self.platformAccessToken,
                        let platform = self.platform {
@@ -128,13 +133,21 @@ extension SocialLoginButton {
                     }
                 }
             }
-            
             RootViewControllerSwithcer.shared.changeRootViewController(navigationMode: .onboarding)
         }
+    }
+    
+    private func appleLogin() {
+        print("🍎 Apple Login")
     }
     
     @objc
     private func tapKakaoLoginButton() {
         kakaoTalkLogin()
+    }
+    
+    @objc
+    private func tapAppleLoginButton() {
+        appleLogin()
     }
 }
