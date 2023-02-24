@@ -56,7 +56,9 @@ extension SocialLoginButton {
         self.layer.cornerRadius = 6
         switch socialType {
         case .apple:
-            print("Error")
+            socialLogo.image = Const.Image.appleLogo
+            socialLabel.text = Const.String.appleLogin
+            
         case .kakao:
             self.backgroundColor = .kakako
             socialLogo.image = Const.Image.kakaoLogo
