@@ -1,8 +1,8 @@
 ---
-name: "👾 issue template"
+name: "\U0001F47E issue template"
 about: crayon의 새로운 이슈 추가
 title: "[Feat] description"
-labels: [🤍 승헌]
+labels: "\U0001F90D 승헌"
 assignees: lsh328328
 
 ---

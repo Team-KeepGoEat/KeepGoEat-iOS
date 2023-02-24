@@ -1,8 +1,8 @@
 ---
-name: "🌝 issue template"
+name: "\U0001F31D issue template"
 about: Rody의 새로운 이슈 추가
 title: "[Feat] description"
-labels: [💜 가연]
+labels: "\U0001F49C 가연"
 assignees: Gayeonchoi
 
 ---
