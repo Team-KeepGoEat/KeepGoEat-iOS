@@ -72,5 +72,14 @@ extension Const {
         static let totalSub = "총 달성일"
         static let termSub = "진행기간"
         static let saveGoalToastMessage = "목표가 저장되었습니다."
+        
+        // MARK: MyPage
+        static let accountInfoHeader = "나의 정보"
+        static let logout = "로그아웃"
+        static let withdrawal = "탈퇴하기"
+        static let logoutTitle = "로그아웃 하시겠어요?"
+        static let logoutDescription = "그동안의 기록은 사라지지 않으니\n안심하고 다녀오세요."
+        static let noButton = "취소"
+        static let yesButton = "네"
     }
 }
