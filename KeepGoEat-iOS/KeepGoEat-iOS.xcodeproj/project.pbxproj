@@ -18,7 +18,9 @@
 		31A0C82A29715A1400BE6A9A /* onboarding2_1x.json in Resources */ = {isa = PBXBuildFile; fileRef = 31A0C82929715A1300BE6A9A /* onboarding2_1x.json */; };
 		31A0C82C29715AD100BE6A9A /* card.png in Resources */ = {isa = PBXBuildFile; fileRef = 31A0C82B29715AD100BE6A9A /* card.png */; };
 		31A0C82E29715B5000BE6A9A /* plus.png in Resources */ = {isa = PBXBuildFile; fileRef = 31A0C82D29715B5000BE6A9A /* plus.png */; };
+		C358CBBA29B235AF009E4060 /* MyPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C358CBB929B235AF009E4060 /* MyPageViewController.swift */; };
 		C3D7DD3929A9024D0093248C /* AccountInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3D7DD3829A9024D0093248C /* AccountInfoView.swift */; };
+		C3D7DD3D29B1DE900093248C /* Config.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = D6F5BB3D29680DE800C722AA /* Config.xcconfig */; };
 		D63110AC29628F1B00E7D52D /* SplashView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D63110AB29628F1B00E7D52D /* SplashView.swift */; };
 		D63D64092966C77A00EC1BB7 /* HeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D63D64082966C77A00EC1BB7 /* HeaderView.swift */; };
 		D643DFD82963E39F000296D3 /* GoalDetailStampModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D643DFD72963E39F000296D3 /* GoalDetailStampModel.swift */; };
@@ -124,6 +126,7 @@
 		31A0C82929715A1300BE6A9A /* onboarding2_1x.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = onboarding2_1x.json; sourceTree = "<group>"; };
 		31A0C82B29715AD100BE6A9A /* card.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = card.png; sourceTree = "<group>"; };
 		31A0C82D29715B5000BE6A9A /* plus.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = plus.png; sourceTree = "<group>"; };
+		C358CBB929B235AF009E4060 /* MyPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageViewController.swift; sourceTree = "<group>"; };
 		C3D7DD3829A9024D0093248C /* AccountInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountInfoView.swift; sourceTree = "<group>"; };
 		D63110AB29628F1B00E7D52D /* SplashView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashView.swift; sourceTree = "<group>"; };
 		D63D64082966C77A00EC1BB7 /* HeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderView.swift; sourceTree = "<group>"; };
@@ -310,6 +313,7 @@
 		C3D7DD3729A901280093248C /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				C358CBB929B235AF009E4060 /* MyPageViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -866,6 +870,7 @@
 				DDC8FABA29705C6D00D10E2F /* homeBackground.json in Resources */,
 				DD38AD79295B02B80084FA70 /* LaunchScreen.storyboard in Resources */,
 				31A0C82C29715AD100BE6A9A /* card.png in Resources */,
+				C3D7DD3D29B1DE900093248C /* Config.xcconfig in Resources */,
 				D6C7B3D02961DFC2006877F3 /* Pretendard-Bold.otf in Resources */,
 				317DD565296AEBB7002C5B79 /* snail_orange_cheer.png in Resources */,
 				317DD566296AEBB7002C5B79 /* snail_green_cheer.png in Resources */,
@@ -951,6 +956,7 @@
 				311F8FCA2967FD9C00278E8F /* OnboardingCollectionViewCell.swift in Sources */,
 				DD64902E2968C53900A73CF4 /* HomeExistView.swift in Sources */,
 				D6C7B3CF296183D7006877F3 /* SocialLoginButton.swift in Sources */,
+				C358CBBA29B235AF009E4060 /* MyPageViewController.swift in Sources */,
 				DDDBC876296045A200F65F23 /* Const.swift in Sources */,
 				DD38AD6F295B02B70084FA70 /* SceneDelegate.swift in Sources */,
 				D6F427B12967CA2E00065A24 /* UILabel+.swift in Sources */,

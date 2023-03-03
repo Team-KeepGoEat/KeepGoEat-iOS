@@ -74,7 +74,7 @@ extension Const {
         static let saveGoalToastMessage = "목표가 저장되었습니다."
         
         // MARK: MyPage
-        static let accountInfoHeader = "나의 정보"
+        static let accountInfoHeader = "계정 정보"
         static let logout = "로그아웃"
         static let withdrawal = "탈퇴하기"
         static let logoutTitle = "로그아웃 하시겠어요?"
