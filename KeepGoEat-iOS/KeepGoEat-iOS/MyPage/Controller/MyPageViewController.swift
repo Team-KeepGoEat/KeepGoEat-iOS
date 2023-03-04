@@ -10,6 +10,7 @@ import UIKit
 class MyPageViewController: BaseViewController {
     
     private var accountInfoView = AccountInfoView()
+    private var logoutAlertView = LogoutAlertView()
 
     // MARK: LifeCycle
     override func viewDidLoad() {
@@ -22,6 +23,6 @@ class MyPageViewController: BaseViewController {
     override func loadView() {
         super.loadView()
         
-        self.view = accountInfoView
+        self.view = logoutAlertView
     }
 }

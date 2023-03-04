@@ -5,7 +5,6 @@
 //  Created by 정채은 on 2023/02/24.
 //
 
-// TODO: UI 뷰 짜기
 import UIKit
 
 import Then
