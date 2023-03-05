@@ -7,14 +7,20 @@
 
 import UIKit
 
+import SnapKit
+import Then
+
 class MyPageViewController: BaseViewController {
     
     private var accountInfoView = AccountInfoView()
-    private var logoutAlertView = LogoutAlertView()
 
+//    @IBOutlet weak var containerView: UIView!
+    var alertView: UIView! = LogoutAlertView()
+    
     // MARK: LifeCycle
     override func viewDidLoad() {
         super.viewDidLoad()
+//        setLayout()
     }
     override func viewWillAppear(_ animated: Bool) {
         navigationController?.setNavigationBarHidden(true, animated: true)
@@ -22,7 +28,15 @@ class MyPageViewController: BaseViewController {
     
     override func loadView() {
         super.loadView()
-        
-        self.view = logoutAlertView
+        self.view = accountInfoView
+    }
+}
+
+extension MyPageViewController {
+    private func setLayout() {
+//        containerView.addSubview(self.alertView)
+//        alertView.snp.makeConstraints{
+//            $0.edges.equalToSuperview()
+//        }
     }
 }

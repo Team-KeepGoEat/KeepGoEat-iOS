@@ -55,6 +55,7 @@ class AccountInfoView: UIView {
         super.init(frame: frame)
         setUI()
         setLayout()
+        setAddTarget()
     }
     
     required init?(coder: NSCoder) {
@@ -119,4 +120,25 @@ extension AccountInfoView {
             $0.leading.equalToSuperview().inset(16.adjusted)
         }
     }
+    
+    private func setAddTarget() {
+        logoutButton.addTarget(self, action: #selector(logoutButtonDidTap), for: .touchUpInside)
+        withdrawalButton.addTarget(self, action: #selector(withdrawalButtonDidTap), for: .touchUpInside)
+    }
+
+    @objc
+    private func logoutButtonDidTap(_ sender: UIButton) {        
+        let logoutAlertView = LogoutAlertView()
+        self.addSubview(logoutAlertView)
+        logoutAlertView.snp.makeConstraints{
+            $0.edges.equalToSuperview()
+        }
+        logoutAlertView.showAlert()
+    }
+    
+    @objc
+    private func withdrawalButtonDidTap() {
+        
+    }
+
 }
