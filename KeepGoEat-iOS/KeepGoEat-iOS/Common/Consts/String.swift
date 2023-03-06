@@ -81,5 +81,17 @@ extension Const {
         static let logoutDescription = "그동안의 기록은 사라지지 않으니\n안심하고 다녀오세요."
         static let noButton = "취소"
         static let yesButton = "네"
+        static let withdrawalTitle = "그동한 함께 해서 기뻤어요"
+        static let withdrawalDescription = "떠나는 이유를 모두 알려주시면 더 나은 킵고잇이 될게요."
+        static let stopEatCheckBox = "식습관 관리를 그만 뒀어요."
+        static let notUseCheckBox = "자주 사용하지 않아요."
+        static let errorCheckBox = "앱 오류가 있어요."
+        static let badContentsCheckBox = "콘텐츠가 만족스럽지 않아요."
+        static let manualInputCheckBox = "직접 입력"
+        static let manualInputDescription = "다른 이유가 있다면 알려주세요."
+        static let manualInputMessage = "탈퇴 이유를 작성해주세요."
+        static let withdrawalAlertTitle = "탈퇴는 되돌릴 수 없어요"
+        static let withdrawalAlertDescription = "이 계정에서 만든 목표와\n활동 기록이 모두 사라져요."
+        static let withdrawalAlertButton = "탈퇴"
     }
 }
