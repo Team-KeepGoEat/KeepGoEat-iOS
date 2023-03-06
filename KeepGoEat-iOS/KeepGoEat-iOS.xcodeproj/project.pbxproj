@@ -20,6 +20,9 @@
 		31A0C82E29715B5000BE6A9A /* plus.png in Resources */ = {isa = PBXBuildFile; fileRef = 31A0C82D29715B5000BE6A9A /* plus.png */; };
 		C358CBBA29B235AF009E4060 /* MyPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C358CBB929B235AF009E4060 /* MyPageViewController.swift */; };
 		C358CBBC29B2EAEF009E4060 /* LogoutAlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C358CBBB29B2EAEF009E4060 /* LogoutAlertView.swift */; };
+		C358CBC329B4FFFC009E4060 /* WithdrawalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C358CBC229B4FFFC009E4060 /* WithdrawalView.swift */; };
+		C358CBC529B50805009E4060 /* WithdrawalAlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C358CBC429B50805009E4060 /* WithdrawalAlertView.swift */; };
+		C358CBC729B5A504009E4060 /* CheckBoxButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = C358CBC629B5A504009E4060 /* CheckBoxButton.swift */; };
 		C3D7DD3929A9024D0093248C /* AccountInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3D7DD3829A9024D0093248C /* AccountInfoView.swift */; };
 		C3D7DD3D29B1DE900093248C /* Config.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = D6F5BB3D29680DE800C722AA /* Config.xcconfig */; };
 		D63110AC29628F1B00E7D52D /* SplashView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D63110AB29628F1B00E7D52D /* SplashView.swift */; };
@@ -129,6 +132,9 @@
 		31A0C82D29715B5000BE6A9A /* plus.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = plus.png; sourceTree = "<group>"; };
 		C358CBB929B235AF009E4060 /* MyPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageViewController.swift; sourceTree = "<group>"; };
 		C358CBBB29B2EAEF009E4060 /* LogoutAlertView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogoutAlertView.swift; sourceTree = "<group>"; };
+		C358CBC229B4FFFC009E4060 /* WithdrawalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WithdrawalView.swift; sourceTree = "<group>"; };
+		C358CBC429B50805009E4060 /* WithdrawalAlertView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WithdrawalAlertView.swift; sourceTree = "<group>"; };
+		C358CBC629B5A504009E4060 /* CheckBoxButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckBoxButton.swift; sourceTree = "<group>"; };
 		C3D7DD3829A9024D0093248C /* AccountInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountInfoView.swift; sourceTree = "<group>"; };
 		D63110AB29628F1B00E7D52D /* SplashView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashView.swift; sourceTree = "<group>"; };
 		D63D64082966C77A00EC1BB7 /* HeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderView.swift; sourceTree = "<group>"; };
@@ -309,6 +315,9 @@
 			children = (
 				C3D7DD3829A9024D0093248C /* AccountInfoView.swift */,
 				C358CBBB29B2EAEF009E4060 /* LogoutAlertView.swift */,
+				C358CBC229B4FFFC009E4060 /* WithdrawalView.swift */,
+				C358CBC629B5A504009E4060 /* CheckBoxButton.swift */,
+				C358CBC429B50805009E4060 /* WithdrawalAlertView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -966,6 +975,7 @@
 				DDE12FB3295B1114008CF91B /* GeneralResponse.swift in Sources */,
 				DDE12FBB295B11BC008CF91B /* LoginRouter.swift in Sources */,
 				DDE12FC9295B123B008CF91B /* GoalDetailService.swift in Sources */,
+				C358CBC529B50805009E4060 /* WithdrawalAlertView.swift in Sources */,
 				DDE12FC5295B122A008CF91B /* LoginService.swift in Sources */,
 				DDE8D3882969FF3800331E3C /* StoreGoalView.swift in Sources */,
 				D65C62F62962DEF30085832C /* adjust+.swift in Sources */,
@@ -982,6 +992,7 @@
 				D6B4D2332965BB6700661083 /* BottomSheetView.swift in Sources */,
 				DDE12FDD295B137E008CF91B /* GoalDetailResponse.swift in Sources */,
 				315AC8872966D4FF0005CCF2 /* String+.swift in Sources */,
+				C358CBC329B4FFFC009E4060 /* WithdrawalView.swift in Sources */,
 				DDE12FC7295B1232008CF91B /* HomeService.swift in Sources */,
 				DDDBC88529618FDA00F65F23 /* HomeCheerView.swift in Sources */,
 				DD5F29FD296C391000CAEB2D /* StoreCollectionViewCell.swift in Sources */,
@@ -996,6 +1007,7 @@
 				D64DCBA229650F020046C719 /* GoalDetailCollectionView.swift in Sources */,
 				DDE12FCB295B1244008CF91B /* NewGoalService.swift in Sources */,
 				DD849B0A295E77590030AF2F /* UIView+.swift in Sources */,
+				C358CBC729B5A504009E4060 /* CheckBoxButton.swift in Sources */,
 				DDE12FD3295B132C008CF91B /* HomeRequest.swift in Sources */,
 				DDE12FB5295B111D008CF91B /* NetworkResult.swift in Sources */,
 				DDE12FA7295B0E55008CF91B /* HomeViewController.swift in Sources */,
