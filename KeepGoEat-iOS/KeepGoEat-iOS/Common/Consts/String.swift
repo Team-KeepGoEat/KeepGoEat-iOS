@@ -81,7 +81,7 @@ extension Const {
         static let logoutDescription = "그동안의 기록은 사라지지 않으니\n안심하고 다녀오세요."
         static let noButton = "취소"
         static let yesButton = "네"
-        static let withdrawalTitle = "그동한 함께 해서 기뻤어요"
+        static let withdrawalTitle = "그동안 함께 해서 기뻤어요"
         static let withdrawalDescription = "떠나는 이유를 모두 알려주시면 더 나은 킵고잇이 될게요."
         static let stopEatCheckBox = "식습관 관리를 그만 뒀어요."
         static let notUseCheckBox = "자주 사용하지 않아요."

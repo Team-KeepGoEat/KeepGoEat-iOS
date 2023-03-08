@@ -20,6 +20,7 @@ class MyPageViewController: BaseViewController {
     // MARK: LifeCycle
     override func viewDidLoad() {
         super.viewDidLoad()
+        setDelegate()
 
     }
     override func viewWillAppear(_ animated: Bool) {
@@ -28,6 +29,24 @@ class MyPageViewController: BaseViewController {
     
     override func loadView() {
         super.loadView()
-        self.view = withdrawalView
+        self.view = accountInfoView
+    }
+    
+    private func setDelegate() {
+        accountInfoView.handleWithdrawalButtonDelegate = self
+        accountInfoView.headerView.handleBackButtonDelegate = self
+    }
+}
+
+extension MyPageViewController: HandleWithdrawalButtonDelegate {
+    func pushWithdrawal() {
+        self.navigationController?.pushViewController(WithdrawalViewController(), animated: true)
+    }
+}
+
+
+extension MyPageViewController: HandleBackButtonDelegate {
+    func popView() {
+        self.navigationController?.popViewController(animated: true)
     }
 }

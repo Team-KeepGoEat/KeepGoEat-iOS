@@ -23,6 +23,7 @@
 		C358CBC329B4FFFC009E4060 /* WithdrawalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C358CBC229B4FFFC009E4060 /* WithdrawalView.swift */; };
 		C358CBC529B50805009E4060 /* WithdrawalAlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C358CBC429B50805009E4060 /* WithdrawalAlertView.swift */; };
 		C358CBC729B5A504009E4060 /* CheckBoxButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = C358CBC629B5A504009E4060 /* CheckBoxButton.swift */; };
+		C358CBCB29B88F7F009E4060 /* WithdrawalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C358CBCA29B88F7F009E4060 /* WithdrawalViewController.swift */; };
 		C3D7DD3929A9024D0093248C /* AccountInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3D7DD3829A9024D0093248C /* AccountInfoView.swift */; };
 		C3D7DD3D29B1DE900093248C /* Config.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = D6F5BB3D29680DE800C722AA /* Config.xcconfig */; };
 		D63110AC29628F1B00E7D52D /* SplashView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D63110AB29628F1B00E7D52D /* SplashView.swift */; };
@@ -135,6 +136,7 @@
 		C358CBC229B4FFFC009E4060 /* WithdrawalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WithdrawalView.swift; sourceTree = "<group>"; };
 		C358CBC429B50805009E4060 /* WithdrawalAlertView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WithdrawalAlertView.swift; sourceTree = "<group>"; };
 		C358CBC629B5A504009E4060 /* CheckBoxButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckBoxButton.swift; sourceTree = "<group>"; };
+		C358CBCA29B88F7F009E4060 /* WithdrawalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WithdrawalViewController.swift; sourceTree = "<group>"; };
 		C3D7DD3829A9024D0093248C /* AccountInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountInfoView.swift; sourceTree = "<group>"; };
 		D63110AB29628F1B00E7D52D /* SplashView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashView.swift; sourceTree = "<group>"; };
 		D63D64082966C77A00EC1BB7 /* HeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderView.swift; sourceTree = "<group>"; };
@@ -326,6 +328,7 @@
 			isa = PBXGroup;
 			children = (
 				C358CBB929B235AF009E4060 /* MyPageViewController.swift */,
+				C358CBCA29B88F7F009E4060 /* WithdrawalViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -948,6 +951,7 @@
 				D69F23BD296317210078FCF1 /* GoalDetailCollectionViewCell.swift in Sources */,
 				DD38AD6D295B02B70084FA70 /* AppDelegate.swift in Sources */,
 				DDA7B71C29685E67001950A2 /* HomeGoalCollectionViewCell.swift in Sources */,
+				C358CBCB29B88F7F009E4060 /* WithdrawalViewController.swift in Sources */,
 				D67E6117296AAC3600CA8CEB /* Encodable+.swift in Sources */,
 				DDE12FB1295B110C008CF91B /* URLConstant.swift in Sources */,
 				DDB02FCD296DA5DD00D1E7AB /* HomeBottomSheetView.swift in Sources */,

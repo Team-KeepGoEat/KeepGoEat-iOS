@@ -88,7 +88,7 @@ extension HomeViewController: HandleCustomButtonDelegate {
 
 extension HomeViewController: HandleMyPageButtonDelegate {
     func pushMyPage() {
-        self.navigationController?.pushViewController(StoreGoalViewController(), animated: true)
+        self.navigationController?.pushViewController(MyPageViewController(), animated: true)
     }
 }
 

@@ -10,11 +10,17 @@ import UIKit
 import Then
 import SnapKit
 
+protocol HandleWithdrawalButtonDelegate: AnyObject {
+    func pushWithdrawal()
+}
+
 class AccountInfoView: UIView {
+    
+    weak var handleWithdrawalButtonDelegate: HandleWithdrawalButtonDelegate?
     
     // MARK: Component
     
-    private let headerView: HeaderView = HeaderView()
+    let headerView: HeaderView = HeaderView()
     
     private let headerViewTitle = UILabel().then {
         $0.text = Const.String.accountInfoHeader
@@ -136,9 +142,8 @@ extension AccountInfoView {
         logoutAlertView.showAlert()
     }
     
-    @objc
-    private func withdrawalButtonDidTap() {
-        
+    @objc func withdrawalButtonDidTap() {
+        self.handleWithdrawalButtonDelegate?.pushWithdrawal()
     }
 
 }
