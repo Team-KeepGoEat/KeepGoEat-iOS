@@ -74,6 +74,19 @@ extension Const {
         static let saveGoalToastMessage = "목표가 저장되었습니다."
         
         // MARK: MyPage
+        static let myPage = "마이페이지"
+        static let storeGoal = "보관한 목표"
+        static let contactAndReview = "문의 및 피드백"
+        static let contact = "문의하기"
+        static let review = "리뷰 남기기"
+        static let appInfo = "앱 정보"
+        static let servicePresent = "서비스 소개"
+        static let versionInfo = "버전 정보"
+        static let termsAndPrivacy = "약관 및 정책"
+        static let serviceTerms = "서비스 이용약관"
+        static let privacy = "개인정보처리방침"
+        
+        // MARK: AccountInfo
         static let accountInfoHeader = "계정 정보"
         static let logout = "로그아웃"
         static let withdrawal = "탈퇴하기"
@@ -81,6 +94,8 @@ extension Const {
         static let logoutDescription = "그동안의 기록은 사라지지 않으니\n안심하고 다녀오세요."
         static let noButton = "취소"
         static let yesButton = "네"
+        
+        // MARK: Withdrawal
         static let withdrawalTitle = "그동안 함께 해서 기뻤어요"
         static let withdrawalDescription = "떠나는 이유를 모두 알려주시면 더 나은 킵고잇이 될게요."
         static let stopEatCheckBox = "식습관 관리를 그만 뒀어요."

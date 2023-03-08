@@ -12,10 +12,8 @@ import Then
 
 class MyPageViewController: BaseViewController {
     
-    private var accountInfoView = AccountInfoView()
-    private var withdrawalView = WithdrawalView()
+//    private var accountInfoView = AccountInfoView()
 
-    var alertView: UIView! = LogoutAlertView()
     
     // MARK: LifeCycle
     override func viewDidLoad() {
@@ -29,18 +27,18 @@ class MyPageViewController: BaseViewController {
     
     override func loadView() {
         super.loadView()
-        self.view = accountInfoView
+//        self.view = accountInfoView
     }
     
     private func setDelegate() {
-        accountInfoView.handleWithdrawalButtonDelegate = self
-        accountInfoView.headerView.handleBackButtonDelegate = self
+//        accountInfoView.handleWithdrawalButtonDelegate = self
+//        accountInfoView.headerView.handleBackButtonDelegate = self
     }
 }
 
 extension MyPageViewController: HandleWithdrawalButtonDelegate {
-    func pushWithdrawal() {
-        self.navigationController?.pushViewController(WithdrawalViewController(), animated: true)
+//    func pushWithdrawal() {
+//        self.navigationController?.pushViewController(WithdrawalViewController(), animated: true)
     }
 }
 

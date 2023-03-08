@@ -24,6 +24,8 @@
 		C358CBC529B50805009E4060 /* WithdrawalAlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C358CBC429B50805009E4060 /* WithdrawalAlertView.swift */; };
 		C358CBC729B5A504009E4060 /* CheckBoxButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = C358CBC629B5A504009E4060 /* CheckBoxButton.swift */; };
 		C358CBCB29B88F7F009E4060 /* WithdrawalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C358CBCA29B88F7F009E4060 /* WithdrawalViewController.swift */; };
+		C358CBCD29B897CE009E4060 /* AccountInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C358CBCC29B897CE009E4060 /* AccountInfoViewController.swift */; };
+		C358CBCF29B8BF13009E4060 /* MyPageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C358CBCE29B8BF13009E4060 /* MyPageView.swift */; };
 		C3D7DD3929A9024D0093248C /* AccountInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3D7DD3829A9024D0093248C /* AccountInfoView.swift */; };
 		C3D7DD3D29B1DE900093248C /* Config.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = D6F5BB3D29680DE800C722AA /* Config.xcconfig */; };
 		D63110AC29628F1B00E7D52D /* SplashView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D63110AB29628F1B00E7D52D /* SplashView.swift */; };
@@ -137,6 +139,8 @@
 		C358CBC429B50805009E4060 /* WithdrawalAlertView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WithdrawalAlertView.swift; sourceTree = "<group>"; };
 		C358CBC629B5A504009E4060 /* CheckBoxButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckBoxButton.swift; sourceTree = "<group>"; };
 		C358CBCA29B88F7F009E4060 /* WithdrawalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WithdrawalViewController.swift; sourceTree = "<group>"; };
+		C358CBCC29B897CE009E4060 /* AccountInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountInfoViewController.swift; sourceTree = "<group>"; };
+		C358CBCE29B8BF13009E4060 /* MyPageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageView.swift; sourceTree = "<group>"; };
 		C3D7DD3829A9024D0093248C /* AccountInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountInfoView.swift; sourceTree = "<group>"; };
 		D63110AB29628F1B00E7D52D /* SplashView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashView.swift; sourceTree = "<group>"; };
 		D63D64082966C77A00EC1BB7 /* HeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderView.swift; sourceTree = "<group>"; };
@@ -315,6 +319,7 @@
 		C3D7DD3629A901210093248C /* View */ = {
 			isa = PBXGroup;
 			children = (
+				C358CBCE29B8BF13009E4060 /* MyPageView.swift */,
 				C3D7DD3829A9024D0093248C /* AccountInfoView.swift */,
 				C358CBBB29B2EAEF009E4060 /* LogoutAlertView.swift */,
 				C358CBC229B4FFFC009E4060 /* WithdrawalView.swift */,
@@ -329,6 +334,7 @@
 			children = (
 				C358CBB929B235AF009E4060 /* MyPageViewController.swift */,
 				C358CBCA29B88F7F009E4060 /* WithdrawalViewController.swift */,
+				C358CBCC29B897CE009E4060 /* AccountInfoViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -939,6 +945,7 @@
 				D69F23BB296316A80078FCF1 /* GoalDetailView.swift in Sources */,
 				DDE8D38C296A0C3800331E3C /* StoreFilterButton.swift in Sources */,
 				D6E74E51296FEF8A00F278EC /* RootViewControllerSwitcher.swift in Sources */,
+				C358CBCD29B897CE009E4060 /* AccountInfoViewController.swift in Sources */,
 				DD849B00295E759E0030AF2F /* StoreGoalResponse.swift in Sources */,
 				DDE12FBD295B11E8008CF91B /* HomeRouter.swift in Sources */,
 				DD5F29FF296C39D400CAEB2D /* StoreCollectionView.swift in Sources */,
@@ -1004,6 +1011,7 @@
 				D6F0233C29632EF700524000 /* GoalStatsView.swift in Sources */,
 				DDE12FC3295B121B008CF91B /* NewGoalRouter.swift in Sources */,
 				DDE12FA4295B0E2A008CF91B /* LoginViewController.swift in Sources */,
+				C358CBCF29B8BF13009E4060 /* MyPageView.swift in Sources */,
 				D6C505802969A7B900BE4543 /* SaveBottomSheetView.swift in Sources */,
 				D69FA2C829617D890056A175 /* SplashViewController.swift in Sources */,
 				DDA7B72029687B91001950A2 /* HomeAchieveButton.swift in Sources */,
