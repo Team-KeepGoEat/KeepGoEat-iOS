@@ -31,16 +31,16 @@ class MyPageViewController: BaseViewController {
     }
     
     private func setDelegate() {
-//        accountInfoView.handleWithdrawalButtonDelegate = self
+        myPageView.handleAccountButtonDelegate = self
         myPageView.headerView.handleBackButtonDelegate = self
     }
 }
 
-//extension MyPageViewController: HandleWithdrawalButtonDelegate {
-//    func pushWithdrawal() {
-//        self.navigationController?.pushViewController(WithdrawalViewController(), animated: true)
-//    }
-//}
+extension MyPageViewController: HandleAccountButtonDelegate {
+    func pushAccountInfo() {
+        self.navigationController?.pushViewController(AccountInfoViewController(), animated: true)
+    }
+}
 
 
 extension MyPageViewController: HandleBackButtonDelegate {

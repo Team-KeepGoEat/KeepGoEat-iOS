@@ -12,8 +12,13 @@ import SnapKit
 
 //TODO: 유저네임 버튼 레이아웃
 
+protocol HandleAccountButtonDelegate: AnyObject {
+    func pushAccountInfo()
+}
 
 class MyPageView: UIView {
+    
+    weak var handleAccountButtonDelegate: HandleAccountButtonDelegate?
     
     // MARK: Component
     
@@ -279,41 +284,43 @@ extension MyPageView {
     }
     
     private func setAddTarget() {
-        accountButton.addTarget(self, action: #selector(tapAccountButton), for: .touchUpInside)
-        storeGoalButton.addTarget(self, action: #selector(tapStoreGoalButton), for: .touchUpInside)
-        storeGoalSubPageButton.addTarget(self, action: #selector(tapStoreGoalSubPageButton), for: .touchUpInside)
-        contactButton.addTarget(self, action: #selector(tapContactButton), for: .touchUpInside)
-        reviewButton.addTarget(self, action: #selector(tapReviewButton), for: .touchUpInside)
-        servicePresentButton.addTarget(self, action: #selector(tapServicePresentButton), for: .touchUpInside)
-        serviceTermsButton.addTarget(self, action: #selector(tapServiceTermsButton), for: .touchUpInside)
-        privacyButton.addTarget(self, action: #selector(tapPrivacyButton), for: .touchUpInside)
+        accountButton.addTarget(self, action: #selector(accountButtonDidTap), for: .touchUpInside)
+        storeGoalButton.addTarget(self, action: #selector(storeGoalButtonDidTap), for: .touchUpInside)
+        storeGoalSubPageButton.addTarget(self, action: #selector(storeGoalSubPageButtonDidTap), for: .touchUpInside)
+        contactButton.addTarget(self, action: #selector(contactButtonDidTap), for: .touchUpInside)
+        reviewButton.addTarget(self, action: #selector(reviewButtonDidTap), for: .touchUpInside)
+        servicePresentButton.addTarget(self, action: #selector(servicePresentButtonDidTap), for: .touchUpInside)
+        serviceTermsButton.addTarget(self, action: #selector(serviceTermsButtonDidTap), for: .touchUpInside)
+        privacyButton.addTarget(self, action: #selector(privacyButtonDidTap), for: .touchUpInside)
         
     }
     
-    @objc func tapAccountButton(){
+    @objc func accountButtonDidTap(){
+        self.handleAccountButtonDelegate?.pushAccountInfo()
+    }
+    @objc func storeGoalButtonDidTap(){
         
     }
-    @objc func tapStoreGoalButton(){
+    @objc func storeGoalSubPageButtonDidTap(){
         
     }
-    @objc func tapStoreGoalSubPageButton(){
+    @objc func contactButtonDidTap(){
         
     }
-    @objc func tapContactButton(){
+    @objc func reviewButtonDidTap(){
         
     }
-    @objc func tapReviewButton(){
+    @objc func servicePresentButtonDidTap(){
         
     }
-    @objc func tapServicePresentButton(){
+    @objc func serviceTermsButtonDidTap(){
         
     }
-    @objc func tapServiceTermsButton(){
+    @objc func privacyButtonDidTap(){
         
     }
-    @objc func tapPrivacyButton(){
-        
-    }
+    
+    
     
 }
 
