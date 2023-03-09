@@ -298,10 +298,62 @@
 			path = Controller;
 			sourceTree = "<group>";
 		};
+		C358CBD029B9A5B6009E4060 /* Withdrawal */ = {
+			isa = PBXGroup;
+			children = (
+				C358CBD129B9A61C009E4060 /* View */,
+				C358CBD229B9A627009E4060 /* Controller */,
+			);
+			path = Withdrawal;
+			sourceTree = "<group>";
+		};
+		C358CBD129B9A61C009E4060 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				C358CBC629B5A504009E4060 /* CheckBoxButton.swift */,
+				C358CBC229B4FFFC009E4060 /* WithdrawalView.swift */,
+				C358CBC429B50805009E4060 /* WithdrawalAlertView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		C358CBD229B9A627009E4060 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				C358CBCA29B88F7F009E4060 /* WithdrawalViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		C358CBD329B9A639009E4060 /* AccountInfo */ = {
+			isa = PBXGroup;
+			children = (
+				C358CBD429B9A655009E4060 /* View */,
+				C358CBD529B9A658009E4060 /* Controller */,
+			);
+			path = AccountInfo;
+			sourceTree = "<group>";
+		};
+		C358CBD429B9A655009E4060 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				C358CBBB29B2EAEF009E4060 /* LogoutAlertView.swift */,
+				C3D7DD3829A9024D0093248C /* AccountInfoView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		C358CBD529B9A658009E4060 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				C358CBCC29B897CE009E4060 /* AccountInfoViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
 		C3D7DD3429A9008B0093248C /* MyPage */ = {
 			isa = PBXGroup;
 			children = (
-				C3D7DD3529A901040093248C /* Cell */,
 				C3D7DD3629A901210093248C /* View */,
 				C3D7DD3729A901280093248C /* Controller */,
 			);
@@ -309,22 +361,10 @@
 			path = ../MyPage;
 			sourceTree = "<group>";
 		};
-		C3D7DD3529A901040093248C /* Cell */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Cell;
-			sourceTree = "<group>";
-		};
 		C3D7DD3629A901210093248C /* View */ = {
 			isa = PBXGroup;
 			children = (
 				C358CBCE29B8BF13009E4060 /* MyPageView.swift */,
-				C3D7DD3829A9024D0093248C /* AccountInfoView.swift */,
-				C358CBBB29B2EAEF009E4060 /* LogoutAlertView.swift */,
-				C358CBC229B4FFFC009E4060 /* WithdrawalView.swift */,
-				C358CBC629B5A504009E4060 /* CheckBoxButton.swift */,
-				C358CBC429B50805009E4060 /* WithdrawalAlertView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -333,8 +373,6 @@
 			isa = PBXGroup;
 			children = (
 				C358CBB929B235AF009E4060 /* MyPageViewController.swift */,
-				C358CBCA29B88F7F009E4060 /* WithdrawalViewController.swift */,
-				C358CBCC29B897CE009E4060 /* AccountInfoViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -458,6 +496,8 @@
 				DDE12F89295B0B2D008CF91B /* Resource */,
 				DDE12F88295B0B26008CF91B /* Common */,
 				DDE12F87295B0B1F008CF91B /* Presentation */,
+				C358CBD329B9A639009E4060 /* AccountInfo */,
+				C358CBD029B9A5B6009E4060 /* Withdrawal */,
 				DDE12F86295B0B18008CF91B /* Network */,
 				DDE12F85295B0B0D008CF91B /* Data */,
 			);
