@@ -82,6 +82,7 @@ extension Const {
         static let appInfo = "앱 정보"
         static let servicePresent = "서비스 소개"
         static let versionInfo = "버전 정보"
+        static let version = "1.0.0"
         static let termsAndPrivacy = "약관 및 정책"
         static let serviceTerms = "서비스 이용약관"
         static let privacy = "개인정보처리방침"

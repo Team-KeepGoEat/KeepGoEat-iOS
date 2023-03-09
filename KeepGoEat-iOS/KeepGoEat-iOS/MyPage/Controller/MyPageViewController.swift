@@ -12,7 +12,7 @@ import Then
 
 class MyPageViewController: BaseViewController {
     
-//    private var accountInfoView = AccountInfoView()
+    private var myPageView = MyPageView()
 
     
     // MARK: LifeCycle
@@ -27,20 +27,20 @@ class MyPageViewController: BaseViewController {
     
     override func loadView() {
         super.loadView()
-//        self.view = accountInfoView
+        self.view = myPageView
     }
     
     private func setDelegate() {
 //        accountInfoView.handleWithdrawalButtonDelegate = self
-//        accountInfoView.headerView.handleBackButtonDelegate = self
+        myPageView.headerView.handleBackButtonDelegate = self
     }
 }
 
-extension MyPageViewController: HandleWithdrawalButtonDelegate {
+//extension MyPageViewController: HandleWithdrawalButtonDelegate {
 //    func pushWithdrawal() {
 //        self.navigationController?.pushViewController(WithdrawalViewController(), animated: true)
-    }
-}
+//    }
+//}
 
 
 extension MyPageViewController: HandleBackButtonDelegate {
