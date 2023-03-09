@@ -21,8 +21,8 @@ class AccountInfoViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setDelegate()
-
     }
+    
     override func viewWillAppear(_ animated: Bool) {
         navigationController?.setNavigationBarHidden(true, animated: true)
     }
@@ -43,7 +43,6 @@ extension AccountInfoViewController: HandleWithdrawalButtonDelegate {
         self.navigationController?.pushViewController(WithdrawalViewController(), animated: true)
     }
 }
-
 
 extension AccountInfoViewController: HandleBackButtonDelegate {
     func popView() {

@@ -13,14 +13,13 @@ import Then
 class MyPageViewController: BaseViewController {
     
     private var myPageView = MyPageView()
-
     
     // MARK: LifeCycle
     override func viewDidLoad() {
         super.viewDidLoad()
         setDelegate()
-
     }
+    
     override func viewWillAppear(_ animated: Bool) {
         navigationController?.setNavigationBarHidden(true, animated: true)
     }
@@ -41,7 +40,6 @@ extension MyPageViewController: HandleAccountButtonDelegate {
         self.navigationController?.pushViewController(AccountInfoViewController(), animated: true)
     }
 }
-
 
 extension MyPageViewController: HandleBackButtonDelegate {
     func popView() {

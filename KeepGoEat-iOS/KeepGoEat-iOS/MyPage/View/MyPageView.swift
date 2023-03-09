@@ -35,7 +35,6 @@ class MyPageView: UIView {
         $0.setTitleColor(.gray800, for: .normal)
         $0.titleLabel?.font = .system3Bold
         $0.setImage(Const.Image.icnSubpage, for: .normal)
-//        $0.contentEdgeInsets = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
         $0.semanticContentAttribute = .forceRightToLeft
     }
     
@@ -142,15 +141,17 @@ class MyPageView: UIView {
         setLayout()
         setAddTarget()
     }
+    
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
 }
+
 extension MyPageView {
     private func setUI() {
         self.backgroundColor = .white
     }
+    
     private func setLayout() {
         self.addSubviews(
         headerView,
@@ -197,90 +198,100 @@ extension MyPageView {
             $0.top.equalTo(headerView.snp.bottom).offset(20.adjusted)
             $0.leading.equalToSuperview().inset(16.adjusted)
         }
-//        accountButton.imageView?.snp.makeConstraints {
-//            $0.right.equalToSuperview()
-//        }
-//        accountButton.titleLabel?.snp.makeConstraints {
-//            $0.left.equalToSuperview()
-//        }
+
         emailLabel.snp.makeConstraints{
             $0.top.equalTo(accountButton.snp.bottom)
             $0.leading.equalTo(accountButton)
         }
+        
         storeGoalButton.snp.makeConstraints{
             $0.leading.equalToSuperview().inset(14.adjusted)
             $0.top.equalTo(emailLabel.snp.bottom).offset(24.adjusted)
             $0.width.equalTo(102.adjusted)
         }
+        
         storeGoalLabel.snp.makeConstraints{
             $0.leading.equalToSuperview().inset(2.adjusted)
             $0.centerY.equalToSuperview()
         }
+        
         storeGoalCount.snp.makeConstraints{
-            //TODO: 레이아웃 다시 설정 필요
             $0.trailing.equalToSuperview().offset(-7.adjusted)
             $0.centerY.equalToSuperview()
         }
+        
         storeGoalSubPageButton.snp.makeConstraints{
             $0.trailing.equalToSuperview().inset(14.adjusted)
             $0.centerY.equalTo(storeGoalButton)
         }
+        
         lineView1.snp.makeConstraints{
             $0.width.equalToSuperview()
             $0.height.equalTo(2.adjusted)
             $0.top.equalTo(storeGoalButton.snp.bottom).offset(12.adjusted)
         }
+        
         contactAndReviewLabel.snp.makeConstraints{
             $0.top.equalTo(lineView1.snp.bottom).offset(16.adjusted)
             $0.leading.equalToSuperview().inset(16.adjusted)
         }
+        
         contactButton.snp.makeConstraints{
             $0.top.equalTo(contactAndReviewLabel.snp.bottom).offset(16.adjusted)
             $0.leading.equalTo(contactAndReviewLabel)
         }
+        
         reviewButton.snp.makeConstraints{
             $0.top.equalTo(contactButton.snp.bottom).offset(24.adjusted)
             $0.leading.equalTo(contactAndReviewLabel)
         }
+        
         lineView2.snp.makeConstraints{
             $0.width.equalToSuperview()
             $0.height.equalTo(2.adjusted)
             $0.top.equalTo(reviewButton.snp.bottom).offset(16.adjusted)
         }
+        
         appInfoLabel.snp.makeConstraints{
             $0.top.equalTo(lineView2.snp.bottom).offset(16.adjusted)
             $0.leading.equalToSuperview().inset(16.adjusted)
         }
+        
         servicePresentButton.snp.makeConstraints{
             $0.top.equalTo(appInfoLabel.snp.bottom).offset(16.adjusted)
             $0.leading.equalTo(appInfoLabel)
         }
+        
         versionInfoLabel.snp.makeConstraints{
             $0.top.equalTo(servicePresentButton.snp.bottom).offset(24.adjusted)
             $0.leading.equalTo(appInfoLabel)
         }
+        
         versionLabel.snp.makeConstraints{
             $0.centerY.equalTo(versionInfoLabel)
             $0.trailing.equalToSuperview().inset(15.adjusted)
         }
+        
         lineView3.snp.makeConstraints{
             $0.width.equalToSuperview()
             $0.height.equalTo(2.adjusted)
             $0.top.equalTo(versionInfoLabel.snp.bottom).offset(16.adjusted)
         }
+        
         termsAndPrivacyLabel.snp.makeConstraints{
             $0.top.equalTo(lineView3.snp.bottom).offset(16.adjusted)
             $0.leading.equalToSuperview().inset(16.adjusted)
         }
+        
         serviceTermsButton.snp.makeConstraints{
             $0.top.equalTo(termsAndPrivacyLabel.snp.bottom).offset(16.adjusted)
             $0.leading.equalTo(termsAndPrivacyLabel)
         }
+        
         privacyButton.snp.makeConstraints{
             $0.top.equalTo(serviceTermsButton.snp.bottom).offset(20.adjusted)
             $0.leading.equalTo(termsAndPrivacyLabel)
         }
-        
     }
     
     private func setAddTarget() {
@@ -298,29 +309,33 @@ extension MyPageView {
     @objc func accountButtonDidTap(){
         self.handleAccountButtonDelegate?.pushAccountInfo()
     }
+    
     @objc func storeGoalButtonDidTap(){
         
     }
+    
     @objc func storeGoalSubPageButtonDidTap(){
         
     }
+    
     @objc func contactButtonDidTap(){
         
     }
+    
     @objc func reviewButtonDidTap(){
         
     }
+    
     @objc func servicePresentButtonDidTap(){
         
     }
+    
     @objc func serviceTermsButtonDidTap(){
         
     }
+    
     @objc func privacyButtonDidTap(){
         
-    }
-    
-    
-    
+    } 
 }
 

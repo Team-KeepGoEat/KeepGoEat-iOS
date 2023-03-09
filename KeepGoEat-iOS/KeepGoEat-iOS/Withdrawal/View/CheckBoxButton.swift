@@ -33,36 +33,32 @@ class CheckBoxButton: UIButton {
             }
         }
     }
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         setAddTarget()
         setUI()
-        
     }
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
-        
     }
     
     private func setAddTarget() {
         self.addTarget(self, action:#selector(buttonTapped(sender:)), for: .touchUpInside)
         isChecked = false
-        
 //        label.isUserInteractionEnabled = true
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(self.labelTapped))
         label.addGestureRecognizer(tapGesture)
     }
     
     private func setUI() {
-        
         self.addSubview(label)
         label.snp.makeConstraints{
             $0.centerY.equalToSuperview()
             $0.leading.equalTo(self.snp.trailing).offset(4.adjusted)
         }
         label.translatesAutoresizingMaskIntoConstraints = false
-        
     }
     
     @objc func labelTapped(_ sender: UITapGestureRecognizer) {
@@ -71,8 +67,8 @@ class CheckBoxButton: UIButton {
     }
     
     @objc func buttonTapped(sender: UIButton) {
-            if sender == self {
-                isChecked = !isChecked
-            }
+        if sender == self {
+            isChecked = !isChecked
         }
+    }
 }

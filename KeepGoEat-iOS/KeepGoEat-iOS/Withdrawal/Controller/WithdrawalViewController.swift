@@ -15,7 +15,6 @@ class WithdrawalViewController: BaseViewController {
     
     private var withdrawalView = WithdrawalView()
     
-    
     // MARK: LifeCycle
     override func viewDidLoad() {
         super.viewDidLoad()

@@ -22,7 +22,6 @@ class WithdrawalAlertView: UIView {
         $0.clipsToBounds = true
     }
     
-    
     private let bodyStackView = UIStackView().then {
         $0.axis = .vertical
         $0.spacing = 16.adjusted
@@ -73,7 +72,6 @@ class WithdrawalAlertView: UIView {
     // MARK: LifeCycle
     override init(frame: CGRect) {
         super.init(frame: CGRect.zero)
-        
         setUI()
         setAddTarget()
         setLayout()
@@ -87,7 +85,6 @@ class WithdrawalAlertView: UIView {
         if isAlertPresented {
                 return
             }
-        
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(dismissAlert))
         transparentView.addGestureRecognizer(tapGesture)
         self.addSubview(transparentView)
@@ -103,7 +100,6 @@ class WithdrawalAlertView: UIView {
 //        print(self.superview?.subviews ?? [])
         isAlertPresented = false
     }
-    
 }
     
 extension WithdrawalAlertView {

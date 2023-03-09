@@ -66,7 +66,6 @@ class WithdrawalView: UIView, UITextViewDelegate{
         $0.borderColor = .gray200
         $0.borderWidth = 1
         $0.isEditable = false
-        
         if $0.text.isEmpty {
             $0.text = Const.String.manualInputDescription
             $0.font = .system5
@@ -137,6 +136,7 @@ extension WithdrawalView {
     private func setUI() {
         self.backgroundColor = .white
     }
+    
     private func setLayout() {
         self.addSubviews(
             headerView,
@@ -175,44 +175,54 @@ extension WithdrawalView {
             $0.centerY.equalToSuperview()
             $0.centerX.equalToSuperview()
         }
+        
         withdrawalTitle.snp.makeConstraints{
             $0.top.equalTo(headerView.snp.bottom).offset(24.adjusted)
             $0.leading.equalTo(16.adjusted)
         }
+        
         withdrawalDescription.snp.makeConstraints{
             $0.top.equalTo(withdrawalTitle.snp.bottom).offset(4.adjusted)
             $0.leading.equalTo(withdrawalTitle)
         }
+        
         stopEatButton.snp.makeConstraints{
             $0.top.equalTo(withdrawalDescription.snp.bottom).offset(16.adjusted)
             $0.leading.equalTo(withdrawalTitle)
         }
+        
         notUseCheckBox.snp.makeConstraints{
             $0.top.equalTo(stopEatButton.snp.bottom).offset(24.adjusted)
             $0.leading.equalTo(withdrawalTitle)
         }
+        
         errorCheckBox.snp.makeConstraints{
             $0.top.equalTo(notUseCheckBox.snp.bottom).offset(24.adjusted)
             $0.leading.equalTo(withdrawalTitle)
         }
+        
         badContentsCheckBox.snp.makeConstraints{
             $0.top.equalTo(errorCheckBox.snp.bottom).offset(24.adjusted)
             $0.leading.equalTo(withdrawalTitle)
         }
+        
         manualInputCheckBox.snp.makeConstraints{
             $0.top.equalTo(badContentsCheckBox.snp.bottom).offset(24.adjusted)
             $0.leading.equalTo(withdrawalTitle)
         }
+        
         manualInputTextView.snp.makeConstraints{
             $0.top.equalTo(manualInputCheckBox.snp.bottom).offset(8.adjusted)
             $0.centerX.equalToSuperview()
             $0.leading.trailing.equalTo(withdrawalTitle)
             $0.height.equalTo(104.adjusted)
         }
+        
         manualInputMessage.snp.makeConstraints{
             $0.top.equalTo(manualInputTextView.snp.bottom).offset(8.adjusted)
             $0.leading.equalTo(20.adjusted)
         }
+        
         withdrawalConfirmButton.snp.makeConstraints{
             $0.bottom.equalToSuperview().offset(-44.adjusted)
             $0.centerX.equalToSuperview()
@@ -227,7 +237,6 @@ extension WithdrawalView {
         self.addGestureRecognizer(tapGesture)
         withdrawalConfirmButton.addTarget(self, action: #selector(withdrawalConfirmButtonDidTap), for: .touchUpInside)
     }
-
     
     @objc func dismissKeyboard() {
         self.endEditing(true)
@@ -240,11 +249,11 @@ extension WithdrawalView {
         } else {
             manualInputMessage.isHidden = true
             let withdrawalAlertView = WithdrawalAlertView()
-                self.addSubview(withdrawalAlertView)
-                withdrawalAlertView.snp.makeConstraints{
-                    $0.edges.equalToSuperview()
-                }
-                withdrawalAlertView.showAlert()
+            self.addSubview(withdrawalAlertView)
+            withdrawalAlertView.snp.makeConstraints{
+                $0.edges.equalToSuperview()
+            }
+            withdrawalAlertView.showAlert()
         }
     }
     
