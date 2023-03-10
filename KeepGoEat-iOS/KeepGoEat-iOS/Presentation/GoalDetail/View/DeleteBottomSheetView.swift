@@ -78,10 +78,10 @@ extension DeleteBottomSheetView {
         }
         
         deleteImage.snp.makeConstraints {
-            $0.top.equalTo(descriptionLabel.snp.bottom).inset(-20.adjusted)
+            $0.top.equalTo(descriptionLabel.snp.bottom).inset(-8.adjusted)
             $0.centerX.equalToSuperview()
-            $0.width.equalTo(80.adjusted)
-            $0.height.equalTo(80.adjusted)
+            $0.width.equalTo(100.adjusted)
+            $0.height.equalTo(100.adjusted)
         }
         
         cancelButton.snp.makeConstraints {
