@@ -63,7 +63,7 @@ class CheckBoxButton: UIButton {
     
     @objc func labelTapped(_ sender: UITapGestureRecognizer) {
         isChecked = !isChecked
-//        self.buttonTapped(sender: self)
+        self.buttonTapped(sender: self)
     }
     
     @objc func buttonTapped(sender: UIButton) {

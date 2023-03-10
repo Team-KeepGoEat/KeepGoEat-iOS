@@ -10,15 +10,18 @@ import UIKit
 import Then
 import SnapKit
 
-//TODO: 유저네임 버튼 레이아웃
-
 protocol HandleAccountButtonDelegate: AnyObject {
     func pushAccountInfo()
+}
+
+protocol HandleStoreGoalButtonDelegate : AnyObject {
+    func pushStoreGoal()
 }
 
 class MyPageView: UIView {
     
     weak var handleAccountButtonDelegate: HandleAccountButtonDelegate?
+    weak var handleStoreGoalButtonDelegate: HandleStoreGoalButtonDelegate?
     
     // MARK: Component
     
@@ -311,11 +314,11 @@ extension MyPageView {
     }
     
     @objc func storeGoalButtonDidTap(){
-        
+        self.handleStoreGoalButtonDelegate?.pushStoreGoal()
     }
     
     @objc func storeGoalSubPageButtonDidTap(){
-        
+        self.handleStoreGoalButtonDelegate?.pushStoreGoal()
     }
     
     @objc func contactButtonDidTap(){

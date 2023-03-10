@@ -31,6 +31,7 @@ class MyPageViewController: BaseViewController {
     
     private func setDelegate() {
         myPageView.handleAccountButtonDelegate = self
+        myPageView.handleStoreGoalButtonDelegate = self
         myPageView.headerView.handleBackButtonDelegate = self
     }
 }
@@ -44,5 +45,12 @@ extension MyPageViewController: HandleAccountButtonDelegate {
 extension MyPageViewController: HandleBackButtonDelegate {
     func popView() {
         self.navigationController?.popViewController(animated: true)
+    }
+}
+
+extension MyPageViewController: HandleStoreGoalButtonDelegate {
+    func pushStoreGoal() {
+        self.navigationController?.pushViewController(StoreGoalViewController(), animated: true)
+        print("durl")
     }
 }
