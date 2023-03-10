@@ -86,6 +86,7 @@ class StoreCollectionViewCell: UICollectionViewCell {
         totalCountLabel.snp.makeConstraints {
             $0.top.equalTo(goalContentLabel.snp.bottom).offset(2.adjusted)
             $0.leading.equalToSuperview().offset(80.adjusted)
+            print("")
         }
         totalSubLabel.snp.makeConstraints {
             $0.centerY.equalTo(totalCountLabel)
