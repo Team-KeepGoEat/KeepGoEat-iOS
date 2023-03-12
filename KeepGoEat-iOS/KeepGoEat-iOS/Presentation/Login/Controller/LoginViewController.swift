@@ -71,7 +71,6 @@ extension LoginViewController {
         authorizationController.delegate = self
         authorizationController.presentationContextProvider = self
         authorizationController.performRequests()
-        print("appleLogin")
     }
 }
 
@@ -81,8 +80,6 @@ extension LoginViewController: ASAuthorizationControllerDelegate, ASAuthorizatio
     }
     
     func authorizationController(controller: ASAuthorizationController, didCompleteWithAuthorization authorization: ASAuthorization) {
-        print("authorizationController")
-
         switch authorization.credential {
         case let appleIDCredential as ASAuthorizationAppleIDCredential:
             let platformAccessToken = String(data: appleIDCredential.identityToken!, encoding: .utf8) ?? ""

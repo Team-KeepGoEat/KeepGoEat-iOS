@@ -91,12 +91,8 @@ extension SocialLoginButton {
     }
     
     private func setAddTarget() {
-        switch socialType {
-        case .kakao:
+        if socialType == .kakao {
             self.addTarget(self, action: #selector(tapKakaoLoginButton), for: .touchUpInside)
-        case .apple:
-//            self.addTarget(self, action: #selector(tapAppleLoginButton), for: .touchUpInside)
-            print("")
         }
     }
     
@@ -145,10 +141,4 @@ extension SocialLoginButton {
     private func tapKakaoLoginButton() {
         kakaoTalkLogin()
     }
-    
-//    @objc
-//    private func tapAppleLoginButton() {
-//        let loginViewController = LoginViewController()
-//        loginViewController.appleLogin()
-//    }
 }
