@@ -7,9 +7,8 @@
 
 import UIKit
 
-import SnapKit
-
 import KakaoSDKUser
+import SnapKit
 
 enum SocialType: String {
     case kakao
@@ -52,6 +51,7 @@ class SocialLoginButton: UIButton {
 }
 
 extension SocialLoginButton {
+    
     private func setUI() {
         self.layer.cornerRadius = 6
         switch socialType {
@@ -95,7 +95,8 @@ extension SocialLoginButton {
         case .kakao:
             self.addTarget(self, action: #selector(tapKakaoLoginButton), for: .touchUpInside)
         case .apple:
-            self.addTarget(self, action: #selector(tapAppleLoginButton), for: .touchUpInside)
+//            self.addTarget(self, action: #selector(tapAppleLoginButton), for: .touchUpInside)
+            print("")
         }
     }
     
@@ -140,17 +141,14 @@ extension SocialLoginButton {
         }
     }
     
-    private func appleLogin() {
-        print("🍎 Apple Login")
-    }
-    
     @objc
     private func tapKakaoLoginButton() {
         kakaoTalkLogin()
     }
     
-    @objc
-    private func tapAppleLoginButton() {
-        appleLogin()
-    }
+//    @objc
+//    private func tapAppleLoginButton() {
+//        let loginViewController = LoginViewController()
+//        loginViewController.appleLogin()
+//    }
 }
