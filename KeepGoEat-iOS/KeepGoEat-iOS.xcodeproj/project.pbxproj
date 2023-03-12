@@ -1203,7 +1203,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				BASE_URL = "http://52.79.88.68:3000";
+				BASE_URL = "http://54.180.12.92:3000";
 				CODE_SIGN_ENTITLEMENTS = "KeepGoEat-iOS/KeepGoEat-iOS.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 4;
@@ -1238,7 +1238,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				BASE_URL = "http://52.79.88.68:3000";
+				BASE_URL = "http://54.180.12.92:3000";
 				CODE_SIGN_ENTITLEMENTS = "KeepGoEat-iOS/KeepGoEat-iOS.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 4;

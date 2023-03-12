@@ -83,15 +83,16 @@ extension LoginViewController: ASAuthorizationControllerDelegate, ASAuthorizatio
     func authorizationController(controller: ASAuthorizationController, didCompleteWithAuthorization authorization: ASAuthorization) {
         print("authorizationController")
 
-        if let appleIDCredential = authorization.credential as? ASAuthorizationAppleIDCredential {
-            let userIdentifier = appleIDCredential.user     // userIdentifier
-            let userName = appleIDCredential.fullName       // fullName
-            let userEmail = appleIDCredential.email         // email
-        }
         switch authorization.credential {
         case let appleIDCredential as ASAuthorizationAppleIDCredential:
-            print("🍏 Apple Login Token", String(data: appleIDCredential.identityToken!, encoding: .utf8) ?? "")
+            let platformAccessToken = String(data: appleIDCredential.identityToken!, encoding: .utf8) ?? ""
+            let platform: String = "APPLE"
+            print("🍏 Apple Login Token", platformAccessToken)
             print("🍏 authorizationCode", String(data: appleIDCredential.authorizationCode!, encoding: .utf8) ?? "")
+            let param = LoginRequestDto(platformAccessToken: platformAccessToken, platform: platform)
+            LoginService.shared.postSocialLogin(param: param) { _ in
+                RootViewControllerSwithcer.shared.changeRootViewController(navigationMode: .onboarding)
+            }
         default:
             break
         }
