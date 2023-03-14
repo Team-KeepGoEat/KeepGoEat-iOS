@@ -18,6 +18,7 @@
 		31A0C82A29715A1400BE6A9A /* onboarding2_1x.json in Resources */ = {isa = PBXBuildFile; fileRef = 31A0C82929715A1300BE6A9A /* onboarding2_1x.json */; };
 		31A0C82C29715AD100BE6A9A /* card.png in Resources */ = {isa = PBXBuildFile; fileRef = 31A0C82B29715AD100BE6A9A /* card.png */; };
 		31A0C82E29715B5000BE6A9A /* plus.png in Resources */ = {isa = PBXBuildFile; fileRef = 31A0C82D29715B5000BE6A9A /* plus.png */; };
+		C32648F629C033F5009CDBDC /* MyPageServiceIntro.swift in Sources */ = {isa = PBXBuildFile; fileRef = C32648F529C033F5009CDBDC /* MyPageServiceIntro.swift */; };
 		C358CBBA29B235AF009E4060 /* MyPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C358CBB929B235AF009E4060 /* MyPageViewController.swift */; };
 		C358CBBC29B2EAEF009E4060 /* LogoutAlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C358CBBB29B2EAEF009E4060 /* LogoutAlertView.swift */; };
 		C358CBC329B4FFFC009E4060 /* WithdrawalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C358CBC229B4FFFC009E4060 /* WithdrawalView.swift */; };
@@ -133,6 +134,7 @@
 		31A0C82929715A1300BE6A9A /* onboarding2_1x.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = onboarding2_1x.json; sourceTree = "<group>"; };
 		31A0C82B29715AD100BE6A9A /* card.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = card.png; sourceTree = "<group>"; };
 		31A0C82D29715B5000BE6A9A /* plus.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = plus.png; sourceTree = "<group>"; };
+		C32648F529C033F5009CDBDC /* MyPageServiceIntro.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageServiceIntro.swift; sourceTree = "<group>"; };
 		C358CBB929B235AF009E4060 /* MyPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageViewController.swift; sourceTree = "<group>"; };
 		C358CBBB29B2EAEF009E4060 /* LogoutAlertView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogoutAlertView.swift; sourceTree = "<group>"; };
 		C358CBC229B4FFFC009E4060 /* WithdrawalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WithdrawalView.swift; sourceTree = "<group>"; };
@@ -365,6 +367,7 @@
 			isa = PBXGroup;
 			children = (
 				C358CBCE29B8BF13009E4060 /* MyPageView.swift */,
+				C32648F529C033F5009CDBDC /* MyPageServiceIntro.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -496,8 +499,6 @@
 				DDE12F89295B0B2D008CF91B /* Resource */,
 				DDE12F88295B0B26008CF91B /* Common */,
 				DDE12F87295B0B1F008CF91B /* Presentation */,
-				C358CBD329B9A639009E4060 /* AccountInfo */,
-				C358CBD029B9A5B6009E4060 /* Withdrawal */,
 				DDE12F86295B0B18008CF91B /* Network */,
 				DDE12F85295B0B0D008CF91B /* Data */,
 			);
@@ -609,6 +610,8 @@
 				DDE12FAD295B0FF6008CF91B /* NewGoal */,
 				DD849B06295E761F0030AF2F /* StoreGoal */,
 				C3D7DD3429A9008B0093248C /* MyPage */,
+				C358CBD329B9A639009E4060 /* AccountInfo */,
+				C358CBD029B9A5B6009E4060 /* Withdrawal */,
 			);
 			path = Presentation;
 			sourceTree = "<group>";
@@ -1018,6 +1021,7 @@
 				DDE12FAC295B0FDB008CF91B /* GoalDetailViewController.swift in Sources */,
 				311F8FCA2967FD9C00278E8F /* OnboardingCollectionViewCell.swift in Sources */,
 				DD64902E2968C53900A73CF4 /* HomeExistView.swift in Sources */,
+				C32648F629C033F5009CDBDC /* MyPageServiceIntro.swift in Sources */,
 				D6C7B3CF296183D7006877F3 /* SocialLoginButton.swift in Sources */,
 				C358CBBA29B235AF009E4060 /* MyPageViewController.swift in Sources */,
 				DDDBC876296045A200F65F23 /* Const.swift in Sources */,
