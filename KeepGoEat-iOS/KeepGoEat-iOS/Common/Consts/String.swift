@@ -88,6 +88,11 @@ extension Const {
         static let serviceTerms = "서비스 이용약관"
         static let privacy = "개인정보처리방침"
         
+        // MARK: ServiceIntro
+        static let serviceIntro =
+        "킵고잇은\n영양소나 칼로리처럼 복잡한 방법 대신\n가볍고, 지속가능한 식습관 관리를\n돕기 위해 탄생했어요.\n\n늘리거나 줄이고 싶은 식습관 목표를 설정하고,\n목표를 달성한 날이면 킵고잇을 찾아와주세요.\n건강한 하루하루를 기록할 수 있어요.\n\n매일 완벽한 식사만을 하기란 어렵죠.\n대신 건강하지 않은 음식을 덜 먹고,\n건강한 음식을 더 먹은 날을 늘려가볼까요?\n\n먹는 건 원래 즐거운 일이니까.\n완벽한 식사에 대한 부담 없이\n킵고잇에서 건강한 즐거움을 쌓아보세요."
+        static let openSource = "오픈소스 라이선스"
+        
         // MARK: AccountInfo
         static let accountInfoHeader = "계정 정보"
         static let logout = "로그아웃"

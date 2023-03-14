@@ -18,7 +18,8 @@
 		31A0C82A29715A1400BE6A9A /* onboarding2_1x.json in Resources */ = {isa = PBXBuildFile; fileRef = 31A0C82929715A1300BE6A9A /* onboarding2_1x.json */; };
 		31A0C82C29715AD100BE6A9A /* card.png in Resources */ = {isa = PBXBuildFile; fileRef = 31A0C82B29715AD100BE6A9A /* card.png */; };
 		31A0C82E29715B5000BE6A9A /* plus.png in Resources */ = {isa = PBXBuildFile; fileRef = 31A0C82D29715B5000BE6A9A /* plus.png */; };
-		C32648F629C033F5009CDBDC /* MyPageServiceIntro.swift in Sources */ = {isa = PBXBuildFile; fileRef = C32648F529C033F5009CDBDC /* MyPageServiceIntro.swift */; };
+		C32648F629C033F5009CDBDC /* ServiceIntroView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C32648F529C033F5009CDBDC /* ServiceIntroView.swift */; };
+		C32648F829C03D8A009CDBDC /* ServiceIntroViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C32648F729C03D8A009CDBDC /* ServiceIntroViewController.swift */; };
 		C358CBBA29B235AF009E4060 /* MyPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C358CBB929B235AF009E4060 /* MyPageViewController.swift */; };
 		C358CBBC29B2EAEF009E4060 /* LogoutAlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C358CBBB29B2EAEF009E4060 /* LogoutAlertView.swift */; };
 		C358CBC329B4FFFC009E4060 /* WithdrawalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C358CBC229B4FFFC009E4060 /* WithdrawalView.swift */; };
@@ -134,7 +135,8 @@
 		31A0C82929715A1300BE6A9A /* onboarding2_1x.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = onboarding2_1x.json; sourceTree = "<group>"; };
 		31A0C82B29715AD100BE6A9A /* card.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = card.png; sourceTree = "<group>"; };
 		31A0C82D29715B5000BE6A9A /* plus.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = plus.png; sourceTree = "<group>"; };
-		C32648F529C033F5009CDBDC /* MyPageServiceIntro.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageServiceIntro.swift; sourceTree = "<group>"; };
+		C32648F529C033F5009CDBDC /* ServiceIntroView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceIntroView.swift; sourceTree = "<group>"; };
+		C32648F729C03D8A009CDBDC /* ServiceIntroViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceIntroViewController.swift; sourceTree = "<group>"; };
 		C358CBB929B235AF009E4060 /* MyPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageViewController.swift; sourceTree = "<group>"; };
 		C358CBBB29B2EAEF009E4060 /* LogoutAlertView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogoutAlertView.swift; sourceTree = "<group>"; };
 		C358CBC229B4FFFC009E4060 /* WithdrawalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WithdrawalView.swift; sourceTree = "<group>"; };
@@ -367,7 +369,7 @@
 			isa = PBXGroup;
 			children = (
 				C358CBCE29B8BF13009E4060 /* MyPageView.swift */,
-				C32648F529C033F5009CDBDC /* MyPageServiceIntro.swift */,
+				C32648F529C033F5009CDBDC /* ServiceIntroView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -376,6 +378,7 @@
 			isa = PBXGroup;
 			children = (
 				C358CBB929B235AF009E4060 /* MyPageViewController.swift */,
+				C32648F729C03D8A009CDBDC /* ServiceIntroViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -979,6 +982,7 @@
 			files = (
 				DDE12F99295B0C24008CF91B /* UIViewController+.swift in Sources */,
 				DDE12FD5295B1334008CF91B /* GoalDetailRequest.swift in Sources */,
+				C32648F829C03D8A009CDBDC /* ServiceIntroViewController.swift in Sources */,
 				C3D7DD3929A9024D0093248C /* AccountInfoView.swift in Sources */,
 				DDE12FD1295B1325008CF91B /* LoginRequest.swift in Sources */,
 				DDE12FAF295B1011008CF91B /* NewGoalViewController.swift in Sources */,
@@ -1021,7 +1025,7 @@
 				DDE12FAC295B0FDB008CF91B /* GoalDetailViewController.swift in Sources */,
 				311F8FCA2967FD9C00278E8F /* OnboardingCollectionViewCell.swift in Sources */,
 				DD64902E2968C53900A73CF4 /* HomeExistView.swift in Sources */,
-				C32648F629C033F5009CDBDC /* MyPageServiceIntro.swift in Sources */,
+				C32648F629C033F5009CDBDC /* ServiceIntroView.swift in Sources */,
 				D6C7B3CF296183D7006877F3 /* SocialLoginButton.swift in Sources */,
 				C358CBBA29B235AF009E4060 /* MyPageViewController.swift in Sources */,
 				DDDBC876296045A200F65F23 /* Const.swift in Sources */,
