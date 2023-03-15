@@ -95,6 +95,8 @@ class StoreGoalView: UIView {
         dataSource = UICollectionViewDiffableDataSource<StoreSection, StoreGoal>(collectionView: storeCollectionView, cellProvider: { collectionView, indexPath, goal in
             guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: StoreCollectionViewCell.identifier, for: indexPath) as? StoreCollectionViewCell else { fatalError() }
             cell.dataBind(data: goal)
+            cell.detailButton.tag = goal.goalId
+            cell.detailButton.addTarget(self, action: #selector(self.detailButtonDidTap(sender: )), for: .touchUpInside)
             return cell
         })
     }
@@ -111,4 +113,39 @@ class StoreGoalView: UIView {
         }
         dataSource.apply(snapshot, animatingDifferences: isAnimated)
     }
+    
+    @objc func detailButtonDidTap(sender: UIButton) {
+        let deleteActionSheet = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
+        deleteActionSheet.addAction(UIAlertAction(title: "삭제하기", style: .destructive, handler: { _ in
+            let confirmAlert = UIAlertController(title: "삭제 하시겠어요?", message: "삭제된 목표와 달성 기록은\n다시 복구할 수 없어요.", preferredStyle: .alert)
+            confirmAlert.addAction(UIAlertAction(title: "취소", style: .cancel))
+            confirmAlert.addAction(UIAlertAction(title: "네", style: .destructive, handler: { _ in
+                self.deleteStoreGoal(goalId: sender.tag)
+            }))
+        }))
+        deleteActionSheet.addAction(UIAlertAction(title: "취소", style: .cancel))
+    }
+    
+    private func deleteStoreGoal(goalId: Int) {
+        var snapshot = dataSource.snapshot()
+        let target = data.goals.filter { $0.goalId == goalId }
+        snapshot.deleteItems(target)
+        dataSource.apply(snapshot)
+    }
+    
+//    private func showDeleteActionSheet() {
+//        let deleteActionSheet = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
+//        deleteActionSheet.addAction(UIAlertAction(title: "삭제하기", style: .destructive, handler: { _ in
+//            <#code#>
+//        }))
+//        deleteActionSheet.addAction(UIAlertAction(title: "취소", style: .cancel))
+//    }
+//
+//    private func showConfirmAlert() {
+//        let confirmAlert = UIAlertController(title: "삭제 하시겠어요?", message: "삭제된 목표와 달성 기록은\n다시 복구할 수 없어요.", preferredStyle: .alert)
+//        confirmAlert.addAction(UIAlertAction(title: "취소", style: .cancel))
+//        confirmAlert.addAction(UIAlertAction(title: "네", style: .destructive, handler: { _ in
+//            <#code#>
+//        }))
+//    }
 }

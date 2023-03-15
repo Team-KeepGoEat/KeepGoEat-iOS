@@ -21,7 +21,7 @@ class StoreCollectionViewCell: UICollectionViewCell {
     private let kindTagImage = UIImageView().then {
         $0.image = Const.Image.moreTag
     }
-    private let detailButton = UIButton().then {
+    let detailButton = UIButton().then {
         $0.setImage(Const.Image.icnDetail, for: .normal)
     }
     private let goalContentLabel = UILabel().then {
