@@ -21,6 +21,9 @@ class StoreCollectionViewCell: UICollectionViewCell {
     private let kindTagImage = UIImageView().then {
         $0.image = Const.Image.moreTag
     }
+    let detailButton = UIButton().then {
+        $0.setImage(Const.Image.icnDetail, for: .normal)
+    }
     private let goalContentLabel = UILabel().then {
         $0.font = .system2Bold
         $0.textColor = .gray800
@@ -63,6 +66,7 @@ class StoreCollectionViewCell: UICollectionViewCell {
         self.addSubviews(
             shadowBaseView,
             kindTagImage,
+            detailButton,
             goalContentLabel,
             totalSubLabel,
             totalCountLabel,
@@ -78,6 +82,11 @@ class StoreCollectionViewCell: UICollectionViewCell {
             $0.height.equalTo(20.adjusted)
             $0.top.equalToSuperview().offset(16.adjusted)
             $0.leading.equalToSuperview().offset(20.adjusted)
+        }
+        detailButton.snp.makeConstraints {
+            $0.width.height.equalTo(32.adjusted)
+            $0.top.equalToSuperview().offset(12.adjusted)
+            $0.trailing.equalToSuperview().offset(-18.adjusted)
         }
         goalContentLabel.snp.makeConstraints {
             $0.top.equalTo(kindTagImage.snp.bottom).offset(8.adjusted)

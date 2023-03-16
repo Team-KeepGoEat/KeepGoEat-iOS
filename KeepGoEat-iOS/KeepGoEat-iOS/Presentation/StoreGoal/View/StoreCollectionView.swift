@@ -7,7 +7,14 @@
 
 import UIKit
 
+protocol handleMoreButtonDelegate {
+    func moreButtonDidTap(goalId: Int)
+}
+
 class StoreCollectionView: UICollectionView {
+    
+    // MARK: - Variables
+//    weak var moreButtonDelegate: handleMoreButtonDelegate?
 
     override init(frame: CGRect, collectionViewLayout layout: UICollectionViewLayout) {
         super.init(frame: frame, collectionViewLayout: layout)
