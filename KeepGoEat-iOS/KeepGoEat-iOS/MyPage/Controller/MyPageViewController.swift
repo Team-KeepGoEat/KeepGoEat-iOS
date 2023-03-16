@@ -7,6 +7,7 @@
 
 import UIKit
 
+import MessageUI
 import SnapKit
 import Then
 
@@ -33,6 +34,7 @@ class MyPageViewController: BaseViewController {
         myPageView.handleAccountButtonDelegate = self
         myPageView.handleStoreGoalButtonDelegate = self
         myPageView.handleServiceIntroButtonDelegate = self
+        myPageView.handleContactButtonDelegate = self
         myPageView.headerView.handleBackButtonDelegate = self
     }
 }
@@ -55,8 +57,64 @@ extension MyPageViewController: HandleStoreGoalButtonDelegate {
     }
 }
 
+extension MyPageViewController : HandleContactButtonDelegate, MFMailComposeViewControllerDelegate {
+    func sendMail() {
+        if MFMailComposeViewController.canSendMail() {
+                   
+                   let composeViewController = MFMailComposeViewController()
+            composeViewController.mailComposeDelegate = self
+            
+            
+            let bodyString = """
+                         Device : \(self.getDeviceIdentifier())
+                         App version : \(self.getCurrentVersion())
+                         OS Version : \(UIDevice.current.systemVersion)
+                         -------------
+                         내용 :
+                         
+                         """
+                   
+            composeViewController.setToRecipients(["Keepgo2at@gmail.com"])
+            composeViewController.setSubject("킵고잇 문의사항")
+            composeViewController.setMessageBody(bodyString, isHTML: false)
+            self.present(composeViewController, animated: true, completion: nil)
+        }
+        else {
+            self.showSendMailErrorAlert()
+        }
+    }
+    
+    func showSendMailErrorAlert() {
+            let sendMailErrorAlert = UIAlertController(title: "메일 전송 실패", message: "아이폰 이메일 설정을 확인하고 다시 시도해주세요.", preferredStyle: .alert)
+            let confirmAction = UIAlertAction(title: "확인", style: .default) {
+                (action) in
+            }
+            sendMailErrorAlert.addAction(confirmAction)
+            self.present(sendMailErrorAlert, animated: true, completion: nil)
+        }
+
+    func getDeviceIdentifier() -> String {
+        var systemInfo = utsname()
+        uname(&systemInfo)
+        let machineMirror = Mirror(reflecting: systemInfo.machine)
+        let identifier = machineMirror.children.reduce("") { identifier, element in
+            guard let value = element.value as? Int8, value != 0 else { return identifier }
+            return identifier + String(UnicodeScalar(UInt8(value)))
+        }
+        return identifier
+    }
+    func getCurrentVersion() -> String {
+        guard let dictionary = Bundle.main.infoDictionary,
+              let version = dictionary["CFBundleShortVersionString"] as? String else { return "" }
+        return version
+    }
+}
+
 extension MyPageViewController: HandleServiceIntroButtonDelegate {
     func pushServiceIntro() {
         self.navigationController?.pushViewController(ServiceIntroViewController(), animated: true)
     }
 }
+
+
+
