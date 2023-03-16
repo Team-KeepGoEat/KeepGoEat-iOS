@@ -161,5 +161,7 @@ extension ServiceIntroView {
     }
     
     @objc func openSourceButtonDidTap(){
+            let url = URL(string: "https://68space.notion.site/iOS-c9b05b70c82648f9812ed8345cce2f4f")!
+            UIApplication.shared.open(url, options: [:], completionHandler: nil)
     }
 }
