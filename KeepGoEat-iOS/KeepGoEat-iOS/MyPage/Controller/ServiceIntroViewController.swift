@@ -7,6 +7,9 @@
 
 import UIKit
 
+import Then
+import SnapKit
+
 class ServiceIntroViewController: UIViewController {
 
     private var serviceIntroView = ServiceIntroView()
@@ -27,26 +30,12 @@ class ServiceIntroViewController: UIViewController {
     }
     
     private func setDelegate() {
-//        serviceIntroView.handleAccountButtonDelegate = self
         serviceIntroView.headerView.handleBackButtonDelegate = self
     }
 }
-
-//extension ServiceIntroViewController: HandleAccountButtonDelegate {
-//    func pushAccountInfo() {
-//        self.navigationController?.pushViewController(AccountInfoViewController(), animated: true)
-//    }
-//}
 
 extension ServiceIntroViewController: HandleBackButtonDelegate {
     func popView() {
         self.navigationController?.popViewController(animated: true)
     }
 }
-
-//extension ServiceIntroViewController: HandleStoreGoalButtonDelegate {
-//    func pushStoreGoal() {
-//        self.navigationController?.pushViewController(StoreGoalViewController(), animated: true)
-//        print("durl")
-//    }
-//}

@@ -7,6 +7,9 @@
 
 import UIKit
 
+import Then
+import SnapKit
+
 
 class ServiceIntroView: UIView {
     
@@ -18,7 +21,7 @@ class ServiceIntroView: UIView {
         $0.font = .system4Bold
     }
     
-    private let scrollView = UIScrollView().then {
+    private lazy var scrollView = UIScrollView().then {
         $0.translatesAutoresizingMaskIntoConstraints = false
         $0.isScrollEnabled = true
     }
@@ -49,15 +52,17 @@ class ServiceIntroView: UIView {
 //        $0.translatesAutoresizingMaskIntoConstraints = false
     }
     
-    private let openSourceButton = UIButton().then {
-        $0.setTitle(Const.String.openSource, for: .normal)
-        $0.setTitleColor(.gray800, for: .normal)
-        $0.titleLabel?.font = .system4
+    private let openSourceButton = UIButton()
+    
+    private let openSourceLabel = UILabel().then {
+        $0.text = Const.String.openSource
+        $0.textColor = .gray800
+        $0.font = .system4
 //        $0.translatesAutoresizingMaskIntoConstraints = false
     }
     
-    private let openSourceSubPageButton = UIButton().then {
-        $0.setImage(Const.Image.icnRight, for: .normal)
+    private let openSourceSubPageImageView = UIImageView().then {
+        $0.image = Const.Image.icnRight
 //        $0.translatesAutoresizingMaskIntoConstraints = false
     }
     
@@ -66,8 +71,9 @@ class ServiceIntroView: UIView {
     override init(frame: CGRect) {
         super.init(frame: frame)
         setUI()
+//        scrollView.contentSize = CGSize(width: scrollView.frame.width, height: openSourceButton.frame.maxY + 20.0)
         setLayout()
-//        setAddTarget()
+        setAddTarget()
     }
     
     required init?(coder: NSCoder) {
@@ -89,8 +95,12 @@ extension ServiceIntroView {
         backgroundImage,
         introLabelView,
         introLabel,
-        openSourceButton,
-        openSourceSubPageButton
+        openSourceButton
+        )
+        
+        openSourceButton.addSubviews(
+        openSourceLabel,
+        openSourceSubPageImageView
         )
         
         headerView.snp.makeConstraints{
@@ -128,24 +138,32 @@ extension ServiceIntroView {
             $0.centerY.equalTo(introLabelView)
             $0.leading.equalTo(introLabelView).offset(20.adjusted)
         }
+        
         openSourceButton.snp.makeConstraints{
-            $0.top.equalTo(backgroundImage.snp.bottom).offset(20.adjusted)
-            $0.height.equalTo(24.adjusted)
-            $0.width.equalTo(115.adjusted)
-            $0.leading.equalTo(16.adjusted)
-            $0.bottom.equalToSuperview().offset(-100.adjusted)
-        }
-        openSourceSubPageButton.snp.makeConstraints{
             $0.top.equalTo(backgroundImage.snp.bottom).offset(16.adjusted)
-            $0.height.width.equalTo(32.adjusted)
-            $0.trailing.equalTo(16.adjusted)
-            $0.bottom.equalTo(openSourceButton)
+            $0.height.equalTo(32.adjusted)
+            $0.leading.trailing.equalToSuperview().offset(16.adjusted)
         }
-//        scrollView.contentSize = CGSize(width: UIScreen.main.bounds.width, height: 1000)
+        
+        openSourceLabel.snp.makeConstraints{
+            $0.leading.equalToSuperview()
+            $0.centerY.equalToSuperview()
+        }
+        
+        openSourceSubPageImageView.snp.makeConstraints{
+            $0.trailing.equalToSuperview()
+            $0.centerY.equalToSuperview()
+        }
+//        scrollView.layoutIfNeeded()
+    
 
-        // Set scroll view's content size based on its subviews
-        scrollView.layoutIfNeeded()
-        scrollView.contentSize = CGSize(width: scrollView.frame.width, height: openSourceButton.frame.maxY + 20.0)
-
+    }
+    
+    private func setAddTarget() {
+        openSourceButton.addTarget(self, action: #selector(openSourceButtonDidTap), for: .touchUpInside)
+    }
+    
+    @objc func openSourceButtonDidTap(){
+        print("됨")
     }
 }
