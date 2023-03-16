@@ -28,7 +28,6 @@ class ServiceIntroViewController: UIViewController {
     
     private func setDelegate() {
 //        serviceIntroView.handleAccountButtonDelegate = self
-//        serviceIntroView.handleStoreGoalButtonDelegate = self
         serviceIntroView.headerView.handleBackButtonDelegate = self
     }
 }

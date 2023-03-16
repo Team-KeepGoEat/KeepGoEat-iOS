@@ -18,10 +18,15 @@ protocol HandleStoreGoalButtonDelegate : AnyObject {
     func pushStoreGoal()
 }
 
+protocol HandleServiceIntroButtonDelegate : AnyObject {
+    func pushServiceIntro()
+}
+
 class MyPageView: UIView {
     
     weak var handleAccountButtonDelegate: HandleAccountButtonDelegate?
     weak var handleStoreGoalButtonDelegate: HandleStoreGoalButtonDelegate?
+    weak var handleServiceIntroButtonDelegate: HandleServiceIntroButtonDelegate?
     
     // MARK: Component
     
@@ -97,7 +102,7 @@ class MyPageView: UIView {
         $0.font = .system5Bold
     }
     
-    private let servicePresentButton = UIButton().then {
+    private let serviceIntroButton = UIButton().then {
         $0.setTitle(Const.String.servicePresent, for: .normal)
         $0.setTitleColor(.gray800, for: .normal)
         $0.titleLabel?.font = .system4
@@ -168,7 +173,7 @@ extension MyPageView {
         reviewButton,
         lineView2,
         appInfoLabel,
-        servicePresentButton,
+        serviceIntroButton,
         versionInfoLabel,
         versionLabel,
         lineView3,
@@ -260,13 +265,13 @@ extension MyPageView {
             $0.leading.equalToSuperview().inset(16.adjusted)
         }
         
-        servicePresentButton.snp.makeConstraints{
+        serviceIntroButton.snp.makeConstraints{
             $0.top.equalTo(appInfoLabel.snp.bottom).offset(16.adjusted)
             $0.leading.equalTo(appInfoLabel)
         }
         
         versionInfoLabel.snp.makeConstraints{
-            $0.top.equalTo(servicePresentButton.snp.bottom).offset(24.adjusted)
+            $0.top.equalTo(serviceIntroButton.snp.bottom).offset(24.adjusted)
             $0.leading.equalTo(appInfoLabel)
         }
         
@@ -303,7 +308,7 @@ extension MyPageView {
         storeGoalSubPageButton.addTarget(self, action: #selector(storeGoalSubPageButtonDidTap), for: .touchUpInside)
         contactButton.addTarget(self, action: #selector(contactButtonDidTap), for: .touchUpInside)
         reviewButton.addTarget(self, action: #selector(reviewButtonDidTap), for: .touchUpInside)
-        servicePresentButton.addTarget(self, action: #selector(servicePresentButtonDidTap), for: .touchUpInside)
+        serviceIntroButton.addTarget(self, action: #selector(servicePresentButtonDidTap), for: .touchUpInside)
         serviceTermsButton.addTarget(self, action: #selector(serviceTermsButtonDidTap), for: .touchUpInside)
         privacyButton.addTarget(self, action: #selector(privacyButtonDidTap), for: .touchUpInside)
         
@@ -330,7 +335,7 @@ extension MyPageView {
     }
     
     @objc func servicePresentButtonDidTap(){
-        
+        self.handleServiceIntroButtonDelegate?.pushServiceIntro()
     }
     
     @objc func serviceTermsButtonDidTap(){

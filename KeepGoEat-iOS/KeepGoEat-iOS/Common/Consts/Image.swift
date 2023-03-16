@@ -27,6 +27,7 @@ extension Const {
         static let icnCheckBox = UIImage(named: "icn_checkboxDefault")
         static let icnCheckBoxOrange = UIImage(named: "icn_checkboxChecked")
         static let icnSubpage = UIImage(named: "icn_subpage")
+    
         
         // MARK: image
         static let snailGreenCheer = UIImage(named: "snailGreenCheer")

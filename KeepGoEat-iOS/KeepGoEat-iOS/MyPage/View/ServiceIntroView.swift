@@ -7,6 +7,7 @@
 
 import UIKit
 
+
 class ServiceIntroView: UIView {
     
     let headerView: HeaderView = HeaderView()
@@ -56,7 +57,7 @@ class ServiceIntroView: UIView {
     }
     
     private let openSourceSubPageButton = UIButton().then {
-        $0.setImage(Const.Image.icnSubpage, for: .normal)
+        $0.setImage(Const.Image.icnRight, for: .normal)
 //        $0.translatesAutoresizingMaskIntoConstraints = false
     }
     
@@ -83,9 +84,7 @@ extension ServiceIntroView {
         self.addSubviews(headerView, scrollView)
         
         headerView.addSubview(headerViewTitle)
-        
-    
-        
+            
         scrollView.addSubviews(
         backgroundImage,
         introLabelView,
@@ -109,7 +108,6 @@ extension ServiceIntroView {
 //            $0.width.equalTo(self.safeAreaLayoutGuide)
 //            $0.edges.equalTo(self.safeAreaLayoutGuide)
 //            $0.bottom.equalTo(self.safeAreaLayoutGuide)
-            
             $0.top.equalTo(headerView.snp.bottom)
             $0.leading.trailing.bottom.equalToSuperview()
             $0.width.equalToSuperview()
@@ -126,22 +124,28 @@ extension ServiceIntroView {
             $0.height.equalTo(376)
         }
         introLabel.snp.makeConstraints{
-//            $0.top.equalTo(introLabelView.snp.top).offset(20.adjusted)
+//            $0.top.bottom.equalTo(introLabelView.snp.top).offset(20.adjusted)
             $0.centerY.equalTo(introLabelView)
             $0.leading.equalTo(introLabelView).offset(20.adjusted)
-//            $0.bottom.equalTo(introLabelView.snp.bottom).offset(20.adjusted)
         }
         openSourceButton.snp.makeConstraints{
             $0.top.equalTo(backgroundImage.snp.bottom).offset(20.adjusted)
+            $0.height.equalTo(24.adjusted)
+            $0.width.equalTo(115.adjusted)
             $0.leading.equalTo(16.adjusted)
             $0.bottom.equalToSuperview().offset(-100.adjusted)
         }
         openSourceSubPageButton.snp.makeConstraints{
             $0.top.equalTo(backgroundImage.snp.bottom).offset(16.adjusted)
+            $0.height.width.equalTo(32.adjusted)
             $0.trailing.equalTo(16.adjusted)
             $0.bottom.equalTo(openSourceButton)
         }
-        scrollView.contentSize = CGSize(width: UIScreen.main.bounds.width, height: 1000)
+//        scrollView.contentSize = CGSize(width: UIScreen.main.bounds.width, height: 1000)
+
+        // Set scroll view's content size based on its subviews
+        scrollView.layoutIfNeeded()
+        scrollView.contentSize = CGSize(width: scrollView.frame.width, height: openSourceButton.frame.maxY + 20.0)
 
     }
 }
