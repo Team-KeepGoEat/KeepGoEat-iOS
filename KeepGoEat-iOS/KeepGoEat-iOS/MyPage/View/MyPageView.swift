@@ -26,12 +26,17 @@ protocol HandleContactButtonDelegate : AnyObject {
     func sendMail()
 }
 
+protocol HandleReviewButtonDelegate : AnyObject {
+    func requestReview()
+}
+
 class MyPageView: UIView {
     
     weak var handleAccountButtonDelegate: HandleAccountButtonDelegate?
     weak var handleStoreGoalButtonDelegate: HandleStoreGoalButtonDelegate?
     weak var handleServiceIntroButtonDelegate: HandleServiceIntroButtonDelegate?
     weak var handleContactButtonDelegate: HandleContactButtonDelegate?
+    weak var handleReviewButtonDelegate: HandleReviewButtonDelegate?
     
     // MARK: Component
     
@@ -336,7 +341,7 @@ extension MyPageView {
     }
     
     @objc func reviewButtonDidTap(){
-        
+        self.handleReviewButtonDelegate?.requestReview()
     }
     
     @objc func servicePresentButtonDidTap(){

@@ -35,6 +35,7 @@ class MyPageViewController: BaseViewController {
         myPageView.handleStoreGoalButtonDelegate = self
         myPageView.handleServiceIntroButtonDelegate = self
         myPageView.handleContactButtonDelegate = self
+        myPageView.handleReviewButtonDelegate = self
         myPageView.headerView.handleBackButtonDelegate = self
     }
 }
@@ -113,6 +114,22 @@ extension MyPageViewController : HandleContactButtonDelegate, MFMailComposeViewC
 extension MyPageViewController: HandleServiceIntroButtonDelegate {
     func pushServiceIntro() {
         self.navigationController?.pushViewController(ServiceIntroViewController(), animated: true)
+    }
+}
+
+extension MyPageViewController: HandleReviewButtonDelegate {
+    func requestReview() {
+        /// 앱스토어 아이디 나오면 뒤에 추가 예정 /app/id{앱스토어ID}
+        if let appstoreUrl = URL(string: "https://apps.apple.com") {
+            var urlComp = URLComponents(url: appstoreUrl, resolvingAgainstBaseURL: false)
+            urlComp?.queryItems = [
+                URLQueryItem(name: "action", value: "write-review")
+            ]
+            guard let reviewUrl = urlComp?.url else {
+                return
+            }
+            UIApplication.shared.open(reviewUrl, options: [:], completionHandler: nil)
+        }
     }
 }
 

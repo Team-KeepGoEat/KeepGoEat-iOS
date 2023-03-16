@@ -360,6 +360,8 @@
 			children = (
 				C3D7DD3629A901210093248C /* View */,
 				C3D7DD3729A901280093248C /* Controller */,
+				C358CBD029B9A5B6009E4060 /* Withdrawal */,
+				C358CBD329B9A639009E4060 /* AccountInfo */,
 			);
 			name = MyPage;
 			path = ../MyPage;
@@ -613,8 +615,6 @@
 				DDE12FAD295B0FF6008CF91B /* NewGoal */,
 				DD849B06295E761F0030AF2F /* StoreGoal */,
 				C3D7DD3429A9008B0093248C /* MyPage */,
-				C358CBD329B9A639009E4060 /* AccountInfo */,
-				C358CBD029B9A5B6009E4060 /* Withdrawal */,
 			);
 			path = Presentation;
 			sourceTree = "<group>";
