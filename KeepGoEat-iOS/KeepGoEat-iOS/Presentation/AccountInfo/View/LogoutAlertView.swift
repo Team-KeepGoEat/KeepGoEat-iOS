@@ -42,7 +42,7 @@ class LogoutAlertView: UIView {
         $0.textAlignment = .center
         let attrString = NSMutableAttributedString(string: $0.text!)
         let paragraphStyle = NSMutableParagraphStyle()
-        paragraphStyle.lineSpacing = 6
+        paragraphStyle.lineSpacing = 5
         attrString.addAttribute(NSAttributedString.Key.paragraphStyle, value: paragraphStyle, range: NSMakeRange(0, attrString.length))
         $0.attributedText = attrString
         $0.textAlignment = .center
