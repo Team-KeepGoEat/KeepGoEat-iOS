@@ -10,7 +10,7 @@ import UIKit
 import Then
 import SnapKit
 
-class ServiceIntroViewController: UIViewController {
+class ServiceIntroViewController: BaseViewController {
 
     private var serviceIntroView = ServiceIntroView()
     
