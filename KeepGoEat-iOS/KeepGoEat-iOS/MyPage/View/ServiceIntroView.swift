@@ -71,7 +71,6 @@ class ServiceIntroView: UIView {
     override init(frame: CGRect) {
         super.init(frame: frame)
         setUI()
-//        scrollView.contentSize = CGSize(width: scrollView.frame.width, height: openSourceButton.frame.maxY + 20.0)
         setLayout()
         setAddTarget()
     }
@@ -155,8 +154,6 @@ extension ServiceIntroView {
             $0.centerY.equalToSuperview()
         }
 //        scrollView.layoutIfNeeded()
-    
-
     }
     
     private func setAddTarget() {
@@ -164,6 +161,5 @@ extension ServiceIntroView {
     }
     
     @objc func openSourceButtonDidTap(){
-        print("됨")
     }
 }

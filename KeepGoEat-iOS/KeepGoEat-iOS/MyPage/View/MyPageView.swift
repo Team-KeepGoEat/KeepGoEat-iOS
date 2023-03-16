@@ -346,4 +346,3 @@ extension MyPageView {
         
     } 
 }
-
