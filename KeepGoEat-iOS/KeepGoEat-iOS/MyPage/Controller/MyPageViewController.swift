@@ -23,6 +23,7 @@ class MyPageViewController: BaseViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        getMyPage()
         navigationController?.setNavigationBarHidden(true, animated: true)
     }
     
@@ -40,6 +41,15 @@ class MyPageViewController: BaseViewController {
         myPageView.handleServiceTermsButtonDelegate = self
         myPageView.handlePrivacyButtonDelegate = self
         myPageView.headerView.handleBackButtonDelegate = self
+    }
+    
+    private func getMyPage() {
+        MyPageService.shared.getMyPage { data in
+            guard let data = data else { return }
+            self.myPageView.emailLabel.text = String(data.email)
+            self.myPageView.accountButton.titleLabel?.text = String(data.name)
+            self.myPageView.storeGoalCount.text = String(data.keptGoalsCount)
+        }
     }
 }
 

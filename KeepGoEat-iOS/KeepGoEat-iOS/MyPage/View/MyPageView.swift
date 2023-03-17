@@ -58,7 +58,7 @@ class MyPageView: UIView {
         $0.font = .system4Bold
     }
     
-    private let accountButton = UIButton().then {
+    let accountButton = UIButton().then {
         $0.setTitle("user214", for: .normal)
         $0.setTitleColor(.gray800, for: .normal)
         $0.titleLabel?.font = .system3Bold
@@ -66,7 +66,7 @@ class MyPageView: UIView {
         $0.semanticContentAttribute = .forceRightToLeft
     }
     
-    private let emailLabel = UILabel().then {
+    let emailLabel = UILabel().then {
         $0.text = "keepgoeat@kakao.com"
         $0.textColor = .gray600
         $0.font = .system5
@@ -80,7 +80,7 @@ class MyPageView: UIView {
         $0.font = .system4
     }
     
-    private let storeGoalCount = UILabel().then {
+    let storeGoalCount = UILabel().then {
         $0.text = "3"
         $0.textColor = .orange600
         $0.font = .system4Bold

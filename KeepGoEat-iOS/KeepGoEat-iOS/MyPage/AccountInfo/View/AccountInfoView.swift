@@ -28,13 +28,13 @@ class AccountInfoView: UIView {
         $0.font = .system4Bold
     }
     
-    private let accountLabel = UILabel().then {
+    let accountLabel = UILabel().then {
         $0.text = "user214"
         $0.textColor = .gray800
         $0.font = .system3Bold
     }
     
-    private let emailLabel = UILabel().then {
+    let emailLabel = UILabel().then {
         $0.text = "keepgoeat@kakao.com"
         $0.textColor = .gray600
         $0.font = .system5

@@ -36,6 +36,14 @@ class AccountInfoViewController: BaseViewController {
         accountInfoView.handleWithdrawalButtonDelegate = self
         accountInfoView.headerView.handleBackButtonDelegate = self
     }
+    
+    private func getMyPage() {
+        MyPageService.shared.getMyPage { data in
+            guard let data = data else { return }
+            self.accountInfoView.accountLabel.text = String(data.name)
+            self.accountInfoView.emailLabel.text = String(data.email)
+        }
+    }
 }
 
 extension AccountInfoViewController: HandleWithdrawalButtonDelegate {

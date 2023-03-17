@@ -6,3 +6,9 @@
 //
 
 import Foundation
+
+struct MyPageResponseDto: Codable {
+    var name: String
+    var email: String
+    var keptGoalsCount: Int
+}
