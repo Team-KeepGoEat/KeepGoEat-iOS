@@ -20,6 +20,10 @@
 		31A0C82E29715B5000BE6A9A /* plus.png in Resources */ = {isa = PBXBuildFile; fileRef = 31A0C82D29715B5000BE6A9A /* plus.png */; };
 		C32648F629C033F5009CDBDC /* ServiceIntroView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C32648F529C033F5009CDBDC /* ServiceIntroView.swift */; };
 		C32648F829C03D8A009CDBDC /* ServiceIntroViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C32648F729C03D8A009CDBDC /* ServiceIntroViewController.swift */; };
+		C326493529C4B29D009CDBDC /* MyPageRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C326493429C4B29D009CDBDC /* MyPageRouter.swift */; };
+		C326493729C4B2A4009CDBDC /* MyPageService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C326493629C4B2A4009CDBDC /* MyPageService.swift */; };
+		C326493A29C4B2C1009CDBDC /* MyPageRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = C326493929C4B2C1009CDBDC /* MyPageRequest.swift */; };
+		C326493C29C4B2C9009CDBDC /* MyPageResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = C326493B29C4B2C9009CDBDC /* MyPageResponse.swift */; };
 		C358CBBA29B235AF009E4060 /* MyPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C358CBB929B235AF009E4060 /* MyPageViewController.swift */; };
 		C358CBBC29B2EAEF009E4060 /* LogoutAlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C358CBBB29B2EAEF009E4060 /* LogoutAlertView.swift */; };
 		C358CBC329B4FFFC009E4060 /* WithdrawalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C358CBC229B4FFFC009E4060 /* WithdrawalView.swift */; };
@@ -137,6 +141,10 @@
 		31A0C82D29715B5000BE6A9A /* plus.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = plus.png; sourceTree = "<group>"; };
 		C32648F529C033F5009CDBDC /* ServiceIntroView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceIntroView.swift; sourceTree = "<group>"; };
 		C32648F729C03D8A009CDBDC /* ServiceIntroViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceIntroViewController.swift; sourceTree = "<group>"; };
+		C326493429C4B29D009CDBDC /* MyPageRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageRouter.swift; sourceTree = "<group>"; };
+		C326493629C4B2A4009CDBDC /* MyPageService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageService.swift; sourceTree = "<group>"; };
+		C326493929C4B2C1009CDBDC /* MyPageRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageRequest.swift; sourceTree = "<group>"; };
+		C326493B29C4B2C9009CDBDC /* MyPageResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageResponse.swift; sourceTree = "<group>"; };
 		C358CBB929B235AF009E4060 /* MyPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageViewController.swift; sourceTree = "<group>"; };
 		C358CBBB29B2EAEF009E4060 /* LogoutAlertView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogoutAlertView.swift; sourceTree = "<group>"; };
 		C358CBC229B4FFFC009E4060 /* WithdrawalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WithdrawalView.swift; sourceTree = "<group>"; };
@@ -300,6 +308,24 @@
 				DDE12FA0295B0D88008CF91B /* OnboardingViewController.swift */,
 			);
 			path = Controller;
+			sourceTree = "<group>";
+		};
+		C326493329C4B279009CDBDC /* MyPage */ = {
+			isa = PBXGroup;
+			children = (
+				C326493429C4B29D009CDBDC /* MyPageRouter.swift */,
+				C326493629C4B2A4009CDBDC /* MyPageService.swift */,
+			);
+			path = MyPage;
+			sourceTree = "<group>";
+		};
+		C326493829C4B2AA009CDBDC /* MyPage */ = {
+			isa = PBXGroup;
+			children = (
+				C326493929C4B2C1009CDBDC /* MyPageRequest.swift */,
+				C326493B29C4B2C9009CDBDC /* MyPageResponse.swift */,
+			);
+			path = MyPage;
 			sourceTree = "<group>";
 		};
 		C358CBD029B9A5B6009E4060 /* Withdrawal */ = {
@@ -580,6 +606,7 @@
 				DDE12FCE295B1304008CF91B /* GoalDetail */,
 				DDE12FCF295B130B008CF91B /* NewGoal */,
 				DD849AFC295E75650030AF2F /* StoreGoal */,
+				C326493829C4B2AA009CDBDC /* MyPage */,
 			);
 			path = Data;
 			sourceTree = "<group>";
@@ -599,6 +626,7 @@
 				DDE12FB9295B117B008CF91B /* GoalDetail */,
 				DDE12FB8295B1172008CF91B /* NewGoal */,
 				DD849B01295E75A50030AF2F /* StoreGoal */,
+				C326493329C4B279009CDBDC /* MyPage */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -985,6 +1013,7 @@
 				C32648F829C03D8A009CDBDC /* ServiceIntroViewController.swift in Sources */,
 				C3D7DD3929A9024D0093248C /* AccountInfoView.swift in Sources */,
 				DDE12FD1295B1325008CF91B /* LoginRequest.swift in Sources */,
+				C326493A29C4B2C1009CDBDC /* MyPageRequest.swift in Sources */,
 				DDE12FAF295B1011008CF91B /* NewGoalViewController.swift in Sources */,
 				DD849B12295E80630030AF2F /* NetworkConstant.swift in Sources */,
 				DDE12F9B295B0CAA008CF91B /* KeychainHandler.swift in Sources */,
@@ -1012,6 +1041,8 @@
 				D6C505822969A7C600BE4543 /* DeleteBottomSheetView.swift in Sources */,
 				DDE12FD7295B1347008CF91B /* NewGoalRequest.swift in Sources */,
 				DD623418296E65FF008A35CD /* HomeGoalAddCollectionViewCell.swift in Sources */,
+				C326493C29C4B2C9009CDBDC /* MyPageResponse.swift in Sources */,
+				C326493529C4B29D009CDBDC /* MyPageRouter.swift in Sources */,
 				DDE12FD9295B1357008CF91B /* LoginResponse.swift in Sources */,
 				DD849B03295E75D80030AF2F /* StoreGoalRouter.swift in Sources */,
 				DDB02FCB296D19CC00D1E7AB /* HomeNewGoalTypeView.swift in Sources */,
@@ -1047,6 +1078,7 @@
 				DD849B0E295E7E0F0030AF2F /* MoyaLoggingPlugin.swift in Sources */,
 				DDDBC878296045AA00F65F23 /* String.swift in Sources */,
 				D6B4D2332965BB6700661083 /* BottomSheetView.swift in Sources */,
+				C326493729C4B2A4009CDBDC /* MyPageService.swift in Sources */,
 				DDA7B71029672B14001950A2 /* HomeView.swift in Sources */,
 				D6B4D2332965BB6700661083 /* BottomSheetView.swift in Sources */,
 				DDE12FDD295B137E008CF91B /* GoalDetailResponse.swift in Sources */,
