@@ -10,6 +10,7 @@ import UIKit
 import MessageUI
 import SnapKit
 import Then
+import WebKit
 
 class MyPageViewController: BaseViewController {
     
@@ -35,6 +36,9 @@ class MyPageViewController: BaseViewController {
         myPageView.handleStoreGoalButtonDelegate = self
         myPageView.handleServiceIntroButtonDelegate = self
         myPageView.handleContactButtonDelegate = self
+        myPageView.handleReviewButtonDelegate = self
+        myPageView.handleServiceTermsButtonDelegate = self
+        myPageView.handlePrivacyButtonDelegate = self
         myPageView.headerView.handleBackButtonDelegate = self
     }
 }
@@ -116,5 +120,29 @@ extension MyPageViewController: HandleServiceIntroButtonDelegate {
     }
 }
 
+extension MyPageViewController: HandleReviewButtonDelegate {
+    func requestReview() {
+        // 앱스토어 아이디 나오면 뒤에 추가 예정 /app/id{앱스토어ID}
+        if let appstoreUrl = URL(string: "https://apps.apple.com") {
+            var urlComp = URLComponents(url: appstoreUrl, resolvingAgainstBaseURL: false)
+            urlComp?.queryItems = [
+                URLQueryItem(name: "action", value: "write-review")
+            ]
+            guard let reviewUrl = urlComp?.url else {
+                return
+            }
+            UIApplication.shared.open(reviewUrl, options: [:], completionHandler: nil)
+        }
+    }
+}
 
-
+extension MyPageViewController: HandleServiceTermsButtonDelegate, HandlePrivacyButtonDelegate, WKNavigationDelegate {
+    func openServiceTermsWebView() {
+        let url = URL(string: "https://68space.notion.site/7d49b1a8912440cb9ec262392e5583e2")!
+        UIApplication.shared.open(url, options: [:], completionHandler: nil)
+    }
+    func openPrivacyWebView() {
+        let url = URL(string: "https://68space.notion.site/9083a018baab42958103596378417c13")!
+        UIApplication.shared.open(url, options: [:], completionHandler: nil)
+    }
+}

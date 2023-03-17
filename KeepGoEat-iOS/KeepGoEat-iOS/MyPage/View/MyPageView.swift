@@ -26,12 +26,27 @@ protocol HandleContactButtonDelegate : AnyObject {
     func sendMail()
 }
 
+protocol HandleReviewButtonDelegate : AnyObject {
+    func requestReview()
+}
+
+protocol HandleServiceTermsButtonDelegate : AnyObject {
+    func openServiceTermsWebView()
+}
+
+protocol HandlePrivacyButtonDelegate : AnyObject {
+    func openPrivacyWebView()
+}
+
 class MyPageView: UIView {
     
     weak var handleAccountButtonDelegate: HandleAccountButtonDelegate?
     weak var handleStoreGoalButtonDelegate: HandleStoreGoalButtonDelegate?
     weak var handleServiceIntroButtonDelegate: HandleServiceIntroButtonDelegate?
     weak var handleContactButtonDelegate: HandleContactButtonDelegate?
+    weak var handleReviewButtonDelegate: HandleReviewButtonDelegate?
+    weak var handleServiceTermsButtonDelegate: HandleServiceTermsButtonDelegate?
+    weak var handlePrivacyButtonDelegate: HandlePrivacyButtonDelegate?
     
     // MARK: Component
     
@@ -336,7 +351,7 @@ extension MyPageView {
     }
     
     @objc func reviewButtonDidTap(){
-        
+        self.handleReviewButtonDelegate?.requestReview()
     }
     
     @objc func servicePresentButtonDidTap(){
@@ -344,10 +359,10 @@ extension MyPageView {
     }
     
     @objc func serviceTermsButtonDidTap(){
-        
+        self.handleServiceTermsButtonDelegate?.openServiceTermsWebView()
     }
     
     @objc func privacyButtonDidTap(){
-        
+        self.handlePrivacyButtonDelegate?.openPrivacyWebView()
     } 
 }
