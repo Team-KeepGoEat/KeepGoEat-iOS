@@ -124,11 +124,11 @@ extension MyPageViewController: HandleReviewButtonDelegate {
     func requestReview() {
         // 앱스토어 아이디 나오면 뒤에 추가 예정 /app/id{앱스토어ID}
         if let appstoreUrl = URL(string: "https://apps.apple.com") {
-            var urlComp = URLComponents(url: appstoreUrl, resolvingAgainstBaseURL: false)
-            urlComp?.queryItems = [
+            var urlComponents = URLComponents(url: appstoreUrl, resolvingAgainstBaseURL: false)
+            urlComponents?.queryItems = [
                 URLQueryItem(name: "action", value: "write-review")
             ]
-            guard let reviewUrl = urlComp?.url else {
+            guard let reviewUrl = urlComponents?.url else {
                 return
             }
             UIApplication.shared.open(reviewUrl, options: [:], completionHandler: nil)

@@ -28,14 +28,11 @@ class ServiceIntroView: UIView {
     
     private let backgroundImage : UIImageView = UIImageView().then {
         $0.image = Const.Image.serviceIntro
-//        $0.contentMode = .scaleAspectFit
-//        $0.translatesAutoresizingMaskIntoConstraints = false
     }
     
     private let introLabelView = UIView().then {
         $0.backgroundColor = .white
         $0.layer.cornerRadius = 12.adjusted
-//        $0.translatesAutoresizingMaskIntoConstraints = false
     }
     
     private let introLabel = UILabel().then {
@@ -49,7 +46,6 @@ class ServiceIntroView: UIView {
         paragraphStyle.lineSpacing = 4
         attrString.addAttribute(NSAttributedString.Key.paragraphStyle, value: paragraphStyle, range: NSMakeRange(0, attrString.length))
         $0.attributedText = attrString
-//        $0.translatesAutoresizingMaskIntoConstraints = false
     }
     
     private let openSourceButton = UIButton()
@@ -58,12 +54,10 @@ class ServiceIntroView: UIView {
         $0.text = Const.String.openSource
         $0.textColor = .gray800
         $0.font = .system4
-//        $0.translatesAutoresizingMaskIntoConstraints = false
     }
     
     private let openSourceSubPageImageView = UIImageView().then {
         $0.image = Const.Image.icnRight
-//        $0.translatesAutoresizingMaskIntoConstraints = false
     }
     
     
@@ -113,14 +107,9 @@ extension ServiceIntroView {
             $0.centerX.equalToSuperview()
         }
         scrollView.snp.makeConstraints{
-//            $0.top.equalTo(headerView.snp.bottom)
-//            $0.width.equalTo(self.safeAreaLayoutGuide)
-//            $0.edges.equalTo(self.safeAreaLayoutGuide)
-//            $0.bottom.equalTo(self.safeAreaLayoutGuide)
             $0.top.equalTo(headerView.snp.bottom)
             $0.leading.trailing.bottom.equalToSuperview()
             $0.width.equalToSuperview()
-//            $0.bottom.equalTo(self.safeAreaLayoutGuide)
         }
         backgroundImage.snp.makeConstraints{
             $0.top.equalTo(headerView.snp.bottom)
@@ -133,7 +122,6 @@ extension ServiceIntroView {
             $0.height.equalTo(376)
         }
         introLabel.snp.makeConstraints{
-//            $0.top.bottom.equalTo(introLabelView.snp.top).offset(20.adjusted)
             $0.centerY.equalTo(introLabelView)
             $0.leading.equalTo(introLabelView).offset(20.adjusted)
         }
