@@ -38,11 +38,11 @@ class StoreGoalViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-//        getStoreGoalData()
+        getStoreGoalData()
         setDataSource()
         setUI()
         setLayout()
-        applySnapshot(sort: .all)
+//        applySnapshot(sort: .all)
         setAddTarget()
         setDelegate()
     }

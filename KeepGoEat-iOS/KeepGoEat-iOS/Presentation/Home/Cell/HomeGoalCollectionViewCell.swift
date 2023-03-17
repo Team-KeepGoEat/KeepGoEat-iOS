@@ -83,14 +83,14 @@ class HomeGoalCollectionViewCell: UICollectionViewCell {
     func databind(data: Goal) {
         if data.isMore {
             kindTagImage.image = Const.Image.moreTag
-            goalContentLabel.text = data.goalContent + " 더 먹기"
+            goalContentLabel.text = data.food + " 더 먹기"
             goalCountLabel.attributedText = NSMutableAttributedString()
                 .setCountTitleTextStyle(string: String(data.thisMonthCount), isMore: true)
                 .setCountSubTextStyle(string: Const.String.homeCountGuide)
             achieveButton.isAchievedMore = data.isAchieved
         } else {
             kindTagImage.image = Const.Image.lessTag
-            goalContentLabel.text = data.goalContent + " 덜 먹기"
+            goalContentLabel.text = data.food + " 덜 먹기"
             goalCountLabel.attributedText = NSMutableAttributedString()
                 .setCountTitleTextStyle(string: String(data.thisMonthCount), isMore: false)
                 .setCountSubTextStyle(string: Const.String.homeCountGuide)
