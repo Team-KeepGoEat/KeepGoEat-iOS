@@ -10,7 +10,6 @@ import UIKit
 import SnapKit
 import Then
 
-//TODO: label 부분을 탭해도 체크박스가 활성화되도록
 class CheckBoxButton: UIButton {
     
     let checkedImage = Const.Image.icnCheckBoxOrange! as UIImage
@@ -45,7 +44,7 @@ class CheckBoxButton: UIButton {
     }
     
     private func setAddTarget() {
-        self.addTarget(self, action:#selector(buttonTapped(sender:)), for: .touchUpInside)
+        self.addTarget(self, action: #selector(buttonTapped(sender: )), for: .touchUpInside)
         isChecked = false
 //        label.isUserInteractionEnabled = true
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(self.labelTapped))
@@ -54,7 +53,7 @@ class CheckBoxButton: UIButton {
     
     private func setUI() {
         self.addSubview(label)
-        label.snp.makeConstraints{
+        label.snp.makeConstraints {
             $0.centerY.equalToSuperview()
             $0.leading.equalTo(self.snp.trailing).offset(4.adjusted)
         }

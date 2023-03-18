@@ -32,6 +32,6 @@ struct URLConstant {
     // MARK: StoreGoal
     static let storeGoal = "/goal/kept"
     
-    //MARK: MyPage
+    // MARK: MyPage
     static let myPage = "/mypage"
 }

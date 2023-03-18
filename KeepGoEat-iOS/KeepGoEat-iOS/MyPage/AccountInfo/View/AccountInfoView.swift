@@ -88,7 +88,7 @@ extension AccountInfoView {
             headerViewTitle
         )
         
-        headerView.snp.makeConstraints{
+        headerView.snp.makeConstraints {
             $0.top.equalTo(self.safeAreaLayoutGuide)
             $0.horizontalEdges.equalTo(self.safeAreaLayoutGuide)
             $0.height.equalTo(48.adjusted)
@@ -99,28 +99,28 @@ extension AccountInfoView {
             $0.centerX.equalToSuperview()
         }
         
-        accountLabel.snp.makeConstraints{
+        accountLabel.snp.makeConstraints {
             $0.top.equalTo(headerView.snp.bottom).offset(24.adjusted)
             $0.leading.equalToSuperview().inset(16.adjusted)
         }
         
-        emailLabel.snp.makeConstraints{
+        emailLabel.snp.makeConstraints {
             $0.top.equalTo(accountLabel.snp.bottom).offset(4.adjusted)
             $0.leading.equalToSuperview().inset(16.adjusted)
         }
         
-        lineView.snp.makeConstraints{
+        lineView.snp.makeConstraints {
             $0.top.equalTo(emailLabel.snp.bottom).offset(20.adjusted)
             $0.height.equalTo(2)
             $0.width.equalToSuperview()
         }
         
-        logoutButton.snp.makeConstraints{
+        logoutButton.snp.makeConstraints {
             $0.top.equalTo(lineView.snp.bottom).offset(20.adjusted)
             $0.leading.equalToSuperview().inset(16.adjusted)
         }
         
-        withdrawalButton.snp.makeConstraints{
+        withdrawalButton.snp.makeConstraints {
             $0.top.equalTo(logoutButton.snp.bottom).offset(16.adjusted)
             $0.leading.equalToSuperview().inset(16.adjusted)
         }
@@ -135,7 +135,7 @@ extension AccountInfoView {
     private func logoutButtonDidTap(_ sender: UIButton) {        
         let logoutAlertView = LogoutAlertView()
         self.addSubview(logoutAlertView)
-        logoutAlertView.snp.makeConstraints{
+        logoutAlertView.snp.makeConstraints {
             $0.edges.equalToSuperview()
         }
         logoutAlertView.showAlert()

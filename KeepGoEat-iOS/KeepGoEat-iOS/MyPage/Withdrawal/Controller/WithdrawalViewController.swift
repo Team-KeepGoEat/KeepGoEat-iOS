@@ -10,7 +10,6 @@ import UIKit
 import SnapKit
 import Then
 
-
 class WithdrawalViewController: BaseViewController {
     
     private var withdrawalView = WithdrawalView()
