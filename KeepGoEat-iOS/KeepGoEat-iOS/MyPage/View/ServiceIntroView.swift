@@ -10,7 +10,6 @@ import UIKit
 import Then
 import SnapKit
 
-
 class ServiceIntroView: UIView {
     
     let headerView: HeaderView = HeaderView()
@@ -26,7 +25,7 @@ class ServiceIntroView: UIView {
         $0.isScrollEnabled = true
     }
     
-    private let backgroundImage : UIImageView = UIImageView().then {
+    private let backgroundImage: UIImageView = UIImageView().then {
         $0.image = Const.Image.serviceIntro
     }
     
@@ -60,7 +59,6 @@ class ServiceIntroView: UIView {
         $0.image = Const.Image.icnRight
     }
     
-    
     // MARK: LifeCycle
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -79,7 +77,7 @@ extension ServiceIntroView {
         self.backgroundColor = .white
     }
     
-    private func setLayout(){
+    private func setLayout() {
         self.addSubviews(headerView, scrollView)
         
         headerView.addSubview(headerViewTitle)
@@ -96,7 +94,7 @@ extension ServiceIntroView {
         openSourceSubPageImageView
         )
         
-        headerView.snp.makeConstraints{
+        headerView.snp.makeConstraints {
             $0.top.equalTo(self.safeAreaLayoutGuide)
             $0.horizontalEdges.equalTo(self.safeAreaLayoutGuide)
             $0.height.equalTo(48.adjusted)
@@ -106,38 +104,38 @@ extension ServiceIntroView {
             $0.centerY.equalToSuperview()
             $0.centerX.equalToSuperview()
         }
-        scrollView.snp.makeConstraints{
+        scrollView.snp.makeConstraints {
             $0.top.equalTo(headerView.snp.bottom)
             $0.leading.trailing.bottom.equalToSuperview()
             $0.width.equalToSuperview()
         }
-        backgroundImage.snp.makeConstraints{
+        backgroundImage.snp.makeConstraints {
             $0.top.equalTo(headerView.snp.bottom)
             $0.width.equalToSuperview()
         }
-        introLabelView.snp.makeConstraints{
+        introLabelView.snp.makeConstraints {
             $0.centerX.equalToSuperview()
             $0.top.equalTo(backgroundImage.snp.top).offset(80.adjusted)
             $0.leading.trailing.equalTo(16.adjusted)
             $0.height.equalTo(376)
         }
-        introLabel.snp.makeConstraints{
+        introLabel.snp.makeConstraints {
             $0.centerY.equalTo(introLabelView)
             $0.leading.equalTo(introLabelView).offset(20.adjusted)
         }
         
-        openSourceButton.snp.makeConstraints{
+        openSourceButton.snp.makeConstraints {
             $0.top.equalTo(backgroundImage.snp.bottom).offset(16.adjusted)
             $0.height.equalTo(32.adjusted)
             $0.leading.trailing.equalToSuperview().offset(16.adjusted)
         }
         
-        openSourceLabel.snp.makeConstraints{
+        openSourceLabel.snp.makeConstraints {
             $0.leading.equalToSuperview()
             $0.centerY.equalToSuperview()
         }
         
-        openSourceSubPageImageView.snp.makeConstraints{
+        openSourceSubPageImageView.snp.makeConstraints {
             $0.trailing.equalToSuperview()
             $0.centerY.equalToSuperview()
         }
@@ -148,8 +146,8 @@ extension ServiceIntroView {
         openSourceButton.addTarget(self, action: #selector(openSourceButtonDidTap), for: .touchUpInside)
     }
     
-    @objc func openSourceButtonDidTap(){
-            let url = URL(string: "https://68space.notion.site/iOS-c9b05b70c82648f9812ed8345cce2f4f")!
+    @objc func openSourceButtonDidTap() {
+            let url = URL(string: "https://68space.notion.site/cd16c9399dfe4c7a867deb59851282e3")!
             UIApplication.shared.open(url, options: [:], completionHandler: nil)
     }
 }

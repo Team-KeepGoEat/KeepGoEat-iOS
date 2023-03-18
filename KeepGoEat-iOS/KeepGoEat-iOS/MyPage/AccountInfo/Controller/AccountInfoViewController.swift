@@ -25,6 +25,7 @@ class AccountInfoViewController: BaseViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         navigationController?.setNavigationBarHidden(true, animated: true)
+        getMyPage()
     }
     
     override func loadView() {
@@ -35,6 +36,14 @@ class AccountInfoViewController: BaseViewController {
     private func setDelegate() {
         accountInfoView.handleWithdrawalButtonDelegate = self
         accountInfoView.headerView.handleBackButtonDelegate = self
+    }
+    
+    private func getMyPage() {
+        MyPageService.shared.getMyPage { data in
+            guard let data = data else { return }
+            self.accountInfoView.accountLabel.text = String(data.name)
+            self.accountInfoView.emailLabel.text = String(data.email)
+        }
     }
 }
 
