@@ -15,6 +15,7 @@ class StoreGoalViewController: BaseViewController {
     // MARK: - Variables
     var data: GetStoreGoalResponse = getStoreGoalDataList[1]
     var dataSource: UICollectionViewDiffableDataSource<StoreSection, StoreGoal>!
+    var sortType: SortType = .all
     
     // MARK: Component
     let headerView = HeaderView()
@@ -38,16 +39,15 @@ class StoreGoalViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-//        getStoreGoalData()
         setDataSource()
         setUI()
         setLayout()
-        applySnapshot(sort: .all)
         setAddTarget()
         setDelegate()
     }
     override func viewWillAppear(_ animated: Bool) {
         navigationController?.setNavigationBarHidden(true, animated: true)
+        getStoreGoalData()
     }
     
     // MARK: Layout Helpers
@@ -92,6 +92,7 @@ class StoreGoalViewController: BaseViewController {
     
     // MARK: Custom Function
     private func setDataSource() {
+        print("🚀setDataSource \(data)")
         dataSource = UICollectionViewDiffableDataSource<StoreSection, StoreGoal>(collectionView: storeCollectionView, cellProvider: { collectionView, indexPath, goal in
             guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: StoreCollectionViewCell.identifier, for: indexPath) as? StoreCollectionViewCell else { fatalError() }
             cell.dataBind(data: goal)
@@ -102,15 +103,19 @@ class StoreGoalViewController: BaseViewController {
     }
     
     func applySnapshot(sort: SortType, isAnimated: Bool = true) {
+        print("🚀applySnapshot \(data)")
         var snapshot = NSDiffableDataSourceSnapshot<StoreSection, StoreGoal>()
         snapshot.appendSections([.main])
         switch sort {
         case .all:
             snapshot.appendItems(data.goals, toSection: .main)
+            sortType = .all
         case .more:
             snapshot.appendItems(data.goals.filter({ $0.isMore }), toSection: .main)
+            sortType = .more
         case .less:
             snapshot.appendItems(data.goals.filter({ !$0.isMore }), toSection: .main)
+            sortType = .less
         }
         dataSource.apply(snapshot, animatingDifferences: isAnimated)
     }
@@ -119,8 +124,9 @@ class StoreGoalViewController: BaseViewController {
         StoreGoalService.shared.getStoreGoal(sortType: .all) { data in
             guard let data = data else { return }
             self.data = data
-            self.applySnapshot(sort: .all)
+            self.applySnapshot(sort: self.sortType)
         }
+        print("🚀getStoreGoalData \(data)")
     }
     
     private func setAddTarget() {
@@ -170,10 +176,9 @@ class StoreGoalViewController: BaseViewController {
     }
     
     private func deleteStoreGoal(goalId: Int) {
-        var snapshot = dataSource.snapshot()
-        let target = data.goals.filter { $0.goalId == goalId }
-        snapshot.deleteItems(target)
-        dataSource.apply(snapshot)
+        GoalDetailService.shared.deleteGoal(goalId: goalId) { _ in
+            self.getStoreGoalData()
+        }
     }
 }
 

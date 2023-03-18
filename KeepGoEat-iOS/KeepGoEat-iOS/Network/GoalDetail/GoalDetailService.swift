@@ -46,7 +46,7 @@ extension GoalDetailService {
         }
     }
     
-    func deleteGoal(goalId: Int) {
+    func deleteGoal(goalId: Int, completion: @escaping (GoalDeleteResponseDto?) -> Void) {
         goalDetailProvider.request(.deleteGoal(goalId: goalId)) { response in
             switch response {
             case .success(let result):
@@ -56,7 +56,7 @@ extension GoalDetailService {
                 switch networkData {
                 case .success(let data):
                     guard let data = data as? GoalDeleteResponseDto else { return }
-                    print(data)
+                    completion(data)
                 case .requestErr(let data):
                     guard let data = data as? String else { return }
                     print(data)
