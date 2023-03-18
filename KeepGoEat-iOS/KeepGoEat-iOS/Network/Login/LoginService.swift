@@ -9,7 +9,7 @@ import Moya
 
 final class LoginService {
     static let shared = LoginService()
-    private let loginProvider = MoyaProvider<LoginRouter>(plugins: [NetworkLoggerPlugin()])
+    private let loginProvider = MoyaProvider<LoginRouter>(plugins: [MoyaLoggingPlugin()])
     private init() { }
 }
 
