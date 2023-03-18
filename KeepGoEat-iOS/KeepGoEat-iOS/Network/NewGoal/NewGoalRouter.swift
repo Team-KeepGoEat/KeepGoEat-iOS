@@ -41,6 +41,6 @@ extension NewGoalRouter: BaseTargetType {
     }
     
     var headers: [String: String]? {
-            return NetworkConstant.accessTokenHeader
+            return NetworkConstant.tokenHeader
         }
     }
