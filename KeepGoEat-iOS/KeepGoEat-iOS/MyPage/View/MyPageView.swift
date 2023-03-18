@@ -14,27 +14,27 @@ protocol HandleAccountButtonDelegate: AnyObject {
     func pushAccountInfo()
 }
 
-protocol HandleStoreGoalButtonDelegate : AnyObject {
+protocol HandleStoreGoalButtonDelegate: AnyObject {
     func pushStoreGoal()
 }
 
-protocol HandleServiceIntroButtonDelegate : AnyObject {
+protocol HandleServiceIntroButtonDelegate: AnyObject {
     func pushServiceIntro()
 }
 
-protocol HandleContactButtonDelegate : AnyObject {
+protocol HandleContactButtonDelegate: AnyObject {
     func sendMail()
 }
 
-protocol HandleReviewButtonDelegate : AnyObject {
+protocol HandleReviewButtonDelegate: AnyObject {
     func requestReview()
 }
 
-protocol HandleServiceTermsButtonDelegate : AnyObject {
+protocol HandleServiceTermsButtonDelegate: AnyObject {
     func openServiceTermsWebView()
 }
 
-protocol HandlePrivacyButtonDelegate : AnyObject {
+protocol HandlePrivacyButtonDelegate: AnyObject {
     func openPrivacyWebView()
 }
 
@@ -58,7 +58,7 @@ class MyPageView: UIView {
         $0.font = .system4Bold
     }
     
-    private let accountButton = UIButton().then {
+    let accountButton = UIButton().then {
         $0.setTitle("user214", for: .normal)
         $0.setTitleColor(.gray800, for: .normal)
         $0.titleLabel?.font = .system3Bold
@@ -66,7 +66,7 @@ class MyPageView: UIView {
         $0.semanticContentAttribute = .forceRightToLeft
     }
     
-    private let emailLabel = UILabel().then {
+    let emailLabel = UILabel().then {
         $0.text = "keepgoeat@kakao.com"
         $0.textColor = .gray600
         $0.font = .system5
@@ -80,7 +80,7 @@ class MyPageView: UIView {
         $0.font = .system4
     }
     
-    private let storeGoalCount = UILabel().then {
+    let storeGoalCount = UILabel().then {
         $0.text = "3"
         $0.textColor = .orange600
         $0.font = .system4Bold
@@ -211,7 +211,7 @@ extension MyPageView {
             storeGoalCount
         )
         
-        headerView.snp.makeConstraints{
+        headerView.snp.makeConstraints {
             $0.top.equalTo(self.safeAreaLayoutGuide)
             $0.horizontalEdges.equalTo(self.safeAreaLayoutGuide)
             $0.height.equalTo(48.adjusted)
@@ -222,101 +222,101 @@ extension MyPageView {
             $0.centerX.equalToSuperview()
         }
         
-        accountButton.snp.makeConstraints{
+        accountButton.snp.makeConstraints {
             $0.top.equalTo(headerView.snp.bottom).offset(20.adjusted)
             $0.leading.equalToSuperview().inset(16.adjusted)
         }
 
-        emailLabel.snp.makeConstraints{
+        emailLabel.snp.makeConstraints {
             $0.top.equalTo(accountButton.snp.bottom)
             $0.leading.equalTo(accountButton)
         }
         
-        storeGoalButton.snp.makeConstraints{
+        storeGoalButton.snp.makeConstraints {
             $0.leading.equalToSuperview().inset(14.adjusted)
             $0.top.equalTo(emailLabel.snp.bottom).offset(24.adjusted)
             $0.width.equalTo(102.adjusted)
         }
         
-        storeGoalLabel.snp.makeConstraints{
+        storeGoalLabel.snp.makeConstraints {
             $0.leading.equalToSuperview().inset(2.adjusted)
             $0.centerY.equalToSuperview()
         }
         
-        storeGoalCount.snp.makeConstraints{
+        storeGoalCount.snp.makeConstraints {
             $0.trailing.equalToSuperview().offset(-7.adjusted)
             $0.centerY.equalToSuperview()
         }
         
-        storeGoalSubPageButton.snp.makeConstraints{
+        storeGoalSubPageButton.snp.makeConstraints {
             $0.trailing.equalToSuperview().inset(14.adjusted)
             $0.centerY.equalTo(storeGoalButton)
         }
         
-        lineView1.snp.makeConstraints{
+        lineView1.snp.makeConstraints {
             $0.width.equalToSuperview()
             $0.height.equalTo(2.adjusted)
             $0.top.equalTo(storeGoalButton.snp.bottom).offset(12.adjusted)
         }
         
-        contactAndReviewLabel.snp.makeConstraints{
+        contactAndReviewLabel.snp.makeConstraints {
             $0.top.equalTo(lineView1.snp.bottom).offset(16.adjusted)
             $0.leading.equalToSuperview().inset(16.adjusted)
         }
         
-        contactButton.snp.makeConstraints{
+        contactButton.snp.makeConstraints {
             $0.top.equalTo(contactAndReviewLabel.snp.bottom).offset(16.adjusted)
             $0.leading.equalTo(contactAndReviewLabel)
         }
         
-        reviewButton.snp.makeConstraints{
+        reviewButton.snp.makeConstraints {
             $0.top.equalTo(contactButton.snp.bottom).offset(24.adjusted)
             $0.leading.equalTo(contactAndReviewLabel)
         }
         
-        lineView2.snp.makeConstraints{
+        lineView2.snp.makeConstraints {
             $0.width.equalToSuperview()
             $0.height.equalTo(2.adjusted)
             $0.top.equalTo(reviewButton.snp.bottom).offset(16.adjusted)
         }
         
-        appInfoLabel.snp.makeConstraints{
+        appInfoLabel.snp.makeConstraints {
             $0.top.equalTo(lineView2.snp.bottom).offset(16.adjusted)
             $0.leading.equalToSuperview().inset(16.adjusted)
         }
         
-        serviceIntroButton.snp.makeConstraints{
+        serviceIntroButton.snp.makeConstraints {
             $0.top.equalTo(appInfoLabel.snp.bottom).offset(16.adjusted)
             $0.leading.equalTo(appInfoLabel)
         }
         
-        versionInfoLabel.snp.makeConstraints{
+        versionInfoLabel.snp.makeConstraints {
             $0.top.equalTo(serviceIntroButton.snp.bottom).offset(24.adjusted)
             $0.leading.equalTo(appInfoLabel)
         }
         
-        versionLabel.snp.makeConstraints{
+        versionLabel.snp.makeConstraints {
             $0.centerY.equalTo(versionInfoLabel)
             $0.trailing.equalToSuperview().inset(15.adjusted)
         }
         
-        lineView3.snp.makeConstraints{
+        lineView3.snp.makeConstraints {
             $0.width.equalToSuperview()
             $0.height.equalTo(2.adjusted)
             $0.top.equalTo(versionInfoLabel.snp.bottom).offset(16.adjusted)
         }
         
-        termsAndPrivacyLabel.snp.makeConstraints{
+        termsAndPrivacyLabel.snp.makeConstraints {
             $0.top.equalTo(lineView3.snp.bottom).offset(16.adjusted)
             $0.leading.equalToSuperview().inset(16.adjusted)
         }
         
-        serviceTermsButton.snp.makeConstraints{
+        serviceTermsButton.snp.makeConstraints {
             $0.top.equalTo(termsAndPrivacyLabel.snp.bottom).offset(16.adjusted)
             $0.leading.equalTo(termsAndPrivacyLabel)
         }
         
-        privacyButton.snp.makeConstraints{
+        privacyButton.snp.makeConstraints {
             $0.top.equalTo(serviceTermsButton.snp.bottom).offset(20.adjusted)
             $0.leading.equalTo(termsAndPrivacyLabel)
         }
@@ -334,35 +334,35 @@ extension MyPageView {
         
     }
     
-    @objc func accountButtonDidTap(){
+    @objc func accountButtonDidTap() {
         self.handleAccountButtonDelegate?.pushAccountInfo()
     }
     
-    @objc func storeGoalButtonDidTap(){
+    @objc func storeGoalButtonDidTap() {
         self.handleStoreGoalButtonDelegate?.pushStoreGoal()
     }
     
-    @objc func storeGoalSubPageButtonDidTap(){
+    @objc func storeGoalSubPageButtonDidTap() {
         self.handleStoreGoalButtonDelegate?.pushStoreGoal()
     }
     
-    @objc func contactButtonDidTap(){
+    @objc func contactButtonDidTap() {
         self.handleContactButtonDelegate?.sendMail()
     }
     
-    @objc func reviewButtonDidTap(){
+    @objc func reviewButtonDidTap() {
         self.handleReviewButtonDelegate?.requestReview()
     }
     
-    @objc func servicePresentButtonDidTap(){
+    @objc func servicePresentButtonDidTap() {
         self.handleServiceIntroButtonDelegate?.pushServiceIntro()
     }
     
-    @objc func serviceTermsButtonDidTap(){
+    @objc func serviceTermsButtonDidTap() {
         self.handleServiceTermsButtonDelegate?.openServiceTermsWebView()
     }
     
-    @objc func privacyButtonDidTap(){
+    @objc func privacyButtonDidTap() {
         self.handlePrivacyButtonDelegate?.openPrivacyWebView()
     } 
 }

@@ -23,6 +23,7 @@ class MyPageViewController: BaseViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        getMyPage()
         navigationController?.setNavigationBarHidden(true, animated: true)
     }
     
@@ -40,6 +41,15 @@ class MyPageViewController: BaseViewController {
         myPageView.handleServiceTermsButtonDelegate = self
         myPageView.handlePrivacyButtonDelegate = self
         myPageView.headerView.handleBackButtonDelegate = self
+    }
+    
+    private func getMyPage() {
+        MyPageService.shared.getMyPage { data in
+            guard let data = data else { return }
+            self.myPageView.emailLabel.text = String(data.email)
+            self.myPageView.accountButton.setTitle(String(data.name), for: .normal)
+            self.myPageView.storeGoalCount.text = String(data.keptGoalsCount)
+        }
     }
 }
 
@@ -61,13 +71,12 @@ extension MyPageViewController: HandleStoreGoalButtonDelegate {
     }
 }
 
-extension MyPageViewController : HandleContactButtonDelegate, MFMailComposeViewControllerDelegate {
+extension MyPageViewController: HandleContactButtonDelegate, MFMailComposeViewControllerDelegate {
     func sendMail() {
         if MFMailComposeViewController.canSendMail() {
                    
                    let composeViewController = MFMailComposeViewController()
             composeViewController.mailComposeDelegate = self
-            
             
             let bodyString = """
                          Device : \(self.getDeviceIdentifier())
@@ -82,16 +91,14 @@ extension MyPageViewController : HandleContactButtonDelegate, MFMailComposeViewC
             composeViewController.setSubject("킵고잇 문의사항")
             composeViewController.setMessageBody(bodyString, isHTML: false)
             self.present(composeViewController, animated: true, completion: nil)
-        }
-        else {
+        } else {
             self.showSendMailErrorAlert()
         }
     }
     
     func showSendMailErrorAlert() {
             let sendMailErrorAlert = UIAlertController(title: "메일 전송 실패", message: "아이폰 이메일 설정을 확인하고 다시 시도해주세요.", preferredStyle: .alert)
-            let confirmAction = UIAlertAction(title: "확인", style: .default) {
-                (action) in
+            let confirmAction = UIAlertAction(title: "확인", style: .default) { (action) in
             }
             sendMailErrorAlert.addAction(confirmAction)
             self.present(sendMailErrorAlert, animated: true, completion: nil)

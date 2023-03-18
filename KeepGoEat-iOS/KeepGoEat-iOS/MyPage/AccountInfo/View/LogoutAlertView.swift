@@ -130,35 +130,35 @@ extension LogoutAlertView {
         [self.logoutTitle, self.logoutDescription]
             .forEach(self.bodyStackView.addArrangedSubview(_:))
         
-        transparentView.snp.makeConstraints{
+        transparentView.snp.makeConstraints {
             $0.edges.equalToSuperview()
         }
         
-        alertView.snp.makeConstraints{
+        alertView.snp.makeConstraints {
             $0.width.equalTo(225.adjusted)
             $0.height.equalTo(162.adjusted)
             $0.centerX.equalToSuperview()
             $0.centerY.equalToSuperview()
         }
         
-        bodyStackView.snp.makeConstraints{
+        bodyStackView.snp.makeConstraints {
             $0.top.equalToSuperview().offset(20.adjusted)
             $0.leading.trailing.equalToSuperview().inset(16.adjusted)
         }
         
-        separateLineView.snp.makeConstraints{
+        separateLineView.snp.makeConstraints {
             $0.centerX.equalToSuperview()
             $0.bottom.equalToSuperview().offset(-16.adjusted)
             $0.width.equalTo(1.adjusted)
             $0.height.equalTo(16.adjusted)
         }
         
-        noButton.snp.makeConstraints{
+        noButton.snp.makeConstraints {
             $0.centerY.equalTo(separateLineView.snp.centerY)
             $0.centerX.equalTo(alertView.snp.centerX).dividedBy(2)
         }
         
-        yesButton.snp.makeConstraints{
+        yesButton.snp.makeConstraints {
             $0.centerY.equalTo(separateLineView.snp.centerY)
             $0.centerX.equalTo(alertView.snp.centerX).dividedBy(0.6666)
         }
