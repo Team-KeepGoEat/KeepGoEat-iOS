@@ -25,6 +25,7 @@ class AccountInfoViewController: BaseViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         navigationController?.setNavigationBarHidden(true, animated: true)
+        getMyPage()
     }
     
     override func loadView() {

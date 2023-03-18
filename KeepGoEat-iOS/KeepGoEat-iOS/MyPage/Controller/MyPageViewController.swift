@@ -47,7 +47,7 @@ class MyPageViewController: BaseViewController {
         MyPageService.shared.getMyPage { data in
             guard let data = data else { return }
             self.myPageView.emailLabel.text = String(data.email)
-            self.myPageView.accountButton.titleLabel?.text = String(data.name)
+            self.myPageView.accountButton.setTitle(String(data.name), for: .normal)
             self.myPageView.storeGoalCount.text = String(data.keptGoalsCount)
         }
     }
