@@ -104,7 +104,7 @@ extension GoalDetailViewController {
     }
     
     private func deleteGoal() {
-        GoalDetailService.shared.deleteGoal(goalId: self.goalId)
+        GoalDetailService.shared.deleteGoal(goalId: self.goalId) { _ in }
     }
     
     @objc

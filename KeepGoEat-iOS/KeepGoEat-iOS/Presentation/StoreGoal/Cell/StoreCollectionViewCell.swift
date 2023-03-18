@@ -114,11 +114,11 @@ class StoreCollectionViewCell: UICollectionViewCell {
         if data.isMore {
             kindTagImage.image = Const.Image.moreTag
             totalCountLabel.textColor = .orange500
-            goalContentLabel.text = "\(data.goalContent) \(Const.String.moreEat)"
+            goalContentLabel.text = "\(data.food) \(Const.String.moreEat)"
         } else {
             kindTagImage.image = Const.Image.lessTag
             totalCountLabel.textColor = .green600
-            goalContentLabel.text = "\(data.goalContent) \(Const.String.lessEat)"
+            goalContentLabel.text = "\(data.food) \(Const.String.lessEat)"
         }
         totalCountLabel.text = String(data.totalCount)
         termCountLabel.text = "\(data.startedAt) ~ \(data.keptAt)"
