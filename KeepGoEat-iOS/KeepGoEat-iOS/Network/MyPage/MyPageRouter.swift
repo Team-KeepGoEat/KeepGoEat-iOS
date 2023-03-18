@@ -34,8 +34,8 @@ extension MyPageRouter: BaseTargetType {
         }
     }
     
-    var headers: [String : String]? {
-        return NetworkConstant.accessTokenHeader
+    var headers: [String: String]? {
+        return NetworkConstant.tokenHeader
     }
 
 }
