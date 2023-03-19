@@ -120,6 +120,9 @@ extension LogoutAlertView {
     @objc private func yesButtonDidTap() {
         dismissAlert()
         // 로그아웃 로직 구현
+        RootViewControllerSwithcer.shared.changeRootViewController(navigationMode: .login)
+        deleteUserTokenOnKeyChain(tokenName: Const.String.userAccessToken)
+        deleteUserTokenOnKeyChain(tokenName: Const.String.userRefreshToken)
     }
     
     private func setLayout() {
