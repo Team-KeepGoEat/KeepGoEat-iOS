@@ -75,4 +75,16 @@ extension LoginService {
             }
         }
     }
+    
+    func withdraw(code: String?, completion: @escaping () -> Void) {
+        loginProvider.request(.withdraw(code: code)) { response in
+            switch response {
+            case .success(let result):
+                let status = result.statusCode
+                
+            case .failure(let error):
+                print(error.localizedDescription)
+            }
+        }
+    }
 }

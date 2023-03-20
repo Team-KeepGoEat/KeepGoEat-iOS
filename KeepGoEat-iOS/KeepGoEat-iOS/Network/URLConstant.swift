@@ -12,9 +12,10 @@ struct URLConstant {
     // MARK: Base
     static let baseURL = Bundle.main.infoDictionary?["BASE_URL"] as! String
     
-    // MARK: Login
+    // MARK: Auth
     static let postSocialLogin = "/auth"
     static let refreshToken = "/auth/refresh"
+    static let withdraw = "/auth/withdraw"
     
     // MARK: Home
     static let getHome = "/home"
