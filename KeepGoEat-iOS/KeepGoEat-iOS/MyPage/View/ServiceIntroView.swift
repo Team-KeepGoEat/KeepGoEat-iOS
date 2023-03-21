@@ -110,7 +110,8 @@ extension ServiceIntroView {
             $0.width.equalToSuperview()
         }
         backgroundImage.snp.makeConstraints {
-            $0.top.equalTo(headerView.snp.bottom)
+//            $0.top.equalTo(headerView.snp.bottom)
+            $0.top.equalToSuperview()
             $0.width.equalToSuperview()
         }
         introLabelView.snp.makeConstraints {
@@ -127,6 +128,7 @@ extension ServiceIntroView {
         openSourceButton.snp.makeConstraints {
             $0.top.equalTo(backgroundImage.snp.bottom).offset(16.adjusted)
             $0.height.equalTo(32.adjusted)
+            $0.bottom.equalToSuperview().offset(-16)
             $0.leading.trailing.equalToSuperview().offset(16.adjusted)
         }
         
