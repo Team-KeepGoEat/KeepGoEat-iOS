@@ -25,6 +25,7 @@ class WithdrawalView: UIView, UITextViewDelegate {
     private let withdrawalScrollView = UIScrollView().then {
         $0.keyboardDismissMode = .interactive
         $0.contentInsetAdjustmentBehavior = .always
+        $0.isScrollEnabled = false
     }
     
     private let withdrawalTitle = UILabel().then {
@@ -102,7 +103,6 @@ class WithdrawalView: UIView, UITextViewDelegate {
 }
     
 extension WithdrawalView {
-    
     func textViewDidBeginEditing(_ textView: UITextView) {
         if textView == manualInputTextView {
             withdrawalScrollView.scrollRectToVisible(manualInputTextView.frame, animated: true)
@@ -112,6 +112,9 @@ extension WithdrawalView {
             textView.text = nil
             textView.textColor = .gray800
             textView.font = .system5
+        }
+        if manualInputTextView.isSelectable {
+            self.withdrawalScrollView.contentOffset.y += 224
         }
     }
         
@@ -124,7 +127,10 @@ extension WithdrawalView {
             textView.font = .system5
             textView.textColor = .gray400
         }
+            self.withdrawalScrollView.contentOffset.y -= 224
+            self.withdrawalScrollView.isScrollEnabled = false
     }
+
     func textViewDidChange(_ textView: UITextView) {
         if !manualInputMessage.isHidden && !textView.text.isEmpty {
             manualInputMessage.isHidden = true
@@ -158,11 +164,6 @@ extension WithdrawalView {
             manualInputTextView
         )
         
-        withdrawalScrollView.snp.makeConstraints {
-            $0.top.equalTo(withdrawalDescription.snp.bottom)
-            $0.bottom.leading.trailing.equalTo(self.safeAreaLayoutGuide)
-        }
-        
         headerView.snp.makeConstraints {
             $0.top.equalTo(self.safeAreaLayoutGuide)
             $0.horizontalEdges.equalTo(self.safeAreaLayoutGuide)
@@ -184,8 +185,13 @@ extension WithdrawalView {
             $0.leading.equalTo(withdrawalTitle)
         }
         
+        withdrawalScrollView.snp.makeConstraints {
+            $0.top.equalTo(withdrawalDescription.snp.bottom)
+            $0.bottom.leading.trailing.equalTo(self.safeAreaLayoutGuide)
+        }
+        
         stopEatButton.snp.makeConstraints {
-            $0.top.equalTo(withdrawalDescription.snp.bottom).offset(16.adjusted)
+            $0.top.equalToSuperview().offset(16.adjusted)
             $0.leading.equalTo(withdrawalTitle)
         }
         
@@ -219,6 +225,7 @@ extension WithdrawalView {
         manualInputMessage.snp.makeConstraints {
             $0.top.equalTo(manualInputTextView.snp.bottom).offset(8.adjusted)
             $0.leading.equalTo(20.adjusted)
+            $0.bottom.equalToSuperview().offset(-500)
         }
         
         withdrawalConfirmButton.snp.makeConstraints {
