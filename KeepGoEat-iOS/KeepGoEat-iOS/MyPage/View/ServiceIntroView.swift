@@ -110,7 +110,6 @@ extension ServiceIntroView {
             $0.width.equalToSuperview()
         }
         backgroundImage.snp.makeConstraints {
-//            $0.top.equalTo(headerView.snp.bottom)
             $0.top.equalToSuperview()
             $0.width.equalToSuperview()
         }
