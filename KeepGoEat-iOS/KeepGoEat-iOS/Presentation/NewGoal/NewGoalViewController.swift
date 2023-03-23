@@ -62,7 +62,7 @@ class NewGoalViewController: BaseViewController {
     }
     
     private let underLineLabel = UIView().then {
-        $0.backgroundColor = .gray500
+        $0.backgroundColor = .gray400
     }
     
     private let countTextLabel = UILabel().then {
@@ -88,6 +88,37 @@ class NewGoalViewController: BaseViewController {
             $0.text = Const.String.lessEat
         }
     }
+    
+    private let textStandardLabel = UILabel().then {
+        $0.text = Const.String.textStandardTitle
+        $0.textColor = .gray700
+        $0.font = .system2Bold
+    }
+    
+    private let fitStandardLabel = UILabel().then {
+        $0.text = Const.String.textFitStandard
+        $0.textColor = .gray600
+        $0.font = .system5
+    }
+    
+    private lazy var detailEatTextField = UITextField().then {
+        $0.font = .system4Bold
+        $0.text = Const.String.detailEatTextField
+        $0.delegate = self
+        $0.becomeFirstResponder()
+        $0.setPlaceholder(color: .gray400)
+    }
+    
+    private let underLineLabel2 = UIView().then {
+        $0.backgroundColor = .gray400
+    }
+    
+    private let countTextLabel2 = UILabel().then {
+        $0.text = Const.String.textCount2
+        $0.textColor = .gray400
+        $0.font = .system5
+    }
+    
     
     private lazy var completeButton = UIButton().then {
         $0.setTitle(Const.String.complete, for: .normal)

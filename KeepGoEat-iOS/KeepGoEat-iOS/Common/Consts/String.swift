@@ -66,6 +66,10 @@ extension Const {
         static let complete = "완료"
         static let warning = "한글, 영문,숫자만 입력 가능합니다."
         static let emptyWarning = "목표는 최소 1글자 이상 입력해주세요."
+        static let textStandardTitle = "목표 달성 기준을 세워볼까요?"
+        static let textFitStandard = "나에게 맞는 달성 기준을 세워요."
+        static let textCount2 = "(0/20)"
+        static let detailEatTextField = "ex) 하루에 2L씩 마시기"
         
         // MARK: StoreGoal
         static let storeTitle = "보관한 목표"
