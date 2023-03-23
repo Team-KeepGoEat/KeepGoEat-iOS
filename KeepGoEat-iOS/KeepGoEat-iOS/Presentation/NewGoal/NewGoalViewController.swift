@@ -41,6 +41,8 @@ class NewGoalViewController: BaseViewController {
     
     private let emptyView = UIView()
     
+    private let emptyView2 = UIView()
+    
     private let textMyGoalLabel = UILabel().then {
         $0.text = Const.String.textMyGoalTitle
         $0.textColor = .gray700
@@ -89,19 +91,19 @@ class NewGoalViewController: BaseViewController {
         }
     }
     
-    private let textStandardLabel = UILabel().then {
+    private let textMyGoalLabel2 = UILabel().then {
         $0.text = Const.String.textStandardTitle
         $0.textColor = .gray700
         $0.font = .system2Bold
     }
-    
+ 
     private let fitStandardLabel = UILabel().then {
         $0.text = Const.String.textFitStandard
         $0.textColor = .gray600
         $0.font = .system5
     }
     
-    private lazy var detailEatTextField = UITextField().then {
+    private lazy var moreVegetabletextField2 = UITextField().then {
         $0.font = .system4Bold
         $0.text = Const.String.detailEatTextField
         $0.delegate = self
@@ -118,7 +120,6 @@ class NewGoalViewController: BaseViewController {
         $0.textColor = .gray400
         $0.font = .system5
     }
-    
     
     private lazy var completeButton = UIButton().then {
         $0.setTitle(Const.String.complete, for: .normal)
@@ -166,6 +167,7 @@ class NewGoalViewController: BaseViewController {
         view.addSubviews(
             headerView,
             emptyView,
+            emptyView2,
             completeButton
         )
         
@@ -173,6 +175,10 @@ class NewGoalViewController: BaseViewController {
         
         [textMyGoalLabel, moreVegetabletextField, countTextLabel, moreEatLabel, underLineLabel, warningLabel, emptyWarningLabel ].forEach {
             emptyView.addSubview($0)
+        }
+        
+        [textMyGoalLabel2, fitStandardLabel, moreVegetabletextField2, underLineLabel2, countTextLabel2 ].forEach {
+            emptyView2.addSubview($0)
         }
         
         headerView.snp.makeConstraints {
@@ -195,7 +201,7 @@ class NewGoalViewController: BaseViewController {
         
         textMyGoalLabel.snp.makeConstraints {
             $0.top.equalTo(emptyView)
-            $0.leading.equalToSuperview().offset(20.adjusted)
+            $0.leading.equalToSuperview().offset(16.adjusted)
         }
         
         moreVegetabletextField.snp.makeConstraints {
@@ -207,12 +213,12 @@ class NewGoalViewController: BaseViewController {
             $0.top.equalTo(self.moreVegetabletextField.snp.bottom).offset(10.adjusted)
             $0.leading.equalTo(moreVegetabletextField)
             $0.height.equalTo(1.adjusted)
-            $0.width.equalTo(273.adjusted)
+            $0.width.equalTo(343.adjusted)
         }
         
         countTextLabel.snp.makeConstraints {
             $0.top.equalTo(self.underLineLabel.snp.bottom).offset(8.adjusted)
-            $0.leading.equalTo(textMyGoalLabel)
+            $0.trailing.equalToSuperview().offset(-16.adjusted)
         }
         
         warningLabel.snp.makeConstraints {
@@ -227,7 +233,41 @@ class NewGoalViewController: BaseViewController {
         
         moreEatLabel.snp.makeConstraints {
             $0.top.equalToSuperview().offset(54.adjusted)
-            $0.leading.equalTo(self.underLineLabel.snp.trailing).offset(16.adjusted)
+            $0.trailing.equalTo(countTextLabel)
+        }
+        
+        emptyView2.snp.makeConstraints {
+            $0.top.equalTo(self.view.safeAreaLayoutGuide).offset(227.adjusted)
+            $0.width.equalTo(375.adjusted)
+            $0.height.equalTo(200.adjusted)
+            $0.centerX.equalToSuperview()
+        }
+        
+        textMyGoalLabel2.snp.makeConstraints {
+            $0.top.equalTo(emptyView2)
+            $0.leading.equalToSuperview().offset(16.adjusted)
+        }
+        
+        fitStandardLabel.snp.makeConstraints {
+            $0.top.equalTo(self.textMyGoalLabel2.snp.bottom).offset(8.adjusted)
+            $0.leading.equalToSuperview().offset(16.adjusted)
+        }
+        
+        moreVegetabletextField2.snp.makeConstraints {
+            $0.top.equalTo(self.fitStandardLabel.snp.bottom).offset(20.adjusted)
+            $0.leading.equalToSuperview().offset(16.adjusted)
+        }
+        
+        underLineLabel2.snp.makeConstraints {
+            $0.top.equalTo(self.moreVegetabletextField2.snp.bottom).offset(10.adjusted)
+            $0.leading.equalTo(moreVegetabletextField2)
+            $0.height.equalTo(1.adjusted)
+            $0.width.equalTo(343.adjusted)
+        }
+        
+        countTextLabel2.snp.makeConstraints {
+            $0.top.equalTo(self.underLineLabel2.snp.bottom).offset(8.adjusted)
+            $0.leading.equalTo(countTextLabel)
         }
         
         completeButton.snp.makeConstraints {

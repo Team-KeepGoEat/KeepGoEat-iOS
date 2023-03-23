@@ -24,7 +24,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             let window = UIWindow(windowScene: windowScene)
             window.overrideUserInterfaceStyle = UIUserInterfaceStyle.light
             
-            let rootViewController = SplashViewController()
+            let rootViewController = NewGoalViewController()
             
             window.rootViewController = rootViewController
             window.makeKeyAndVisible()
