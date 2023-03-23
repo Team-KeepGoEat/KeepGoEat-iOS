@@ -157,6 +157,7 @@ class NewGoalViewController: BaseViewController {
     
     private func setUI() {
         view.backgroundColor = .white
+        textMyGoalLabel.partColorChange(targetString: "*", textColor: .orange600)
     }
     
     private func layout() {
