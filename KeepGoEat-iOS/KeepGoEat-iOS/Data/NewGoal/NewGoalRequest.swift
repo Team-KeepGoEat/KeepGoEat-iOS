@@ -8,10 +8,12 @@
 import Foundation
 
 struct NewGoalRequestDto: Codable {
-    var goalContent: String
+    var food: String
+    var criterion: String
     var isMore: Bool
 }
 
 struct NewGoalEditRequestDto: Codable {
-    var goalContent: String
+    var food: String?
+    var criterion: String?
 }
