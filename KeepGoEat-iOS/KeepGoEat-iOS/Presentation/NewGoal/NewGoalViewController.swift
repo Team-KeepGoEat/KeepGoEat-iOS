@@ -101,10 +101,16 @@ class NewGoalViewController: BaseViewController {
     
     private lazy var moreVegetabletextField2 = UITextField().then {
         $0.font = .system4Bold
-        $0.placeholder = Const.String.detailEatTextField
         $0.delegate = self
         $0.becomeFirstResponder()
         $0.setPlaceholder(color: .gray400)
+        
+        switch eatType {
+        case .more:
+            $0.placeholder = Const.String.detailEatTextField
+        case .less:
+            $0.placeholder = Const.String.detailEatTextField2
+        }
     }
     
     private let underLineLabel2 = UIView().then {

@@ -70,6 +70,7 @@ extension Const {
         static let textFitStandard = "나에게 맞는 달성 기준을 세워요."
         static let textCount2 = "(0/20)"
         static let detailEatTextField = "ex) 하루에 2L씩 마시기"
+        static let detailEatTextField2 = "ex) 아침에 딱 1잔만 마시기"
         
         // MARK: StoreGoal
         static let storeTitle = "보관한 목표"
