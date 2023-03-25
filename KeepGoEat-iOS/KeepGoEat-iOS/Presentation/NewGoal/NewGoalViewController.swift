@@ -402,16 +402,6 @@ extension NewGoalViewController: UITextFieldDelegate {
             let textValue = textField.text ?? ""
             countTextLabel2.text = "(\(textValue.count)/20)"
         }
-        
-//        if moreVegetabletextField.hasText && moreVegetabletextField2.hasText {
-//            completeButton.backgroundColor = .orange600
-//            completeButton.setTitleColor(.gray50, for: .normal)
-//            buttonEnable = true
-//        } else {
-//            buttonEnable = false
-//            completeButton.backgroundColor = .gray200
-//            completeButton.setTitleColor(.gray400, for: .disabled)
-//        }
     }
     
     func textFieldDidEndEditing(_ textField: UITextField) {
@@ -421,7 +411,6 @@ extension NewGoalViewController: UITextFieldDelegate {
     }
     
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
-        
         if textField == moreVegetabletextField {
             let textValue = textField.text ?? ""
             guard let stringRange = Range(range, in: textValue) else { return false }
@@ -444,17 +433,16 @@ extension NewGoalViewController: UITextFieldDelegate {
             if !changedText.hasCharacters() {
                 warningLabel.isHidden = false
                 warningLabel.text = Const.String.warning
-                completeButton.isEnabled = false
+//                completeButton.isEnabled = false
             }
             
             // 공백 사용 불가능
             if changedText.isEmpty {
                 warningLabel.isHidden = false
                 warningLabel.text = Const.String.emptyWarning
-                completeButton.isEnabled = false
             }
             
-            if moreVegetabletextField.text == "" && !moreVegetabletextField2.hasText {
+            if changedText.isEmpty || !changedText.hasCharacters() {
                 self.completeButton.isEnabled = false
                 completeButton.backgroundColor = .gray200
                 completeButton.setTitleColor(.gray400, for: .disabled)
@@ -487,28 +475,13 @@ extension NewGoalViewController: UITextFieldDelegate {
             if !changedText.hasCharacters() {
                 warningLabel2.isHidden = false
                 warningLabel2.text = Const.String.warning
-                completeButton.isEnabled = false
             }
             
             // 공백 사용 불가능
             if changedText.isEmpty {
                 warningLabel2.isHidden = false
                 warningLabel2.text = Const.String.emptyWarning
-                completeButton.isEnabled = false
-                completeButton.backgroundColor = .gray200
-                completeButton.setTitleColor(.gray400, for: .disabled)
             }
-            
-            if moreVegetabletextField2.text == "" && !moreVegetabletextField.hasText {
-                self.completeButton.isEnabled = false
-                completeButton.backgroundColor = .gray200
-                completeButton.setTitleColor(.gray400, for: .disabled)
-            } else {
-                self.completeButton.isEnabled = true
-                completeButton.backgroundColor = .orange600
-                completeButton.setTitleColor(.gray50, for: .normal)
-            }
-            return true
         }
         return true
     }
