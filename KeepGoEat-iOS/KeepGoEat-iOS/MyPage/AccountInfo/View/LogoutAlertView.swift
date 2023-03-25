@@ -123,6 +123,7 @@ extension LogoutAlertView {
         RootViewControllerSwithcer.shared.changeRootViewController(navigationMode: .login)
         deleteUserTokenOnKeyChain(tokenName: Const.String.userAccessToken)
         deleteUserTokenOnKeyChain(tokenName: Const.String.userRefreshToken)
+        deleteSocialType()
     }
     
     private func setLayout() {

@@ -88,6 +88,7 @@ extension LoginViewController: ASAuthorizationControllerDelegate, ASAuthorizatio
             print("🍏 authorizationCode", String(data: appleIDCredential.authorizationCode!, encoding: .utf8) ?? "")
             let param = LoginRequestDto(platformAccessToken: platformAccessToken, platform: platform)
             LoginService.shared.postSocialLogin(param: param) { _ in
+                setSocialType(socialType: SocialType.apple)
                 RootViewControllerSwithcer.shared.changeRootViewController(navigationMode: .onboarding)
             }
         default:
