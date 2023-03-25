@@ -45,15 +45,13 @@ extension WithdrawalViewController: HandleBackButtonDelegate {
 
 extension WithdrawalViewController: HandleWithdrawAlertButtonDelegate {
     func withdrawOkButtonDidTap() {
-        let socialType: SocialType = getSocialType()
-        switch socialType {
-        case .kakao:
-            LoginService.shared.withdraw(code: nil) { message in
+        guard let socialType = getSocialType() else { return }
+        if socialType == SocialType.kakao.rawValue {
+            LoginService.shared.withdraw(code: nil) { _ in
                 UserApi.shared.unlink {(error) in
                     if let error = error {
                         print(error)
-                    }
-                    else {
+                    } else {
                         print("unlink() success.")
                         deleteUserTokenOnKeyChain(tokenName: Const.String.userAccessToken)
                         deleteUserTokenOnKeyChain(tokenName: Const.String.userRefreshToken)
@@ -62,7 +60,8 @@ extension WithdrawalViewController: HandleWithdrawAlertButtonDelegate {
                     }
                 }
             }
-        case .apple:
+        }
+        if socialType == SocialType.apple.rawValue {
             let appleIDProvider = ASAuthorizationAppleIDProvider()
             let request = appleIDProvider.createRequest()
             request.requestedScopes = [.fullName, .email]
@@ -83,7 +82,7 @@ extension WithdrawalViewController: ASAuthorizationControllerDelegate, ASAuthori
         switch authorization.credential {
         case let appleIDCredential as ASAuthorizationAppleIDCredential:
             let platformAccessToken = String(data: appleIDCredential.identityToken!, encoding: .utf8) ?? ""
-            LoginService.shared.withdraw(code: String(data: appleIDCredential.authorizationCode!, encoding: .utf8)) { message in
+            LoginService.shared.withdraw(code: String(data: appleIDCredential.authorizationCode!, encoding: .utf8)) { _ in
                 deleteUserTokenOnKeyChain(tokenName: Const.String.userAccessToken)
                 deleteUserTokenOnKeyChain(tokenName: Const.String.userRefreshToken)
                 deleteSocialType()
