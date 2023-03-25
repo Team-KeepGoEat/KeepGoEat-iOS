@@ -80,3 +80,30 @@ func isUserTokenOnKeyChain(tokenName: String) -> Bool {
     
     return true
 }
+
+func setSocialType(socialType: SocialType) {
+    UserDefaults.standard.setValue(socialType.rawValue, forKey: "socialType")
+}
+
+func getSocialType() -> String? {
+    if let socialType = UserDefaults.standard.string(forKey: "socialType") {
+        print("socialType: \(socialType)")
+        return socialType
+    } else {
+        return nil
+    }
+}
+
+func deleteSocialType() {
+    UserDefaults.standard.removeObject(forKey: "socialType")
+}
+
+func isSocialType() -> Bool {
+    if let type = UserDefaults.standard.string(forKey: "socialType") {
+        print("socialType: \(type)")
+        return true
+    } else {
+        print("socialType 없음")
+        return false
+    }
+}

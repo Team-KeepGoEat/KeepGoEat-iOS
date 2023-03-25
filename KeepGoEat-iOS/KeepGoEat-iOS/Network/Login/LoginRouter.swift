@@ -10,6 +10,7 @@ import Moya
 enum LoginRouter {
     case socialLogin(param: LoginRequestDto)
     case refresh
+    case withdraw(code: String?)
 }
 
 extension LoginRouter: BaseTargetType {
@@ -19,6 +20,8 @@ extension LoginRouter: BaseTargetType {
             return URLConstant.postSocialLogin
         case .refresh:
             return URLConstant.refreshToken
+        case .withdraw:
+            return URLConstant.withdraw
         }
     }
     
@@ -28,6 +31,8 @@ extension LoginRouter: BaseTargetType {
             return .post
         case .refresh:
             return .post
+        case .withdraw:
+            return .get
         }
     }
     
@@ -37,6 +42,8 @@ extension LoginRouter: BaseTargetType {
             return .requestParameters(parameters: try! param.asParameter(), encoding: JSONEncoding.default)
         case .refresh:
             return .requestPlain
+        case .withdraw(let code):
+            return .requestParameters(parameters: ["code": code ?? nil], encoding: URLEncoding.default)
         }
     }
     
@@ -45,6 +52,8 @@ extension LoginRouter: BaseTargetType {
         case .socialLogin:
             return NetworkConstant.plainHeader
         case .refresh:
+            return NetworkConstant.tokenHeader
+        case .withdraw:
             return NetworkConstant.tokenHeader
         }
     }

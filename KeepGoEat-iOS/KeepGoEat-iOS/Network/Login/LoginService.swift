@@ -5,6 +5,8 @@
 //  Created by 양정연 on 2022/12/27.
 //
 
+import Foundation
+
 import Moya
 
 final class LoginService {
@@ -69,6 +71,35 @@ extension LoginService {
                 case .authErr(let data):
                     guard let data = data as? String else { return }
                     print(data)
+                }
+            case .failure(let error):
+                print(error.localizedDescription)
+            }
+        }
+    }
+    
+    func withdraw(code: String?, completion: @escaping (String) -> Void) {
+        loginProvider.request(.withdraw(code: code)) { response in
+            switch response {
+            case .success(let result):
+                let status = result.statusCode
+                let data = result.data
+                let networkData = NetworkBase.judgeStatusWithdraw(by: status, data)
+                switch networkData {
+                case .success(let data):
+                    guard let data = data as? String else { return }
+                    completion(data)
+                    print("success")
+                case .requestErr(_):
+                    print("request error")
+                case .authErr(_):
+                    print("auth error")
+                case .serverErr(_):
+                    print("server error")
+                case .pathErr:
+                    print("path error")
+                case .networkFail:
+                    print("network fail error")
                 }
             case .failure(let error):
                 print(error.localizedDescription)

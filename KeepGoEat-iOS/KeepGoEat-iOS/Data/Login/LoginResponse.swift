@@ -18,3 +18,9 @@ struct RefreshResponseDto: Codable {
     let accessToken: String
     let refreshToken: String
 }
+
+struct GeneralWithdrawResponse: Codable {
+    var status: Int
+    var success: Bool
+    var message: String
+}

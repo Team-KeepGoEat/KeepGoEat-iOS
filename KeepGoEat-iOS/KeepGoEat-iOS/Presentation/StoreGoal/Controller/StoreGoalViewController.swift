@@ -184,6 +184,6 @@ class StoreGoalViewController: BaseViewController {
 
 extension StoreGoalViewController: HandleBackButtonDelegate {
     func popView() {
-        self.navigationController?.popToRootViewController(animated: true)
+        self.navigationController?.popViewController(animated: true)
     }
 }

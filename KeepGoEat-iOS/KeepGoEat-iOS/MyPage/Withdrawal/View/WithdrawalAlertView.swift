@@ -10,9 +10,14 @@ import UIKit
 import SnapKit
 import Then
 
+protocol HandleWithdrawAlertButtonDelegate: AnyObject {
+    func withdrawOkButtonDidTap()
+}
+
 class WithdrawalAlertView: UIView {
     
     private var isAlertPresented: Bool = false
+    weak var handleWithdrawAlertButtonDelegate: HandleWithdrawAlertButtonDelegate?
     
     // MARK: Components
     
@@ -119,7 +124,8 @@ extension WithdrawalAlertView {
     
     @objc private func yesButtonDidTap() {
         dismissAlert()
-        // 탈퇴 로직 구현
+        self.handleWithdrawAlertButtonDelegate?.withdrawOkButtonDidTap()
+        
     }
     
     private func setLayout() {
