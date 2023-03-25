@@ -15,6 +15,7 @@ class WithdrawalView: UIView, UITextViewDelegate {
     // MARK: Component
     
     let headerView: HeaderView = HeaderView()
+    let withdrawalAlertView = WithdrawalAlertView()
     
     private let headerViewTitle = UILabel().then {
         $0.text = Const.String.withdrawal
@@ -253,7 +254,6 @@ extension WithdrawalView {
             manualInputMessage.isHidden = false
         } else {
             manualInputMessage.isHidden = true
-            let withdrawalAlertView = WithdrawalAlertView()
             self.addSubview(withdrawalAlertView)
             withdrawalAlertView.snp.makeConstraints {
                 $0.edges.equalToSuperview()
