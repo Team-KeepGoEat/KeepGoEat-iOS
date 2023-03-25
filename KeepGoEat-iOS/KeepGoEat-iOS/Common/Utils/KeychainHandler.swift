@@ -80,3 +80,15 @@ func isUserTokenOnKeyChain(tokenName: String) -> Bool {
     
     return true
 }
+
+func setSocialType(socialType: SocialType) {
+    UserDefaults.standard.setValue(socialType, forKey: "socialType")
+}
+
+func getSocialType() -> SocialType {
+    UserDefaults.standard.object(forKey: "socialType") as! SocialType
+}
+
+func deleteSocialType() {
+    UserDefaults.standard.removeObject(forKey: "socialType")
+}
