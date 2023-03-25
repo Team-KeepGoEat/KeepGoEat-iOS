@@ -47,6 +47,7 @@ extension WithdrawalViewController: HandleWithdrawAlertButtonDelegate {
     func withdrawOkButtonDidTap() {
         guard let socialType = getSocialType() else { return }
         if socialType == SocialType.kakao.rawValue {
+            deleteSocialType()
             LoginService.shared.withdraw(code: nil) { _ in
                 UserApi.shared.unlink {(error) in
                     if let error = error {
@@ -55,13 +56,13 @@ extension WithdrawalViewController: HandleWithdrawAlertButtonDelegate {
                         print("unlink() success.")
                         deleteUserTokenOnKeyChain(tokenName: Const.String.userAccessToken)
                         deleteUserTokenOnKeyChain(tokenName: Const.String.userRefreshToken)
-                        deleteSocialType()
                         RootViewControllerSwithcer.shared.changeRootViewController(navigationMode: .login)
                     }
                 }
             }
         }
         if socialType == SocialType.apple.rawValue {
+            deleteSocialType()
             let appleIDProvider = ASAuthorizationAppleIDProvider()
             let request = appleIDProvider.createRequest()
             request.requestedScopes = [.fullName, .email]
@@ -82,10 +83,10 @@ extension WithdrawalViewController: ASAuthorizationControllerDelegate, ASAuthori
         switch authorization.credential {
         case let appleIDCredential as ASAuthorizationAppleIDCredential:
             let platformAccessToken = String(data: appleIDCredential.identityToken!, encoding: .utf8) ?? ""
-            LoginService.shared.withdraw(code: String(data: appleIDCredential.authorizationCode!, encoding: .utf8)) { _ in
+            let code = (String(data: appleIDCredential.authorizationCode!, encoding: .utf8) ?? "") as String
+            LoginService.shared.withdraw(code: code) { _ in
                 deleteUserTokenOnKeyChain(tokenName: Const.String.userAccessToken)
                 deleteUserTokenOnKeyChain(tokenName: Const.String.userRefreshToken)
-                deleteSocialType()
                 RootViewControllerSwithcer.shared.changeRootViewController(navigationMode: .login)
             }
         default:
