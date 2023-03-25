@@ -27,4 +27,24 @@ struct NetworkBase {
             return .networkFail
         }
     }
+    
+    static func judgeStatusWithdraw(by statusCode: Int, _ data: Data) -> NetworkResult<Any> {
+        let decoder = JSONDecoder()
+        guard let decodedData = try? decoder.decode(GeneralWithdrawResponse.self, from: data)
+        else { return .pathErr }
+        switch statusCode {
+        case 200, 201:
+            return .success(decodedData.message)
+        case 202..<300:
+            return .success(decodedData.message)
+        case 400, 402...500:
+            return .requestErr(decodedData.message)
+        case 401:
+            return .authErr(decodedData.message)
+        case 500:
+            return .serverErr(decodedData.message)
+        default:
+            return .networkFail
+        }
+    }
 }

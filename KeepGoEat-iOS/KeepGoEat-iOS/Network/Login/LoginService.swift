@@ -84,24 +84,22 @@ extension LoginService {
             case .success(let result):
                 let status = result.statusCode
                 let data = result.data
-                let decoder = JSONDecoder()
-                guard let decodedData = try? decoder.decode(GeneralWithdrawResponse.self, from: data) else { return }
-                switch status {
-                case 200..<300:
+                let networkData = NetworkBase.judgeStatusWithdraw(by: status, data)
+                switch networkData {
+                case .success(let data):
+                    guard let data = data as? String else { return }
+                    completion(data)
                     print("success")
-                    print(decodedData.message)
-                    completion(decodedData.message)
-                case 400, 402...500:
+                case .requestErr(_):
                     print("request error")
-                    print(decodedData.message)
-                case 401:
+                case .authErr(_):
                     print("auth error")
-                    print(decodedData.message)
-                case 500:
+                case .serverErr(_):
                     print("server error")
-                    print(decodedData.message)
-                default:
-                    print(decodedData.message)
+                case .pathErr:
+                    print("path error")
+                case .networkFail:
+                    print("network fail error")
                 }
             case .failure(let error):
                 print(error.localizedDescription)
