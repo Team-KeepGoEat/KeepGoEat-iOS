@@ -23,23 +23,21 @@ class NewGoalViewController: BaseViewController {
             setUI()
         }
     }
+    private var buttonEnable: Bool = false {
+        didSet {
+            setButtonUI()
+        }
+    }
     private var goalId: Int = 0
     
     private var isCreated: Bool = true
-    
-    var textLength: Int = 0 {
-        didSet {
-            DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 0.1) {
-                self.textLength = self.moreVegetabletextField.text?.count ?? 0
-                self.countTextLabel.text = "(\(self.textLength)/15)"
-            }
-        }
-    }
     
     // MARK: Component
     private let headerView: HeaderView = HeaderView()
     
     private let emptyView = UIView()
+    
+    private let emptyView2 = UIView()
     
     private let textMyGoalLabel = UILabel().then {
         $0.text = Const.String.textMyGoalTitle
@@ -62,7 +60,7 @@ class NewGoalViewController: BaseViewController {
     }
     
     private let underLineLabel = UIView().then {
-        $0.backgroundColor = .gray500
+        $0.backgroundColor = .gray400
     }
     
     private let countTextLabel = UILabel().then {
@@ -89,6 +87,36 @@ class NewGoalViewController: BaseViewController {
         }
     }
     
+    private let textMyGoalLabel2 = UILabel().then {
+        $0.text = Const.String.textStandardTitle
+        $0.textColor = .gray700
+        $0.font = .system2Bold
+    }
+    
+    private let fitStandardLabel = UILabel().then {
+        $0.text = Const.String.textFitStandard
+        $0.textColor = .gray600
+        $0.font = .system5
+    }
+    
+    private lazy var moreVegetabletextField2 = UITextField().then {
+        $0.font = .system4Bold
+        $0.placeholder = Const.String.detailEatTextField
+        $0.delegate = self
+        $0.becomeFirstResponder()
+        $0.setPlaceholder(color: .gray400)
+    }
+    
+    private let underLineLabel2 = UIView().then {
+        $0.backgroundColor = .gray400
+    }
+    
+    private let countTextLabel2 = UILabel().then {
+        $0.text = Const.String.textCount2
+        $0.textColor = .gray400
+        $0.font = .system5
+    }
+    
     private lazy var completeButton = UIButton().then {
         $0.setTitle(Const.String.complete, for: .normal)
         $0.titleLabel?.font = .system4Bold
@@ -98,14 +126,14 @@ class NewGoalViewController: BaseViewController {
         $0.isEnabled = false
     }
     
-    private let emptyWarningLabel = UILabel().then {
-        $0.text = Const.String.emptyWarning
+    private let warningLabel = UILabel().then {
+        $0.text = Const.String.warning
         $0.textColor = .orange400
         $0.font = .system6
         $0.isHidden = true
     }
     
-    private let warningLabel = UILabel().then {
+    private let warningLabel2 = UILabel().then {
         $0.text = Const.String.warning
         $0.textColor = .orange400
         $0.font = .system6
@@ -129,19 +157,25 @@ class NewGoalViewController: BaseViewController {
     
     private func setUI() {
         view.backgroundColor = .white
+        textMyGoalLabel.partColorChange(targetString: "*", textColor: .orange600)
     }
     
     private func layout() {
         view.addSubviews(
             headerView,
             emptyView,
+            emptyView2,
             completeButton
         )
         
         headerView.addSubview(GoalHederLabel)
         
-        [textMyGoalLabel, moreVegetabletextField, countTextLabel, moreEatLabel, underLineLabel, warningLabel, emptyWarningLabel ].forEach {
+        [textMyGoalLabel, moreVegetabletextField, countTextLabel, moreEatLabel, underLineLabel, warningLabel ].forEach {
             emptyView.addSubview($0)
+        }
+        
+        [textMyGoalLabel2, fitStandardLabel, moreVegetabletextField2, underLineLabel2, warningLabel2, countTextLabel2 ].forEach {
+            emptyView2.addSubview($0)
         }
         
         headerView.snp.makeConstraints {
@@ -164,7 +198,7 @@ class NewGoalViewController: BaseViewController {
         
         textMyGoalLabel.snp.makeConstraints {
             $0.top.equalTo(emptyView)
-            $0.leading.equalToSuperview().offset(20.adjusted)
+            $0.leading.equalToSuperview().offset(16.adjusted)
         }
         
         moreVegetabletextField.snp.makeConstraints {
@@ -176,27 +210,61 @@ class NewGoalViewController: BaseViewController {
             $0.top.equalTo(self.moreVegetabletextField.snp.bottom).offset(10.adjusted)
             $0.leading.equalTo(moreVegetabletextField)
             $0.height.equalTo(1.adjusted)
-            $0.width.equalTo(273.adjusted)
+            $0.width.equalTo(343.adjusted)
         }
         
         countTextLabel.snp.makeConstraints {
             $0.top.equalTo(self.underLineLabel.snp.bottom).offset(8.adjusted)
-            $0.leading.equalTo(textMyGoalLabel)
+            $0.trailing.equalToSuperview().offset(-16.adjusted)
         }
         
         warningLabel.snp.makeConstraints {
-            $0.top.equalTo(self.countTextLabel.snp.bottom).offset(12.adjusted)
-            $0.leading.equalTo(textMyGoalLabel)
-        }
-        
-        emptyWarningLabel.snp.makeConstraints {
-            $0.top.equalTo(self.countTextLabel.snp.bottom).offset(12.adjusted)
+            $0.top.equalTo(self.underLineLabel.snp.bottom).offset(8.adjusted)
             $0.leading.equalTo(textMyGoalLabel)
         }
         
         moreEatLabel.snp.makeConstraints {
             $0.top.equalToSuperview().offset(54.adjusted)
-            $0.leading.equalTo(self.underLineLabel.snp.trailing).offset(16.adjusted)
+            $0.trailing.equalTo(countTextLabel)
+        }
+        
+        emptyView2.snp.makeConstraints {
+            $0.top.equalTo(self.view.safeAreaLayoutGuide).offset(227.adjusted)
+            $0.width.equalTo(375.adjusted)
+            $0.height.equalTo(200.adjusted)
+            $0.centerX.equalToSuperview()
+        }
+        
+        textMyGoalLabel2.snp.makeConstraints {
+            $0.top.equalTo(emptyView2)
+            $0.leading.equalToSuperview().offset(16.adjusted)
+        }
+        
+        fitStandardLabel.snp.makeConstraints {
+            $0.top.equalTo(self.textMyGoalLabel2.snp.bottom).offset(8.adjusted)
+            $0.leading.equalToSuperview().offset(16.adjusted)
+        }
+        
+        moreVegetabletextField2.snp.makeConstraints {
+            $0.top.equalTo(self.fitStandardLabel.snp.bottom).offset(20.adjusted)
+            $0.leading.equalToSuperview().offset(16.adjusted)
+        }
+        
+        underLineLabel2.snp.makeConstraints {
+            $0.top.equalTo(self.moreVegetabletextField2.snp.bottom).offset(10.adjusted)
+            $0.leading.equalTo(moreVegetabletextField2)
+            $0.height.equalTo(1.adjusted)
+            $0.width.equalTo(343.adjusted)
+        }
+        
+        warningLabel2.snp.makeConstraints {
+            $0.top.equalTo(self.underLineLabel2.snp.bottom).offset(8.adjusted)
+            $0.leading.equalTo(textMyGoalLabel)
+        }
+        
+        countTextLabel2.snp.makeConstraints {
+            $0.top.equalTo(self.underLineLabel2.snp.bottom).offset(8.adjusted)
+            $0.leading.equalTo(countTextLabel)
         }
         
         completeButton.snp.makeConstraints {
@@ -263,6 +331,12 @@ class NewGoalViewController: BaseViewController {
             self.goalId = goalId
         }
     }
+    
+    func setButtonUI() {
+        completeButton.backgroundColor = completeButton.isEnabled ? .orange600 : .gray200
+        completeButton.setTitleColor(.gray400, for: .disabled)
+        completeButton.setTitleColor(.gray50, for: .normal)
+    }
 }
 
 extension NewGoalViewController: HandleBackButtonDelegate {
@@ -316,61 +390,99 @@ extension NewGoalViewController {
 // MARK: UITextFieldDelegate
 extension NewGoalViewController: UITextFieldDelegate {
     
-    func textFieldDidBeginEditing(_ textField: UITextField) {
-        textField.textColor = .gray700
-        underLineLabel.backgroundColor = .orange600
-        let textValue = textField.text ?? ""
-        countTextLabel.text = "(\(textValue.count)/15)"
+    func textFieldDidChangeSelection(_ textField: UITextField) {
+        if textField == moreVegetabletextField {
+            textField.textColor = .gray700
+            underLineLabel.backgroundColor = .orange600
+            let textValue = textField.text ?? ""
+            countTextLabel.text = "(\(textValue.count)/15)"
+        } else if textField == moreVegetabletextField2 {
+            textField.textColor = .gray700
+            underLineLabel2.backgroundColor = .orange600
+            let textValue = textField.text ?? ""
+            countTextLabel2.text = "(\(textValue.count)/20)"
+        }
     }
     
     func textFieldDidEndEditing(_ textField: UITextField) {
-        underLineLabel.backgroundColor = .gray400
+        if textField == moreVegetabletextField {
+            underLineLabel.backgroundColor = .gray400
+        } else { underLineLabel2.backgroundColor = .gray400 }
     }
     
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
-        
-        let textValue = textField.text ?? ""
-        guard let stringRange = Range(range, in: textValue) else { return false }
-        let changedText = textValue.replacingCharacters(in: stringRange, with: string)
-        warningLabel.isHidden = true
-        emptyWarningLabel.isHidden = true
-        
-        // 글자수 15자 제한 백스페이스는 가능
-        guard let text = textField.text else { return false }
-        if text.count >= 15 {
-            if let char = string.cString(using: String.Encoding.utf8) {
-                let isBackSpace = strcmp(char, "\\b")
-                if isBackSpace == -92 {
-                    return true
-                }
-            }
-            return false
-        }
-        
-        // 특수문자 사용 불가능
-        if !changedText.hasCharacters() {
-            warningLabel.isHidden = false
-            emptyWarningLabel.isHidden = true
-        }
-        
-        // 공백 사용 불가능
-        if changedText.isEmpty {
+        if textField == moreVegetabletextField {
+            let textValue = textField.text ?? ""
+            guard let stringRange = Range(range, in: textValue) else { return false }
+            let changedText = textValue.replacingCharacters(in: stringRange, with: string)
             warningLabel.isHidden = true
-            emptyWarningLabel.isHidden = false
+            
+            // 글자수 15자 제한 백스페이스는 가능
+            guard let text = textField.text else { return false }
+            if text.count >= 15 {
+                if let char = string.cString(using: String.Encoding.utf8) {
+                    let isBackSpace = strcmp(char, "\\b")
+                    if isBackSpace == -92 {
+                        return true
+                    }
+                }
+                return false
+            }
+            
+            // 특수문자 사용 불가능
+            if !changedText.hasCharacters() {
+                warningLabel.isHidden = false
+                warningLabel.text = Const.String.warning
+//                completeButton.isEnabled = false
+            }
+            
+            // 공백 사용 불가능
+            if changedText.isEmpty {
+                warningLabel.isHidden = false
+                warningLabel.text = Const.String.emptyWarning
+            }
+            
+            if changedText.isEmpty || !changedText.hasCharacters() {
+                self.completeButton.isEnabled = false
+                completeButton.backgroundColor = .gray200
+                completeButton.setTitleColor(.gray400, for: .disabled)
+            } else {
+                self.completeButton.isEnabled = true
+                completeButton.backgroundColor = .orange600
+                completeButton.setTitleColor(.gray50, for: .normal)
+            }
+            return true
+            
+        } else if textField == moreVegetabletextField2 {
+            let textValue = textField.text ?? ""
+            guard let stringRange = Range(range, in: textValue) else { return false }
+            let changedText = textValue.replacingCharacters(in: stringRange, with: string)
+            warningLabel2.isHidden = true
+            
+            // 글자수 20자 제한 백스페이스는 가능
+            guard let text = textField.text else { return false }
+            if text.count >= 20 {
+                if let char = string.cString(using: String.Encoding.utf8) {
+                    let isBackSpace = strcmp(char, "\\b")
+                    if isBackSpace == -92 {
+                        return true
+                    }
+                }
+                return false
+            }
+            
+            // 특수문자 사용 불가능
+            if !changedText.hasCharacters() {
+                warningLabel2.isHidden = false
+                warningLabel2.text = Const.String.warning
+            }
+            
+            // 공백 사용 불가능
+            if changedText.isEmpty {
+                warningLabel2.isHidden = false
+                warningLabel2.text = Const.String.emptyWarning
+            }
         }
-        
-        if changedText.isEmpty || !changedText.hasCharacters() {
-            self.completeButton.isEnabled = false
-            completeButton.backgroundColor = .gray200
-            completeButton.setTitleColor(.gray400, for: .disabled)
-        } else {
-            self.completeButton.isEnabled = true
-            completeButton.backgroundColor = .orange600
-            completeButton.setTitleColor(.gray50, for: .normal)
-        }
-
-        // 글자 수 업데이트
-        textLength = 1
         return true
     }
 }
