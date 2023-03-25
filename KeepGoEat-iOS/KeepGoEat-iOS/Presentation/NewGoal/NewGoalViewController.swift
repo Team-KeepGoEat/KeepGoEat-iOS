@@ -48,7 +48,6 @@ class NewGoalViewController: BaseViewController {
     private lazy var moreVegetabletextField = UITextField().then {
         $0.font = .system4Bold
         $0.delegate = self
-        $0.becomeFirstResponder()
         $0.setPlaceholder(color: .gray400)
         
         switch eatType {
@@ -103,7 +102,6 @@ class NewGoalViewController: BaseViewController {
         $0.font = .system4Bold
         $0.placeholder = Const.String.detailEatTextField
         $0.delegate = self
-        $0.becomeFirstResponder()
         $0.setPlaceholder(color: .gray400)
     }
     
@@ -153,6 +151,10 @@ class NewGoalViewController: BaseViewController {
         
         NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        moreVegetabletextField.becomeFirstResponder()
     }
     
     private func setUI() {
@@ -289,7 +291,8 @@ class NewGoalViewController: BaseViewController {
             check = false
         }
         let body: NewGoalRequestDto = NewGoalRequestDto(
-            goalContent: moreVegetabletextField.text ?? "",
+            food: moreVegetabletextField.text ?? "",
+            criterion: moreVegetabletextField2.text ?? "",
             isMore: check
         )
         NewGoalService.shared.createNewGoal(body: body)
@@ -302,7 +305,8 @@ class NewGoalViewController: BaseViewController {
     
     private func editGoal() {
         let body: NewGoalEditRequestDto = NewGoalEditRequestDto(
-            goalContent: moreVegetabletextField.text ?? ""
+            food: moreVegetabletextField.text ?? "",
+            criterion: moreVegetabletextField2.text ?? ""
         )
         NewGoalService.shared.editNewGoal(body: body, param: goalId)
         let previousViewController = self.navigationController?.viewControllers.last { $0 != self }
