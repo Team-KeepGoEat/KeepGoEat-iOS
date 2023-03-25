@@ -60,7 +60,7 @@ extension Const {
         static let GoalHeader = "목표 입력"
         static let textCount = "(0/15)"
         static let moreEatPlaceHoleder = "ex) 물"
-        static let lessEatPlaceHoleder = "ex) 라면"
+        static let lessEatPlaceHoleder = "ex) 커피"
         static let moreEat =  "더 먹기"
         static let lessEat = "덜 먹기"
         static let complete = "완료"
@@ -69,7 +69,7 @@ extension Const {
         static let textStandardTitle = "목표 달성 기준을 세워볼까요?"
         static let textFitStandard = "나에게 맞는 달성 기준을 세워요."
         static let textCount2 = "(0/20)"
-        static let detailEatTextField = "ex) 커피"
+        static let detailEatTextField = "ex) 하루에 2L씩 마시기"
         static let detailEatTextField2 = "ex) 아침에 딱 1잔만 마시기"
         
         // MARK: StoreGoal
