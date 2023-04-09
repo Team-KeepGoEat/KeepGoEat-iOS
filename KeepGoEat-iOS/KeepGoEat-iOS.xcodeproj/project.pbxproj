@@ -1265,6 +1265,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
+				MIXPANEL_TOKEN = 590c2c378ec3b0d53c738418881ec4fe;
 				PRODUCT_BUNDLE_IDENTIFIER = "team.keepGoEat.KeepGoEat-iOS";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
@@ -1300,6 +1301,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
+				MIXPANEL_TOKEN = 590c2c378ec3b0d53c738418881ec4fe;
 				PRODUCT_BUNDLE_IDENTIFIER = "team.keepGoEat.KeepGoEat-iOS";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
