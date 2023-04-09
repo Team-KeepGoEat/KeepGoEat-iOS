@@ -43,7 +43,7 @@ extension LoginRouter: BaseTargetType {
         case .refresh:
             return .requestPlain
         case .withdraw(let code):
-            return .requestParameters(parameters: ["code": code ?? nil], encoding: URLEncoding.default)
+            return .requestParameters(parameters: ["code": code ?? "null"], encoding: URLEncoding.default)
         }
     }
     
