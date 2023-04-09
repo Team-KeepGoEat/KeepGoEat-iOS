@@ -71,6 +71,7 @@
 		DD849B0E295E7E0F0030AF2F /* MoyaLoggingPlugin.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD849B0D295E7E0F0030AF2F /* MoyaLoggingPlugin.swift */; };
 		DD849B10295E800C0030AF2F /* NetworkBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD849B0F295E800C0030AF2F /* NetworkBase.swift */; };
 		DD849B12295E80630030AF2F /* NetworkConstant.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD849B11295E80630030AF2F /* NetworkConstant.swift */; };
+		DD8D466929E29C11003B9FEE /* Mixpanel in Frameworks */ = {isa = PBXBuildFile; productRef = DD8D466829E29C11003B9FEE /* Mixpanel */; };
 		DD9E4326297144A90058A715 /* homeSnail.json in Resources */ = {isa = PBXBuildFile; fileRef = DD9E4325297144A90058A715 /* homeSnail.json */; };
 		DDA7B71029672B14001950A2 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDA7B70F29672B14001950A2 /* HomeView.swift */; };
 		DDA7B71229673F76001950A2 /* HomeEmptyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDA7B71129673F76001950A2 /* HomeEmptyView.swift */; };
@@ -252,6 +253,7 @@
 			files = (
 				DDE12FE7295B1485008CF91B /* SnapKit in Frameworks */,
 				DDE12FE4295B145A008CF91B /* KakaoSDKUser in Frameworks */,
+				DD8D466929E29C11003B9FEE /* Mixpanel in Frameworks */,
 				DDE12FE2295B145A008CF91B /* KakaoSDKAuth in Frameworks */,
 				DDE12FED295B14FB008CF91B /* Moya in Frameworks */,
 				DDE12FEA295B14AE008CF91B /* Then in Frameworks */,
@@ -912,6 +914,7 @@
 				DDE12FE9295B14AE008CF91B /* Then */,
 				DDE12FEC295B14FB008CF91B /* Moya */,
 				DDE12FEF295B15AC008CF91B /* Lottie */,
+				DD8D466829E29C11003B9FEE /* Mixpanel */,
 			);
 			productName = "KeepGoEat-iOS";
 			productReference = DD38AD69295B02B70084FA70 /* KeepGoEat-iOS.app */;
@@ -947,6 +950,7 @@
 				DDE12FE8295B14AE008CF91B /* XCRemoteSwiftPackageReference "Then" */,
 				DDE12FEB295B14FB008CF91B /* XCRemoteSwiftPackageReference "Moya" */,
 				DDE12FEE295B15AC008CF91B /* XCRemoteSwiftPackageReference "lottie-ios" */,
+				DD8D466729E29C11003B9FEE /* XCRemoteSwiftPackageReference "mixpanel-swift" */,
 			);
 			productRefGroup = DD38AD6A295B02B70084FA70 /* Products */;
 			projectDirPath = "";
@@ -1331,6 +1335,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		DD8D466729E29C11003B9FEE /* XCRemoteSwiftPackageReference "mixpanel-swift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/mixpanel/mixpanel-swift";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
 		DDE12FE0295B145A008CF91B /* XCRemoteSwiftPackageReference "kakao-ios-sdk" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/kakao/kakao-ios-sdk";
@@ -1374,6 +1386,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		DD8D466829E29C11003B9FEE /* Mixpanel */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = DD8D466729E29C11003B9FEE /* XCRemoteSwiftPackageReference "mixpanel-swift" */;
+			productName = Mixpanel;
+		};
 		DDE12FE1295B145A008CF91B /* KakaoSDKAuth */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = DDE12FE0295B145A008CF91B /* XCRemoteSwiftPackageReference "kakao-ios-sdk" */;
