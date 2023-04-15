@@ -17,6 +17,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         KakaoSDK.initSDK(appKey: Bundle.main.infoDictionary?["KAKAO_NATIVE_KEY"] as? String ?? "")
         Mixpanel.initialize(token: Bundle.main.infoDictionary?["MIXPANEL_TOKEN"] as? String ?? "", trackAutomaticEvents: true)
+        CheckNetwork.shared.startMonitoring()
         
         return true
     }
