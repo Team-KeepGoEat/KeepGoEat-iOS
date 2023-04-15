@@ -59,6 +59,7 @@
 		DD526893296ABBCE005C8376 /* BaseTargetType.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD526892296ABBCE005C8376 /* BaseTargetType.swift */; };
 		DD5F29FD296C391000CAEB2D /* StoreCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD5F29FC296C391000CAEB2D /* StoreCollectionViewCell.swift */; };
 		DD5F29FF296C39D400CAEB2D /* StoreCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD5F29FE296C39D400CAEB2D /* StoreCollectionView.swift */; };
+		DD61B26629EA587700197A71 /* SetMixpanel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD61B26529EA587700197A71 /* SetMixpanel.swift */; };
 		DD623418296E65FF008A35CD /* HomeGoalAddCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD623417296E65FF008A35CD /* HomeGoalAddCollectionViewCell.swift */; };
 		DD64902E2968C53900A73CF4 /* HomeExistView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD64902D2968C53900A73CF4 /* HomeExistView.swift */; };
 		DD849AFE295E758A0030AF2F /* StoreGoalRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD849AFD295E758A0030AF2F /* StoreGoalRequest.swift */; };
@@ -181,6 +182,7 @@
 		DD526892296ABBCE005C8376 /* BaseTargetType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseTargetType.swift; sourceTree = "<group>"; };
 		DD5F29FC296C391000CAEB2D /* StoreCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreCollectionViewCell.swift; sourceTree = "<group>"; };
 		DD5F29FE296C39D400CAEB2D /* StoreCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreCollectionView.swift; sourceTree = "<group>"; };
+		DD61B26529EA587700197A71 /* SetMixpanel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetMixpanel.swift; sourceTree = "<group>"; };
 		DD623417296E65FF008A35CD /* HomeGoalAddCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeGoalAddCollectionViewCell.swift; sourceTree = "<group>"; };
 		DD64902D2968C53900A73CF4 /* HomeExistView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeExistView.swift; sourceTree = "<group>"; };
 		DD79CA9B29BDAA4300FD4248 /* KeepGoEat-iOS.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "KeepGoEat-iOS.entitlements"; sourceTree = "<group>"; };
@@ -704,6 +706,7 @@
 			children = (
 				DDE12F9A295B0CAA008CF91B /* KeychainHandler.swift */,
 				D6E74E50296FEF8A00F278EC /* RootViewControllerSwitcher.swift */,
+				DD61B26529EA587700197A71 /* SetMixpanel.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -1103,6 +1106,7 @@
 				DDA7B72029687B91001950A2 /* HomeAchieveButton.swift in Sources */,
 				DDA7B7142967413F001950A2 /* HomeBaseView.swift in Sources */,
 				D64DCBA229650F020046C719 /* GoalDetailCollectionView.swift in Sources */,
+				DD61B26629EA587700197A71 /* SetMixpanel.swift in Sources */,
 				DDE12FCB295B1244008CF91B /* NewGoalService.swift in Sources */,
 				DD849B0A295E77590030AF2F /* UIView+.swift in Sources */,
 				C358CBC729B5A504009E4060 /* CheckBoxButton.swift in Sources */,
