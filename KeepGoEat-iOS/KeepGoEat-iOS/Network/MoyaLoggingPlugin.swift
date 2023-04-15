@@ -10,6 +10,8 @@ import Foundation
 import Moya
 
 final class MoyaLoggingPlugin: PluginType {
+    
+    // 🔥 Request 가 전송되기 전.
     func willSend(_ request: RequestType, target: TargetType) {
         #if DEBUG || DEV
         guard let httpRequest = request.request else {
@@ -31,6 +33,7 @@ final class MoyaLoggingPlugin: PluginType {
         #endif
     }
 
+    // 🔥 Response 를 받은 후.
     func didReceive(_ result: Result<Response, MoyaError>, target: TargetType) {
         #if DEBUG || DEV
         switch result {
@@ -63,6 +66,15 @@ final class MoyaLoggingPlugin: PluginType {
         log.append("\nEND HTTP (\(response.data.count)-byte body)\n\n-----------------------------------------")
         print(log)
         #endif
+        
+        switch statusCode {
+        case 401:
+            let acessToken = readUserTokenOnKeyChain(tokenName: Const.String.userAccessToken)
+            let refreshToken = readUserTokenOnKeyChain(tokenName: Const.String.userRefreshToken)
+            LoginService.shared.refreshToken()
+        default:
+            return
+        }
     }
 
     func onFail(_ error: MoyaError, target: TargetType) {

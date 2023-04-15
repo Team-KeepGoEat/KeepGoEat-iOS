@@ -59,9 +59,15 @@ extension LoginService {
                 case .success(let data):
                     guard let data = data as? RefreshResponseDto else { return }
                     updateUserTokenOnKeyChain(tokenName: Const.String.userAccessToken, tokenContent: data.accessToken)
+                    updateUserTokenOnKeyChain(tokenName: Const.String.userRefreshToken, tokenContent: data.refreshToken)
                 case .requestErr(let data):
                     guard let data = data as? String else { return }
                     print(data)
+                    // refresh token 만료, 로그아웃(토큰삭제) 시키고 로그인뷰로 화면전환
+                    RootViewControllerSwithcer.shared.changeRootViewController(navigationMode: .login)
+                    deleteUserTokenOnKeyChain(tokenName: Const.String.userAccessToken)
+                    deleteUserTokenOnKeyChain(tokenName: Const.String.userRefreshToken)
+                    deleteSocialType()
                 case .pathErr:
                     print("path error")
                 case .serverErr:
