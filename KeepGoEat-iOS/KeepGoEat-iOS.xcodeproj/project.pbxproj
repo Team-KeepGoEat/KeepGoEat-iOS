@@ -60,6 +60,8 @@
 		DD5F29FD296C391000CAEB2D /* StoreCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD5F29FC296C391000CAEB2D /* StoreCollectionViewCell.swift */; };
 		DD5F29FF296C39D400CAEB2D /* StoreCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD5F29FE296C39D400CAEB2D /* StoreCollectionView.swift */; };
 		DD61B26629EA587700197A71 /* SetMixpanel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD61B26529EA587700197A71 /* SetMixpanel.swift */; };
+		DD61B26A29EA5D0700197A71 /* CheckNetwork.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD61B26929EA5D0700197A71 /* CheckNetwork.swift */; };
+		DD61B26D29EA5D8200197A71 /* CheckNetworkViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD61B26C29EA5D8200197A71 /* CheckNetworkViewController.swift */; };
 		DD623418296E65FF008A35CD /* HomeGoalAddCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD623417296E65FF008A35CD /* HomeGoalAddCollectionViewCell.swift */; };
 		DD64902E2968C53900A73CF4 /* HomeExistView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD64902D2968C53900A73CF4 /* HomeExistView.swift */; };
 		DD849AFE295E758A0030AF2F /* StoreGoalRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD849AFD295E758A0030AF2F /* StoreGoalRequest.swift */; };
@@ -183,6 +185,8 @@
 		DD5F29FC296C391000CAEB2D /* StoreCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreCollectionViewCell.swift; sourceTree = "<group>"; };
 		DD5F29FE296C39D400CAEB2D /* StoreCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreCollectionView.swift; sourceTree = "<group>"; };
 		DD61B26529EA587700197A71 /* SetMixpanel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetMixpanel.swift; sourceTree = "<group>"; };
+		DD61B26929EA5D0700197A71 /* CheckNetwork.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckNetwork.swift; sourceTree = "<group>"; };
+		DD61B26C29EA5D8200197A71 /* CheckNetworkViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckNetworkViewController.swift; sourceTree = "<group>"; };
 		DD623417296E65FF008A35CD /* HomeGoalAddCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeGoalAddCollectionViewCell.swift; sourceTree = "<group>"; };
 		DD64902D2968C53900A73CF4 /* HomeExistView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeExistView.swift; sourceTree = "<group>"; };
 		DD79CA9B29BDAA4300FD4248 /* KeepGoEat-iOS.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "KeepGoEat-iOS.entitlements"; sourceTree = "<group>"; };
@@ -542,6 +546,15 @@
 			path = "KeepGoEat-iOS";
 			sourceTree = "<group>";
 		};
+		DD61B26B29EA5D6600197A71 /* CheckNetwork */ = {
+			isa = PBXGroup;
+			children = (
+				DD61B26929EA5D0700197A71 /* CheckNetwork.swift */,
+				DD61B26C29EA5D8200197A71 /* CheckNetworkViewController.swift */,
+			);
+			path = CheckNetwork;
+			sourceTree = "<group>";
+		};
 		DD849AFC295E75650030AF2F /* StoreGoal */ = {
 			isa = PBXGroup;
 			children = (
@@ -704,6 +717,7 @@
 		DDE12F8F295B0BC5008CF91B /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				DD61B26B29EA5D6600197A71 /* CheckNetwork */,
 				DDE12F9A295B0CAA008CF91B /* KeychainHandler.swift */,
 				D6E74E50296FEF8A00F278EC /* RootViewControllerSwitcher.swift */,
 				DD61B26529EA587700197A71 /* SetMixpanel.swift */,
@@ -1087,6 +1101,7 @@
 				DD849B0E295E7E0F0030AF2F /* MoyaLoggingPlugin.swift in Sources */,
 				DDDBC878296045AA00F65F23 /* String.swift in Sources */,
 				D6B4D2332965BB6700661083 /* BottomSheetView.swift in Sources */,
+				DD61B26D29EA5D8200197A71 /* CheckNetworkViewController.swift in Sources */,
 				C326493729C4B2A4009CDBDC /* MyPageService.swift in Sources */,
 				DDA7B71029672B14001950A2 /* HomeView.swift in Sources */,
 				D6B4D2332965BB6700661083 /* BottomSheetView.swift in Sources */,
@@ -1108,6 +1123,7 @@
 				D64DCBA229650F020046C719 /* GoalDetailCollectionView.swift in Sources */,
 				DD61B26629EA587700197A71 /* SetMixpanel.swift in Sources */,
 				DDE12FCB295B1244008CF91B /* NewGoalService.swift in Sources */,
+				DD61B26A29EA5D0700197A71 /* CheckNetwork.swift in Sources */,
 				DD849B0A295E77590030AF2F /* UIView+.swift in Sources */,
 				C358CBC729B5A504009E4060 /* CheckBoxButton.swift in Sources */,
 				DDE12FD3295B132C008CF91B /* HomeRequest.swift in Sources */,
