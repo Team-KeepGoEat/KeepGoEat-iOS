@@ -9,6 +9,7 @@ import UIKit
 
 import KakaoSDKCommon
 import Mixpanel
+import Siren
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
