@@ -65,6 +65,7 @@
 		DD623418296E65FF008A35CD /* HomeGoalAddCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD623417296E65FF008A35CD /* HomeGoalAddCollectionViewCell.swift */; };
 		DD64902E2968C53900A73CF4 /* HomeExistView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD64902D2968C53900A73CF4 /* HomeExistView.swift */; };
 		DD6A5F9729EAD755009F9ECE /* Siren in Frameworks */ = {isa = PBXBuildFile; productRef = DD6A5F9629EAD755009F9ECE /* Siren */; };
+		DD6A5F9929EAECF2009F9ECE /* CheckVersion.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD6A5F9829EAECF2009F9ECE /* CheckVersion.swift */; };
 		DD849AFE295E758A0030AF2F /* StoreGoalRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD849AFD295E758A0030AF2F /* StoreGoalRequest.swift */; };
 		DD849B00295E759E0030AF2F /* StoreGoalResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD849AFF295E759E0030AF2F /* StoreGoalResponse.swift */; };
 		DD849B03295E75D80030AF2F /* StoreGoalRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD849B02295E75D80030AF2F /* StoreGoalRouter.swift */; };
@@ -190,6 +191,7 @@
 		DD61B26C29EA5D8200197A71 /* CheckNetworkViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckNetworkViewController.swift; sourceTree = "<group>"; };
 		DD623417296E65FF008A35CD /* HomeGoalAddCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeGoalAddCollectionViewCell.swift; sourceTree = "<group>"; };
 		DD64902D2968C53900A73CF4 /* HomeExistView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeExistView.swift; sourceTree = "<group>"; };
+		DD6A5F9829EAECF2009F9ECE /* CheckVersion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckVersion.swift; sourceTree = "<group>"; };
 		DD79CA9B29BDAA4300FD4248 /* KeepGoEat-iOS.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "KeepGoEat-iOS.entitlements"; sourceTree = "<group>"; };
 		DD849AFD295E758A0030AF2F /* StoreGoalRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreGoalRequest.swift; sourceTree = "<group>"; };
 		DD849AFF295E759E0030AF2F /* StoreGoalResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreGoalResponse.swift; sourceTree = "<group>"; };
@@ -723,6 +725,7 @@
 				DDE12F9A295B0CAA008CF91B /* KeychainHandler.swift */,
 				D6E74E50296FEF8A00F278EC /* RootViewControllerSwitcher.swift */,
 				DD61B26529EA587700197A71 /* SetMixpanel.swift */,
+				DD6A5F9829EAECF2009F9ECE /* CheckVersion.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -1084,6 +1087,7 @@
 				311F8FCA2967FD9C00278E8F /* OnboardingCollectionViewCell.swift in Sources */,
 				DD64902E2968C53900A73CF4 /* HomeExistView.swift in Sources */,
 				C32648F629C033F5009CDBDC /* ServiceIntroView.swift in Sources */,
+				DD6A5F9929EAECF2009F9ECE /* CheckVersion.swift in Sources */,
 				D6C7B3CF296183D7006877F3 /* SocialLoginButton.swift in Sources */,
 				C358CBBA29B235AF009E4060 /* MyPageViewController.swift in Sources */,
 				DDDBC876296045A200F65F23 /* Const.swift in Sources */,
