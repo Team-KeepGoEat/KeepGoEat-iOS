@@ -87,10 +87,12 @@ extension GoalDetailViewController {
                 DispatchQueue.main.async {
                     if data.isMore {
                         self.goalDetailView.goalType = .more
-                        self.goalDetailView.goalTitleLabel.text = data.food + data.criterion + " \(Const.String.moreEat)"
+                        self.goalDetailView.goalTitleLabel.text = data.food + " \(Const.String.moreEat)"
+                        self.goalDetailView.goalCriterionLabel.text = data.criterion
                     } else {
                         self.goalDetailView.goalType = .less
-                        self.goalDetailView.goalTitleLabel.text = data.food + data.criterion + " \(Const.String.lessEat)"
+                        self.goalDetailView.goalTitleLabel.text = data.food + " \(Const.String.lessEat)"
+                        self.goalDetailView.goalCriterionLabel.text = data.criterion
                     }
                     self.data = data
                     self.goalDetailView.previousGoalStatsView.goalStatsCountLabel.text = String(data.lastMonthCount)

@@ -42,9 +42,15 @@ class GoalDetailView: UIView {
     private let goalTypeImageView: UIImageView = UIImageView()
     
     let goalTitleLabel: UILabel = UILabel().then {
-        $0.text = "하루 1끼 이상 야채 더 먹기"
+        $0.text = "야채 더 먹기"
         $0.font = .system2Bold
         $0.textColor = .gray800
+    }
+    
+    let goalCriterionLabel: UILabel = UILabel().then {
+        $0.text = "하루 1끼 이상"
+        $0.font = .system3Bold
+        $0.textColor = .gray500
     }
     
     private let goalStatsWrapView: UIView = UIView().then {
@@ -134,6 +140,7 @@ extension GoalDetailView {
             headerView,
             goalTypeImageView,
             goalTitleLabel,
+            goalCriterionLabel,
             goalStatsWrapView,
             goalStatsCollectionView,
             dimmedView,
@@ -188,13 +195,18 @@ extension GoalDetailView {
             $0.leading.equalTo(self.safeAreaLayoutGuide).inset(20.adjustedWidth)
         }
         
+        goalCriterionLabel.snp.makeConstraints {
+            $0.top.equalTo(goalTitleLabel.snp.bottom).inset(-5.adjusted)
+            $0.leading.equalTo(self.safeAreaLayoutGuide).inset(20.adjustedWidth)
+        }
+        
         goalStatsBorderLineView.snp.makeConstraints {
             $0.width.equalTo(1)
             $0.height.equalTo(80.adjusted)
         }
         
         goalStatsWrapView.snp.makeConstraints {
-            $0.top.equalTo(goalTitleLabel.snp.bottom).inset(-12.adjusted)
+            $0.top.equalTo(goalCriterionLabel.snp.bottom).inset(-17.adjusted)
             $0.directionalHorizontalEdges.equalTo(self.safeAreaLayoutGuide).inset(20.adjustedWidth)
             $0.height.equalTo(152.adjusted)
         }
