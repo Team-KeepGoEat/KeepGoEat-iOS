@@ -30,7 +30,7 @@ extension LoginRouter: BaseTargetType {
         case .socialLogin:
             return .post
         case .refresh:
-            return .post
+            return .get
         case .withdraw:
             return .get
         }
