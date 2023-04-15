@@ -69,8 +69,6 @@ final class MoyaLoggingPlugin: PluginType {
         
         switch statusCode {
         case 401:
-            let acessToken = readUserTokenOnKeyChain(tokenName: Const.String.userAccessToken)
-            let refreshToken = readUserTokenOnKeyChain(tokenName: Const.String.userRefreshToken)
             LoginService.shared.refreshToken()
         default:
             return
