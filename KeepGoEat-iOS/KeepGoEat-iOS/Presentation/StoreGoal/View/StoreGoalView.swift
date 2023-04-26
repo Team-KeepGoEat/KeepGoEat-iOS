@@ -17,7 +17,7 @@ enum StoreSection {
 class StoreGoalView: UIView {
     
     // MARK: - Variables
-    var data: GetStoreGoalResponse = getStoreGoalDataList[1]
+    var data: GetStoreGoalResponse = getStoreGoalDataList[0]
     var dataSource: UICollectionViewDiffableDataSource<StoreSection, StoreGoal>!
     
     // MARK: Component
@@ -36,6 +36,21 @@ class StoreGoalView: UIView {
         $0.sectionInset = UIEdgeInsets(top: 3.adjusted, left: 0, bottom: 16.adjusted, right: 0)
     }
     lazy var storeCollectionView = StoreCollectionView(frame: .zero, collectionViewLayout: layout)
+    
+    // Empty View Components
+    private let grayPlateImage: UIImageView = UIImageView().then {
+        $0.image = Const.Image.plateGrayView1
+    }
+    private let emptyTitleLabel: UILabel = UILabel().then {
+        $0.textColor = .gray500
+        $0.font = .system3Bold
+        $0.text = Const.String.storeEmptyTitle
+    }
+    private let emptySubLabel: UILabel = UILabel().then {
+        $0.textColor = .gray500
+        $0.font = .system4
+        $0.text = Const.String.storeEmptySub
+    }
     
     // MARK: - Function
     // MARK: LifeCycle
@@ -61,7 +76,10 @@ class StoreGoalView: UIView {
             lessButton,
             moreButton,
             totalButton,
-            storeCollectionView
+            storeCollectionView,
+            grayPlateImage,
+            emptyTitleLabel,
+            emptySubLabel
         )
         
         headerView.snp.makeConstraints {
@@ -87,6 +105,19 @@ class StoreGoalView: UIView {
         storeCollectionView.snp.makeConstraints {
             $0.top.equalTo(headerLabel.snp.bottom).offset(24.adjusted)
             $0.horizontalEdges.bottom.equalToSuperview()
+        }
+        grayPlateImage.snp.makeConstraints {
+            $0.width.height.equalTo(140.adjusted)
+            $0.center.equalToSuperview()
+//            $0.top.equalTo(headerLabel.snp.bottom).offset(113.adjusted)
+        }
+        emptyTitleLabel.snp.makeConstraints {
+            $0.centerX.equalToSuperview()
+            $0.top.equalTo(grayPlateImage.snp.bottom).inset(56.adjusted)
+        }
+        emptySubLabel.snp.makeConstraints {
+            $0.centerX.equalToSuperview()
+            $0.top.equalTo(emptyTitleLabel.snp.bottom).inset(56.adjusted)
         }
     }
     
@@ -132,20 +163,4 @@ class StoreGoalView: UIView {
         snapshot.deleteItems(target)
         dataSource.apply(snapshot)
     }
-    
-//    private func showDeleteActionSheet() {
-//        let deleteActionSheet = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
-//        deleteActionSheet.addAction(UIAlertAction(title: "삭제하기", style: .destructive, handler: { _ in
-//            <#code#>
-//        }))
-//        deleteActionSheet.addAction(UIAlertAction(title: "취소", style: .cancel))
-//    }
-//
-//    private func showConfirmAlert() {
-//        let confirmAlert = UIAlertController(title: "삭제 하시겠어요?", message: "삭제된 목표와 달성 기록은\n다시 복구할 수 없어요.", preferredStyle: .alert)
-//        confirmAlert.addAction(UIAlertAction(title: "취소", style: .cancel))
-//        confirmAlert.addAction(UIAlertAction(title: "네", style: .destructive, handler: { _ in
-//            <#code#>
-//        }))
-//    }
 }

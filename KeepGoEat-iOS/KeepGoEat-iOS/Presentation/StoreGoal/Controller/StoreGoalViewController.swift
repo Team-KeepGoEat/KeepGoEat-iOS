@@ -13,7 +13,7 @@ import Then
 class StoreGoalViewController: BaseViewController {
     
     // MARK: - Variables
-    var data: GetStoreGoalResponse = getStoreGoalDataList[1]
+    var data: GetStoreGoalResponse = getStoreGoalDataList[0]
     var dataSource: UICollectionViewDiffableDataSource<StoreSection, StoreGoal>!
     var sortType: SortType = .all
     
@@ -33,6 +33,23 @@ class StoreGoalViewController: BaseViewController {
         $0.sectionInset = UIEdgeInsets(top: 3.adjusted, left: 0, bottom: 16.adjusted, right: 0)
     }
     lazy var storeCollectionView = StoreCollectionView(frame: .zero, collectionViewLayout: layout)
+    
+    // Empty View Components
+    private let grayPlateImage: UIImageView = UIImageView().then {
+        $0.image = Const.Image.plateGrayView1
+    }
+    private let emptyTitleLabel: UILabel = UILabel().then {
+        $0.textColor = .gray500
+        $0.font = .system3Bold
+        $0.text = Const.String.storeEmptyTitle
+    }
+    private let emptySubLabel: UILabel = UILabel().then {
+        $0.textColor = .gray500
+        $0.font = .system4
+        $0.text = Const.String.storeEmptySub
+        $0.numberOfLines = 2
+        $0.textAlignment = .center
+    }
 
     // MARK: - Function
     // MARK: LifeCycle
@@ -40,8 +57,8 @@ class StoreGoalViewController: BaseViewController {
         super.viewDidLoad()
         
         setDataSource()
-        setUI()
         setLayout()
+        setUI()
         setAddTarget()
         setDelegate()
     }
@@ -53,15 +70,26 @@ class StoreGoalViewController: BaseViewController {
     // MARK: Layout Helpers
     private func setUI() {
         self.view.backgroundColor = .gray50
+        if data.goalCount == 0 {
+            storeCollectionView.isHidden = true
+            [grayPlateImage, emptyTitleLabel, emptySubLabel].forEach { $0.isHidden = false }
+        } else {
+            storeCollectionView.isHidden = false
+            [grayPlateImage, emptyTitleLabel, emptySubLabel].forEach { $0.isHidden = true }
+        }
     }
     private func setLayout() {
+        emptySubLabel.setTextWithLineHeight(text: Const.String.storeEmptySub, lineHeight: 24)
         self.view.addSubviews(
             headerView,
             headerLabel,
             lessButton,
             moreButton,
             totalButton,
-            storeCollectionView
+            storeCollectionView,
+            grayPlateImage,
+            emptyTitleLabel,
+            emptySubLabel
         )
         
         headerView.snp.makeConstraints {
@@ -87,6 +115,19 @@ class StoreGoalViewController: BaseViewController {
         storeCollectionView.snp.makeConstraints {
             $0.top.equalTo(headerLabel.snp.bottom).offset(24.adjusted)
             $0.horizontalEdges.bottom.equalToSuperview()
+        }
+        grayPlateImage.snp.makeConstraints {
+            $0.width.height.equalTo(140.adjusted)
+            $0.center.equalToSuperview()
+//            $0.top.equalTo(headerLabel.snp.bottom).offset(113.adjusted)
+        }
+        emptyTitleLabel.snp.makeConstraints {
+            $0.centerX.equalToSuperview()
+            $0.top.equalTo(grayPlateImage.snp.bottom).offset(56.adjusted)
+        }
+        emptySubLabel.snp.makeConstraints {
+            $0.centerX.equalToSuperview()
+            $0.top.equalTo(emptyTitleLabel.snp.bottom).offset(4.adjusted)
         }
     }
     
@@ -125,6 +166,7 @@ class StoreGoalViewController: BaseViewController {
             guard let data = data else { return }
             self.data = data
             self.applySnapshot(sort: self.sortType)
+            self.setUI()
         }
         print("🚀getStoreGoalData \(data)")
     }
