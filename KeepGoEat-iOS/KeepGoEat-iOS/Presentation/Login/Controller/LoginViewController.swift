@@ -18,7 +18,7 @@ class LoginViewController: BaseViewController {
         $0.image = UIImage(named: "imgSignup")
     }
     
-    private let kakaoLoginButton: SocialLoginButton = SocialLoginButton(frame: CGRect(), socialType: .kakao)
+//    private let kakaoLoginButton: SocialLoginButton = SocialLoginButton(frame: CGRect(), socialType: .kakao)
     private let appleLoginButton: SocialLoginButton = SocialLoginButton(frame: CGRect(), socialType: .apple)
 
     override func viewDidLoad() {
@@ -37,7 +37,7 @@ extension LoginViewController {
     private func setLayout() {
         view.addSubviews(
             loginImageView,
-            kakaoLoginButton,
+//            kakaoLoginButton,
             appleLoginButton
         )
         
@@ -45,16 +45,17 @@ extension LoginViewController {
             $0.width.equalTo(360.adjusted)
             $0.height.equalTo(328.adjusted)
             $0.top.equalToSuperview().inset(144.adjusted)
+            $0.centerX.equalToSuperview()
         }
         
-        kakaoLoginButton.snp.makeConstraints {
-            $0.directionalHorizontalEdges.equalToSuperview().inset(16.adjusted)
-            $0.bottom.equalToSuperview().inset(44.adjusted)
-        }
+//        kakaoLoginButton.snp.makeConstraints {
+//            $0.directionalHorizontalEdges.equalToSuperview().inset(16.adjusted)
+//            $0.bottom.equalToSuperview().inset(44.adjusted)
+//        }
 
         appleLoginButton.snp.makeConstraints {
             $0.horizontalEdges.equalToSuperview().inset(16.adjusted)
-            $0.bottom.equalTo(kakaoLoginButton.snp.top).inset(-16.adjusted)
+            $0.bottom.equalToSuperview().inset(44.adjusted)
         }
     }
     
