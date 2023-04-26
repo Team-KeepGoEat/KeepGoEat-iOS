@@ -440,18 +440,18 @@ extension NewGoalViewController: UITextFieldDelegate {
                 return false
             }
             
-            // 특수문자 사용 불가능
-            if !changedText.hasCharacters() {
-                warningLabel.isHidden = false
-                warningLabel.text = Const.String.warning
-//                completeButton.isEnabled = false
-            }
-            
-            // 공백 사용 불가능
-            if changedText.isEmpty {
-                warningLabel.isHidden = false
-                warningLabel.text = Const.String.emptyWarning
-            }
+//            // 특수문자 사용 불가능
+//            if !changedText.hasCharacters() {
+//                warningLabel.isHidden = false
+//                warningLabel.text = Const.String.warning
+////                completeButton.isEnabled = false
+//            }
+//
+//            // 공백 사용 불가능
+//            if changedText.isEmpty {
+//                warningLabel.isHidden = false
+//                warningLabel.text = Const.String.emptyWarning
+//            }
             
             if changedText.isEmpty || !changedText.hasCharacters() {
                 self.completeButton.isEnabled = false
@@ -482,17 +482,29 @@ extension NewGoalViewController: UITextFieldDelegate {
                 return false
             }
             
-            // 특수문자 사용 불가능
-            if !changedText.hasCharacters() {
-                warningLabel2.isHidden = false
-                warningLabel2.text = Const.String.warning
-            }
+            //            // 특수문자 사용 불가능
+            //            if !changedText.hasCharacters() {
+            //                warningLabel2.isHidden = false
+            //                warningLabel2.text = Const.String.warning
+            //            }
+            //
+            //            // 공백 사용 불가능
+            //            if changedText.isEmpty {
+            //                warningLabel2.isHidden = false
+            //                warningLabel2.text = Const.String.emptyWarning
+            //            }
             
-            // 공백 사용 불가능
-            if changedText.isEmpty {
-                warningLabel2.isHidden = false
-                warningLabel2.text = Const.String.emptyWarning
+            if changedText.isEmpty || !changedText.hasCharacters() {
+                self.completeButton.isEnabled = false
+                completeButton.backgroundColor = .gray200
+                completeButton.setTitleColor(.gray400, for: .disabled)
+            } else {
+                self.completeButton.isEnabled = true
+                completeButton.backgroundColor = .orange600
+                completeButton.setTitleColor(.gray50, for: .normal)
             }
+            return true
+            
         }
         return true
     }
