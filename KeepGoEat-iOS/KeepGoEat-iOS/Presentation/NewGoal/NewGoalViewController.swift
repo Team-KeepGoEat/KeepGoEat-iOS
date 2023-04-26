@@ -459,7 +459,12 @@ extension NewGoalViewController: UITextFieldDelegate {
                 completeButton.setTitleColor(.gray400, for: .disabled)
             } else {
                 self.completeButton.isEnabled = true
-                completeButton.backgroundColor = .orange600
+                switch eatType {
+                case .more:
+                    completeButton.backgroundColor = .orange600
+                case .less:
+                    completeButton.backgroundColor = .green500
+                }
                 completeButton.setTitleColor(.gray50, for: .normal)
             }
             return true
@@ -500,7 +505,12 @@ extension NewGoalViewController: UITextFieldDelegate {
                 completeButton.setTitleColor(.gray400, for: .disabled)
             } else {
                 self.completeButton.isEnabled = true
-                completeButton.backgroundColor = .orange600
+                switch eatType {
+                case .more:
+                    completeButton.backgroundColor = .orange600
+                case .less:
+                    completeButton.backgroundColor = .green500
+                }
                 completeButton.setTitleColor(.gray50, for: .normal)
             }
             return true
