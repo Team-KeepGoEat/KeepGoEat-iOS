@@ -46,10 +46,10 @@ final class MoyaLoggingPlugin: PluginType {
     }
 
     func onSuceed(_ response: Response, target: TargetType, isFromError: Bool) {
+        let request: URLRequest? = response.request
+        let url: String = request?.url?.absoluteString ?? "nil"
+        let statusCode: Int = response.statusCode
         #if DEBUG || DEV
-        let request = response.request
-        let url = request?.url?.absoluteString ?? "nil"
-        let statusCode = response.statusCode
         var log = "네트워크 통신 성공 🎉\n"
         log.append("[\(statusCode)] \(url)\n\n")
         log.append("API: \(target)\n")
