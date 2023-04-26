@@ -331,11 +331,12 @@ class NewGoalViewController: BaseViewController {
         }
     }
     
-    func dataBind(goalId: Int?, eatType: EatType, content: String?, isCreated: Bool) {
+    func dataBind(goalId: Int?, eatType: EatType, food: String?, criterion: String?, isCreated: Bool) {
         self.eatType = eatType
         self.isCreated = isCreated
-        if let content = content {
-            moreVegetabletextField.text = content
+        if !isCreated {
+            moreVegetabletextField.text = food
+            moreVegetabletextField2.text = criterion
         }
         if let goalId = goalId {
             self.goalId = goalId
