@@ -1278,10 +1278,11 @@
 				BASE_URL = "http://54.180.12.92:3000";
 				CODE_SIGN_ENTITLEMENTS = "KeepGoEat-iOS/KeepGoEat-iOS.entitlements";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 6;
+				CURRENT_PROJECT_VERSION = 7;
 				DEVELOPMENT_TEAM = Z429BM88YZ;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "KeepGoEat-iOS/Resource/Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = KeepGoEat;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen.storyboard;
 				INFOPLIST_KEY_UIStatusBarStyle = "";
@@ -1314,10 +1315,11 @@
 				BASE_URL = "http://54.180.12.92:3000";
 				CODE_SIGN_ENTITLEMENTS = "KeepGoEat-iOS/KeepGoEat-iOS.entitlements";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 6;
+				CURRENT_PROJECT_VERSION = 7;
 				DEVELOPMENT_TEAM = Z429BM88YZ;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "KeepGoEat-iOS/Resource/Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = KeepGoEat;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen.storyboard;
 				INFOPLIST_KEY_UIStatusBarStyle = "";
