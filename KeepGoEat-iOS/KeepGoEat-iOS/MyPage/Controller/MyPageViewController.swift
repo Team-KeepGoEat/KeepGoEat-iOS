@@ -119,6 +119,25 @@ extension MyPageViewController: HandleContactButtonDelegate, MFMailComposeViewCo
               let version = dictionary["CFBundleShortVersionString"] as? String else { return "" }
         return version
     }
+    func mailComposeController(_ controller: MFMailComposeViewController, didFinishWith result: MFMailComposeResult, error: Error?) {
+        // ✅ MFMailComposeResult 가지고 메일 작성 인터페이스가 닫힐때의 결과에 대응할 수있다.
+        switch result {
+        case .cancelled:
+// ✅ The user canceled the operation.
+            print("cancelled")
+        case .saved:
+// ✅ The email message was saved in the user’s drafts folder.
+            print("saved")
+        case .sent:
+// ✅ The email message was queued in the user’s outbox.
+            print("sent")
+        case .failed:
+// ✅ The email message was not saved or queued, possibly due to an error.
+            print("failed")
+        }
+// ✅ Dismiss the mail compose view controller.
+        controller.dismiss(animated: true, completion: nil)
+    }
 }
 
 extension MyPageViewController: HandleServiceIntroButtonDelegate {
