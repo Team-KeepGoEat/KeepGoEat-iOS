@@ -113,6 +113,7 @@ extension ServiceIntroView {
             $0.top.equalToSuperview()
             $0.width.equalToSuperview()
         }
+        
         introLabelView.snp.makeConstraints {
             $0.centerX.equalToSuperview()
             $0.top.equalTo(backgroundImage.snp.top).offset(80.adjusted)
