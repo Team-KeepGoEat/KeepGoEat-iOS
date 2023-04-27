@@ -109,10 +109,11 @@ extension WithdrawalView {
             withdrawalScrollView.scrollRectToVisible(manualInputTextView.frame, animated: true)
             textView.borderColor = .orange600
         }
-        if textView.textColor == .gray400 {
+        if textView.text == Const.String.manualInputDescription {
             textView.text = nil
             textView.textColor = .gray800
-            textView.font = .system5
+        } else {
+            textView.textColor = .gray800
         }
         if manualInputTextView.isSelectable {
             self.withdrawalScrollView.contentOffset.y += 224
@@ -270,6 +271,7 @@ extension WithdrawalView {
             manualInputTextView.becomeFirstResponder()
         } else {
             manualInputTextView.isEditable = false
+            manualInputTextView.textColor = .gray400
             manualInputTextView.resignFirstResponder()
             if !manualInputMessage.isHidden {
                 manualInputMessage.isHidden = true
