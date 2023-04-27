@@ -87,9 +87,9 @@ class WithdrawalAlertView: UIView {
     }
     
     @objc func showAlert() {
-        if isAlertPresented {
-                return
-            }
+//        if isAlertPresented {
+//                return
+//            }
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(dismissAlert))
         transparentView.addGestureRecognizer(tapGesture)
         self.addSubview(transparentView)
