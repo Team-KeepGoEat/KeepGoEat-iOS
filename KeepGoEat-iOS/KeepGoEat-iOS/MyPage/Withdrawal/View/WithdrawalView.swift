@@ -65,7 +65,7 @@ class WithdrawalView: UIView, UITextViewDelegate {
         $0.textContainerInset = UIEdgeInsets(top: 12.adjusted, left: 16.adjusted, bottom: 16.adjusted, right: 12.adjusted)
         $0.borderColor = .gray200
         $0.borderWidth = 1
-        $0.isEditable = false
+//        $0.isEditable = false
         if $0.text.isEmpty {
             $0.text = Const.String.manualInputDescription
             $0.font = .system5
@@ -105,14 +105,19 @@ class WithdrawalView: UIView, UITextViewDelegate {
     
 extension WithdrawalView {
     func textViewDidBeginEditing(_ textView: UITextView) {
+        if manualInputCheckBox.isChecked == false {
+            manualInputCheckBox.isChecked = true
+            manualInputCheckBox.isSelected = !manualInputCheckBox.isSelected
+        }
         if textView == manualInputTextView {
             withdrawalScrollView.scrollRectToVisible(manualInputTextView.frame, animated: true)
             textView.borderColor = .orange600
         }
-        if textView.textColor == .gray400 {
+        if textView.text == Const.String.manualInputDescription {
             textView.text = nil
             textView.textColor = .gray800
-            textView.font = .system5
+        } else {
+            textView.textColor = .gray800
         }
         if manualInputTextView.isSelectable {
             self.withdrawalScrollView.contentOffset.y += 224
@@ -266,10 +271,9 @@ extension WithdrawalView {
         manualInputCheckBox.isSelected = !manualInputCheckBox.isSelected
         
         if manualInputCheckBox.isSelected {
-            manualInputTextView.isEditable = true
             manualInputTextView.becomeFirstResponder()
         } else {
-            manualInputTextView.isEditable = false
+            manualInputTextView.textColor = .gray400
             manualInputTextView.resignFirstResponder()
             if !manualInputMessage.isHidden {
                 manualInputMessage.isHidden = true
