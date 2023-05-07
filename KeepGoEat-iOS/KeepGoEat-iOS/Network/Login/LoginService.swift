@@ -77,6 +77,10 @@ extension LoginService {
                 case .authErr(let data):
                     guard let data = data as? String else { return }
                     print(data)
+                    RootViewControllerSwithcer.shared.changeRootViewController(navigationMode: .login)
+                    deleteUserTokenOnKeyChain(tokenName: Const.String.userAccessToken)
+                    deleteUserTokenOnKeyChain(tokenName: Const.String.userRefreshToken)
+                    deleteSocialType()
                 }
             case .failure(let error):
                 print(error.localizedDescription)
