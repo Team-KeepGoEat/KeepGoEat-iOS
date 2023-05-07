@@ -23,27 +23,25 @@ struct KeychainHandler {
 
     var accessToken: String {
         get {
-            return KeychainWrapper.standard.string(forKey: accessTokenKey) ?? ""
+            return keychain.string(forKey: accessTokenKey) ?? ""
         }
         set {
-            KeychainWrapper.standard.set(newValue, forKey: accessTokenKey)
+            keychain.set(newValue, forKey: accessTokenKey)
         }
     }
     
     var refreshToken: String {
         get {
-            return KeychainWrapper.standard.string(forKey: refreshTokenKey) ?? ""
+            return keychain.string(forKey: refreshTokenKey) ?? ""
         }
         set {
-            KeychainWrapper.standard.set(newValue, forKey: refreshTokenKey)
+            keychain.set(newValue, forKey: refreshTokenKey)
         }
     }
 
     mutating func removeAll() {
-        KeychainWrapper.standard.removeObject(forKey: accessTokenKey)
-        KeychainWrapper.standard.removeObject(forKey: refreshTokenKey)
-//        accessToken = ""
-//        refreshToken = ""
+        keychain.removeObject(forKey: accessTokenKey)
+        keychain.removeObject(forKey: refreshTokenKey)
     }
 }
 
