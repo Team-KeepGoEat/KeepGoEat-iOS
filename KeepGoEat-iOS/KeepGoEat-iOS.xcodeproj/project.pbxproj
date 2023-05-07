@@ -66,6 +66,7 @@
 		DD64902E2968C53900A73CF4 /* HomeExistView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD64902D2968C53900A73CF4 /* HomeExistView.swift */; };
 		DD6A5F9729EAD755009F9ECE /* Siren in Frameworks */ = {isa = PBXBuildFile; productRef = DD6A5F9629EAD755009F9ECE /* Siren */; };
 		DD6A5F9929EAECF2009F9ECE /* CheckVersion.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD6A5F9829EAECF2009F9ECE /* CheckVersion.swift */; };
+		DD7355652A07D2040001AFA9 /* SwiftKeychainWrapper in Frameworks */ = {isa = PBXBuildFile; productRef = DD7355642A07D2040001AFA9 /* SwiftKeychainWrapper */; };
 		DD849AFE295E758A0030AF2F /* StoreGoalRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD849AFD295E758A0030AF2F /* StoreGoalRequest.swift */; };
 		DD849B00295E759E0030AF2F /* StoreGoalResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD849AFF295E759E0030AF2F /* StoreGoalResponse.swift */; };
 		DD849B03295E75D80030AF2F /* StoreGoalRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD849B02295E75D80030AF2F /* StoreGoalRouter.swift */; };
@@ -268,6 +269,7 @@
 				DDE12FEA295B14AE008CF91B /* Then in Frameworks */,
 				DD6A5F9729EAD755009F9ECE /* Siren in Frameworks */,
 				DDE12FF0295B15AC008CF91B /* Lottie in Frameworks */,
+				DD7355652A07D2040001AFA9 /* SwiftKeychainWrapper in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -938,6 +940,7 @@
 				DDE12FEF295B15AC008CF91B /* Lottie */,
 				DD8D466829E29C11003B9FEE /* Mixpanel */,
 				DD6A5F9629EAD755009F9ECE /* Siren */,
+				DD7355642A07D2040001AFA9 /* SwiftKeychainWrapper */,
 			);
 			productName = "KeepGoEat-iOS";
 			productReference = DD38AD69295B02B70084FA70 /* KeepGoEat-iOS.app */;
@@ -975,6 +978,7 @@
 				DDE12FEE295B15AC008CF91B /* XCRemoteSwiftPackageReference "lottie-ios" */,
 				DD8D466729E29C11003B9FEE /* XCRemoteSwiftPackageReference "mixpanel-swift" */,
 				DD6A5F9529EAD755009F9ECE /* XCRemoteSwiftPackageReference "Siren" */,
+				DD7355632A07D2040001AFA9 /* XCRemoteSwiftPackageReference "SwiftKeychainWrapper" */,
 			);
 			productRefGroup = DD38AD6A295B02B70084FA70 /* Products */;
 			projectDirPath = "";
@@ -1375,6 +1379,14 @@
 				minimumVersion = 6.0.0;
 			};
 		};
+		DD7355632A07D2040001AFA9 /* XCRemoteSwiftPackageReference "SwiftKeychainWrapper" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/jrendel/SwiftKeychainWrapper";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 4.0.0;
+			};
+		};
 		DD8D466729E29C11003B9FEE /* XCRemoteSwiftPackageReference "mixpanel-swift" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/mixpanel/mixpanel-swift";
@@ -1430,6 +1442,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = DD6A5F9529EAD755009F9ECE /* XCRemoteSwiftPackageReference "Siren" */;
 			productName = Siren;
+		};
+		DD7355642A07D2040001AFA9 /* SwiftKeychainWrapper */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = DD7355632A07D2040001AFA9 /* XCRemoteSwiftPackageReference "SwiftKeychainWrapper" */;
+			productName = SwiftKeychainWrapper;
 		};
 		DD8D466829E29C11003B9FEE /* Mixpanel */ = {
 			isa = XCSwiftPackageProductDependency;

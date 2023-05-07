@@ -10,7 +10,7 @@ import Foundation
 struct NetworkConstant {
     static let plainHeader = ["Content-Type": "application/json"]
     
-    static let tokenHeader = ["Content-Type": "application/json", "accesstoken": readUserTokenOnKeyChain(tokenName: Const.String.userAccessToken), "refreshtoken": readUserTokenOnKeyChain(tokenName: Const.String.userRefreshToken)]
+    static var tokenHeader = ["Content-Type": "application/json", "accesstoken": KeychainHandler.shared.accessToken, "refreshtoken": KeychainHandler.shared.refreshToken]
     
-    static let accessTokenHeader = ["Content-Type": "application/json", "accesstoken": readUserTokenOnKeyChain(tokenName: Const.String.userAccessToken)]
+    static var accessTokenHeader = ["Content-Type": "application/json", "accesstoken": KeychainHandler.shared.accessToken]
 }

@@ -7,9 +7,44 @@
 
 import Foundation
 
+import SwiftKeychainWrapper
+
 struct Credentials {
     var tokenName: String
     var tokenContent: String
+}
+
+struct KeychainHandler {
+    static var shared = KeychainHandler()
+    
+    private let keychain = KeychainWrapper(serviceName: "keepGoEat", accessGroup: "jeongkite.KeepGoEat.keychainGroup")
+    private let accessTokenKey = "accessToken"
+    private let refreshTokenKey = "refreshToken"
+
+    var accessToken: String {
+        get {
+            return KeychainWrapper.standard.string(forKey: accessTokenKey) ?? ""
+        }
+        set {
+            KeychainWrapper.standard.set(newValue, forKey: accessTokenKey)
+        }
+    }
+    
+    var refreshToken: String {
+        get {
+            return KeychainWrapper.standard.string(forKey: refreshTokenKey) ?? ""
+        }
+        set {
+            KeychainWrapper.standard.set(newValue, forKey: refreshTokenKey)
+        }
+    }
+
+    mutating func removeAll() {
+        KeychainWrapper.standard.removeObject(forKey: accessTokenKey)
+        KeychainWrapper.standard.removeObject(forKey: refreshTokenKey)
+//        accessToken = ""
+//        refreshToken = ""
+    }
 }
 
 func addUserTokenOnKeyChain(tokenName: String, tokenContent: String) {
@@ -79,6 +114,40 @@ func isUserTokenOnKeyChain(tokenName: String) -> Bool {
     guard let _ = String(data: data, encoding: .utf8) else { return false }
     
     return true
+}
+
+func setUsername(username: String) {
+    UserDefaults.standard.setValue(username, forKey: "username")
+}
+
+func getUsername() -> String? {
+    if let username = UserDefaults.standard.string(forKey: "username") {
+        print("username: \(username)")
+        return username
+    } else {
+        return nil
+    }
+}
+
+func deleteUsername() {
+    UserDefaults.standard.removeObject(forKey: "username")
+}
+
+func setEmail(userEmail: String) {
+    UserDefaults.standard.setValue(userEmail, forKey: "userEmail")
+}
+
+func getEmail() -> String? {
+    if let userEmail = UserDefaults.standard.string(forKey: "userEmail") {
+        print("userEmail: \(userEmail)")
+        return userEmail
+    } else {
+        return nil
+    }
+}
+
+func deleteEmail() {
+    UserDefaults.standard.removeObject(forKey: "userEmail")
 }
 
 func setSocialType(socialType: SocialType) {
