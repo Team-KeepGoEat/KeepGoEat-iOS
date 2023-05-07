@@ -100,11 +100,11 @@ extension LoginService {
                     guard let data = data as? String else { return }
                     completion(data)
                     print("success")
-                case .requestErr(_):
+                case .requestErr:
                     print("request error")
-                case .authErr(_):
+                case .authErr:
                     print("auth error")
-                case .serverErr(_):
+                case .serverErr:
                     print("server error")
                 case .pathErr:
                     print("path error")
