@@ -90,7 +90,11 @@ extension LoginViewController: ASAuthorizationControllerDelegate, ASAuthorizatio
             let param = LoginRequestDto(platformAccessToken: platformAccessToken, platform: platform)
             LoginService.shared.postSocialLogin(param: param) { _ in
                 setSocialType(socialType: SocialType.apple)
-                RootViewControllerSwithcer.shared.changeRootViewController(navigationMode: .onboarding)
+                if isFirstTime() {
+                    RootViewControllerSwithcer.shared.changeRootViewController(navigationMode: .onboarding)
+                } else {
+                    RootViewControllerSwithcer.shared.changeRootViewController(navigationMode: .home)
+                }
             }
         default:
             break
