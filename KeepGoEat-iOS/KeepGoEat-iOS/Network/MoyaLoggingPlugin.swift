@@ -69,8 +69,10 @@ final class MoyaLoggingPlugin: PluginType {
         
         switch statusCode {
         case 401:
+            print("🚬 401")
             LoginService.shared.refreshToken()
         default:
+            print("🚬 default")
             return
         }
     }

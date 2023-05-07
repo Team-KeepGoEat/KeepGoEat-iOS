@@ -83,6 +83,8 @@ extension LoginViewController: ASAuthorizationControllerDelegate, ASAuthorizatio
     func authorizationController(controller: ASAuthorizationController, didCompleteWithAuthorization authorization: ASAuthorization) {
         switch authorization.credential {
         case let appleIDCredential as ASAuthorizationAppleIDCredential:
+            setUsername(username: (appleIDCredential.fullName?.familyName ?? "") + (appleIDCredential.fullName?.givenName ?? ""))
+            setEmail(userEmail: appleIDCredential.email ?? "")
             let platformAccessToken = String(data: appleIDCredential.identityToken!, encoding: .utf8) ?? ""
             let platform: String = "APPLE"
             print("🍏 Apple Login Token", platformAccessToken)
