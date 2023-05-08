@@ -118,12 +118,12 @@ func setUsername(username: String) {
     UserDefaults.standard.setValue(username, forKey: "username")
 }
 
-func getUsername() -> String? {
+func getUsername() -> String {
     if let username = UserDefaults.standard.string(forKey: "username") {
         print("username: \(username)")
         return username
     } else {
-        return nil
+        return ""
     }
 }
 
@@ -135,12 +135,12 @@ func setEmail(userEmail: String) {
     UserDefaults.standard.setValue(userEmail, forKey: "userEmail")
 }
 
-func getEmail() -> String? {
+func getEmail() -> String {
     if let userEmail = UserDefaults.standard.string(forKey: "userEmail") {
         print("userEmail: \(userEmail)")
         return userEmail
     } else {
-        return nil
+        return ""
     }
 }
 
