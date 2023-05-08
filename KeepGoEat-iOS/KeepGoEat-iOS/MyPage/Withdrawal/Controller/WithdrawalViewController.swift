@@ -54,8 +54,7 @@ extension WithdrawalViewController: HandleWithdrawAlertButtonDelegate {
                         print(error)
                     } else {
                         print("unlink() success.")
-                        deleteUserTokenOnKeyChain(tokenName: Const.String.userAccessToken)
-                        deleteUserTokenOnKeyChain(tokenName: Const.String.userRefreshToken)
+                        KeychainHandler.shared.removeAll()
                         RootViewControllerSwithcer.shared.changeRootViewController(navigationMode: .login)
                     }
                 }
@@ -85,8 +84,7 @@ extension WithdrawalViewController: ASAuthorizationControllerDelegate, ASAuthori
             let platformAccessToken = String(data: appleIDCredential.identityToken!, encoding: .utf8) ?? ""
             let code = (String(data: appleIDCredential.authorizationCode!, encoding: .utf8) ?? "") as String
             LoginService.shared.withdraw(code: code) { _ in
-                deleteUserTokenOnKeyChain(tokenName: Const.String.userAccessToken)
-                deleteUserTokenOnKeyChain(tokenName: Const.String.userRefreshToken)
+                KeychainHandler.shared.removeAll()
                 RootViewControllerSwithcer.shared.changeRootViewController(navigationMode: .login)
             }
         default:
