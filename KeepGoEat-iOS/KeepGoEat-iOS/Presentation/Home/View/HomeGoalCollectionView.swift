@@ -7,6 +7,8 @@
 
 import UIKit
 
+import Mixpanel
+
 protocol HandleCustomButtonDelegate: AnyObject {
     func showHomeBottomSheet()
     func playHomeLottie()
@@ -36,6 +38,7 @@ class HomeGoalCollectionView: UICollectionView {
     }
     private func postAchieveGoal(goal: Goal) {
         HomeService.shared.postAchieveGoal(body: PostGoalAchieveRequest(isAchieved: !goal.isAchieved), param: goal.goalId) { data in
+            self.trackEvent(eventGroup: .completeGoal, gesture: .completed, eventProperty: .goal, data: [goal.food, goal.criterion])
             guard let data = data else { return }
             if data.updatedIsAchieved != goal.isAchieved {
                 self.getHomeData()
@@ -48,6 +51,28 @@ class HomeGoalCollectionView: UICollectionView {
             self.data = data
             self.reloadData()
         }
+    }
+    
+    private func trackEvent(eventGroup: EventGroup, gesture: UserGesture, eventProperty: EventProperty?, data: [String]?) {
+        let mixpanel = Mixpanel.mainInstance()
+        let eventName = "\(eventGroup.rawValue) : \(gesture.rawValue)"
+        
+        if let propertyType = eventProperty, let data = data {
+            trackEventProperty(eventName: eventName, type: propertyType, data: data)
+        } else {
+            mixpanel.track(event: eventName)
+        }
+    }
+    
+    private func trackEventProperty(eventName: String, type: EventProperty, data: [String]) {
+        let mixpanel = Mixpanel.mainInstance()
+        var propertyValue: Any?
+        if data.count == 1 {
+            propertyValue = data.first
+        } else {
+            propertyValue = data
+        }
+        mixpanel.track(event: eventName, properties: [type.rawValue: propertyValue])
     }
     
     @objc func achieveButtonDidTap(sender: UIButton) {

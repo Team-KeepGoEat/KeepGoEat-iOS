@@ -67,6 +67,7 @@ extension GoalDetailViewController {
     private func saveGoal() {
         GoalDetailService.shared.saveGoal(goalId: goalId)
         DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 0.1) {
+            self.trackEvent(eventGroup: .archive, gesture: .completed, eventProperty: .goal, data: [self.data.food, self.data.criterion])
             let storeGoalViewController = StoreGoalViewController()
             guard let rootViewController = self.navigationController?.viewControllers.first as? UIViewController else { return }
             self.navigationController?.popToRootViewController(animated: false)

@@ -11,8 +11,8 @@ import Then
 import SnapKit
 
 enum EatType: String {
-    case more
-    case less
+    case more = "더먹기"
+    case less = "덜먹기"
 }
 
 class NewGoalViewController: BaseViewController {
@@ -302,6 +302,7 @@ class NewGoalViewController: BaseViewController {
             isMore: check
         )
         NewGoalService.shared.createNewGoal(body: body)
+        self.trackEvent(eventGroup: .createGoal, gesture: .completed, eventProperty: .goal, data: [body.food, body.criterion])
         let previousViewController = self.navigationController?.viewControllers.last { $0 != self }
         DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 0.1) {
             self.navigationController?.popViewController(animated: true)
