@@ -10,6 +10,8 @@ import Foundation
 import Moya
 
 final class MoyaLoggingPlugin: PluginType {
+    
+    // 🔥 Request 가 전송되기 전.
     func willSend(_ request: RequestType, target: TargetType) {
         #if DEBUG || DEV
         guard let httpRequest = request.request else {
@@ -31,22 +33,21 @@ final class MoyaLoggingPlugin: PluginType {
         #endif
     }
 
+    // 🔥 Response 를 받은 후.
     func didReceive(_ result: Result<Response, MoyaError>, target: TargetType) {
-        #if DEBUG || DEV
         switch result {
         case let .success(response):
             onSuceed(response, target: target, isFromError: false)
         case let .failure(error):
             onFail(error, target: target)
         }
-        #endif
     }
 
     func onSuceed(_ response: Response, target: TargetType, isFromError: Bool) {
+        let request: URLRequest? = response.request
+        let url: String = request?.url?.absoluteString ?? "nil"
+        let statusCode: Int = response.statusCode
         #if DEBUG || DEV
-        let request = response.request
-        let url = request?.url?.absoluteString ?? "nil"
-        let statusCode = response.statusCode
         var log = "네트워크 통신 성공 🎉\n"
         log.append("[\(statusCode)] \(url)\n\n")
         log.append("API: \(target)\n")
@@ -63,14 +64,23 @@ final class MoyaLoggingPlugin: PluginType {
         log.append("\nEND HTTP (\(response.data.count)-byte body)\n\n-----------------------------------------")
         print(log)
         #endif
+        
+        switch statusCode {
+        case 401:
+            print("🚬 401")
+            LoginService.shared.refreshToken()
+        default:
+            print("🚬 default")
+            return
+        }
     }
 
     func onFail(_ error: MoyaError, target: TargetType) {
-        #if DEBUG || DEV
         if let response = error.response {
             onSuceed(response, target: target, isFromError: true)
             return
         }
+        #if DEBUG || DEV
         var log = "네트워크 오류"
         log.append("-----------------------------------------\n\(error.errorCode) \(target)\n")
         log.append("\(error.failureReason ?? error.errorDescription ?? "unknown error")\n")

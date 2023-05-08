@@ -112,7 +112,11 @@ extension SocialLoginButton {
                         let param = LoginRequestDto(platformAccessToken: platformAccessToken, platform: platform)
                         LoginService.shared.postSocialLogin(param: param) { _ in
                             setSocialType(socialType: SocialType.kakao)
-                            RootViewControllerSwithcer.shared.changeRootViewController(navigationMode: .onboarding)
+                            if isFirstTime() {
+                                RootViewControllerSwithcer.shared.changeRootViewController(navigationMode: .onboarding)
+                            } else {
+                                RootViewControllerSwithcer.shared.changeRootViewController(navigationMode: .home)
+                            }
                         }
                     }
                 }
@@ -130,12 +134,20 @@ extension SocialLoginButton {
                         let param = LoginRequestDto(platformAccessToken: platformAccessToken, platform: platform)
                         LoginService.shared.postSocialLogin(param: param) { _ in
                             setSocialType(socialType: SocialType.kakao)
-                            RootViewControllerSwithcer.shared.changeRootViewController(navigationMode: .onboarding)
+                            if isFirstTime() {
+                                RootViewControllerSwithcer.shared.changeRootViewController(navigationMode: .onboarding)
+                            } else {
+                                RootViewControllerSwithcer.shared.changeRootViewController(navigationMode: .login)
+                            }
                         }
                     }
                 }
             }
-            RootViewControllerSwithcer.shared.changeRootViewController(navigationMode: .onboarding)
+            if isFirstTime() {
+                RootViewControllerSwithcer.shared.changeRootViewController(navigationMode: .onboarding)
+            } else {
+                RootViewControllerSwithcer.shared.changeRootViewController(navigationMode: .login)
+            }
         }
     }
     

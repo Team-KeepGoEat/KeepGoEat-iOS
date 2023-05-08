@@ -12,7 +12,8 @@ struct GoalDetailResponseDto: Codable {
     var isMore: Bool
     var thisMonthCount: Int
     var lastMonthCount: Int
-    var goalContent: String
+    var food: String
+    var criterion: String
     var blankBoxCount: Int
     var emptyBoxCount: Int
 }

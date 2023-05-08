@@ -59,8 +59,14 @@
 		DD526893296ABBCE005C8376 /* BaseTargetType.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD526892296ABBCE005C8376 /* BaseTargetType.swift */; };
 		DD5F29FD296C391000CAEB2D /* StoreCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD5F29FC296C391000CAEB2D /* StoreCollectionViewCell.swift */; };
 		DD5F29FF296C39D400CAEB2D /* StoreCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD5F29FE296C39D400CAEB2D /* StoreCollectionView.swift */; };
+		DD61B26629EA587700197A71 /* SetMixpanel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD61B26529EA587700197A71 /* SetMixpanel.swift */; };
+		DD61B26A29EA5D0700197A71 /* CheckNetwork.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD61B26929EA5D0700197A71 /* CheckNetwork.swift */; };
+		DD61B26D29EA5D8200197A71 /* CheckNetworkViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD61B26C29EA5D8200197A71 /* CheckNetworkViewController.swift */; };
 		DD623418296E65FF008A35CD /* HomeGoalAddCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD623417296E65FF008A35CD /* HomeGoalAddCollectionViewCell.swift */; };
 		DD64902E2968C53900A73CF4 /* HomeExistView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD64902D2968C53900A73CF4 /* HomeExistView.swift */; };
+		DD6A5F9729EAD755009F9ECE /* Siren in Frameworks */ = {isa = PBXBuildFile; productRef = DD6A5F9629EAD755009F9ECE /* Siren */; };
+		DD6A5F9929EAECF2009F9ECE /* CheckVersion.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD6A5F9829EAECF2009F9ECE /* CheckVersion.swift */; };
+		DD7355652A07D2040001AFA9 /* SwiftKeychainWrapper in Frameworks */ = {isa = PBXBuildFile; productRef = DD7355642A07D2040001AFA9 /* SwiftKeychainWrapper */; };
 		DD849AFE295E758A0030AF2F /* StoreGoalRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD849AFD295E758A0030AF2F /* StoreGoalRequest.swift */; };
 		DD849B00295E759E0030AF2F /* StoreGoalResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD849AFF295E759E0030AF2F /* StoreGoalResponse.swift */; };
 		DD849B03295E75D80030AF2F /* StoreGoalRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD849B02295E75D80030AF2F /* StoreGoalRouter.swift */; };
@@ -71,6 +77,7 @@
 		DD849B0E295E7E0F0030AF2F /* MoyaLoggingPlugin.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD849B0D295E7E0F0030AF2F /* MoyaLoggingPlugin.swift */; };
 		DD849B10295E800C0030AF2F /* NetworkBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD849B0F295E800C0030AF2F /* NetworkBase.swift */; };
 		DD849B12295E80630030AF2F /* NetworkConstant.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD849B11295E80630030AF2F /* NetworkConstant.swift */; };
+		DD8D466929E29C11003B9FEE /* Mixpanel in Frameworks */ = {isa = PBXBuildFile; productRef = DD8D466829E29C11003B9FEE /* Mixpanel */; };
 		DD9E4326297144A90058A715 /* homeSnail.json in Resources */ = {isa = PBXBuildFile; fileRef = DD9E4325297144A90058A715 /* homeSnail.json */; };
 		DDA7B71029672B14001950A2 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDA7B70F29672B14001950A2 /* HomeView.swift */; };
 		DDA7B71229673F76001950A2 /* HomeEmptyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDA7B71129673F76001950A2 /* HomeEmptyView.swift */; };
@@ -180,8 +187,12 @@
 		DD526892296ABBCE005C8376 /* BaseTargetType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseTargetType.swift; sourceTree = "<group>"; };
 		DD5F29FC296C391000CAEB2D /* StoreCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreCollectionViewCell.swift; sourceTree = "<group>"; };
 		DD5F29FE296C39D400CAEB2D /* StoreCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreCollectionView.swift; sourceTree = "<group>"; };
+		DD61B26529EA587700197A71 /* SetMixpanel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetMixpanel.swift; sourceTree = "<group>"; };
+		DD61B26929EA5D0700197A71 /* CheckNetwork.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckNetwork.swift; sourceTree = "<group>"; };
+		DD61B26C29EA5D8200197A71 /* CheckNetworkViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckNetworkViewController.swift; sourceTree = "<group>"; };
 		DD623417296E65FF008A35CD /* HomeGoalAddCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeGoalAddCollectionViewCell.swift; sourceTree = "<group>"; };
 		DD64902D2968C53900A73CF4 /* HomeExistView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeExistView.swift; sourceTree = "<group>"; };
+		DD6A5F9829EAECF2009F9ECE /* CheckVersion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckVersion.swift; sourceTree = "<group>"; };
 		DD79CA9B29BDAA4300FD4248 /* KeepGoEat-iOS.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "KeepGoEat-iOS.entitlements"; sourceTree = "<group>"; };
 		DD849AFD295E758A0030AF2F /* StoreGoalRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreGoalRequest.swift; sourceTree = "<group>"; };
 		DD849AFF295E759E0030AF2F /* StoreGoalResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreGoalResponse.swift; sourceTree = "<group>"; };
@@ -252,10 +263,13 @@
 			files = (
 				DDE12FE7295B1485008CF91B /* SnapKit in Frameworks */,
 				DDE12FE4295B145A008CF91B /* KakaoSDKUser in Frameworks */,
+				DD8D466929E29C11003B9FEE /* Mixpanel in Frameworks */,
 				DDE12FE2295B145A008CF91B /* KakaoSDKAuth in Frameworks */,
 				DDE12FED295B14FB008CF91B /* Moya in Frameworks */,
 				DDE12FEA295B14AE008CF91B /* Then in Frameworks */,
+				DD6A5F9729EAD755009F9ECE /* Siren in Frameworks */,
 				DDE12FF0295B15AC008CF91B /* Lottie in Frameworks */,
+				DD7355652A07D2040001AFA9 /* SwiftKeychainWrapper in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -538,6 +552,15 @@
 			path = "KeepGoEat-iOS";
 			sourceTree = "<group>";
 		};
+		DD61B26B29EA5D6600197A71 /* CheckNetwork */ = {
+			isa = PBXGroup;
+			children = (
+				DD61B26929EA5D0700197A71 /* CheckNetwork.swift */,
+				DD61B26C29EA5D8200197A71 /* CheckNetworkViewController.swift */,
+			);
+			path = CheckNetwork;
+			sourceTree = "<group>";
+		};
 		DD849AFC295E75650030AF2F /* StoreGoal */ = {
 			isa = PBXGroup;
 			children = (
@@ -700,8 +723,11 @@
 		DDE12F8F295B0BC5008CF91B /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				DD61B26B29EA5D6600197A71 /* CheckNetwork */,
 				DDE12F9A295B0CAA008CF91B /* KeychainHandler.swift */,
 				D6E74E50296FEF8A00F278EC /* RootViewControllerSwitcher.swift */,
+				DD61B26529EA587700197A71 /* SetMixpanel.swift */,
+				DD6A5F9829EAECF2009F9ECE /* CheckVersion.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -912,6 +938,9 @@
 				DDE12FE9295B14AE008CF91B /* Then */,
 				DDE12FEC295B14FB008CF91B /* Moya */,
 				DDE12FEF295B15AC008CF91B /* Lottie */,
+				DD8D466829E29C11003B9FEE /* Mixpanel */,
+				DD6A5F9629EAD755009F9ECE /* Siren */,
+				DD7355642A07D2040001AFA9 /* SwiftKeychainWrapper */,
 			);
 			productName = "KeepGoEat-iOS";
 			productReference = DD38AD69295B02B70084FA70 /* KeepGoEat-iOS.app */;
@@ -947,6 +976,9 @@
 				DDE12FE8295B14AE008CF91B /* XCRemoteSwiftPackageReference "Then" */,
 				DDE12FEB295B14FB008CF91B /* XCRemoteSwiftPackageReference "Moya" */,
 				DDE12FEE295B15AC008CF91B /* XCRemoteSwiftPackageReference "lottie-ios" */,
+				DD8D466729E29C11003B9FEE /* XCRemoteSwiftPackageReference "mixpanel-swift" */,
+				DD6A5F9529EAD755009F9ECE /* XCRemoteSwiftPackageReference "Siren" */,
+				DD7355632A07D2040001AFA9 /* XCRemoteSwiftPackageReference "SwiftKeychainWrapper" */,
 			);
 			productRefGroup = DD38AD6A295B02B70084FA70 /* Products */;
 			projectDirPath = "";
@@ -1059,6 +1091,7 @@
 				311F8FCA2967FD9C00278E8F /* OnboardingCollectionViewCell.swift in Sources */,
 				DD64902E2968C53900A73CF4 /* HomeExistView.swift in Sources */,
 				C32648F629C033F5009CDBDC /* ServiceIntroView.swift in Sources */,
+				DD6A5F9929EAECF2009F9ECE /* CheckVersion.swift in Sources */,
 				D6C7B3CF296183D7006877F3 /* SocialLoginButton.swift in Sources */,
 				C358CBBA29B235AF009E4060 /* MyPageViewController.swift in Sources */,
 				DDDBC876296045A200F65F23 /* Const.swift in Sources */,
@@ -1080,6 +1113,7 @@
 				DD849B0E295E7E0F0030AF2F /* MoyaLoggingPlugin.swift in Sources */,
 				DDDBC878296045AA00F65F23 /* String.swift in Sources */,
 				D6B4D2332965BB6700661083 /* BottomSheetView.swift in Sources */,
+				DD61B26D29EA5D8200197A71 /* CheckNetworkViewController.swift in Sources */,
 				C326493729C4B2A4009CDBDC /* MyPageService.swift in Sources */,
 				DDA7B71029672B14001950A2 /* HomeView.swift in Sources */,
 				D6B4D2332965BB6700661083 /* BottomSheetView.swift in Sources */,
@@ -1099,7 +1133,9 @@
 				DDA7B72029687B91001950A2 /* HomeAchieveButton.swift in Sources */,
 				DDA7B7142967413F001950A2 /* HomeBaseView.swift in Sources */,
 				D64DCBA229650F020046C719 /* GoalDetailCollectionView.swift in Sources */,
+				DD61B26629EA587700197A71 /* SetMixpanel.swift in Sources */,
 				DDE12FCB295B1244008CF91B /* NewGoalService.swift in Sources */,
+				DD61B26A29EA5D0700197A71 /* CheckNetwork.swift in Sources */,
 				DD849B0A295E77590030AF2F /* UIView+.swift in Sources */,
 				C358CBC729B5A504009E4060 /* CheckBoxButton.swift in Sources */,
 				DDE12FD3295B132C008CF91B /* HomeRequest.swift in Sources */,
@@ -1246,10 +1282,11 @@
 				BASE_URL = "http://54.180.12.92:3000";
 				CODE_SIGN_ENTITLEMENTS = "KeepGoEat-iOS/KeepGoEat-iOS.entitlements";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 6;
+				CURRENT_PROJECT_VERSION = 12;
 				DEVELOPMENT_TEAM = Z429BM88YZ;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "KeepGoEat-iOS/Resource/Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = KeepGoEat;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen.storyboard;
 				INFOPLIST_KEY_UIStatusBarStyle = "";
@@ -1261,6 +1298,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
+				MIXPANEL_TOKEN = 590c2c378ec3b0d53c738418881ec4fe;
 				PRODUCT_BUNDLE_IDENTIFIER = "team.keepGoEat.KeepGoEat-iOS";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
@@ -1281,10 +1319,11 @@
 				BASE_URL = "http://54.180.12.92:3000";
 				CODE_SIGN_ENTITLEMENTS = "KeepGoEat-iOS/KeepGoEat-iOS.entitlements";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 6;
+				CURRENT_PROJECT_VERSION = 12;
 				DEVELOPMENT_TEAM = Z429BM88YZ;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "KeepGoEat-iOS/Resource/Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = KeepGoEat;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen.storyboard;
 				INFOPLIST_KEY_UIStatusBarStyle = "";
@@ -1296,6 +1335,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
+				MIXPANEL_TOKEN = 590c2c378ec3b0d53c738418881ec4fe;
 				PRODUCT_BUNDLE_IDENTIFIER = "team.keepGoEat.KeepGoEat-iOS";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
@@ -1331,6 +1371,30 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		DD6A5F9529EAD755009F9ECE /* XCRemoteSwiftPackageReference "Siren" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/ArtSabintsev/Siren.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 6.0.0;
+			};
+		};
+		DD7355632A07D2040001AFA9 /* XCRemoteSwiftPackageReference "SwiftKeychainWrapper" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/jrendel/SwiftKeychainWrapper";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 4.0.0;
+			};
+		};
+		DD8D466729E29C11003B9FEE /* XCRemoteSwiftPackageReference "mixpanel-swift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/mixpanel/mixpanel-swift";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
 		DDE12FE0295B145A008CF91B /* XCRemoteSwiftPackageReference "kakao-ios-sdk" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/kakao/kakao-ios-sdk";
@@ -1374,6 +1438,21 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		DD6A5F9629EAD755009F9ECE /* Siren */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = DD6A5F9529EAD755009F9ECE /* XCRemoteSwiftPackageReference "Siren" */;
+			productName = Siren;
+		};
+		DD7355642A07D2040001AFA9 /* SwiftKeychainWrapper */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = DD7355632A07D2040001AFA9 /* XCRemoteSwiftPackageReference "SwiftKeychainWrapper" */;
+			productName = SwiftKeychainWrapper;
+		};
+		DD8D466829E29C11003B9FEE /* Mixpanel */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = DD8D466729E29C11003B9FEE /* XCRemoteSwiftPackageReference "mixpanel-swift" */;
+			productName = Mixpanel;
+		};
 		DDE12FE1295B145A008CF91B /* KakaoSDKAuth */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = DDE12FE0295B145A008CF91B /* XCRemoteSwiftPackageReference "kakao-ios-sdk" */;

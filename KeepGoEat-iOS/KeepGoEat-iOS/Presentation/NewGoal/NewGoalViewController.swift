@@ -11,8 +11,8 @@ import Then
 import SnapKit
 
 enum EatType: String {
-    case more
-    case less
+    case more = "더먹기"
+    case less = "덜먹기"
 }
 
 class NewGoalViewController: BaseViewController {
@@ -302,6 +302,7 @@ class NewGoalViewController: BaseViewController {
             isMore: check
         )
         NewGoalService.shared.createNewGoal(body: body)
+        self.trackEvent(eventGroup: .createGoal, gesture: .completed, eventProperty: .goal, data: [body.food, body.criterion])
         let previousViewController = self.navigationController?.viewControllers.last { $0 != self }
         DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 0.1) {
             self.navigationController?.popViewController(animated: true)
@@ -331,11 +332,12 @@ class NewGoalViewController: BaseViewController {
         }
     }
     
-    func dataBind(goalId: Int?, eatType: EatType, content: String?, isCreated: Bool) {
+    func dataBind(goalId: Int?, eatType: EatType, food: String?, criterion: String?, isCreated: Bool) {
         self.eatType = eatType
         self.isCreated = isCreated
-        if let content = content {
-            moreVegetabletextField.text = content
+        if !isCreated {
+            moreVegetabletextField.text = food
+            moreVegetabletextField2.text = criterion
         }
         if let goalId = goalId {
             self.goalId = goalId
@@ -439,18 +441,18 @@ extension NewGoalViewController: UITextFieldDelegate {
                 return false
             }
             
-            // 특수문자 사용 불가능
-            if !changedText.hasCharacters() {
-                warningLabel.isHidden = false
-                warningLabel.text = Const.String.warning
-//                completeButton.isEnabled = false
-            }
-            
-            // 공백 사용 불가능
-            if changedText.isEmpty {
-                warningLabel.isHidden = false
-                warningLabel.text = Const.String.emptyWarning
-            }
+//            // 특수문자 사용 불가능
+//            if !changedText.hasCharacters() {
+//                warningLabel.isHidden = false
+//                warningLabel.text = Const.String.warning
+////                completeButton.isEnabled = false
+//            }
+//
+//            // 공백 사용 불가능
+//            if changedText.isEmpty {
+//                warningLabel.isHidden = false
+//                warningLabel.text = Const.String.emptyWarning
+//            }
             
             if changedText.isEmpty || !changedText.hasCharacters() {
                 self.completeButton.isEnabled = false
@@ -458,7 +460,12 @@ extension NewGoalViewController: UITextFieldDelegate {
                 completeButton.setTitleColor(.gray400, for: .disabled)
             } else {
                 self.completeButton.isEnabled = true
-                completeButton.backgroundColor = .orange600
+                switch eatType {
+                case .more:
+                    completeButton.backgroundColor = .orange600
+                case .less:
+                    completeButton.backgroundColor = .green500
+                }
                 completeButton.setTitleColor(.gray50, for: .normal)
             }
             return true
@@ -481,17 +488,34 @@ extension NewGoalViewController: UITextFieldDelegate {
                 return false
             }
             
-            // 특수문자 사용 불가능
-            if !changedText.hasCharacters() {
-                warningLabel2.isHidden = false
-                warningLabel2.text = Const.String.warning
-            }
+            //            // 특수문자 사용 불가능
+            //            if !changedText.hasCharacters() {
+            //                warningLabel2.isHidden = false
+            //                warningLabel2.text = Const.String.warning
+            //            }
+            //
+            //            // 공백 사용 불가능
+            //            if changedText.isEmpty {
+            //                warningLabel2.isHidden = false
+            //                warningLabel2.text = Const.String.emptyWarning
+            //            }
             
-            // 공백 사용 불가능
-            if changedText.isEmpty {
-                warningLabel2.isHidden = false
-                warningLabel2.text = Const.String.emptyWarning
+            if changedText.isEmpty || !changedText.hasCharacters() {
+                self.completeButton.isEnabled = false
+                completeButton.backgroundColor = .gray200
+                completeButton.setTitleColor(.gray400, for: .disabled)
+            } else {
+                self.completeButton.isEnabled = true
+                switch eatType {
+                case .more:
+                    completeButton.backgroundColor = .orange600
+                case .less:
+                    completeButton.backgroundColor = .green500
+                }
+                completeButton.setTitleColor(.gray50, for: .normal)
             }
+            return true
+            
         }
         return true
     }

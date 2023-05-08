@@ -8,6 +8,8 @@
 import Foundation
 import SwiftUI
 
+import Mixpanel
+
 /// SwiftUI를 이용한 프리뷰 표시
 extension UIViewController {
     #if DEBUG
@@ -72,4 +74,86 @@ extension UIViewController {
             toastLabel.removeFromSuperview()
         })
     }
+}
+
+/// Mixpanel
+extension UIViewController {
+    func setUserInMixpanel(type: LoginType) {
+        let mixpanel = Mixpanel.mainInstance()
+        var email: String = getEmail()
+        var name: String = getUsername()
+        
+        if email.isEmpty {
+            email = "unknown@apple.com"
+        }
+        if name.isEmpty {
+            name = "익명의 킵고이터"
+        }
+        
+        switch type {
+        case .join:
+            mixpanel.createAlias("\(email)_alias", distinctId: email)
+            mixpanel.people.set(properties: [
+                "$name": name,
+                "$email": email
+            ])
+            trackEvent(eventGroup: .signUp, gesture: .completed, eventProperty: nil, data: nil)
+        case .login:
+            mixpanel.identify(distinctId: email)
+        }
+    }
+    
+    /// Mixpanel 이벤트 추적 함수
+    /// - Parameters:
+    ///   - eventGroup: enum중 해당하는 Event Name 선택
+    ///   - gesture: Event Definition을 보고 click, view, complete 중 선택
+    ///   - eventProperty: 가변하는 데이터를 함께 전달할 때, enum 중, 해당 데이터에 대한 내용 선택
+    ///   - data: eventProperty가 존재할 때, 해당하는 데이터 [String] 타입으로 작성
+    func trackEvent(eventGroup: EventGroup, gesture: UserGesture, eventProperty: EventProperty?, data: [String]?) {
+        let mixpanel = Mixpanel.mainInstance()
+        let eventName = "\(eventGroup.rawValue) : \(gesture.rawValue)"
+        
+        if let propertyType = eventProperty, let data = data {
+            trackEventProperty(eventName: eventName, type: propertyType, data: data)
+        } else {
+            mixpanel.track(event: eventName)
+        }
+    }
+    
+    func trackEventProperty(eventName: String, type: EventProperty, data: [String]) {
+        let mixpanel = Mixpanel.mainInstance()
+        var propertyValue: Any?
+        if data.count == 1 {
+            propertyValue = data.first
+        } else {
+            propertyValue = data
+        }
+        mixpanel.track(event: eventName, properties: [type.rawValue: propertyValue])
+    }
+}
+
+enum LoginType {
+    case join, login
+}
+
+enum EventGroup: String {
+    case signUp = "Sign Up"
+    case login = "Login"
+    case addGoal = "Add Goal"
+    case createGoal = "Create Goal"
+    case completeGoal = "Complete Goal"
+    case archive = "Archive"
+    case deleteAccount = "Delete Account"
+}
+
+enum UserGesture: String {
+    case clicked = "Clicked"
+    case completed = "Completed"
+    case viewed = "Viewed"
+}
+
+enum EventProperty: String {
+    case goalType = "추가하려는 목표 종류"
+    case goal = "목표 내용"
+    case deleteReason = "탈퇴 사유"
 }

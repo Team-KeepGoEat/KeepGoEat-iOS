@@ -94,9 +94,10 @@ extension HomeViewController: HandleMyPageButtonDelegate {
 
 extension HomeViewController: HandleNewGoalButtonDelegate {
     func pushNewGoalView(eatType: EatType) {
+        self.trackEvent(eventGroup: .addGoal, gesture: .clicked, eventProperty: .goalType, data: [eatType.rawValue])
         self.hideBottomSheet(bottomSheetView: homeView.bottomSheetView, dimmedView: homeView.dimmedView)
         let newGoalViewController = NewGoalViewController()
-        newGoalViewController.dataBind(goalId: nil, eatType: eatType, content: nil, isCreated: true)
+        newGoalViewController.dataBind(goalId: nil, eatType: eatType, food: nil, criterion: nil, isCreated: true)
         self.navigationController?.pushViewController(newGoalViewController, animated: true)
     }
 }

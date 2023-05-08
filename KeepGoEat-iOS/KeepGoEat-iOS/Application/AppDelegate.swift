@@ -8,12 +8,17 @@
 import UIKit
 
 import KakaoSDKCommon
+import Mixpanel
+import Siren
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+        
         KakaoSDK.initSDK(appKey: Bundle.main.infoDictionary?["KAKAO_NATIVE_KEY"] as? String ?? "")
+        Mixpanel.initialize(token: Bundle.main.infoDictionary?["MIXPANEL_TOKEN"] as? String ?? "", trackAutomaticEvents: true)
+        CheckNetwork.shared.startMonitoring()
         
         return true
     }

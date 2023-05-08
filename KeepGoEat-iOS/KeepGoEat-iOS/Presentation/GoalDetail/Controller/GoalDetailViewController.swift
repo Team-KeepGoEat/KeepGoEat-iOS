@@ -17,7 +17,8 @@ class GoalDetailViewController: BaseViewController {
         isMore: true,
         thisMonthCount: 0,
         lastMonthCount: 0,
-        goalContent: "테스트",
+        food: "테스트",
+        criterion: "목표",
         blankBoxCount: 0,
         emptyBoxCount: 0
     )
@@ -66,6 +67,7 @@ extension GoalDetailViewController {
     private func saveGoal() {
         GoalDetailService.shared.saveGoal(goalId: goalId)
         DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 0.1) {
+            self.trackEvent(eventGroup: .archive, gesture: .completed, eventProperty: .goal, data: [self.data.food, self.data.criterion])
             let storeGoalViewController = StoreGoalViewController()
             guard let rootViewController = self.navigationController?.viewControllers.first as? UIViewController else { return }
             self.navigationController?.popToRootViewController(animated: false)
@@ -86,10 +88,12 @@ extension GoalDetailViewController {
                 DispatchQueue.main.async {
                     if data.isMore {
                         self.goalDetailView.goalType = .more
-                        self.goalDetailView.goalTitleLabel.text = data.goalContent + " \(Const.String.moreEat)"
+                        self.goalDetailView.goalTitleLabel.text = data.food + " \(Const.String.moreEat)"
+                        self.goalDetailView.goalCriterionLabel.text = data.criterion
                     } else {
                         self.goalDetailView.goalType = .less
-                        self.goalDetailView.goalTitleLabel.text = data.goalContent + " \(Const.String.lessEat)"
+                        self.goalDetailView.goalTitleLabel.text = data.food + " \(Const.String.lessEat)"
+                        self.goalDetailView.goalCriterionLabel.text = data.criterion
                     }
                     self.data = data
                     self.goalDetailView.previousGoalStatsView.goalStatsCountLabel.text = String(data.lastMonthCount)
@@ -135,9 +139,9 @@ extension GoalDetailViewController {
     private func editButtonDidTap() {
         let newGoalViewController = NewGoalViewController()
         if data.isMore {
-            newGoalViewController.dataBind(goalId: data.goalId, eatType: .more, content: data.goalContent, isCreated: false)
+            newGoalViewController.dataBind(goalId: data.goalId, eatType: .more, food: data.food, criterion: data.criterion, isCreated: false)
         } else {
-            newGoalViewController.dataBind(goalId: data.goalId, eatType: .less, content: data.goalContent, isCreated: false)
+            newGoalViewController.dataBind(goalId: data.goalId, eatType: .less, food: data.food, criterion: data.criterion, isCreated: false)
         }
         self.navigationController?.pushViewController(newGoalViewController, animated: true)
     }
@@ -165,13 +169,13 @@ extension GoalDetailViewController {
     }
 }
 
-//extension GoalDetailViewController: HandleSaveGoalButtonDelegate {
+// extension GoalDetailViewController: HandleSaveGoalButtonDelegate {
 //    func pushStoreGoal() {
 //        guard let rootViewController = navigationController?.viewControllers[0] as? UIViewController else { return }
 //        self.navigationController?.popToRootViewController(animated: false)
 //        rootViewController.navigationController?.pushViewController(StoreGoalViewController(), animated: false)
 //    }
-//}
+// }
 
 extension GoalDetailViewController: HandleBackButtonDelegate {
     func popView() {

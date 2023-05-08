@@ -78,6 +78,8 @@ extension Const {
         static let totalSub = "총 달성일"
         static let termSub = "진행기간"
         static let saveGoalToastMessage = "목표가 저장되었습니다."
+        static let storeEmptyTitle = "더이상 기록하지 않는 목표는 보관해요."
+        static let storeEmptySub = "진행하지 않는 목표가 생긴다면,\n그동안의 노력을 지우지 말고 남겨보세요."
         
         // MARK: MyPage
         static let myPage = "마이페이지"

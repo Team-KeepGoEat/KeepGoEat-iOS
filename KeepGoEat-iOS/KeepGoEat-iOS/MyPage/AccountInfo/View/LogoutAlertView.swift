@@ -121,8 +121,7 @@ extension LogoutAlertView {
         dismissAlert()
         // 로그아웃 로직 구현
         RootViewControllerSwithcer.shared.changeRootViewController(navigationMode: .login)
-        deleteUserTokenOnKeyChain(tokenName: Const.String.userAccessToken)
-        deleteUserTokenOnKeyChain(tokenName: Const.String.userRefreshToken)
+        KeychainHandler.shared.removeAll()
         deleteSocialType()
     }
     

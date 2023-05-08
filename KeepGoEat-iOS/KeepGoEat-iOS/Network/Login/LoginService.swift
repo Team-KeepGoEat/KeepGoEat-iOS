@@ -12,6 +12,7 @@ import Moya
 final class LoginService {
     static let shared = LoginService()
     private let loginProvider = MoyaProvider<LoginRouter>(plugins: [MoyaLoggingPlugin()])
+    private let refreshProvider = MoyaProvider<LoginRouter>(plugins: [NetworkLoggerPlugin()])
     private init() { }
 }
 
@@ -26,8 +27,10 @@ extension LoginService {
                 switch networkData {
                 case .success(let data):
                     guard let data = data as? LoginResponseDto else { return }
-                    addUserTokenOnKeyChain(tokenName: Const.String.userAccessToken, tokenContent: data.accessToken)
-                    addUserTokenOnKeyChain(tokenName: Const.String.userRefreshToken, tokenContent: data.refreshToken)
+                    KeychainHandler.shared.accessToken = data.accessToken
+                    print("👍", KeychainHandler.shared.accessToken)
+                    KeychainHandler.shared.refreshToken = data.refreshToken
+                    NetworkConstant.tokenHeader = ["Content-Type": "application/json", "accesstoken": KeychainHandler.shared.accessToken, "refreshtoken": KeychainHandler.shared.refreshToken]
                     completion(data)
                 case .requestErr(let data):
                     guard let data = data as? String else { return }
@@ -49,7 +52,7 @@ extension LoginService {
     }
     
     func refreshToken() {
-        loginProvider.request(.refresh) { response in
+        refreshProvider.request(.refresh) { response in
             switch response {
             case .success(let result):
                 let status = result.statusCode
@@ -58,19 +61,30 @@ extension LoginService {
                 switch networkData {
                 case .success(let data):
                     guard let data = data as? RefreshResponseDto else { return }
-                    updateUserTokenOnKeyChain(tokenName: Const.String.userAccessToken, tokenContent: data.accessToken)
-                case .requestErr(let data):
-                    guard let data = data as? String else { return }
-                    print(data)
-                case .pathErr:
-                    print("path error")
-                case .serverErr:
-                    print("server error")
-                case .networkFail:
-                    print("network fail error")
-                case .authErr(let data):
-                    guard let data = data as? String else { return }
-                    print(data)
+                    KeychainHandler.shared.accessToken = data.accessToken
+                    print("👍", KeychainHandler.shared.accessToken)
+                    KeychainHandler.shared.refreshToken = data.refreshToken
+                    NetworkConstant.tokenHeader = ["Content-Type": "application/json", "accesstoken": KeychainHandler.shared.accessToken, "refreshtoken": KeychainHandler.shared.refreshToken]
+//                case .requestErr(let data):
+//                    guard let data = data as? String else { return }
+//                    print(data)
+//                    // refresh token 만료, 로그아웃(토큰삭제) 시키고 로그인뷰로 화면전환
+//                    RootViewControllerSwithcer.shared.changeRootViewController(navigationMode: .login)
+//                    KeychainHandler.shared.removeAll()
+//                    deleteSocialType()
+//                case .pathErr:
+//                    print("path error")
+//                case .serverErr:
+//                    print("server error")
+//                case .networkFail:
+//                    print("network fail error")
+//                case .authErr(let data)
+                default:
+//                    guard let data = data as? String else { return }
+//                    print(data)
+                    RootViewControllerSwithcer.shared.changeRootViewController(navigationMode: .login)
+                    KeychainHandler.shared.removeAll()
+                    deleteSocialType()
                 }
             case .failure(let error):
                 print(error.localizedDescription)
@@ -90,11 +104,11 @@ extension LoginService {
                     guard let data = data as? String else { return }
                     completion(data)
                     print("success")
-                case .requestErr(_):
+                case .requestErr:
                     print("request error")
-                case .authErr(_):
+                case .authErr:
                     print("auth error")
-                case .serverErr(_):
+                case .serverErr:
                     print("server error")
                 case .pathErr:
                     print("path error")

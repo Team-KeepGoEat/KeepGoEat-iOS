@@ -9,7 +9,7 @@ import Moya
 
 final class GoalDetailService {
     static let shared = GoalDetailService()
-    private let goalDetailProvider = MoyaProvider<GoalDetailRouter>(plugins: [NetworkLoggerPlugin()])
+    private let goalDetailProvider = MoyaProvider<GoalDetailRouter>(plugins: [MoyaLoggingPlugin()])
     private init() { }
 }
 
