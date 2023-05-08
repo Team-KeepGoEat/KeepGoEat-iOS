@@ -42,13 +42,13 @@ class GoalDetailView: UIView {
     private let goalTypeImageView: UIImageView = UIImageView()
     
     let goalTitleLabel: UILabel = UILabel().then {
-        $0.text = "야채 더 먹기"
+        $0.text = ""
         $0.font = .system2Bold
         $0.textColor = .gray800
     }
     
     let goalCriterionLabel: UILabel = UILabel().then {
-        $0.text = "하루 1끼 이상"
+        $0.text = ""
         $0.font = .system3Bold
         $0.textColor = .gray500
     }
