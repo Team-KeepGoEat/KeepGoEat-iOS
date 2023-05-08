@@ -65,22 +65,23 @@ extension LoginService {
                     print("👍", KeychainHandler.shared.accessToken)
                     KeychainHandler.shared.refreshToken = data.refreshToken
                     NetworkConstant.tokenHeader = ["Content-Type": "application/json", "accesstoken": KeychainHandler.shared.accessToken, "refreshtoken": KeychainHandler.shared.refreshToken]
-                case .requestErr(let data):
-                    guard let data = data as? String else { return }
-                    print(data)
-                    // refresh token 만료, 로그아웃(토큰삭제) 시키고 로그인뷰로 화면전환
-                    RootViewControllerSwithcer.shared.changeRootViewController(navigationMode: .login)
-                    KeychainHandler.shared.removeAll()
-                    deleteSocialType()
-                case .pathErr:
-                    print("path error")
-                case .serverErr:
-                    print("server error")
-                case .networkFail:
-                    print("network fail error")
-                case .authErr(let data):
-                    guard let data = data as? String else { return }
-                    print(data)
+//                case .requestErr(let data):
+//                    guard let data = data as? String else { return }
+//                    print(data)
+//                    // refresh token 만료, 로그아웃(토큰삭제) 시키고 로그인뷰로 화면전환
+//                    RootViewControllerSwithcer.shared.changeRootViewController(navigationMode: .login)
+//                    KeychainHandler.shared.removeAll()
+//                    deleteSocialType()
+//                case .pathErr:
+//                    print("path error")
+//                case .serverErr:
+//                    print("server error")
+//                case .networkFail:
+//                    print("network fail error")
+//                case .authErr(let data)
+                default:
+//                    guard let data = data as? String else { return }
+//                    print(data)
                     RootViewControllerSwithcer.shared.changeRootViewController(navigationMode: .login)
                     KeychainHandler.shared.removeAll()
                     deleteSocialType()

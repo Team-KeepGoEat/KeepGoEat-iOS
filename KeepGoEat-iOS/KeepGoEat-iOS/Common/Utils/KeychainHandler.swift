@@ -40,6 +40,8 @@ struct KeychainHandler {
     }
 
     mutating func removeAll() {
+        accessToken = ""
+        refreshToken = ""
         KeychainWrapper.standard.removeObject(forKey: accessTokenKey)
         KeychainWrapper.standard.removeObject(forKey: refreshTokenKey)
     }

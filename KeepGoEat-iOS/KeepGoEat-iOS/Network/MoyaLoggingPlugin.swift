@@ -35,14 +35,12 @@ final class MoyaLoggingPlugin: PluginType {
 
     // 🔥 Response 를 받은 후.
     func didReceive(_ result: Result<Response, MoyaError>, target: TargetType) {
-        #if DEBUG || DEV
         switch result {
         case let .success(response):
             onSuceed(response, target: target, isFromError: false)
         case let .failure(error):
             onFail(error, target: target)
         }
-        #endif
     }
 
     func onSuceed(_ response: Response, target: TargetType, isFromError: Bool) {
@@ -78,11 +76,11 @@ final class MoyaLoggingPlugin: PluginType {
     }
 
     func onFail(_ error: MoyaError, target: TargetType) {
-        #if DEBUG || DEV
         if let response = error.response {
             onSuceed(response, target: target, isFromError: true)
             return
         }
+        #if DEBUG || DEV
         var log = "네트워크 오류"
         log.append("-----------------------------------------\n\(error.errorCode) \(target)\n")
         log.append("\(error.failureReason ?? error.errorDescription ?? "unknown error")\n")

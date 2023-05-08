@@ -17,7 +17,7 @@ public func checkVersion() {
     // critical: (항상 확인) / 즉시 업데이트
     // default: (하루 한 번) / 다음에 업데이트 / 버전 건너 뜀
     siren.rulesManager = RulesManager(majorUpdateRules: .critical,
-                                      minorUpdateRules: .annoying,
-                                      patchUpdateRules: .default)
+                                      minorUpdateRules: .default,
+                                      patchUpdateRules: .annoying)
     siren.wail()
 }
