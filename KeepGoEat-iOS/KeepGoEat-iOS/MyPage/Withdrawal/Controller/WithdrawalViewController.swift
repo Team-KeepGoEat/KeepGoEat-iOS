@@ -57,7 +57,6 @@ extension WithdrawalViewController: HandleWithdrawAlertButtonDelegate {
         if withdrawalView.manualInputCheckBox.isChecked == true {
             data.append("직접입력: " + withdrawalView.subjectiveText)
         }
-        print(data)
         self.trackEvent(eventGroup: .deleteAccount, gesture: .completed, eventProperty: .deleteReason, data: data)
         
         guard let socialType = getSocialType() else { return }
