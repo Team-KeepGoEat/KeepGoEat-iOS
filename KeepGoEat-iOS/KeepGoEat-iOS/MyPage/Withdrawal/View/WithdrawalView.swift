@@ -41,31 +41,31 @@ class WithdrawalView: UIView, UITextViewDelegate {
         $0.font = .system5
     }
     
-    private let stopEatButton = CheckBoxButton().then {
+    let stopEatButton = CheckBoxButton().then {
         $0.label.text = Const.String.stopEatCheckBox
     }
     
-    private let notUseCheckBox = CheckBoxButton().then {
+    let notUseCheckBox = CheckBoxButton().then {
         $0.label.text = Const.String.notUseCheckBox
     }
     
-    private let errorCheckBox = CheckBoxButton().then {
+    let errorCheckBox = CheckBoxButton().then {
         $0.label.text = Const.String.errorCheckBox
     }
     
-    private let badContentsCheckBox = CheckBoxButton().then {
+    let badContentsCheckBox = CheckBoxButton().then {
         $0.label.text = Const.String.badContentsCheckBox
     }
     
-    private let manualInputCheckBox = CheckBoxButton().then {
+    let manualInputCheckBox = CheckBoxButton().then {
         $0.label.text = Const.String.manualInputCheckBox
     }
     
-    private let manualInputTextView = UITextView().then {
+    let manualInputTextView = UITextView().then {
         $0.textContainerInset = UIEdgeInsets(top: 12.adjusted, left: 16.adjusted, bottom: 16.adjusted, right: 12.adjusted)
         $0.borderColor = .gray200
         $0.borderWidth = 1
-//        $0.isEditable = false
+        //        $0.isEditable = false
         if $0.text.isEmpty {
             $0.text = Const.String.manualInputDescription
             $0.font = .system5
@@ -89,6 +89,8 @@ class WithdrawalView: UIView, UITextViewDelegate {
         $0.layer.cornerRadius = 8.adjusted
     }
     
+    var subjectiveText: String = ""
+    
     // MARK: LifeCycle
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -102,7 +104,7 @@ class WithdrawalView: UIView, UITextViewDelegate {
         fatalError("init(coder:) has not been implemented")
     }
 }
-    
+
 extension WithdrawalView {
     func textViewDidBeginEditing(_ textView: UITextView) {
         if manualInputCheckBox.isChecked == false {
@@ -123,7 +125,7 @@ extension WithdrawalView {
             self.withdrawalScrollView.contentOffset.y += 224
         }
     }
-        
+    
     func textViewDidEndEditing(_ textView: UITextView) {
         if textView == manualInputTextView {
             textView.borderColor = .gray200
@@ -133,10 +135,11 @@ extension WithdrawalView {
             textView.font = .system5
             textView.textColor = .gray400
         }
-            self.withdrawalScrollView.contentOffset.y -= 224
-            self.withdrawalScrollView.isScrollEnabled = false
+        self.withdrawalScrollView.contentOffset.y -= 224
+        self.withdrawalScrollView.isScrollEnabled = false
+        self.subjectiveText = textView.text
     }
-
+    
     func textViewDidChange(_ textView: UITextView) {
         if !manualInputMessage.isHidden && !textView.text.isEmpty {
             manualInputMessage.isHidden = true

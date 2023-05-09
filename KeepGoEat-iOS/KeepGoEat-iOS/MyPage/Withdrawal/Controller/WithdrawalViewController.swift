@@ -45,6 +45,8 @@ extension WithdrawalViewController: HandleBackButtonDelegate {
 
 extension WithdrawalViewController: HandleWithdrawAlertButtonDelegate {
     func withdrawOkButtonDidTap() {
+        self.trackEvent(eventGroup: .deleteAccount, gesture: .completed, eventProperty: .deleteReason, data: [String(withdrawalView.stopEatButton.isChecked), String(withdrawalView.notUseCheckBox.isChecked), String(withdrawalView.errorCheckBox.isChecked), String(withdrawalView.badContentsCheckBox.isChecked), String(withdrawalView.subjectiveText)])
+        
         guard let socialType = getSocialType() else { return }
         if socialType == SocialType.kakao.rawValue {
             deleteSocialType()
