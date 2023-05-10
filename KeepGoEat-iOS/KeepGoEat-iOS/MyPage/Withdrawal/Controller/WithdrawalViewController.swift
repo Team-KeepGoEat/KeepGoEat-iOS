@@ -97,6 +97,7 @@ extension WithdrawalViewController: ASAuthorizationControllerDelegate, ASAuthori
         case let appleIDCredential as ASAuthorizationAppleIDCredential:
             let platformAccessToken = String(data: appleIDCredential.identityToken!, encoding: .utf8) ?? ""
             let code = (String(data: appleIDCredential.authorizationCode!, encoding: .utf8) ?? "") as String
+//            print("🚀\(code)")
             LoginService.shared.withdraw(code: code) { _ in
                 KeychainHandler.shared.removeAll()
                 RootViewControllerSwithcer.shared.changeRootViewController(navigationMode: .login)
