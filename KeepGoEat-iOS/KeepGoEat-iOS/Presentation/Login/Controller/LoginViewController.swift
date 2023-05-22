@@ -93,8 +93,10 @@ extension LoginViewController: ASAuthorizationControllerDelegate, ASAuthorizatio
             LoginService.shared.postSocialLogin(param: param) { _ in
                 setSocialType(socialType: SocialType.apple)
                 if isFirstTime() {
+                    self.setUserInMixpanel(type: .join)
                     RootViewControllerSwithcer.shared.changeRootViewController(navigationMode: .onboarding)
                 } else {
+                    self.setUserInMixpanel(type: .login)
                     RootViewControllerSwithcer.shared.changeRootViewController(navigationMode: .home)
                 }
             }

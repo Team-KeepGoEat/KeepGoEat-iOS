@@ -92,7 +92,7 @@ extension UIViewController {
         
         switch type {
         case .join:
-            mixpanel.createAlias("\(email)_alias", distinctId: email)
+            mixpanel.createAlias("\(email)_alias", distinctId: "Apple \(email)")
             mixpanel.people.set(properties: [
                 "$name": name,
                 "$email": email

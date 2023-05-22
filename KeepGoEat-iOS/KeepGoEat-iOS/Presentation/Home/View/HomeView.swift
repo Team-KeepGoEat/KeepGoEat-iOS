@@ -51,7 +51,7 @@ class HomeView: UIView {
     }
     
     // MARK: Layout Helpers
-    private func setBackgroundColor(timezoneType: TimezoneType) {
+    func setBackgroundColor(timezoneType: TimezoneType) {
         switch timezoneType {
         case .day:
             self.backgroundColor = .homeBg0
